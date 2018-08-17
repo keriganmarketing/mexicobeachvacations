@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use KeriganSolutions\KMATeam\Team;
-use KeriganSolutions\KMAPortfolio\Portfolio;
 use KeriganSolutions\KMATestimonials\Testimonial;
 use KeriganSolutions\KMAContactInfo\ContactInfo;
 use Testing\ContactForm;
@@ -19,7 +18,6 @@ require('testing/KMAMail/KMAMail.php');
 require('testing/KMAMail/Message.php');
 
 
-(new Portfolio())->use();
 (new Testimonial())->menuIcon('editor-quote')->use();
 (new Team())->use();
 (new ContactInfo())->addField([
