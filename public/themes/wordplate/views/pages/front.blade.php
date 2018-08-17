@@ -6,6 +6,11 @@
         {{ the_post() }}
                 
         <kma-slider class="slider-container"></kma-slider>
+        <weather-fetcher location="mexico beach, fl">
+            <div slot-scope="{weatherInfo, weatherIcon, loading}">
+                <i class="wi" :class="weatherIcon"></i>
+            </div>
+        </weather-fetcher>
         <main role="main">
             <div class="container">
 
