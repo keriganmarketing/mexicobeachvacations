@@ -24,8 +24,10 @@
                     <weather-fetcher location="mexico beach, fl" >
                         <span slot-scope="{weatherIcon, weatherInfo, loading}">
                             <div v-if="! loading">
-                                <i class="wi" :class="weatherIcon"></i>
-                                <a class="link" href="/current-weather/" v-text="weatherInfo.item.condition.temp + '&deg;F'"></a> 
+                                <a class="link" href="/current-weather/" >
+                                    <i class="wi" :class="weatherIcon"></i>
+                                    <span v-text="weatherInfo.item.condition.temp + '&deg;F'"></span>
+                                </a> 
                             </div>
                         </span>
                     </weather-fetcher>
