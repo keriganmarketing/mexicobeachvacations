@@ -5967,26 +5967,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     props: {
-        mobileNav: {}
+        mobileNav: {
+            type: Object,
+            default: function _default() {
+                return [];
+            }
+        }
     },
 
+    data: function data() {
+        return {
+            mobileNavData: {}
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.mobileNavData = Object.keys(this.mobileNav).map(function (key) {
+            _this.mobileNav[key].subMenuOpen = false;
+            return _this.mobileNav[key];
+        });
+    },
+
+
     methods: {
-        filterClasses: function filterClasses(classes) {
-            if (classes != '') {
-                var classArray = classes.split(" ");
-                var output = [];
-                classArray.forEach(function (className) {
-                    if (!className.match("i") && !className.match("(fa)")) {
-                        output.push(className);
-                    }
-                });
-                return output.join(" ");
-            } else {
-                return '';
-            }
-        },
         toggleSubMenu: function toggleSubMenu(navitem) {
-            this.mobileNav[navitem].subMenuOpen = !this.mobileNav[navitem].subMenuOpen;
+            this.mobileNavData[navitem].subMenuOpen = !this.mobileNavData[navitem].subMenuOpen;
+            console.log(navitem);
         }
     }
 
@@ -15271,7 +15278,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.mobile-menu {\n    display: block;\n    width: 100%;\n    padding: 5rem 2rem;\n    transition: all ease-in 1s;\n}\n.mobile-menu .nav-icon {\n    font-size:1.2em;\n    padding: .25rem .5rem;\n    position: absolute;\n    right: 0;\n    margin-top:-2.5rem;\n    cursor: pointer;\n}\n.mobile-menu .dropdown-menu {\n    border-radius: 0;\n    border: 0;\n    display: block;\n    background-color: #FFF;\n    padding: .5rem 1rem;\n    box-shadow: inset 0 0 5px #555;\n}\n", ""]);
+exports.push([module.i, "\n.mobile-menu {\n    display: block;\n    width: 100%;\n    padding: 5rem 2rem;\n    transition: all ease-in 1s;\n}\n.mobile-menu .nav-icon {\n    font-size:1.2em;\n    padding: .25rem .5rem;\n    position: absolute;\n    right: 0;\n    margin-top:-2.5rem;\n    cursor: pointer;\n}\n.mobile-menu .dropdown-menu {\n    border: 0;\n    display: block;\n    padding: .5rem 1rem;\n}\n", ""]);
 
 // exports
 
@@ -20315,7 +20322,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "ul",
-    _vm._l(_vm.mobileNav, function(navitem, index) {
+    _vm._l(_vm.mobileNavData, function(navitem, index) {
       return _c(
         "li",
         {
@@ -20324,14 +20331,9 @@ var render = function() {
           class: { dropdown: navitem.children.length > 0 }
         },
         [
-          _c(
-            "a",
-            {
-              class: "nav-link " + _vm.filterClasses(navitem.classes),
-              attrs: { href: navitem.url }
-            },
-            [_vm._v(_vm._s(navitem.title))]
-          ),
+          _c("a", { class: "nav-link", attrs: { href: navitem.url } }, [
+            _vm._v(_vm._s(navitem.title))
+          ]),
           _vm._v(" "),
           navitem.children.length > 0
             ? _c(
@@ -20362,14 +20364,9 @@ var render = function() {
                 { staticClass: "dropdown-menu" },
                 _vm._l(navitem.children, function(child, i) {
                   return _c("li", { key: i }, [
-                    _c(
-                      "a",
-                      {
-                        class: "nav-link " + _vm.filterClasses(navitem.classes),
-                        attrs: { href: child.url }
-                      },
-                      [_vm._v(_vm._s(child.title))]
-                    )
+                    _c("a", { class: "nav-link", attrs: { href: child.url } }, [
+                      _vm._v(_vm._s(child.title))
+                    ])
                   ])
                 })
               )

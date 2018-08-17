@@ -234,11 +234,10 @@ $transition-collapse:         height .35s ease;
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      'Montserrat', sans-serif;
+$font-family-sans-serif:      'ABeeZee', sans-serif;
 $font-family-serif:           Georgia, "Times New Roman", Times, serif;
 $font-family-monospace:       "Liberation Mono", "Courier New", monospace;
 $font-family-base:            $font-family-sans-serif;
-// stylelint-enable value-keyword-case
 
 $font-size-base:              1rem; // Assumes the browser default, typically `16px`
 $font-size-lg:                ($font-size-base * 1.25);
@@ -262,7 +261,7 @@ $h5-font-size:                $font-size-base * 1.1;
 $h6-font-size:                $font-size-base;
 
 $headings-margin-bottom:      ($spacer / 2);
-$headings-font-family:        inherit;
+$headings-font-family:        'Fira Sans Condensed', sans-serif;
 $headings-font-weight:        700;
 $headings-line-height:        1.2;
 $headings-color:              inherit;

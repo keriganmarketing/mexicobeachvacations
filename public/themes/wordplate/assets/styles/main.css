@@ -2343,6 +2343,19 @@
   overflow: visible;
   clip: auto;
 }
+.fira {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 700;
+}
+
+.abeezee {
+  font-family: 'ABeeZee', sans-serif;
+}
+
+.cookie {
+  font-family: 'Cookie', serif;
+}
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -2372,7 +2385,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Montserrat", sans-serif;
+  --font-family-sans-serif: "ABeeZee", sans-serif;
   --font-family-monospace: "Liberation Mono", "Courier New", monospace;
 }
 
@@ -2410,7 +2423,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "ABeeZee", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -2727,7 +2740,7 @@ h6,
 .h5,
 .h6 {
   margin-bottom: 0.5rem;
-  font-family: inherit;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 700;
   line-height: 1.2;
   color: inherit;
@@ -8260,7 +8273,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "ABeeZee", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -8385,7 +8398,7 @@ button.close {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "ABeeZee", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -11982,13 +11995,11 @@ body #app .site-wrapper.full-height {
 .mobile-menu.open {
   display: block;
   width: 100%;
-  min-height: 100vh;
   padding: 4rem 0 2rem;
   z-index: 5;
-  background-color: #ff6f74;
-  padding: 2rem;
+  background-color: rgba(255, 111, 116, 0.9);
+  padding: 10rem 2rem 2rem;
   color: #FFF;
-  position: fixed;
 }
 
 .mobile-menu.open ul.navbar-nav li a {
@@ -11996,24 +12007,55 @@ body #app .site-wrapper.full-height {
   color: #FFF;
 }
 
+.mobile-menu.open ul.navbar-nav li .dropdown-menu {
+  border-radius: 4px;
+  background-color: #224b68;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu.open ul.navbar-nav li .dropdown-menu a {
+  font-size: 1em;
+  color: #FFF;
+}
+
 .top {
   transition: all .5s linear;
   position: relative;
   z-index: 6;
-  position: fixed;
+  position: absolute;
   width: 100%;
 }
 
-.top .btn {
-  font-weight: 800;
-  letter-spacing: 2px;
-  font-size: 20px;
+@media (min-width: 768px) {
+  .top {
+    position: fixed;
+  }
 }
 
-@media (min-width: 576px) {
-  .top .btn {
-    top: 15px;
+.top .logo img {
+  width: 250px;
+}
+
+@media (min-width: 768px) {
+  .top .logo img {
+    width: 300px;
   }
+}
+
+@media (min-width: 1200px) {
+  .top .logo img {
+    width: 375px;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+  }
+}
+
+.top .btn {
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 700;
 }
 
 .top .topnav {
@@ -12023,10 +12065,18 @@ body #app .site-wrapper.full-height {
 .top .topnav a.nav-link {
   color: #FFF;
   padding: 1.5rem .75rem;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .top .topnav a.nav-link {
+    color: #ff6f74;
+  }
 }
 
 .top .topnav a.nav-link:hover {
-  color: #ff6f74;
+  color: #224b68;
 }
 
 .top .topnav .dropdown-menu {
@@ -12065,22 +12115,24 @@ ul.navbar-nav li a {
   transition: all .5s linear;
 }
 
-.mobile-menu-open .top,
-.scrolling .top {
-  background-color: #FFF;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-}
+@media (min-width: 768px) {
+  .mobile-menu-open .top,
+  .scrolling .top {
+    background-color: #FFF;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  }
 
-.mobile-menu-open .top .topnav,
-.scrolling .top .topnav {
-  list-style: none;
-  display: flex;
-}
+  .mobile-menu-open .top .topnav,
+  .scrolling .top .topnav {
+    list-style: none;
+    display: flex;
+  }
 
-.mobile-menu-open .top .topnav li a.nav-link,
-.scrolling .top .topnav li a.nav-link {
-  color: #555;
-  padding: .75rem .75rem;
+  .mobile-menu-open .top .topnav li a.nav-link,
+  .scrolling .top .topnav li a.nav-link {
+    color: #555;
+    padding: .75rem .75rem;
+  }
 }
 
 main {
@@ -12192,26 +12244,55 @@ main article h2::after {
 
 .slider-container {
   position: relative;
-  height: 300px;
+  height: 400px;
   overflow: hidden;
   z-index: 0;
 }
 
 @media (min-width: 576px) {
   .slider-container {
-    height: 400px;
+    height: 500px;
   }
 }
 
 @media (min-width: 768px) {
   .slider-container {
-    height: 500px;
+    height: 700px;
   }
 }
 
 @media (min-width: 992px) {
   .slider-container {
-    height: 650px;
+    height: 970px;
+  }
+}
+
+.slider-container .slider-text {
+  background: url("/themes/wordplate/assets/images/watercolor.png") center no-repeat;
+  background-size: contain;
+}
+
+.slider-container .slider-text p {
+  font-size: 20px;
+  color: #FFF;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 576px) {
+  .slider-container .slider-text p {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .slider-container .slider-text p {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 992px) {
+  .slider-container .slider-text p {
+    font-size: 80px;
   }
 }
 
