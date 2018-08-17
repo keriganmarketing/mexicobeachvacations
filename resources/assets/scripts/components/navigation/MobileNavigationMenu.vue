@@ -1,7 +1,7 @@
 <template>
     <ul>
-        <li v-for="(navitem, index) in mobileNav" v-bind:key="index" class="nav-item" :class="{'dropdown': navitem.children.length > 0 }">
-            <a :href="navitem.url" :class="'nav-link ' + filterClasses(navitem.classes)">{{ navitem.title }}</a>
+        <li v-for="(navitem, index) in mobileNavData" v-bind:key="index" class="nav-item" :class="{'dropdown': navitem.children.length > 0 }">
+            <a :href="navitem.url" :class="'nav-link'">{{ navitem.title }}</a>
             <span class="nav-icon" v-if="navitem.children.length > 0" @click="toggleSubMenu(index)">
                 <i class="fa" :class="{
                     'fa-plus-circle': !navitem.subMenuOpen,
@@ -10,7 +10,7 @@
             </span>
             <div class="dropdown-menu" v-if="navitem.subMenuOpen" >
                 <li v-for="(child, i) in navitem.children" v-bind:key="i">
-                    <a :href="child.url" :class="'nav-link ' + filterClasses(navitem.classes)">{{ child.title }}</a>
+                    <a :href="child.url" :class="'nav-link'">{{ child.title }}</a>
                 </li>
             </div>
         </li>
@@ -21,27 +21,29 @@
     export default {
 
         props: {
-            mobileNav: {}
+            mobileNav: {
+                type: Object,
+                default: () => []
+            }
+        },
+
+        data() {
+            return {
+                mobileNavData: {}
+            }
+        },
+
+        created(){
+            this.mobileNavData = Object.keys(this.mobileNav).map((key) => {
+                this.mobileNav[key].subMenuOpen = false;
+                return this.mobileNav[key]
+            })
         },
 
         methods: {
-            filterClasses(classes) {
-                if(classes != ''){
-                    let classArray = classes.split(" ");
-                    let output = [];
-                    classArray.forEach( className => {
-                        if(!className.match("i") && !className.match("(fa)") ){
-                            output.push(className);
-                        }
-                    });
-                    return output.join(" ");
-                }else{
-                    return '';
-                }
-            },
-
             toggleSubMenu(navitem){
-                this.mobileNav[navitem].subMenuOpen = !this.mobileNav[navitem].subMenuOpen;
+                this.mobileNavData[navitem].subMenuOpen = !this.mobileNavData[navitem].subMenuOpen;
+                console.log(navitem);
             }
         }
 
@@ -63,11 +65,8 @@
         cursor: pointer;
     }
     .mobile-menu .dropdown-menu {
-        border-radius: 0;
         border: 0;
         display: block;
-        background-color: #FFF;
         padding: .5rem 1rem;
-        box-shadow: inset 0 0 5px #555;
     }
 </style>

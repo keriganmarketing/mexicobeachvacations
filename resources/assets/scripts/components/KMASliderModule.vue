@@ -113,14 +113,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: #222;
+        background-color: #FFF;
+        transition: all .25s linear;
     }
     .slide,
     .slider,
     .slides {
         height:100%;
-        -webkit-transition: opacity linear 1.5s;
-        transition:opacity linear 1.5s;
+        transition:all linear 1.5s;
         background-size: cover;
     }
 
@@ -181,10 +181,6 @@
         position: relative;
         z-index: 10;
         width: 100%;
-    }
-
-    .slide-content h2 {
-        color: #FFF;
     }
 
 </style>

@@ -6008,26 +6008,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     props: {
-        mobileNav: {}
+        mobileNav: {
+            type: Object,
+            default: function _default() {
+                return [];
+            }
+        }
     },
 
+    data: function data() {
+        return {
+            mobileNavData: {}
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        this.mobileNavData = Object.keys(this.mobileNav).map(function (key) {
+            _this.mobileNav[key].subMenuOpen = false;
+            return _this.mobileNav[key];
+        });
+    },
+
+
     methods: {
-        filterClasses: function filterClasses(classes) {
-            if (classes != '') {
-                var classArray = classes.split(" ");
-                var output = [];
-                classArray.forEach(function (className) {
-                    if (!className.match("i") && !className.match("(fa)")) {
-                        output.push(className);
-                    }
-                });
-                return output.join(" ");
-            } else {
-                return '';
-            }
-        },
         toggleSubMenu: function toggleSubMenu(navitem) {
-            this.mobileNav[navitem].subMenuOpen = !this.mobileNav[navitem].subMenuOpen;
+            this.mobileNavData[navitem].subMenuOpen = !this.mobileNavData[navitem].subMenuOpen;
+            console.log(navitem);
         }
     }
 
@@ -15327,7 +15334,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.slider {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    background-color: #222;\n}\n.slide,\n.slider,\n.slides {\n    height:100%;\n    transition:opacity linear 1.5s;\n    background-size: cover;\n}\n.slides {\n    flex-grow: 1;\n}\n.slider-right,\n.slider-left {\n    position: absolute;\n    z-index: 30;\n    color: #FFF;\n    text-shadow: 0 0 5px rgba(0,0,0,.5);\n    padding: .5rem;\n    font-size: 2rem;\n    cursor: pointer;\n}\n.slider-right {\n    right:0;\n}\n.slide {\n    width:100%;\n    transition: all linear 1.5s;\n    position: absolute;\n    z-index: -1;\n    opacity: 0;\n    background-position: center;\n    background-size: cover;\n    left:0; right: 0; top: 0; bottom: 0;\n    height: auto;\n    display: flex;\n    align-items: center;\n}\n.slide.active {\n    opacity: 1;\n    z-index: 20;\n}\n.slide-container {\n    align-items: center;\n}\n.slidelink {\n    position: absolute;\n    z-index: 15;\n    left:0; right: 0; top: 0; bottom: 0;\n}\n.slide-overlay {\n    position: absolute;\n    z-index: 2;\n    left:0; right: 0; top: 0; bottom: 0;\n    background-color: rgba(0,0,0,.4);\n}\n.slide-content {\n    position: relative;\n    z-index: 10;\n    width: 100%;\n}\n.slide-content h2 {\n    color: #FFF;\n}\n\n", ""]);
+exports.push([module.i, "\n.slider {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    background-color: #FFF;\n    transition: all .25s linear;\n}\n.slide,\n.slider,\n.slides {\n    height:100%;\n    transition:all linear 1.5s;\n    background-size: cover;\n}\n.slides {\n    flex-grow: 1;\n}\n.slider-right,\n.slider-left {\n    position: absolute;\n    z-index: 30;\n    color: #FFF;\n    text-shadow: 0 0 5px rgba(0,0,0,.5);\n    padding: .5rem;\n    font-size: 2rem;\n    cursor: pointer;\n}\n.slider-right {\n    right:0;\n}\n.slide {\n    width:100%;\n    transition: all linear 1.5s;\n    position: absolute;\n    z-index: -1;\n    opacity: 0;\n    background-position: center;\n    background-size: cover;\n    left:0; right: 0; top: 0; bottom: 0;\n    height: auto;\n    display: flex;\n    align-items: center;\n}\n.slide.active {\n    opacity: 1;\n    z-index: 20;\n}\n.slide-container {\n    align-items: center;\n}\n.slidelink {\n    position: absolute;\n    z-index: 15;\n    left:0; right: 0; top: 0; bottom: 0;\n}\n.slide-overlay {\n    position: absolute;\n    z-index: 2;\n    left:0; right: 0; top: 0; bottom: 0;\n    background-color: rgba(0,0,0,.4);\n}\n.slide-content {\n    position: relative;\n    z-index: 10;\n    width: 100%;\n}\n\n", ""]);
 
 // exports
 
@@ -15342,7 +15349,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.mobile-menu {\n    display: block;\n    width: 100%;\n    padding: 5rem 2rem;\n    transition: all ease-in 1s;\n}\n.mobile-menu .nav-icon {\n    font-size:1.2em;\n    padding: .25rem .5rem;\n    position: absolute;\n    right: 0;\n    margin-top:-2.5rem;\n    cursor: pointer;\n}\n.mobile-menu .dropdown-menu {\n    border-radius: 0;\n    border: 0;\n    display: block;\n    background-color: #FFF;\n    padding: .5rem 1rem;\n    box-shadow: inset 0 0 5px #555;\n}\n", ""]);
+exports.push([module.i, "\n.mobile-menu {\n    display: block;\n    width: 100%;\n    padding: 5rem 2rem;\n    transition: all ease-in 1s;\n}\n.mobile-menu .nav-icon {\n    font-size:1.2em;\n    padding: .25rem .5rem;\n    position: absolute;\n    right: 0;\n    margin-top:-2.5rem;\n    cursor: pointer;\n}\n.mobile-menu .dropdown-menu {\n    border: 0;\n    display: block;\n    padding: .5rem 1rem;\n}\n", ""]);
 
 // exports
 
@@ -20619,7 +20626,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "ul",
-    _vm._l(_vm.mobileNav, function(navitem, index) {
+    _vm._l(_vm.mobileNavData, function(navitem, index) {
       return _c(
         "li",
         {
@@ -20628,14 +20635,9 @@ var render = function() {
           class: { dropdown: navitem.children.length > 0 }
         },
         [
-          _c(
-            "a",
-            {
-              class: "nav-link " + _vm.filterClasses(navitem.classes),
-              attrs: { href: navitem.url }
-            },
-            [_vm._v(_vm._s(navitem.title))]
-          ),
+          _c("a", { class: "nav-link", attrs: { href: navitem.url } }, [
+            _vm._v(_vm._s(navitem.title))
+          ]),
           _vm._v(" "),
           navitem.children.length > 0
             ? _c(
@@ -20666,14 +20668,9 @@ var render = function() {
                 { staticClass: "dropdown-menu" },
                 _vm._l(navitem.children, function(child, i) {
                   return _c("li", { key: i }, [
-                    _c(
-                      "a",
-                      {
-                        class: "nav-link " + _vm.filterClasses(navitem.classes),
-                        attrs: { href: child.url }
-                      },
-                      [_vm._v(_vm._s(child.title))]
-                    )
+                    _c("a", { class: "nav-link", attrs: { href: child.url } }, [
+                      _vm._v(_vm._s(child.title))
+                    ])
                   ])
                 })
               )
