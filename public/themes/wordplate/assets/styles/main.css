@@ -15171,23 +15171,21 @@ main.front p {
 }
 
 footer {
-  color: #FFF;
+  color: #224b68;
 }
 
 footer a {
-  color: #FFF;
+  color: #224b68;
 }
 
 footer a:hover {
   text-decoration: underline;
-  color: #FFF;
+  color: #224b68;
 }
 
-footer h4 {
-  margin: 1rem 0 0;
-  padding: 1rem 0;
-  text-transform: uppercase;
-  font-size: 14px;
+footer h3 {
+  font-weight: normal;
+  font-size: 40px;
 }
 
 footer .footer-menu {
@@ -15201,43 +15199,26 @@ footer .footer-menu .nav-item {
 }
 
 footer .footer-menu .nav-item a {
-  font-weight: 600;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 700;
   font-size: 14px;
   padding: 10px 0;
   text-transform: uppercase;
-  display: inline-block;
-  border-bottom: 1px solid transparent;
-  transition: border-color .5s linear;
-}
-
-footer .footer-menu .nav-item a:hover {
-  color: #FFF;
-  border-color: rgba(255, 255, 255, 0.5);
 }
 
 footer .footer-content {
   padding: 1rem;
 }
 
-footer .social-icons {
-  margin: 0 -.25rem;
-}
-
-footer .social-icons svg {
-  path-fill: transparent !important;
-  path-stroke: #FFF !important;
-  path-stroke-width: 2px;
+footer .bot-bot {
+  background-color: #f3f0e8;
 }
 
 footer .copyright {
-  color: #FFF;
+  color: #222222;
   font-size: 12px;
   margin: 0;
   line-height: 1.5rem;
-}
-
-footer hr {
-  border-color: #555;
 }
 
 footer .siteby {
