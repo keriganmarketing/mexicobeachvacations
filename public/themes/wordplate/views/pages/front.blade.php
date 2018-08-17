@@ -6,6 +6,9 @@
         {{ the_post() }}
                 
         <kma-slider class="slider-container"></kma-slider>
+
+        @include('partials.quicksearch')
+        
         <main role="main">
             <div class="container">
 
@@ -24,7 +27,7 @@
 
             </div>
         </main>
-
+        
         <div class="feature-box-section">
             <div class="container">
                 <div class="row">

@@ -72,18 +72,19 @@ body {
     &.open {
         display: block;
         width: 100%;
-        padding: 4rem 0 2rem;
         z-index: 5;
         background-color: rgba(255,111,116,.9);
-        padding: 10rem 2rem 2rem;
+        padding: 11rem 2rem 2rem;
         color: #FFF;
+        margin-bottom: -2rem;
 
         ul.navbar-nav {
             
             li {
                 a {
-                    font-size: 1.2em;
+                    font-size: 1.4em;
                     color: #FFF;
+                    font-family: $fira;
                 }
 
                 .dropdown-menu {
@@ -92,7 +93,7 @@ body {
                     box-shadow: inset 0 0 5px rgba(0,0,0,.2);
         
                     a {
-                        font-size: 1em;
+                        font-size: 1.2em;
                         color: #FFF;
                     }
                 }
@@ -114,12 +115,15 @@ body {
 
     .logo img {
         width: 250px;
+        transition: width .5s ease-out;
+        margin: 5px 10px 10px;
 
         @media (min-width: 768px) {
             width: 300px;
         }
 
-        @media (min-width: 1200px) {
+        @media (min-width: 1024px) {
+            margin: 0;
             width: 375px;
             position: absolute;
             left: 10px;
@@ -130,18 +134,35 @@ body {
     .btn {
         letter-spacing: 2px;
         font-size: 20px;
-        font-family: 'Fira Sans Condensed', sans-serif;
+        font-family: $fira;
         font-weight: 700;
+        margin: 0 1rem;
     }
 
     .topnav {
         height: 100%;
+        padding: 0;
+
+        .container {
+            flex-direction: column-reverse;
+
+            @media (min-width: 768px){
+                flex-direction: row;
+            }
+
+            @media (max-width: 767px){
+                width: 100% !important;
+                margin: 0 !important;
+                max-width: none !important;
+            }
+        }
 
         a.nav-link {
             color: #FFF;
-            padding: 1.5rem .75rem;
-            font-family: 'Fira Sans Condensed', sans-serif;
+            padding: .5rem 1rem;
+            font-family: $fira;
             font-weight: 700;
+            font-size: 18px;
 
             @media (min-width: 768px){
                 color: $primary;
@@ -150,25 +171,68 @@ body {
             &:hover {
                 color: $navy;
             }
+
         }
+
+        .nav-item.dropdown:hover {
+            background: $secondary;
+            border-radius: 5px 5px 0 0;
+
+            a.nav-link {
+                color: $white;
+            }
+        }
+        
         .dropdown-menu {
             border: 0;
-            border-top: .5rem solid $secondary;
-            margin-top: -1px;
-            border-radius: 0;
-            padding: 0;
-            background-color: $dark;
+            border-radius: 0 0 5px 5px;
+            padding: .5rem 0;
+            margin-top: -2px;
+            background-color: $secondary;
             width: 230px;
+            border-bottom: $primary 5px solid;
 
             a.dropdown-item {
                 color: #FFF;
                 background-color: transparent;
-                padding: 1rem;
+                padding: .5rem 1rem;
+                font-family: $fira;
+                font-size: 18px;
 
                 &:hover {
                     color: $primary;
-                    background-color: $dark !important;
+                    background-color: $secondary !important;
                 }
+            }
+        }
+
+        .mini-nav {
+            width: 100%;
+            justify-content: space-between;
+            background-color: $white;
+            box-shadow: 0 0 5px rgba(0,0,0,.3);
+            padding-top: .25rem;
+            height: 40px;
+
+            @media (min-width: 768px){
+                justify-content: flex-end;
+                background-color: transparent;
+                box-shadow: none;
+            }
+
+            a.link {
+                font-family: $fira;
+                font-weight: 700;
+                font-size: 18px;
+                color: $orange;
+                margin: -4px 1rem 0;
+                line-height: 1em;
+            }
+        }
+
+        .main-navigation {
+            @media (max-width: 767px){
+                width: 100%;
             }
         }
     }
@@ -199,17 +263,9 @@ ul.navbar-nav {
         @media (min-width: 768px){
             background-color: #FFF;
             box-shadow: 0 0 .5rem rgba(0,0,0,.2);
-                    
-            .topnav {
-                list-style: none;
-                display: flex;
 
-                li {
-                    a.nav-link {
-                        color: #555;
-                        padding: .75rem .75rem;
-                    }
-                }
+            .logo img {
+                width: 309px;
             }
         }
     }
@@ -239,34 +295,23 @@ main {
             margin-bottom: 1rem;
         }
 
-        .fittext span, h1 {
-            color: $primary;
-            text-transform: uppercase;
-            font-weight: $font-weight-bolder;
-            letter-spacing: 2px;
-        }
-
         p, ul, ol {
             line-height: 1.8em;
         }
 
+        h1 {
+            color: $navy;
+        }
+
         h2 {
-            margin-top: 3rem;
-            margin-bottom: 1rem;
             color: $secondary;
-            font-weight: 400;
-            text-transform: capitalize;
-            
-            &::after {
-                content: none;
-                background-color: $secondary;
-            }
         }
     }
 }
 
 // Support Content
 .header-image {
+    background-color: $white;
     background-size: cover;
     background-position: center;
     min-height: 150px;
@@ -274,36 +319,17 @@ main {
     justify-content: center;
     text-align: center;
 
-    h1, h2 {
-        display: inline-block;
-        padding: .75rem 1rem;
-        border: 1px solid #FFF;
-        height: 60px;
-        margin: 0;
-        line-height: 1em;
-        font-size: 2.3em;
-        text-shadow: 0 0 15px rgba(0,0,0,.4);
-        box-shadow: 0 0 15px rgba(0,0,0,.2);
-        letter-spacing: 1px;
-    }
-
     &.support {
         padding: 3rem 1rem;
-        background-color: $dark;
         position: relative;
         overflow: hidden;
         z-index: 1;
 
-        &::before {
+        &::after {
             content: " ";
             position: absolute;
-            display: block;
-            background-color: rgba(0,0,0,.5);
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            z-index: 1;
+            background-color: rgba(255,255,255,.5);
+            top:0; bottom: 0; left: 0; right: 0;
         }
         
         .container {
@@ -320,12 +346,15 @@ main {
 // Main Slider
 .slider-container {
     position: relative;
-    height: 400px;
+    height: 300px;
     overflow: hidden;
     z-index: 0;
+    margin-top: 2rem;
+    max-height: 100vh;
 
     @media (min-width: 576px){
-        height: 500px;
+        margin-top: 0;
+        height: 400px;
     }
 
     @media (min-width: 768px){
@@ -336,17 +365,29 @@ main {
         height: 970px;
     }
 
+    .slide-content {
+        padding: 6rem 0 0;
+        @media (min-width: 768px){
+            padding: 0;
+        }
+    }
+
     .slider-text {
         background: url('/themes/wordplate/assets/images/watercolor.png') center no-repeat;
-        background-size: contain;
+        background-size: 100% 100%;
 
         p {
-            font-size: 20px;
+            font-size: 37px;
             color: #FFF;
             text-shadow: 0 0 5px rgba(0,0,0,.4);
+            width: 1000px;
+            max-width: 100%;
+            margin: auto;
+            line-height: 0.85em;
+            padding: 4rem 2rem;
 
             @media (min-width: 576px){
-                font-size: 40px;
+                font-size: 50px;
             }
         
             @media (min-width: 768px){
@@ -491,6 +532,21 @@ article h2,
         .btn {
             background-color: #FFF;
         }
+    }
+}
+
+.quick-search {
+    position: relative;
+    padding: 2rem 0;
+    background-color: rgba(78,186,203,.9);
+
+    @media (min-width: 768px){
+        margin-top: -100px;
+    }
+
+    h2 {
+        font-family: $abeezee;
+        font-weight: 400;
     }
 }
 
