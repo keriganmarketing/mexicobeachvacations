@@ -1,5 +1,5 @@
 <div v-if="mobileMenuOpen" class="mobile-menu" ref="mobileMenuContainer" :class="{ 'open': this.mobileMenuOpen }" >
-    <mobile-menu :mobile-nav="{{ website_menu('mobile-navigation') }}" class="navbar-nav m-auto" ></mobile-menu>
+    <mobile-menu :mobile-nav="<?php echo e(website_menu('mobile-navigation')); ?>" class="navbar-nav m-auto" ></mobile-menu>
 </div>
 <header class="top">
     <div role="navigation" class="topnav navbar navbar-expand-lg" >
@@ -16,7 +16,7 @@
             </button>
             <div class="text-center" >
                 <a class="logo" href="/">
-                <img src="{{ get_template_directory_uri().'/assets/images/parker-logo.png' }}" alt="Mexico Beach Vacation Rentals" class="img-fluid" >
+                <img src="<?php echo e(get_template_directory_uri().'/assets/images/parker-logo.png'); ?>" alt="Mexico Beach Vacation Rentals" class="img-fluid" >
                 </a>
             </div>
             <div class="main-navigation flex-grow-1">
@@ -31,7 +31,7 @@
                         <social-icons :size="26" :margin=".25" class="d-flex social-icons justify-content-end" ></social-icons> 
                         <a class="link" href="tel:800-874-5073">800-874-5073</a> 
                 <div class="top-nav-menu collapse navbar-collapse">
-                    <main-menu :main-nav="{{ website_menu('main-navigation') }}" class="navbar-nav ml-auto"></main-menu>
+                    <main-menu :main-nav="<?php echo e(website_menu('main-navigation')); ?>" class="navbar-nav ml-auto"></main-menu>
                 </div>
             </div>
         </div>
