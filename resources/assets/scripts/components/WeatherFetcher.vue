@@ -15,9 +15,8 @@ export default {
         this.query = 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + this.location + '")'
         axios.get(this.baseUrl + encodeURIComponent(this.query) + '&format=json')
             .then(response => {
-                console.log(response.data.query.results.channel);
                 this.weatherInfo = response.data.query.results.channel;
-                this.weatherIcon = new WeatherIcon(this.weatherInfo.item.code).get();
+                this.weatherIcon = new WeatherIcon(this.weatherInfo.item.condition.code).get();
                 this.loading = false;
             })
     },

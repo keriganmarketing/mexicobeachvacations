@@ -5,7 +5,7 @@ export default class WeatherIcon {
         this.icon = '';
     }
     
-    get () {
+    get() {
         switch(this.code) {
             case '0': this.icon  = 'wi-tornado';
                 break;

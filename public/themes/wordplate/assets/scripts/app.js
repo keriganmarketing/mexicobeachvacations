@@ -5934,9 +5934,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.query = 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + this.location + '")';
         axios.get(this.baseUrl + encodeURIComponent(this.query) + '&format=json').then(function (response) {
-            console.log(response.data.query.results.channel);
             _this.weatherInfo = response.data.query.results.channel;
-            _this.weatherIcon = new __WEBPACK_IMPORTED_MODULE_0__models_weather_icon_js__["a" /* default */](_this.weatherInfo.item.code).get();
+            _this.weatherIcon = new __WEBPACK_IMPORTED_MODULE_0__models_weather_icon_js__["a" /* default */](_this.weatherInfo.item.condition.code).get();
             _this.loading = false;
         });
     },

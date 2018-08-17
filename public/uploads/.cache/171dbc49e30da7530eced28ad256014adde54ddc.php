@@ -5,11 +5,9 @@
 
                 
         <kma-slider class="slider-container"></kma-slider>
-        <weather-fetcher location="mexico beach, fl">
-            <div slot-scope="{weatherInfo, weatherIcon, loading}">
-                <i class="wi" :class="weatherIcon"></i>
-            </div>
-        </weather-fetcher>
+
+        <?php echo $__env->make('partials.quicksearch', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        
         <main role="main">
             <div class="container">
 
@@ -29,7 +27,7 @@
 
             </div>
         </main>
-
+        
         <div class="feature-box-section">
             <div class="container">
                 <div class="row">

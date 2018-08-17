@@ -20,11 +20,16 @@
                 </a>
             </div>
             <div class="main-navigation flex-grow-1">
-                <div class="mini-nav d-flex align-items-center">
-                    <a class="link" href="/current-weather/">85&deg;F</a> 
-                    <social-icons :size="26" :margin=".25" class="d-flex social-icons justify-content-end" ></social-icons> 
-                    <a class="link" href="tel:800-874-5073">800-874-5073</a> 
-                </div>
+                <weather-fetcher location="mexico beach, fl" class="d-inline">
+                    <div class="mini-nav d-flex align-items-center" slot-scope="{weatherIcon, weatherInfo, loading}">
+                        <div v-if="! loading">
+                            <i class="wi" :class="weatherIcon"></i>
+                            <a class="link" href="/current-weather/" v-text="weatherInfo.item.condition.temp + '&deg;F'"></a> 
+                        </div>
+                    </div>
+                </weather-fetcher>
+                        <social-icons :size="26" :margin=".25" class="d-flex social-icons justify-content-end" ></social-icons> 
+                        <a class="link" href="tel:800-874-5073">800-874-5073</a> 
                 <div class="top-nav-menu collapse navbar-collapse">
                     <main-menu :main-nav="{{ website_menu('main-navigation') }}" class="navbar-nav ml-auto"></main-menu>
                 </div>
