@@ -5,11 +5,17 @@ html {
     // Button overrides
     .btn {
         text-transform: uppercase;
-        font-size: .9em;
+        font-size: 1.1em;
+        font-family: $fira;
         font-weight: $font-weight-bold;
+        line-height: 1em;
         
         &.btn-lg {
             border-width: 2px;
+        }
+
+        &.btn-rounded {
+            border-radius: 2rem;
         }
     }
 
@@ -33,28 +39,6 @@ body {
             
             main {
                 flex-grow: 1;
-
-                &.contact {
-                    background-color: $black;
-
-                    iframe {
-                        height: 100%;
-                        min-height: 350px;
-                        flex-grow: 1;
-
-                        @media (min-width: 1200px){
-                            min-height: 420px;
-                        }
-
-                        @media (min-width: 2200px){
-                            min-height: 500px;
-                        }
-
-                        @media (min-width: 2600px){
-                            min-height: 650px;
-                        }
-                    }
-                }
             }
             
             &.full-height {
@@ -276,20 +260,14 @@ main {
     position: relative;
     background: transparent;
     box-shadow: 0 0 10px rgba(0,0,0,.3);
-    
+    padding: 2rem 0;
 
-    @media (min-width: 992px){
-        box-shadow: none;
+    @media (min-width: 768px){
+        padding: 4rem 0;
     }
 
     article {
-        padding: 2rem 1rem 1rem;
         text-align: left;
-        background-color: #FFF;
-
-        @media (min-width: 576px){
-            text-align: justify;
-        }
 
         header {
             margin-bottom: 1rem;
@@ -297,6 +275,7 @@ main {
 
         p, ul, ol {
             line-height: 1.8em;
+            font-size: 16px;
         }
 
         h1 {
@@ -306,6 +285,21 @@ main {
         h2 {
             color: $secondary;
         }
+    }              
+
+    &.front {
+        background: url('/themes/wordplate/assets/images/navy-linen.png') center $navy;
+
+        h1 {
+            font-weight: normal;
+            font-size: 4.5em;
+        }
+
+        h1, h2, h3, p {
+            color: $white;
+        }
+
+
     }
 }
 
@@ -450,35 +444,38 @@ main {
 
 // Feature Box Section
 .feature-box-section {
-    @media (min-width: 576px){
-        padding: 2rem 1rem;
+    padding: 3rem 0;
+
+    background: $orange; /* Old browsers */
+    background: -moz-linear-gradient(left, $orange 0%, $pink 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, $orange 0%,$pink 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, $orange 0%,$pink 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$orange, endColorstr=$pink,GradientType=1 ); /* IE6-9 */
+
+    .box-container {
+        margin: 1rem 0;
     }
 
     .feature-box {
-        padding: 2rem;
+        min-height: 200px;
+        border: 2px solid $white;
+        padding: 1.5rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
 
-        @media (min-width: 768px){
-            padding: 3rem;
-        }
-
-        &.feat-one {
-            background-color: $primary;
-        }
-
-        &.feat-two {
-            background-color: $secondary;
-        }
-
-        h2, h3 {
+        h3 {
             margin-bottom: 1rem;
+            font-family: $fira;
+            font-size: 2.4em;
 
             @media (min-width: 768px){
+                max-width: 188px;
                 margin-bottom: 2rem;
-                font-size: 2em;
             }
-            @media (min-width: 992px){
-                font-size: 2.4em;
-            }
+
         }
 
         p {
@@ -489,31 +486,22 @@ main {
             }
 
         }
-    }
 
-    .box-container {
-        padding: 0;
-        @media (min-width: 576px){
-            padding: 1rem 2rem;
+        .btn {
+            padding-left: 1.5rem;
+            line-height: 1.5em;
         }
-        @media (min-width: 768px){
-            padding: 3rem 2rem;
+
+        i {
+            margin: 0 1rem;
+        }
+
+        &.feat-two {
+            background: url('/themes/wordplate/assets/images/photo-gallery-bg.jpg') no-repeat;
+            background-size: cover;
         }
     }
-}
 
-article h2,
-.short-underline {
-    text-transform: uppercase;
-
-    &::after {
-        content: " ";
-        display: block;
-        width:24px;
-        height: 3px;
-        background-color: #FFF;
-        margin: 5px 0;
-    }
 }
 
 // Team

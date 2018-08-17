@@ -18,6 +18,13 @@ bladerunner('views.pages.front', [
         'text' => get_field('feat_2_text'),
         'link' => get_field('feat_2_link')
     ],
+    'featureBox3' => [
+        'title' => get_field('feat_3_headline'),
+        'text' => get_field('feat_3_text'),
+        'link' => get_field('feat_3_link')
+    ],
     'projectsHeader' => get_field('projects_header'),
-    'featuredTestimonial' => $featuredTestimonial
+    'featuredTestimonial' => $featuredTestimonial,
+    'headline'    => get_field('headline'),
+    'featuredImage' => get_field('content_image')
 ]);
