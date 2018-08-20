@@ -578,6 +578,11 @@ main {
 footer {
     color: $navy;
 
+    .footer-container {
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+    }
+
     a {
         color: $navy;
 
@@ -588,30 +593,41 @@ footer {
     }
 
     h3 {
+        margin-top: 2rem;
         font-weight: normal;
         font-size: 40px;
+        color: $info;
     }
 
-    .footer-menu {
-        margin: 0;
-        padding: 1rem 0;
-
-        .nav-item {
-            list-style: none;
-            margin: 1.25rem 0;
-
-            a {
-                font-family: $fira;
-                font-weight: 700;
-                font-size: 14px;
-                padding: 10px 0;
-                text-transform: uppercase;
-            }
+    .nav-item {
+        a {
+            font-family: $fira;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 0 0 5px;
+            text-transform: uppercase;
+            display: block;
         }
     }
 
     .footer-content {
         padding: 1rem;
+    }
+
+    .contact-info {
+        font-family: $fira;
+        font-size: 18px;
+
+        a {
+            font-family: $fira;
+            font-size: 18px;
+        }
+
+        em {
+            font-family: $cookie;
+            font-size: 22px;
+            line-height: 1em;
+        }
     }
 
     .bot-bot {

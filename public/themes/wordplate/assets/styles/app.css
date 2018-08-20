@@ -15162,6 +15162,11 @@ footer {
   color: #224b68;
 }
 
+footer .footer-container {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
 footer a {
   color: #224b68;
 }
@@ -15172,30 +15177,39 @@ footer a:hover {
 }
 
 footer h3 {
+  margin-top: 2rem;
   font-weight: normal;
   font-size: 40px;
+  color: #4ebacb;
 }
 
-footer .footer-menu {
-  margin: 0;
-  padding: 1rem 0;
-}
-
-footer .footer-menu .nav-item {
-  list-style: none;
-  margin: 1.25rem 0;
-}
-
-footer .footer-menu .nav-item a {
+footer .nav-item a {
   font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 700;
-  font-size: 14px;
-  padding: 10px 0;
+  font-size: 18px;
+  padding: 0 0 5px;
   text-transform: uppercase;
+  display: block;
 }
 
 footer .footer-content {
   padding: 1rem;
+}
+
+footer .contact-info {
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+}
+
+footer .contact-info a {
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+}
+
+footer .contact-info em {
+  font-family: "Cookie", serif;
+  font-size: 22px;
+  line-height: 1em;
 }
 
 footer .bot-bot {
