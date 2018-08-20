@@ -14614,10 +14614,15 @@ body #app .site-wrapper.full-height {
   display: block;
   width: 100%;
   z-index: 5;
-  background-color: rgba(255, 111, 116, 0.9);
   padding: 11rem 2rem 2rem;
   color: #FFF;
   margin-bottom: -2rem;
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #fa7a22 0%, #ff6f74 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$orange, endColorstr=$pink,GradientType=1 );
+  /* IE6-9 */
 }
 
 .mobile-menu.open ul.navbar-nav li a {
@@ -14844,6 +14849,8 @@ main article ol {
 
 main article h1 {
   color: #224b68;
+  font-size: 3em;
+  font-weight: normal;
 }
 
 main article h2 {
@@ -14867,13 +14874,19 @@ main.front p {
 }
 
 .header-image {
-  background-color: #fff;
+  background: url("/themes/wordplate/assets/images/default-header.jpg") center no-repeat #fff;
   background-size: cover;
   background-position: center;
-  min-height: 150px;
+  min-height: 132px;
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .header-image {
+    min-height: 120px;
+  }
 }
 
 .header-image.support {
@@ -14881,6 +14894,7 @@ main.front p {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  border-bottom: 2px solid #fa7a22;
 }
 
 .header-image.support::after {
@@ -14900,6 +14914,11 @@ main.front p {
   align-items: center;
   position: relative;
   z-index: 2;
+}
+
+.mobile-menu-open .header-image {
+  min-height: 34px;
+  padding: 0;
 }
 
 .slider-container {
@@ -14972,6 +14991,23 @@ main.front p {
   .slider-container .slider-text p {
     font-size: 80px;
   }
+}
+
+.mobile-menu-open .slider-container .slide-content {
+  padding: 0;
+}
+
+.weather-page i {
+  font-size: 2.5em;
+  color: #224b68;
+}
+
+.weather-page span {
+  color: #4ebacb;
+}
+
+.weather-page .current-conditions span {
+  font-size: 2em;
 }
 
 .portfolio-gallery {

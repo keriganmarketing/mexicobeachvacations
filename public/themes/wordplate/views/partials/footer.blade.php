@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="bot-bot py-2">
-        <p class="copyright text-center text-info">&copy;{{ date('Y') }} {{ get_bloginfo() }}. All Rights&nbsp;Reserved. 
+        <p class="copyright text-center text-info">&copy;{{ date('Y') }} {{ get_bloginfo() }}. All&nbsp;Rights&nbsp;Reserved. 
         <a style="text-decoration:underline;" class="text-info" href="/privacy-policy" >Privacy&nbsp;Policy</a> 
         <span class="siteby text-info">
             <svg version="1.1" id="kma" xmlns="http://www.w3.org/2000/svg"

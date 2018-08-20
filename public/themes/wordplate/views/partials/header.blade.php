@@ -32,7 +32,7 @@
                         </span>
                     </weather-fetcher>
                     <social-icons :size="26" :margin=".25" class="d-flex social-icons justify-content-end" ></social-icons> 
-                    <a class="link" href="tel:800-874-5073">800-874-5073</a> 
+                    <a class="link" href="tel:{{ get_field('toll_free_phone', 'option') }}">{{ get_field('toll_free_phone', 'option') }}</a> 
                 </div>
                 <div class="top-nav-menu collapse navbar-collapse">
                     <main-menu :main-nav="{{ website_menu('main-navigation') }}" class="navbar-nav ml-auto"></main-menu>
