@@ -12,3 +12,4 @@ Vue.component('portfolio-gallery', require('./components/PortfolioGallery.vue'))
 Vue.component('contact-form', require('./components/ContactForm.vue'));
 Vue.component('fit-text', require('./components/FitText.vue'));
 Vue.component('weather-fetcher', require('./components/WeatherFetcher.vue'));
+Vue.component('search-bar', require('./components/SearchBar.vue'));
