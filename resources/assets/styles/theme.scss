@@ -622,6 +622,40 @@ main {
     }
 }
 
+// Rental Feed
+.rental-feed {
+    .unit {
+        margin-bottom: 3rem;
+        padding: 0 0 3rem;
+        border-bottom: 2px solid $navy;
+        // border-top: 2px solid $navy;
+    }
+    .rental-feed-info {
+        padding: 0 1.25rem;
+        color: $navy;
+
+        .tiles {
+            background-color: $navy;
+            color: $white;
+            margin: .5rem 0;
+        }
+
+        .data {
+            font-family: $fira;
+            text-align: center;
+            display: block;
+            color: $info;
+            margin: .5rem 0 0;
+            font-size: 1.8em;
+        }
+        .label {
+            font-family: $fira;
+            text-align: center;
+            display: block;
+            margin: 0 0 .5rem;
+        }
+    }
+}
 // Testimonials
 .testimonials {
     .testimonial {
@@ -657,6 +691,7 @@ main {
         }
     }
 }
+
 
 // Footer
 footer {
