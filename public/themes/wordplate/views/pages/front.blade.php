@@ -8,13 +8,13 @@
         <kma-slider class="slider-container"></kma-slider>
 
         @include('partials.quicksearch')
-        
+        @include('partials.buttons')
         <main role="main" class="front">
             <div class="container">
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="{{ $featuredImage['url'] }}" class="mt-3 img-fluid" alt="Cathey & Ralph Hobbs" >
+                        <img src="{{ $featuredImage['url'] }}" class="my-3 img-fluid" alt="Cathey & Ralph Hobbs" >
                     </div>
                     <div class="col-lg-6">
                         <article class="front">

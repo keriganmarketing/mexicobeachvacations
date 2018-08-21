@@ -5911,8 +5911,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -15523,7 +15521,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.input-rounded button {\r\n    border: 0 !important;\r\n    height: 44px !important;\n}\n.datepicker__wrapper,\r\n.datepicker__dummy-wrapper {\r\n    border: 0 !important;\r\n    height: 44px !important;\n}\n.datepicker__clear-button {\r\n    height: 40px !important;\r\n    margin: 1px 0 0 0 !important;\n}\n.input-rounded {\r\n    border-radius: 2em;\r\n    border: 2px solid #46a5b5 !important;\r\n    height: 44px;\n}\n.custom-select.input-rounded {\r\n    padding: 0.425rem 1.75rem 0.375rem 1rem;\n}\n.btn-primary,\r\n.btn-primary.disabled, \r\n.btn-primary:disabled {\r\n    color: #FFF;\r\n    opacity: 1 !important;\r\n    border: 2px solid #46a5b5 !important;\n}\r\n", ""]);
+exports.push([module.i, "\n.input-rounded button {\r\n    border: 0 !important;\r\n    height: 44px !important;\n}\n.datepicker__wrapper,\r\n.datepicker__dummy-wrapper {\r\n    border: 0 !important;\r\n    height: 44px !important;\n}\n.datepicker__clear-button {\r\n    height: 40px !important;\r\n    margin: 1px 0 0 0 !important;\n}\n.input-rounded {\r\n    border-radius: 2em;\r\n    border: 2px solid #46a5b5 !important;\r\n    height: 44px;\n}\n.custom-select.input-rounded {\r\n    padding: 0.425rem 1.75rem 0.375rem 1rem;\n}\n.btn-primary,\r\n.btn-primary.disabled, \r\n.btn-primary:disabled {\r\n    color: #FFF;\r\n    opacity: 1 !important;\r\n    border: 2px solid #46a5b5 !important;\n}\n.datepicker--open {\r\n    z-index: 9999 !important;\n}\n.form-group {\r\n    margin: 0 0 .5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -37795,7 +37793,7 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c(
         "div",
-        { staticClass: "col-4" },
+        { staticClass: "col-12 col-md-6 col-lg-4" },
         [
           _c("hotel-date-picker", {
             staticClass: "input-rounded",
@@ -37808,7 +37806,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-auto" }, [
+      _c("div", { staticClass: "d-none d-sm-block col-12 col-sm-6 col-lg-3" }, [
         _c("div", { staticClass: "form-group" }, [
           _c(
             "select",
@@ -37860,60 +37858,58 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-auto" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.type,
-                  expression: "type"
-                }
-              ],
-              staticClass: "custom-select input-rounded",
-              on: {
-                change: [
-                  function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.type = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
-                  },
-                  _vm.getMatches
-                ]
+      _c("div", { staticClass: "d-none d-sm-block col-12 col-sm-6 col-lg-3" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.type,
+                expression: "type"
               }
-            },
-            [
-              _c("option", { attrs: { value: "" } }, [_vm._v("Type")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "Vacation Rental" } }, [
-                _vm._v("Vacation Rental")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "Long Term Rental" } }, [
-                _vm._v("Long Term Rental")
-              ])
-            ]
-          )
-        ])
+            ],
+            staticClass: "custom-select input-rounded",
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.getMatches
+              ]
+            }
+          },
+          [
+            _c("option", { attrs: { value: "" } }, [_vm._v("Type")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Vacation Rental" } }, [
+              _vm._v("Vacation Rental")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "Long Term Rental" } }, [
+              _vm._v("Long Term Rental")
+            ])
+          ]
+        )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-auto" }, [
+      _c("div", { staticClass: "col-12 col-md-6 col-lg-2" }, [
         _vm.numAvailable == 0
           ? _c(
               "button",
               {
-                staticClass: "btn btn-primary btn-rounded",
+                staticClass: "btn btn-primary btn-rounded btn-block",
                 attrs: { disabled: "" }
               },
               [_vm._v("Search")]
@@ -37921,9 +37917,11 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _vm.numAvailable > 0 || _vm.numAvailable == null
-          ? _c("button", { staticClass: "btn btn-primary btn-rounded" }, [
-              _vm._v("Search")
-            ])
+          ? _c(
+              "button",
+              { staticClass: "btn btn-primary btn-rounded btn-block" },
+              [_vm._v("Search")]
+            )
           : _vm._e()
       ]),
       _vm._v(" "),

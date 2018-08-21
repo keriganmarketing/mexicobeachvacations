@@ -4,7 +4,7 @@
 <header class="top">
     <div role="navigation" class="topnav navbar navbar-expand-lg" >
         <div class="container d-flex justify-content-center justify-content-between-md">
-            <button @click="toggleMenu" class="d-lg-none btn btn-secondary btn-sm mt-1 fira" type="button" data-toggle="collapse" data-target="#mobilemenu" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <button @click="toggleMenu" class="d-lg-none btn btn-secondary btn-sm mt-1 fira btn-rounded" type="button" data-toggle="collapse" data-target="#mobilemenu" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 MENU <i
                         class="fa" 
                         :class="{

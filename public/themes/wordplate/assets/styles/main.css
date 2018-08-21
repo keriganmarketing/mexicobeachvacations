@@ -14696,6 +14696,7 @@ body #app .site-wrapper.full-height {
   font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 700;
   margin: 0 1rem;
+  padding: .5rem 1rem;
 }
 
 .top .topnav {
@@ -14876,6 +14877,7 @@ main.front {
 main.front h1 {
   font-weight: normal;
   font-size: 4.5em;
+  line-height: 1em;
 }
 
 main.front h1,
@@ -14889,7 +14891,7 @@ main.front p {
   background: url("/themes/wordplate/assets/images/default-header.jpg") center no-repeat #fff;
   background-size: cover;
   background-position: center;
-  min-height: 132px;
+  min-height: 136px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -15065,12 +15067,51 @@ main.front p {
 }
 
 .testimonial-section {
-  background-image: url("/themes/wordplate/assets/images/pavers.jpg");
   background-size: cover;
   background-position: center;
   background-color: #222222;
   padding: 1rem 1rem 0;
   color: #FFF;
+}
+
+.bubble-buttons {
+  padding: 4rem 0 3rem;
+  background: url("/themes/wordplate/assets/images/sand.jpg") no-repeat #f1efeb;
+  background-size: cover;
+  text-align: center;
+}
+
+.bubble-buttons .bubble-button {
+  margin: 1rem auto;
+  display: block;
+  height: 180px;
+  width: 180px;
+  border: 8px solid #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+@media (min-width: 576px) {
+  .bubble-buttons .bubble-button {
+    height: 270px;
+    width: 270px;
+  }
+}
+
+.bubble-buttons .bubble-button img {
+  width: 100%;
+}
+
+.bubble-buttons h3 {
+  margin: 0 0 1rem;
+}
+
+.bubble-buttons h3 a {
+  color: #ff6f74;
+  font-family: "Cookie", serif;
+  font-size: 45px;
+  font-weight: normal;
 }
 
 .feature-box-section {
@@ -15163,13 +15204,20 @@ main.front p {
 
 @media (min-width: 768px) {
   .quick-search {
-    margin-top: -161px;
+    margin-top: -150px;
   }
 }
 
 .quick-search h2 {
   font-family: "ABeeZee", sans-serif;
   font-weight: 400;
+  font-size: 1.4em;
+}
+
+@media (min-width: 576px) {
+  .quick-search h2 {
+    font-size: 1.5em;
+  }
 }
 
 .testimonials .testimonial {

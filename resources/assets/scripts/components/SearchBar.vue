@@ -1,36 +1,34 @@
 <template>
     <form action="/rentals/" method="get">
         <div class="row justify-content-center">
-            <div class="col-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <hotel-date-picker
                     class="input-rounded"
                     @checkInChanged="checkInChanged"
                     @checkOutChanged="checkOutChanged"
                 >
-                </hotel-date-picker>    
+                </hotel-date-picker> 
             </div>
-            <div class="col-auto">
+            <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3">
                 <div class="form-group">
-                    <select class="custom-select input-rounded" v-model="location" @change="getMatches">
-                        <option value="" >Location</option>
-                        <option value="Beachfront" >Beachfront</option>
-                        <option value="Between Hwy-Beach">Between highway and beach</option>
-                        <option value="Across Hwy from Beach">Across highway from beach</option>
-                    </select>
+                <select class="custom-select input-rounded" v-model="location" @change="getMatches">
+                    <option value="" >Location</option>
+                    <option value="Beachfront" >Beachfront</option>
+                    <option value="Between Hwy-Beach">Between highway and beach</option>
+                    <option value="Across Hwy from Beach">Across highway from beach</option>
+                </select>
                 </div>
             </div>
-            <div class="col-auto">
-                <div class="form-group">
-                    <select class="custom-select input-rounded" v-model="type" @change="getMatches">
-                        <option value="" >Type</option>
-                        <option value="Vacation Rental">Vacation Rental</option>
-                        <option value="Long Term Rental">Long Term Rental</option>
-                    </select>
-                </div>
+            <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3">
+                <select class="custom-select input-rounded" v-model="type" @change="getMatches">
+                    <option value="" >Type</option>
+                    <option value="Vacation Rental">Vacation Rental</option>
+                    <option value="Long Term Rental">Long Term Rental</option>
+                </select>
             </div>
-            <div class="col-auto">
-                <button v-if="numAvailable == 0" class="btn btn-primary btn-rounded" disabled>Search</button>
-                <button v-if="numAvailable > 0 || numAvailable == null" class="btn btn-primary btn-rounded">Search</button>
+            <div class="col-12 col-md-6 col-lg-2">
+                <button v-if="numAvailable == 0" class="btn btn-primary btn-rounded btn-block" disabled>Search</button>
+                <button v-if="numAvailable > 0 || numAvailable == null" class="btn btn-primary btn-rounded btn-block">Search</button>
             </div>
             <div class="col-12 text-center text-white">
                 <span v-if="numAvailable > 0" >Properties matching your search: {{ numAvailable }}</span>
@@ -103,5 +101,11 @@ export default {
     color: #FFF;
     opacity: 1 !important;
     border: 2px solid #46a5b5 !important;
+}
+.datepicker--open {
+    z-index: 9999 !important;
+}
+.form-group {
+    margin: 0 0 .5rem;
 }
 </style>

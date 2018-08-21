@@ -125,6 +125,7 @@ body {
         font-family: $fira;
         font-weight: 700;
         margin: 0 1rem;
+        padding: .5rem 1rem;
     }
 
     .topnav {
@@ -299,6 +300,7 @@ main {
         h1 {
             font-weight: normal;
             font-size: 4.5em;
+            line-height: 1em;
         }
 
         h1, h2, h3, p {
@@ -314,7 +316,7 @@ main {
     background: url('/themes/wordplate/assets/images/default-header.jpg') center no-repeat $white;
     background-size: cover;
     background-position: center;
-    min-height: 132px;
+    min-height: 136px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -473,12 +475,50 @@ main {
 
 // Testimonial Section
 .testimonial-section {
-    background-image: url('/themes/wordplate/assets/images/pavers.jpg');
     background-size: cover;
     background-position: center;
     background-color: $dark;
     padding: 1rem 1rem 0;
     color: #FFF;
+}
+
+// Bubble Buttons
+.bubble-buttons {
+    padding: 4rem 0 3rem;
+    background: url('/themes/wordplate/assets/images/sand.jpg') no-repeat #f1efeb;
+    background-size: cover;
+    text-align: center;
+
+    .bubble-button {
+        margin: 1rem auto;
+        display: block;
+        height: 180px;
+        width: 180px;
+        border: 8px solid $white;
+        box-shadow: 0 0 15px rgba(0,0,0,.2);
+        border-radius: 50%;
+        overflow: hidden;
+
+        @media (min-width: 576px){
+            height: 270px;
+            width: 270px;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    h3 {
+        margin: 0 0 1rem;
+
+        a {
+            color: $pink;
+            font-family: $cookie;
+            font-size: 45px;
+            font-weight: normal;
+        }
+    }
 }
 
 // Feature Box Section
@@ -568,12 +608,17 @@ main {
     background-color: rgba(78,186,203,.9);
 
     @media (min-width: 768px){
-        margin-top: -161px;
+        margin-top: -150px;
     }
 
     h2 {
         font-family: $abeezee;
         font-weight: 400;
+        font-size: 1.4em;
+
+        @media (min-width: 576px){
+            font-size: 1.5em;
+        }
     }
 }
 
