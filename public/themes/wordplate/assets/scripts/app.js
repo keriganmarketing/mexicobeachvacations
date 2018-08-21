@@ -5911,6 +5911,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -37789,14 +37794,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", { attrs: { action: "/rentals/", method: "get" } }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
+  return _c("form", { attrs: { method: "GET", action: "/rentals" } }, [
+    _c("input", {
+      attrs: { type: "hidden", name: "checkIn" },
+      domProps: { value: _vm.checkIn }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      attrs: { type: "hidden", name: "checkOut" },
+      domProps: { value: _vm.checkOut }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      attrs: { type: "hidden", name: "location" },
+      domProps: { value: _vm.location }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      attrs: { type: "hidden", name: "type" },
+      domProps: { value: _vm.type }
+    }),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
       _c(
         "div",
         { staticClass: "col-12 col-md-6 col-lg-4" },
         [
           _c("hotel-date-picker", {
             staticClass: "input-rounded",
+            attrs: { format: "MM/DD/YYYY" },
             on: {
               checkInChanged: _vm.checkInChanged,
               checkOutChanged: _vm.checkOutChanged

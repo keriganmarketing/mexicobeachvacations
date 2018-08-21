@@ -1,11 +1,16 @@
 <template>
-    <form action="/rentals/" method="get">
-        <div class="row justify-content-center">
+    <form method="GET" action="/rentals">
+        <input type="hidden" name="checkIn" :value="checkIn">
+        <input type="hidden" name="checkOut" :value="checkOut">
+        <input type="hidden" name="location" :value="location">
+        <input type="hidden" name="type" :value="type">
+        <div class="row">
             <div class="col-12 col-md-6 col-lg-4">
                 <hotel-date-picker
                     class="input-rounded"
                     @checkInChanged="checkInChanged"
                     @checkOutChanged="checkOutChanged"
+                    format="MM/DD/YYYY"
                 >
                 </hotel-date-picker> 
             </div>
@@ -50,7 +55,7 @@ export default {
             checkOut: '',
             location: '',
             type: '',
-            numAvailable: null
+            numAvailable: null,
         }
     },
     methods: {

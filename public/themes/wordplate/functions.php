@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-use KeriganSolutions\KMATeam\Team;
-use KeriganSolutions\KMATestimonials\Testimonial;
-use KeriganSolutions\KMAContactInfo\ContactInfo;
-use Testing\ContactForm;
 use Testing\KMAMail;
+use Testing\ContactForm;
+use KeriganSolutions\KMATeam\Team;
+use KeriganSolutions\Search\Search;
+use KeriganSolutions\KMAContactInfo\ContactInfo;
+use KeriganSolutions\KMATestimonials\Testimonial;
 
 // Register plugin helpers.
 require template_path('includes/plugins/plate.php');
