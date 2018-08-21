@@ -1,5 +1,9 @@
 <template>
-    <form>
+    <form method="GET" action="/rentals">
+        <input type="hidden" name="checkIn" :value="checkIn">
+        <input type="hidden" name="checkOut" :value="checkOut">
+        <input type="hidden" name="location" :value="location">
+        <input type="hidden" name="type" :value="type">
         <div class="row">
             Properties matching your search: {{ numAvailable }}
         </div>
@@ -8,10 +12,11 @@
                 <hotel-date-picker
                     @checkInChanged="checkInChanged"
                     @checkOutChanged="checkOutChanged"
+                    format="MM/DD/YYYY"
                 >
                 </hotel-date-picker>    
             </div>
-            <div class="col-4">
+            <div class="col-3">
                 <div class="form-group">
                     <select class="form-control" v-model="location" @change="getMatches">
                         <option>Beachfront</option>
@@ -20,12 +25,17 @@
                     </select>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-3">
                 <div class="form-group">
                     <select class="form-control" v-model="type" @change="getMatches">
                         <option>Vacation Rental</option>
                         <option>Long Term Rental</option>
                     </select>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group">
+                    <button class="btn btn-primary">Search</button>
                 </div>
             </div>
         </div>
@@ -45,7 +55,7 @@ export default {
             checkOut: '',
             location: '',
             type: '',
-            numAvailable: null
+            numAvailable: null,
         }
     },
     methods: {
