@@ -5906,6 +5906,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -15502,6 +15509,21 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 // module
 exports.push([module.i, "\n.main-navigation .dropdown:hover .dropdown-menu {\n    display: block;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b8aa24c6\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SearchBar.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.input-rounded button {\r\n    border: 0 !important;\r\n    height: 44px !important;\n}\n.datepicker__wrapper,\r\n.datepicker__dummy-wrapper {\r\n    border: 0 !important;\r\n    height: 44px !important;\n}\n.datepicker__clear-button {\r\n    height: 40px !important;\r\n    margin: 1px 0 0 0 !important;\n}\n.input-rounded {\r\n    border-radius: 2em;\r\n    border: 2px solid #46a5b5 !important;\r\n    height: 44px;\n}\n.custom-select.input-rounded {\r\n    padding: 0.425rem 1.75rem 0.375rem 1rem;\n}\n.btn-primary,\r\n.btn-primary.disabled, \r\n.btn-primary:disabled {\r\n    color: #FFF;\r\n    opacity: 1 !important;\r\n    border: 2px solid #46a5b5 !important;\n}\r\n", ""]);
 
 // exports
 
@@ -37769,21 +37791,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", [
-    _c("div", { staticClass: "row" }, [
-      _vm._v(
-        "\n        Properties matching your search: " +
-          _vm._s(_vm.numAvailable) +
-          "\n    "
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
+  return _c("form", { attrs: { action: "/rentals/", method: "get" } }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
       _c(
         "div",
         { staticClass: "col-4" },
         [
           _c("hotel-date-picker", {
+            staticClass: "input-rounded",
             on: {
               checkInChanged: _vm.checkInChanged,
               checkOutChanged: _vm.checkOutChanged
@@ -37793,7 +37808,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-4" }, [
+      _c("div", { staticClass: "col-auto" }, [
         _c("div", { staticClass: "form-group" }, [
           _c(
             "select",
@@ -37806,7 +37821,7 @@ var render = function() {
                   expression: "location"
                 }
               ],
-              staticClass: "form-control",
+              staticClass: "custom-select input-rounded",
               on: {
                 change: [
                   function($event) {
@@ -37827,7 +37842,11 @@ var render = function() {
               }
             },
             [
-              _c("option", [_vm._v("Beachfront")]),
+              _c("option", { attrs: { value: "" } }, [_vm._v("Location")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "Beachfront" } }, [
+                _vm._v("Beachfront")
+              ]),
               _vm._v(" "),
               _c("option", { attrs: { value: "Between Hwy-Beach" } }, [
                 _vm._v("Between highway and beach")
@@ -37841,7 +37860,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-4" }, [
+      _c("div", { staticClass: "col-auto" }, [
         _c("div", { staticClass: "form-group" }, [
           _c(
             "select",
@@ -37854,7 +37873,7 @@ var render = function() {
                   expression: "type"
                 }
               ],
-              staticClass: "form-control",
+              staticClass: "custom-select input-rounded",
               on: {
                 change: [
                   function($event) {
@@ -37875,12 +37894,47 @@ var render = function() {
               }
             },
             [
-              _c("option", [_vm._v("Vacation Rental")]),
+              _c("option", { attrs: { value: "" } }, [_vm._v("Type")]),
               _vm._v(" "),
-              _c("option", [_vm._v("Long Term Rental")])
+              _c("option", { attrs: { value: "Vacation Rental" } }, [
+                _vm._v("Vacation Rental")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "Long Term Rental" } }, [
+                _vm._v("Long Term Rental")
+              ])
             ]
           )
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-auto" }, [
+        _vm.numAvailable == 0
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-primary btn-rounded",
+                attrs: { disabled: "" }
+              },
+              [_vm._v("Search")]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.numAvailable > 0 || _vm.numAvailable == null
+          ? _c("button", { staticClass: "btn btn-primary btn-rounded" }, [
+              _vm._v("Search")
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-12 text-center text-white" }, [
+        _vm.numAvailable > 0
+          ? _c("span", [
+              _vm._v(
+                "Properties matching your search: " + _vm._s(_vm.numAvailable)
+              )
+            ])
+          : _vm._e()
       ])
     ])
   ])
@@ -38230,6 +38284,33 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-524b7986\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNavigationMenu.vue", function() {
      var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-524b7986\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNavigationMenu.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b8aa24c6\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SearchBar.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b8aa24c6\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SearchBar.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("308d137f", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b8aa24c6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SearchBar.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b8aa24c6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SearchBar.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -50227,6 +50308,10 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b8aa24c6\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SearchBar.vue")
+}
 var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/SearchBar.vue")
@@ -50235,7 +50320,7 @@ var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/templa
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
