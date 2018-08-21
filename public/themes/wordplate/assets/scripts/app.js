@@ -37952,7 +37952,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-12 text-center text-white" }, [
-        _vm.numAvailable > 0
+        _vm.numAvailable != null
           ? _c("span", [
               _vm._v(
                 "Properties matching your search: " + _vm._s(_vm.numAvailable)

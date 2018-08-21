@@ -36,7 +36,7 @@
                 <button v-if="numAvailable > 0 || numAvailable == null" class="btn btn-primary btn-rounded btn-block">Search</button>
             </div>
             <div class="col-12 text-center text-white">
-                <span v-if="numAvailable > 0" >Properties matching your search: {{ numAvailable }}</span>
+                <span v-if="numAvailable != null" >Properties matching your search: {{ numAvailable }}</span>
             </div>
         </div>
     </form>
