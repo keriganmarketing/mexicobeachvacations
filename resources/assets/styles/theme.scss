@@ -489,6 +489,10 @@ main {
     background-size: cover;
     text-align: center;
 
+    @media (min-width: 768px){
+        background: url('/themes/wordplate/assets/images/sand-large.jpg') no-repeat #f1efeb;
+    }
+
     .bubble-button {
         margin: 1rem auto;
         display: block;

@@ -15081,6 +15081,12 @@ main.front p {
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .bubble-buttons {
+    background: url("/themes/wordplate/assets/images/sand-large.jpg") no-repeat #f1efeb;
+  }
+}
+
 .bubble-buttons .bubble-button {
   margin: 1rem auto;
   display: block;
