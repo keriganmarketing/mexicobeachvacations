@@ -5955,6 +5955,135 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/SideSearchBar.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_hotel_datepicker__ = __webpack_require__("./node_modules/vue-hotel-datepicker/dist/vue-hotel-datepicker.min.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_hotel_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_hotel_datepicker__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        HotelDatePicker: __WEBPACK_IMPORTED_MODULE_0_vue_hotel_datepicker___default.a
+    },
+    props: ['searchData'],
+    data: function data() {
+        return {
+            checkIn: '',
+            checkOut: '',
+            location: '',
+            type: '',
+            numAvailable: null,
+            searchIsOpen: false,
+            filterIsOpen: false
+        };
+    },
+
+    methods: {
+        checkInChanged: function checkInChanged(date) {
+            this.checkIn = __WEBPACK_IMPORTED_MODULE_1_moment___default()(date).format("YYYY-MM-DD");
+            this.getMatches();
+        },
+        checkOutChanged: function checkOutChanged(date) {
+            this.checkOut = __WEBPACK_IMPORTED_MODULE_1_moment___default()(date).format("YYYY-MM-DD");
+            this.getMatches();
+        },
+        getMatches: function getMatches() {
+            var _this = this;
+
+            var url = 'https://rns.mexicobeachvacations.com/matches?q=search&checkIn=' + this.checkIn + '&checkOut=' + this.checkOut + '&type=' + this.type + '&location=' + this.location;
+            axios.get(url).then(function (response) {
+                _this.numAvailable = response.data;
+            });
+        },
+        toggleSearch: function toggleSearch() {
+            this.searchIsOpen = !this.searchIsOpen;
+        },
+        toggleFilters: function toggleFilters() {
+            this.filterIsOpen = !this.filterIsOpen;
+        }
+    }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/SocialMediaIcons.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -15557,6 +15686,21 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 // module
 exports.push([module.i, "\n.main-navigation .dropdown:hover .dropdown-menu {\n    display: block;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bfbfc9f4\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.input-rounded button {\n    border: 0 !important;\n    height: 44px !important;\n}\n.datepicker__wrapper,\n.datepicker__dummy-wrapper {\n    border: 0 !important;\n    height: 44px !important;\n}\n.datepicker__clear-button {\n    height: 40px !important;\n    margin: 1px 0 0 0 !important;\n}\n.input-rounded {\n    border-radius: 2em;\n    border: 2px solid #46a5b5 !important;\n    height: 44px;\n}\n.custom-select.input-rounded {\n    padding: 0.425rem 1.75rem 0.375rem 1rem;\n}\n.btn-primary,\n.btn-primary.disabled, \n.btn-primary:disabled {\n    color: #FFF;\n    opacity: 1 !important;\n    border: 2px solid #46a5b5 !important;\n}\n.datepicker--open {\n    z-index: 9999 !important;\n}\n.form-group {\n    margin: 0 0 .5rem;\n}\n", ""]);
 
 // exports
 
@@ -37998,6 +38142,332 @@ if (false) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-bfbfc9f4\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/SideSearchBar.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row d-md-none mb-4" }, [
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-info col-6 col-md-12",
+          on: { click: _vm.toggleSearch }
+        },
+        [_vm._v("\n            Update Search\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-info col-6 col-md-12",
+          on: { click: _vm.toggleFilters }
+        },
+        [_vm._v("\n            Apply Filters\n        ")]
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "sidebar-search-box d-md-block mb-4",
+        class: {
+          "d-none": !_vm.searchIsOpen,
+          "d-block": _vm.searchIsOpen
+        }
+      },
+      [
+        _c("h3", [_vm._v("Update Search Criteria")]),
+        _vm._v(" "),
+        _c(
+          "form",
+          { attrs: { method: "GET", action: "/rentals" } },
+          [
+            _c("input", {
+              attrs: { type: "hidden", name: "checkIn" },
+              domProps: { value: _vm.checkIn }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "hidden", name: "checkOut" },
+              domProps: { value: _vm.checkOut }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "hidden", name: "location" },
+              domProps: { value: _vm.location }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "hidden", name: "type" },
+              domProps: { value: _vm.type }
+            }),
+            _vm._v(" "),
+            _c("hotel-date-picker", {
+              staticClass: "input-rounded",
+              attrs: { format: "MM/DD/YYYY" },
+              on: {
+                checkInChanged: _vm.checkInChanged,
+                checkOutChanged: _vm.checkOutChanged
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.location,
+                      expression: "location"
+                    }
+                  ],
+                  staticClass: "custom-select input-rounded",
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.location = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                      _vm.getMatches
+                    ]
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [_vm._v("Location")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Beachfront" } }, [
+                    _vm._v("Beachfront")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Between Hwy-Beach" } }, [
+                    _vm._v("Between highway and beach")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Across Hwy from Beach" } }, [
+                    _vm._v("Across highway from beach")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.type,
+                      expression: "type"
+                    }
+                  ],
+                  staticClass: "custom-select input-rounded",
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.type = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                      _vm.getMatches
+                    ]
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [_vm._v("Type")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Vacation Rental" } }, [
+                    _vm._v("Vacation Rental")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Long Term Rental" } }, [
+                    _vm._v("Long Term Rental")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _vm.numAvailable == 0
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary btn-rounded btn-block",
+                    attrs: { disabled: "" }
+                  },
+                  [_vm._v("Search")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.numAvailable > 0 || _vm.numAvailable == null
+              ? _c(
+                  "button",
+                  { staticClass: "btn btn-primary btn-rounded btn-block" },
+                  [_vm._v("Search")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.numAvailable != null
+              ? _c("p", [
+                  _vm._v(
+                    "Properties matching your search: " +
+                      _vm._s(_vm.numAvailable)
+                  )
+                ])
+              : _vm._e()
+          ],
+          1
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "sidebar-filter-box d-md-block",
+        class: {
+          "d-none": !_vm.filterIsOpen,
+          "d-block": _vm.filterIsOpen
+        }
+      },
+      [
+        _c("h3", [_vm._v("Filter Results")]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5)
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("img", {
+        attrs: {
+          src: "/themes/wordplate/assets/images/dock.gif",
+          alt: "Dock Available"
+        }
+      }),
+      _vm._v(" Dock Available")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("img", {
+        attrs: {
+          src: "/themes/wordplate/assets/images/pool.gif",
+          alt: "Pool Available"
+        }
+      }),
+      _vm._v(" Pool Available")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("img", {
+        attrs: {
+          src: "/themes/wordplate/assets/images/canal.gif",
+          alt: "Canal Front"
+        }
+      }),
+      _vm._v(" Canal Front")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("img", {
+        attrs: {
+          src: "/themes/wordplate/assets/images/internet.gif",
+          alt: "Internet Available"
+        }
+      }),
+      _vm._v(" Internet Available")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("img", {
+        attrs: {
+          src: "/themes/wordplate/assets/images/linens.gif",
+          alt: "Linens Provided"
+        }
+      }),
+      _vm._v(" Linens Provided")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("img", {
+        attrs: {
+          src: "/themes/wordplate/assets/images/virt-tour.gif",
+          alt: "Pet Friendly"
+        }
+      }),
+      _vm._v(" Pet Friendly")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-bfbfc9f4", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-de0d8654\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/ContactForm.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -38389,6 +38859,33 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-78bfeb99\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNavigationMenu.vue", function() {
      var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-78bfeb99\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainNavigationMenu.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bfbfc9f4\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bfbfc9f4\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("3f5b81a0", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bfbfc9f4\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SideSearchBar.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bfbfc9f4\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SideSearchBar.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -50380,6 +50877,58 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/scripts/components/SideSearchBar.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bfbfc9f4\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue")
+}
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/SideSearchBar.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-bfbfc9f4\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/SideSearchBar.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/scripts/components/SideSearchBar.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-bfbfc9f4", Component.options)
+  } else {
+    hotAPI.reload("data-v-bfbfc9f4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/scripts/components/SocialMediaIcons.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -50698,6 +51247,7 @@ Vue.component('contact-form', __webpack_require__("./resources/assets/scripts/co
 Vue.component('fit-text', __webpack_require__("./resources/assets/scripts/components/FitText.vue"));
 Vue.component('weather-fetcher', __webpack_require__("./resources/assets/scripts/components/WeatherFetcher.vue"));
 Vue.component('search-bar', __webpack_require__("./resources/assets/scripts/components/SearchBar.vue"));
+Vue.component('side-search-bar', __webpack_require__("./resources/assets/scripts/components/SideSearchBar.vue"));
 Vue.component('weather-icon', __webpack_require__("./resources/assets/scripts/components/WeatherIcon.vue"));
 
 /***/ }),
