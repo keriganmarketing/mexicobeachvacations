@@ -17,11 +17,11 @@
                 </article>
 
             <search-results-container
-                :data-results="{{ json_encode($units) }}"
-                data-check-in="{{ json_encode($_GET['checkIn']) }}"
-                data-check-out="{{ json_encode($_GET['checkOut']) }}"
-                data-location="{{ json_encode($_GET['location']) }}"
-                data-type="{{ json_encode($_GET['type']) }}"
+                :data-results="{{ $units }}"
+                data-check-in="{{ $checkIn }}"
+                data-check-out="{{ $checkOut }}"
+                data-location="{{ $location }}"
+                data-type="{{ $type }}"
             >
             </search-results-container>
 

@@ -60,8 +60,44 @@
             'd-block': filterIsOpen
         }">
         <h3>Filter Results</h3>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-model="filters.pool" :checked="filters.pool" id="pool" @change="applyFilters">
+            <label class="form-check-label" for="pool">
+                Pool Available
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-model="filters.dock" :checked="filters.dock" id="dock" @change="applyFilters">
+            <label class="form-check-label" for="dock">
+                Dock Available - (Doesn't work right now)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-model="filters.canal" :checked="filters.canal" id="canal" @change="applyFilters">
+            <label class="form-check-label" for="canal">
+                Canal Front - (Doesn't work right now)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-model="filters.internet" :checked="filters.internet" id="internet" @change="applyFilters">
+            <label class="form-check-label" for="internet">
+                Internet Access
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-model="filters.linens" :checked="filters.linens" id="linens" @change="applyFilters">
+            <label class="form-check-label" for="linens">
+                Linens Provided - (Doesn't work right now)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-model="filters.pets" :checked="filters.pets" id="pets" @change="applyFilters">
+            <label class="form-check-label" for="pets">
+                Pet Friendly
+            </label>
+        </div>
         <p><img src="/themes/wordplate/assets/images/dock.gif" alt="Dock Available" > Dock Available</p>
-        <p><img src="/themes/wordplate/assets/images/pool.gif" alt="Pool Available" > Pool Available</p>
+        <p><img src="/themes/wordplate/assets/images/pool.gif" alt="Pool Available"> Pool Available</p>
         <p><img src="/themes/wordplate/assets/images/canal.gif" alt="Canal Front" > Canal Front</p>
         <p><img src="/themes/wordplate/assets/images/internet.gif" alt="Internet Available" > Internet Available</p>
         <p><img src="/themes/wordplate/assets/images/linens.gif" alt="Linens Provided" > Linens Provided</p>
@@ -87,6 +123,14 @@ export default {
             numAvailable: null,
             searchIsOpen: false,
             filterIsOpen: false,
+            filters:  {
+                dock: false,                
+                pool: false,
+                canal: false,
+                internet: false,
+                linens: false,
+                pets: false
+            }
         }
     },
     methods: {
@@ -99,11 +143,33 @@ export default {
             this.getMatches();
         },
         getMatches() {
-            let url = 'https://rns.mexicobeachvacations.com/matches?q=search&checkIn=' + this.checkIn + '&checkOut=' + this.checkOut + '&type=' + this.type + '&location=' + this.location;
-            axios.get(url)
-                .then(response => {
-                    this.numAvailable = response.data;
+            let url = 'https://rns.mexicobeachvacations.com/matches';
+
+            axios.get(url, {
+                params: {
+                    type: this.type,
+                    checkIn: this.checkIn,
+                    checkOut: this.checkOut,
+                    dock: this.filters.dock,
+                    location: this.location,
+                    pets: this.filters.pets,
+                    pool: this.filters.pool,
+                    canal: this.filters.canal,
+                    linens: this.filters.linens,
+                    internet: this.filters.internet,
+
+                }
+            })
+            .then(response => {
+                this.numAvailable = response.data;
+            })
+                .catch(err => {
+                    console.log(err);
                 })
+
+        },
+        applyFilters() {
+            this.$emit('apply-filters', this.filters)
         },
         toggleSearch() {
             this.searchIsOpen = !this.searchIsOpen;
