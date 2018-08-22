@@ -60,7 +60,7 @@
                                             <span class="data">{{ $unit->details[0]->sleeps }}</span>
                                             <span class="label">SLEEPS</span>
                                         </div>
-                                        @if($unit->rates[0]->minimun_nights > 0)
+                                        @if(isset($unit->rates[0]) && $unit->rates[0]->minimun_nights > 0)
                                         <div class="col">
                                             <span class="data">{{ $unit->rates[0]->minimun_nights }}</span>
                                             <span class="label">MIN STAY</span>
