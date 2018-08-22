@@ -15,3 +15,4 @@ Vue.component('weather-fetcher', require('./components/WeatherFetcher.vue'));
 Vue.component('search-bar', require('./components/SearchBar.vue'));
 Vue.component('side-search-bar', require('./components/SideSearchBar.vue'));
 Vue.component('weather-icon', require('./components/WeatherIcon.vue'));
+Vue.component('search-results-container', require('./components/SearchResultsContainer.vue'));
