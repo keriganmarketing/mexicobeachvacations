@@ -15211,7 +15211,14 @@ main.front p {
 .rental-feed .unit {
   margin-bottom: 3rem;
   padding: 0 0 3rem;
-  border-bottom: 2px solid #224b68;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.rental-feed .unit .property-image {
+  display: block;
+  border-radius: .5rem;
+  overflow: hidden;
+  margin-top: 1rem;
 }
 
 .rental-feed .rental-feed-info {
@@ -15220,9 +15227,9 @@ main.front p {
 }
 
 .rental-feed .rental-feed-info .tiles {
-  background-color: #224b68;
-  color: #fff;
-  margin: .5rem 0;
+  color: #fa7a22;
+  margin: 0 -.75rem .5rem;
+  padding: 0 .5rem;
 }
 
 .rental-feed .rental-feed-info .data {
@@ -15230,7 +15237,6 @@ main.front p {
   text-align: center;
   display: block;
   color: #4ebacb;
-  margin: .5rem 0 0;
   font-size: 1.8em;
 }
 
@@ -15239,6 +15245,8 @@ main.front p {
   text-align: center;
   display: block;
   margin: 0 0 .5rem;
+  padding: 0 .75rem;
+  width: 70px;
 }
 
 .testimonials .testimonial {

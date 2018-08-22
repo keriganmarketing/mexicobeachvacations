@@ -627,17 +627,23 @@ main {
     .unit {
         margin-bottom: 3rem;
         padding: 0 0 3rem;
-        border-bottom: 2px solid $navy;
-        // border-top: 2px solid $navy;
+        border-bottom: 2px solid $gray-300;
+
+        .property-image {
+            display: block;
+            border-radius: .5rem;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
     }
     .rental-feed-info {
         padding: 0 1.25rem;
         color: $navy;
 
         .tiles {
-            background-color: $navy;
-            color: $white;
-            margin: .5rem 0;
+            color: $orange;
+            margin: 0 -.75rem .5rem;
+            padding: 0 .5rem;
         }
 
         .data {
@@ -645,7 +651,6 @@ main {
             text-align: center;
             display: block;
             color: $info;
-            margin: .5rem 0 0;
             font-size: 1.8em;
         }
         .label {
@@ -653,6 +658,8 @@ main {
             text-align: center;
             display: block;
             margin: 0 0 .5rem;
+            padding: 0 .75rem;
+            width: 70px;
         }
     }
 }
