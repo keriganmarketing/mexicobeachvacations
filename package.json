@@ -23,7 +23,7 @@
         "moment": "^2.22.2",
         "vue": "^2.5.16",
         "vue-hotel-datepicker": "^2.2.4",
-        "vue-masonry": "^0.11.4",
+        "vue-masonry": "^0.11.6",
         "weathericons": "^2.1.0"
     },
     "browserslist": [
