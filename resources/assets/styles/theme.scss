@@ -484,6 +484,7 @@ main {
 
 // Bubble Buttons
 .bubble-buttons {
+    position: relative;
     padding: 4rem 0 3rem;
     background: url('/themes/wordplate/assets/images/sand.jpg') no-repeat #f1efeb;
     background-size: cover;
@@ -612,7 +613,7 @@ main {
     background-color: rgba(78,186,203,.9);
 
     @media (min-width: 768px){
-        margin-top: -150px;
+        margin-top: -170px;
     }
 
     h2 {

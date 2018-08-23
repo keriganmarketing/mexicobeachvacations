@@ -1,7 +1,7 @@
 <template>
 <div class="row">
     <div class="col-md-4 col-lg-3 mb-4">
-        <side-search-bar></side-search-bar>
+        <side-search-bar @apply-filters="applyFilters"></side-search-bar>
     </div>
     <div class="col-md-8 col-lg-9 rental-feed">
         <div class="row no-gutters unit" v-for="unit in units" :key="unit.id">
@@ -40,6 +40,7 @@
 
 <script>
 import Pagination from '../models/pagination.js';
+import Qs from 'qs';
 export default {
     props: [
         'data-results', 
@@ -55,7 +56,8 @@ export default {
             checkIn: '',
             checkOut: '',
             location: '',
-            type: ''
+            type: '',
+            filters: {}
         }
     },
     mounted() {
@@ -65,6 +67,37 @@ export default {
         this.checkOut   = this.dataCheckOut;
         this.location   = this.dataLocation;
         this.type       = this.dataType;
+    },
+    methods: {
+        applyFilters(filters) {
+            let url = 'https://rns.mexicobeachvacations.com/search';
+            this.filters = filters
+
+            axios.get(url, {
+                params: {
+                    type: this.type.replace,
+                    checkIn: this.checkIn,
+                    checkOut: this.checkOut,
+                    dock: this.filters.dock,
+                    location: this.location,
+                    pets: this.filters.pets,
+                    pool: this.filters.pool,
+                    canal: this.filters.canal,
+                    linens: this.filters.linens,
+                    internet: this.filters.internet,
+
+                },
+                paramsSerializer: function (params) {
+                    return Qs.stringify(params, {encode: false}).replace(/[""]+/g, '');
+                }
+            })
+            .then(response => {
+                this.units = response.data.data;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
     }
 }
 

@@ -15075,6 +15075,7 @@ main.front p {
 }
 
 .bubble-buttons {
+  position: relative;
   padding: 4rem 0 3rem;
   background: url("/themes/wordplate/assets/images/sand.jpg") no-repeat #f1efeb;
   background-size: cover;
@@ -15210,7 +15211,7 @@ main.front p {
 
 @media (min-width: 768px) {
   .quick-search {
-    margin-top: -150px;
+    margin-top: -170px;
   }
 }
 
