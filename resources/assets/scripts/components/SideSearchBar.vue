@@ -61,48 +61,42 @@
             'd-block': filterIsOpen
         }">
         <h3>Filter Results</h3>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="filters.pool" :checked="filters.pool" id="pool" @change="applyFilters">
-            <label class="form-check-label" for="pool">
+        <div class="custom-control custom-checkbox my-2">
+            <input class="custom-control-input" type="checkbox" v-model="filters.pool" :checked="filters.pool" id="pool" @change="applyFilters">
+            <label class="custom-control-label pt-1" for="pool">
                 Pool Available
             </label>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="filters.dock" :checked="filters.dock" id="dock" @change="applyFilters">
-            <label class="form-check-label" for="dock">
-                Dock Available - (Doesn't work right now)
+        <div class="custom-control custom-checkbox my-2">
+            <input class="custom-control-input" type="checkbox" v-model="filters.dock" :checked="filters.dock" id="dock" @change="applyFilters">
+            <label class="custom-control-label pt-1" for="dock">
+                Dock Available<br>(Doesn't work right now)
             </label>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="filters.canal" :checked="filters.canal" id="canal" @change="applyFilters">
-            <label class="form-check-label" for="canal">
-                Canal Front - (Doesn't work right now)
+        <div class="custom-control custom-checkbox my-2">
+            <input class="custom-control-input" type="checkbox" v-model="filters.canal" :checked="filters.canal" id="canal" @change="applyFilters">
+            <label class="custom-control-label pt-1" for="canal">
+                Canal Front<br>(Doesn't work right now)
             </label>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="filters.internet" :checked="filters.internet" id="internet" @change="applyFilters">
-            <label class="form-check-label" for="internet">
+        <div class="custom-control custom-checkbox my-2">
+            <input class="custom-control-input" type="checkbox" v-model="filters.internet" :checked="filters.internet" id="internet" @change="applyFilters">
+            <label class="custom-control-label pt-1" for="internet">
                 Internet Access
             </label>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="filters.linens" :checked="filters.linens" id="linens" @change="applyFilters">
-            <label class="form-check-label" for="linens">
-                Linens Provided - (Doesn't work right now)
+        <div class="custom-control custom-checkbox my-2">
+            <input class="custom-control-input" type="checkbox" v-model="filters.linens" :checked="filters.linens" id="linens" @change="applyFilters">
+            <label class="custom-control-label pt-1" for="linens">
+                Linens Provided<br>(Doesn't work right now)
             </label>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" v-model="filters.pets" :checked="filters.pets" id="pets" @change="applyFilters">
-            <label class="form-check-label" for="pets">
+        <div class="custom-control custom-checkbox my-2">
+            <input class="custom-control-input" type="checkbox" v-model="filters.pets" :checked="filters.pets" id="pets" @change="applyFilters">
+            <label class="custom-control-label pt-1" for="pets">
                 Pet Friendly
             </label>
         </div>
-        <p><img src="/themes/wordplate/assets/images/dock.gif" alt="Dock Available" > Dock Available</p>
-        <p><img src="/themes/wordplate/assets/images/pool.gif" alt="Pool Available"> Pool Available</p>
-        <p><img src="/themes/wordplate/assets/images/canal.gif" alt="Canal Front" > Canal Front</p>
-        <p><img src="/themes/wordplate/assets/images/internet.gif" alt="Internet Available" > Internet Available</p>
-        <p><img src="/themes/wordplate/assets/images/linens.gif" alt="Linens Provided" > Linens Provided</p>
-        <p><img src="/themes/wordplate/assets/images/virt-tour.gif" alt="Pet Friendly" > Pet Friendly</p>
     </div>
 </div>
 </template>

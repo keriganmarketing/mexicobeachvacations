@@ -5610,6 +5610,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 //
 //
 //
@@ -5735,6 +5737,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['rnsId'],
@@ -5753,7 +5763,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }).catch(function (err) {
             console.log(err);
         });
+    },
+
+    methods: {
+        formatDate: function formatDate(date) {
+            return __WEBPACK_IMPORTED_MODULE_0_moment___default()(date).format("MM/DD/YYYY");
+        },
+        formatDateRange: function formatDateRange(startDate, endDate) {
+            return __WEBPACK_IMPORTED_MODULE_0_moment___default()(startDate).format("MM/DD") + ' - ' + __WEBPACK_IMPORTED_MODULE_0_moment___default()(endDate).format("MM/DD/YYYY");
+        },
+        formatRate: function formatRate(num) {
+            return num !== 0 ? '$' + num.toLocaleString() : 'N/A';
+        }
     }
+
 });
 
 /***/ }),
@@ -6312,12 +6335,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_hotel_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_hotel_datepicker__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__("./node_modules/moment/moment.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -18156,7 +18173,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.action-buttons {\r\n    padding: 0 1rem;\n}\n.action-buttons a {\r\n    margin: 0 .5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.action-buttons {\r\n    padding: 0 1rem;\n}\n.action-buttons a {\r\n    margin: 0 .5rem;\n}\n.unitid {\r\n    color: #ff6f74;\r\n    font-size: .5em;\n}\r\n", ""]);
 
 // exports
 
@@ -40671,9 +40688,9 @@ var render = function() {
   return _vm.propertyLoaded
     ? _c("div", { staticClass: "full-property" }, [
         _c("header", { staticClass: "text-primary" }, [
-          _c("h1", [
-            _vm._v(_vm._s(_vm.property.name) + " "),
-            _c("span", { staticClass: "label" }, [
+          _c("h1", { staticStyle: { "text-transform": "capitalize" } }, [
+            _vm._v(_vm._s(_vm.property.name.toLowerCase()) + " "),
+            _c("span", { staticClass: "unitid fira d-inline-block" }, [
               _vm._v("Unit ID: " + _vm._s(_vm.property.details[0].prop_number))
             ])
           ]),
@@ -40694,12 +40711,12 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-8 property-info mb-4" }, [
+          _c("div", { staticClass: "col-md-8 property-info mb-4" }, [
             _c(
               "div",
               {
                 staticClass:
-                  "row no-gutters tiles align-items-center full-width"
+                  "row no-gutters tiles align-items-center full-width text-center text-md-left"
               },
               [
                 _c("div", { staticClass: "col-md-auto" }, [
@@ -40724,10 +40741,10 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "row no-gutters tiles align-items-center full-width"
+                  "row no-gutters tiles align-items-center full-width text-center justify-content-center justify-content-start-md"
               },
               [
-                _c("div", { staticClass: "col-auto" }, [
+                _c("div", { staticClass: "col-auto my-1" }, [
                   _c("span", { staticClass: "data" }, [
                     _vm._v(_vm._s(_vm.property.details[0].beds))
                   ]),
@@ -40735,7 +40752,7 @@ var render = function() {
                   _c("span", { staticClass: "label" }, [_vm._v("BEDS")])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [
+                _c("div", { staticClass: "col-auto my-1" }, [
                   _c("span", { staticClass: "data" }, [
                     _vm._v(_vm._s(_vm.property.details[0].baths))
                   ]),
@@ -40743,7 +40760,7 @@ var render = function() {
                   _c("span", { staticClass: "label" }, [_vm._v("BATHS")])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [
+                _c("div", { staticClass: "col-auto my-1" }, [
                   _c("span", { staticClass: "data" }, [
                     _vm._v(_vm._s(_vm.property.details[0].sleeps))
                   ]),
@@ -40771,17 +40788,23 @@ var render = function() {
             _vm._v(" "),
             _c("h2", [_vm._v("Amenties")]),
             _vm._v(" "),
-            _c("table", { staticClass: "table table-striped amenity-table" }, [
+            _c("div", { staticClass: "table-responsive" }, [
               _c(
-                "tbody",
-                _vm._l(_vm.property.amenities, function(amenity) {
-                  return _c("tr", { key: amenity.id }, [
-                    _c("td", { staticClass: "data-label" }, [
-                      _vm._v(_vm._s(amenity.name))
-                    ]),
-                    _c("td", [_vm._v(_vm._s(amenity.description))])
-                  ])
-                })
+                "table",
+                { staticClass: "table table-sm table-striped amenity-table" },
+                [
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.property.amenities, function(amenity) {
+                      return _c("tr", { key: amenity.id }, [
+                        _c("td", { staticClass: "data-label" }, [
+                          _vm._v(_vm._s(amenity.name))
+                        ]),
+                        _c("td", [_vm._v(_vm._s(amenity.description))])
+                      ])
+                    })
+                  )
+                ]
               )
             ])
           ]),
@@ -40791,23 +40814,39 @@ var render = function() {
             _vm._v(" "),
             _c("h2", [_vm._v("Rates")]),
             _vm._v(" "),
-            _c("table", { staticClass: "table table-striped amenity-table" }, [
-              _vm._m(2),
-              _vm._v(" "),
+            _c("div", { staticClass: "table-responsive" }, [
               _c(
-                "tbody",
-                _vm._l(_vm.property.rates, function(rate) {
-                  return _c("tr", { key: rate.id }, [
-                    _c("td", { staticClass: "data-label" }, [
-                      _vm._v(
-                        _vm._s(rate.start_date) + " - " + _vm._s(rate.end_date)
-                      )
-                    ]),
-                    _c("td", [_vm._v(_vm._s(rate.monthly))]),
-                    _c("td", [_vm._v(_vm._s(rate.weekly))]),
-                    _c("td", [_vm._v(_vm._s(rate.daily))])
-                  ])
-                })
+                "table",
+                { staticClass: "table table-sm table-striped rate-table" },
+                [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.property.rates, function(rate) {
+                      return _c("tr", { key: rate.id }, [
+                        _c("td", { staticClass: "data-label" }, [
+                          _vm._v(
+                            _vm._s(
+                              _vm.formatDateRange(
+                                rate.start_date,
+                                rate.end_date
+                              )
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(_vm.formatRate(rate.monthly)))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(_vm.formatRate(rate.weekly)))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(_vm.formatRate(rate.daily)))])
+                      ])
+                    })
+                  )
+                ]
               )
             ])
           ])
@@ -40902,13 +40941,13 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "col-12 col-md-auto action-buttons flex-grow-1 text-md-right"
+          "col-12 col-md-auto action-buttons flex-grow-1 text-xl-right"
       },
       [
         _c(
           "a",
           {
-            staticClass: "btn btn-info btn-rounded",
+            staticClass: "btn btn-info btn-rounded my-1",
             attrs: { href: "#rates" }
           },
           [_vm._v("Rates")]
@@ -40917,7 +40956,7 @@ var staticRenderFns = [
         _c(
           "a",
           {
-            staticClass: "btn btn-info btn-rounded",
+            staticClass: "btn btn-info btn-rounded my-1",
             attrs: { href: "#availability" }
           },
           [_vm._v("Availability")]
@@ -40926,7 +40965,7 @@ var staticRenderFns = [
         _c(
           "a",
           {
-            staticClass: "btn btn-info btn-rounded",
+            staticClass: "btn btn-info btn-rounded my-1",
             attrs: { href: "#photos" }
           },
           [_vm._v("Photos")]
@@ -40935,7 +40974,7 @@ var staticRenderFns = [
         _c(
           "a",
           {
-            staticClass: "btn btn-info btn-rounded",
+            staticClass: "btn btn-info btn-rounded my-1",
             attrs: { href: "#location" }
           },
           [_vm._v("Location")]
@@ -40947,7 +40986,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
+    return _c("thead", { staticClass: "thead-dark" }, [
       _c("tr", [
         _c("th", [_vm._v("Date Range")]),
         _c("th", [_vm._v("Monthly")]),
@@ -41196,7 +41235,7 @@ var render = function() {
       [
         _c("h3", [_vm._v("Filter Results")]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-check" }, [
+        _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
           _c("input", {
             directives: [
               {
@@ -41206,7 +41245,7 @@ var render = function() {
                 expression: "filters.pool"
               }
             ],
-            staticClass: "form-check-input",
+            staticClass: "custom-control-input",
             attrs: { type: "checkbox", id: "pool" },
             domProps: {
               checked: _vm.filters.pool,
@@ -41245,12 +41284,15 @@ var render = function() {
           _vm._v(" "),
           _c(
             "label",
-            { staticClass: "form-check-label", attrs: { for: "pool" } },
+            {
+              staticClass: "custom-control-label pt-1",
+              attrs: { for: "pool" }
+            },
             [_vm._v("\r\n                Pool Available\r\n            ")]
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-check" }, [
+        _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
           _c("input", {
             directives: [
               {
@@ -41260,7 +41302,7 @@ var render = function() {
                 expression: "filters.dock"
               }
             ],
-            staticClass: "form-check-input",
+            staticClass: "custom-control-input",
             attrs: { type: "checkbox", id: "dock" },
             domProps: {
               checked: _vm.filters.dock,
@@ -41297,18 +41339,10 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "form-check-label", attrs: { for: "dock" } },
-            [
-              _vm._v(
-                "\r\n                Dock Available - (Doesn't work right now)\r\n            "
-              )
-            ]
-          )
+          _vm._m(0)
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-check" }, [
+        _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
           _c("input", {
             directives: [
               {
@@ -41318,7 +41352,7 @@ var render = function() {
                 expression: "filters.canal"
               }
             ],
-            staticClass: "form-check-input",
+            staticClass: "custom-control-input",
             attrs: { type: "checkbox", id: "canal" },
             domProps: {
               checked: _vm.filters.canal,
@@ -41355,18 +41389,10 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "form-check-label", attrs: { for: "canal" } },
-            [
-              _vm._v(
-                "\r\n                Canal Front - (Doesn't work right now)\r\n            "
-              )
-            ]
-          )
+          _vm._m(1)
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-check" }, [
+        _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
           _c("input", {
             directives: [
               {
@@ -41376,7 +41402,7 @@ var render = function() {
                 expression: "filters.internet"
               }
             ],
-            staticClass: "form-check-input",
+            staticClass: "custom-control-input",
             attrs: { type: "checkbox", id: "internet" },
             domProps: {
               checked: _vm.filters.internet,
@@ -41415,12 +41441,15 @@ var render = function() {
           _vm._v(" "),
           _c(
             "label",
-            { staticClass: "form-check-label", attrs: { for: "internet" } },
+            {
+              staticClass: "custom-control-label pt-1",
+              attrs: { for: "internet" }
+            },
             [_vm._v("\r\n                Internet Access\r\n            ")]
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-check" }, [
+        _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
           _c("input", {
             directives: [
               {
@@ -41430,7 +41459,7 @@ var render = function() {
                 expression: "filters.linens"
               }
             ],
-            staticClass: "form-check-input",
+            staticClass: "custom-control-input",
             attrs: { type: "checkbox", id: "linens" },
             domProps: {
               checked: _vm.filters.linens,
@@ -41467,18 +41496,10 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "form-check-label", attrs: { for: "linens" } },
-            [
-              _vm._v(
-                "\r\n                Linens Provided - (Doesn't work right now)\r\n            "
-              )
-            ]
-          )
+          _vm._m(2)
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-check" }, [
+        _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
           _c("input", {
             directives: [
               {
@@ -41488,7 +41509,7 @@ var render = function() {
                 expression: "filters.pets"
               }
             ],
-            staticClass: "form-check-input",
+            staticClass: "custom-control-input",
             attrs: { type: "checkbox", id: "pets" },
             domProps: {
               checked: _vm.filters.pets,
@@ -41527,22 +41548,13 @@ var render = function() {
           _vm._v(" "),
           _c(
             "label",
-            { staticClass: "form-check-label", attrs: { for: "pets" } },
+            {
+              staticClass: "custom-control-label pt-1",
+              attrs: { for: "pets" }
+            },
             [_vm._v("\r\n                Pet Friendly\r\n            ")]
           )
-        ]),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _vm._m(4),
-        _vm._v(" "),
-        _vm._m(5)
+        ])
       ]
     )
   ])
@@ -41552,85 +41564,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("img", {
-        attrs: {
-          src: "/themes/wordplate/assets/images/dock.gif",
-          alt: "Dock Available"
-        }
-      }),
-      _vm._v(" Dock Available")
-    ])
+    return _c(
+      "label",
+      { staticClass: "custom-control-label pt-1", attrs: { for: "dock" } },
+      [
+        _vm._v("\r\n                Dock Available"),
+        _c("br"),
+        _vm._v("(Doesn't work right now)\r\n            ")
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("img", {
-        attrs: {
-          src: "/themes/wordplate/assets/images/pool.gif",
-          alt: "Pool Available"
-        }
-      }),
-      _vm._v(" Pool Available")
-    ])
+    return _c(
+      "label",
+      { staticClass: "custom-control-label pt-1", attrs: { for: "canal" } },
+      [
+        _vm._v("\r\n                Canal Front"),
+        _c("br"),
+        _vm._v("(Doesn't work right now)\r\n            ")
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("img", {
-        attrs: {
-          src: "/themes/wordplate/assets/images/canal.gif",
-          alt: "Canal Front"
-        }
-      }),
-      _vm._v(" Canal Front")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("img", {
-        attrs: {
-          src: "/themes/wordplate/assets/images/internet.gif",
-          alt: "Internet Available"
-        }
-      }),
-      _vm._v(" Internet Available")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("img", {
-        attrs: {
-          src: "/themes/wordplate/assets/images/linens.gif",
-          alt: "Linens Provided"
-        }
-      }),
-      _vm._v(" Linens Provided")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("img", {
-        attrs: {
-          src: "/themes/wordplate/assets/images/virt-tour.gif",
-          alt: "Pet Friendly"
-        }
-      }),
-      _vm._v(" Pet Friendly")
-    ])
+    return _c(
+      "label",
+      { staticClass: "custom-control-label pt-1", attrs: { for: "linens" } },
+      [
+        _vm._v("\r\n                Linens Provided"),
+        _c("br"),
+        _vm._v("(Doesn't work right now)\r\n            ")
+      ]
+    )
   }
 ]
 render._withStripped = true

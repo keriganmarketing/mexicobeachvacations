@@ -70,7 +70,7 @@ $info:          $cyan;
 $warning:       $yellow;
 $danger:        $red;
 $light:         #fcf9f1;
-$dark:          #222222;
+$dark:          $navy;
 
 $theme-colors: ();
 $theme-colors: map-merge((
@@ -323,10 +323,10 @@ $table-border-color:          $gray-300;
 $table-head-bg:               $gray-200;
 $table-head-color:            $gray-700;
 
-$table-dark-bg:               $gray-900;
+$table-dark-bg:               $dark;
 $table-dark-accent-bg:        rgba($white, .05);
 $table-dark-hover-bg:         rgba($white, .075);
-$table-dark-border-color:     lighten($gray-900, 7.5%);
+$table-dark-border-color:     lighten($dark, 7.5%);
 $table-dark-color:            $body-bg;
 
 $table-striped-order:         odd;
