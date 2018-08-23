@@ -18182,11 +18182,7 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-25ad9388\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/PortfolioGallery.vue":
-=======
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-19f838a2\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/FullProperty.vue":
->>>>>>> 94d8f9c2c11aa73153b15bd5389023f26e8f8d48
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
@@ -18194,18 +18190,13 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-<<<<<<< HEAD
 exports.push([module.i, "\n.project-list-enter-active, .project-list-leave-active {\n  transition: all .4s;\n}\n.project-list-enter, .project-list-leave-to /* .list-leave-active below version 2.1.8 */ {\n  opacity: 0;\n  -webkit-transform: translateY(30px);\n          transform: translateY(30px);\n}\n.separator {\n    width: 1px;\n    background-color: #999;\n    height: 100%;\n}\n.project-tile .card-body {\n    padding: 2rem 1.25rem;\n}\n.project-tile h3 {\n    font-size: 16px;\n    font-weight: 900;\n}\n.project-tile p {\n    font-size: 11px;\n}\n\n", ""]);
-=======
-exports.push([module.i, "\n.action-buttons {\r\n    padding: 0 1rem;\n}\n.action-buttons a {\r\n    margin: 0 .5rem;\n}\r\n", ""]);
->>>>>>> 94d8f9c2c11aa73153b15bd5389023f26e8f8d48
 
 // exports
 
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-41ed1e5e\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/KMASliderModule.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18222,9 +18213,6 @@ exports.push([module.i, "\n.slider {\n    display: flex;\n    align-items: cente
 /***/ }),
 
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4401901d\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SearchBar.vue":
-=======
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue":
->>>>>>> 94d8f9c2c11aa73153b15bd5389023f26e8f8d48
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
@@ -18263,6 +18251,21 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 // module
 exports.push([module.i, "\n.main-navigation .dropdown:hover .dropdown-menu {\n    display: block;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-487ef3bc\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/FullProperty.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.action-buttons {\n    padding: 0 1rem;\n}\n.action-buttons a {\n    margin: 0 .5rem;\n}\n", ""]);
 
 // exports
 
@@ -41133,7 +41136,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
   return _c("div", { staticClass: "row" }, [
     _c(
       "div",
@@ -41185,70 +41187,6 @@ var render = function() {
                 _c("div", { staticClass: "col-auto" }, [
                   _c("span", { staticClass: "data" }, [
                     _vm._v(_vm._s(unit.details[0].beds))
-=======
-  return _vm.propertyLoaded
-    ? _c("div", { staticClass: "full-property" }, [
-        _c("header", { staticClass: "text-primary" }, [
-          _c("h1", [
-            _vm._v(_vm._s(_vm.property.name) + " "),
-            _c("span", { staticClass: "label" }, [
-              _vm._v("Unit ID: " + _vm._s(_vm.property.details[0].prop_number))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("h2", { staticClass: "proprty-address" }, [
-            _vm._v(_vm._s(_vm.property.details[0].address))
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-6 col-lg-4 mb-4" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: {
-                src: _vm.property.images[0].url,
-                alt: _vm.property.images[0].description
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-8 property-info mb-4" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "row no-gutters tiles align-items-center full-width"
-              },
-              [
-                _c("div", { staticClass: "col-md-auto" }, [
-                  _c("h2", { staticClass: "subhead" }, [
-                    _c("span", { staticClass: "type" }, [
-                      _vm._v(_vm._s(_vm.property.type))
-                    ]),
-                    _vm._v(" •\n                    "),
-                    _c("span", { staticClass: "location" }, [
-                      _vm._v(_vm._s(_vm.property.location))
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(0)
-              ]
-            ),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "row no-gutters tiles align-items-center full-width"
-              },
-              [
-                _c("div", { staticClass: "col-auto" }, [
-                  _c("span", { staticClass: "data" }, [
-                    _vm._v(_vm._s(_vm.property.details[0].beds))
->>>>>>> 94d8f9c2c11aa73153b15bd5389023f26e8f8d48
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "label" }, [_vm._v("BEDS")])
@@ -41256,11 +41194,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-auto" }, [
                   _c("span", { staticClass: "data" }, [
-<<<<<<< HEAD
                     _vm._v(_vm._s(unit.details[0].baths))
-=======
-                    _vm._v(_vm._s(_vm.property.details[0].baths))
->>>>>>> 94d8f9c2c11aa73153b15bd5389023f26e8f8d48
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "label" }, [_vm._v("BATHS")])
@@ -41268,7 +41202,6 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-auto" }, [
                   _c("span", { staticClass: "data" }, [
-<<<<<<< HEAD
                     _vm._v(_vm._s(unit.details[0].sleeps))
                   ]),
                   _vm._v(" "),
@@ -41289,127 +41222,6 @@ var render = function() {
                   _c("i", {
                     staticClass: "fa fa-angle-right",
                     attrs: { "aria-hidden": "true" }
-=======
-                    _vm._v(_vm._s(_vm.property.details[0].sleeps))
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
-                ]),
-                _vm._v(" "),
-                _vm._m(1)
-              ]
-            ),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c("p", {
-              domProps: {
-                innerHTML: _vm._s(_vm.property.details[0].description)
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row mb-4" }, [
-          _c("div", { staticClass: "col-md-6" }, [
-            _c("a", { attrs: { name: "amenities" } }),
-            _vm._v(" "),
-            _c("h2", [_vm._v("Amenties")]),
-            _vm._v(" "),
-            _c("table", { staticClass: "table table-striped amenity-table" }, [
-              _c(
-                "tbody",
-                _vm._l(_vm.property.amenities, function(amenity) {
-                  return _c("tr", { key: amenity.id }, [
-                    _c("td", { staticClass: "data-label" }, [
-                      _vm._v(_vm._s(amenity.name))
-                    ]),
-                    _c("td", [_vm._v(_vm._s(amenity.description))])
-                  ])
-                })
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6" }, [
-            _c("a", { attrs: { name: "rates" } }),
-            _vm._v(" "),
-            _c("h2", [_vm._v("Rates")]),
-            _vm._v(" "),
-            _c("table", { staticClass: "table table-striped amenity-table" }, [
-              _vm._m(2),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.property.rates, function(rate) {
-                  return _c("tr", { key: rate.id }, [
-                    _c("td", { staticClass: "data-label" }, [
-                      _vm._v(
-                        _vm._s(rate.start_date) + " - " + _vm._s(rate.end_date)
-                      )
-                    ]),
-                    _c("td", [_vm._v(_vm._s(rate.monthly))]),
-                    _c("td", [_vm._v(_vm._s(rate.weekly))]),
-                    _c("td", [_vm._v(_vm._s(rate.daily))])
-                  ])
-                })
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row mb-4" }, [
-          _c(
-            "div",
-            { staticClass: "col-12" },
-            [
-              _c("hr"),
-              _vm._v(" "),
-              _c("a", { attrs: { name: "photos" } }),
-              _vm._v(" "),
-              _c("h2", [_vm._v("Photos")]),
-              _vm._v(" "),
-              _c("photo-gallery", {
-                attrs: { "data-photos": _vm.property.images }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "clearfix" })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _c("div", { staticClass: "row mb-4" }, [
-          _c("div", { staticClass: "col-12" }, [
-            _c("hr"),
-            _vm._v(" "),
-            _c("a", { attrs: { name: "location" } }),
-            _vm._v(" "),
-            _c("h2", [_vm._v("Location")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "listing-map-frame" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "embed-responsive embed-responsive-16by9",
-                  staticStyle: { border: "1px solid #ddd" }
-                },
-                [
-                  _c("iframe", {
-                    staticClass: "embed-responsive-item",
-                    attrs: {
-                      frameborder: "0",
-                      scrolling: "no",
-                      marginheight: "0",
-                      marginwidth: "0",
-                      src:
-                        "https://maps.google.com/maps?q=" +
-                        _vm.property.details[0].address +
-                        ", FL&hl=es;z=14&output=embed"
-                    }
->>>>>>> 94d8f9c2c11aa73153b15bd5389023f26e8f8d48
                   })
                 ]
               )
@@ -41420,104 +41232,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-12 col-md-auto flex-grow-1 text-md-right" },
-      [
-        _c(
-          "a",
-          {
-            staticClass:
-              "btn btn-lg btn-primary btn-rounded btn-outline-primary",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Book Now")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "col-12 col-md-auto action-buttons flex-grow-1 text-md-right"
-      },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-info btn-rounded",
-            attrs: { href: "#rates" }
-          },
-          [_vm._v("Rates")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-info btn-rounded",
-            attrs: { href: "#availability" }
-          },
-          [_vm._v("Availability")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-info btn-rounded",
-            attrs: { href: "#photos" }
-          },
-          [_vm._v("Photos")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-info btn-rounded",
-            attrs: { href: "#location" }
-          },
-          [_vm._v("Location")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Date Range")]),
-        _c("th", [_vm._v("Monthly")]),
-        _c("th", [_vm._v("Weekly")]),
-        _c("th", [_vm._v("Daily")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mb-4" }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("hr"),
-        _vm._v(" "),
-        _c("a", { attrs: { name: "availability" } }),
-        _vm._v(" "),
-        _c("h2", [_vm._v("Availability")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -41811,7 +41526,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
   return _c("div", [
     _c("div", { staticClass: "slider" }, [
       _c(
@@ -41821,53 +41535,6 @@ var render = function() {
           _c("i", {
             staticClass: "fa fa-angle-left fa-3",
             attrs: { "aria-hidden": "true" }
-=======
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "photo-gallery" }, [
-        _c(
-          "div",
-          {
-            directives: [{ name: "masonry", rawName: "v-masonry" }],
-            staticClass: "row photo-container",
-            attrs: { "transition-duration": "0.3s", "item-selector": ".item" }
-          },
-          _vm._l(_vm.photos, function(photo, index) {
-            return _c(
-              "div",
-              {
-                directives: [
-                  { name: "masonry-tile", rawName: "v-masonry-tile" }
-                ],
-                key: photo.id,
-                staticClass: "col-6 col-md-4 col-lg-2 item"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "photo-tile has-text-centered",
-                    on: {
-                      click: function($event) {
-                        _vm.openViewer(index)
-                      }
-                    }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: {
-                        id: "photo-" + photo.id,
-                        src: photo.url,
-                        alt: photo.description
-                      }
-                    })
-                  ]
-                )
-              ]
-            )
->>>>>>> 94d8f9c2c11aa73153b15bd5389023f26e8f8d48
           })
         ]
       ),
@@ -42271,7 +41938,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.propertyLoaded
-    ? _c("div", [
+    ? _c("div", { staticClass: "full-property" }, [
         _c("header", { staticClass: "text-primary" }, [
           _c("h1", [
             _vm._v(_vm._s(_vm.property.name) + " "),
@@ -42280,86 +41947,299 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "proprty-address text-dark" }, [
+          _c("h2", { staticClass: "proprty-address" }, [
             _vm._v(_vm._s(_vm.property.details[0].address))
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6 col-lg-4 mb-4" }, [
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: {
+                src: _vm.property.images[0].url,
+                alt: _vm.property.images[0].description
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-8 property-info mb-4" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row no-gutters tiles align-items-center full-width"
+              },
+              [
+                _c("div", { staticClass: "col-md-auto" }, [
+                  _c("h2", { staticClass: "subhead" }, [
+                    _c("span", { staticClass: "type" }, [
+                      _vm._v(_vm._s(_vm.property.type))
+                    ]),
+                    _vm._v(" •\n                    "),
+                    _c("span", { staticClass: "location" }, [
+                      _vm._v(_vm._s(_vm.property.location))
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
+              ]
+            ),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row no-gutters tiles align-items-center full-width"
+              },
+              [
+                _c("div", { staticClass: "col-auto" }, [
+                  _c("span", { staticClass: "data" }, [
+                    _vm._v(_vm._s(_vm.property.details[0].beds))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "label" }, [_vm._v("BEDS")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [
+                  _c("span", { staticClass: "data" }, [
+                    _vm._v(_vm._s(_vm.property.details[0].baths))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "label" }, [_vm._v("BATHS")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [
+                  _c("span", { staticClass: "data" }, [
+                    _vm._v(_vm._s(_vm.property.details[0].sleeps))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ]
+            ),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("p", {
+              domProps: {
+                innerHTML: _vm._s(_vm.property.details[0].description)
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row mb-4" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("a", { attrs: { name: "amenities" } }),
+            _vm._v(" "),
+            _c("h2", [_vm._v("Amenties")]),
+            _vm._v(" "),
+            _c("table", { staticClass: "table table-striped amenity-table" }, [
+              _c(
+                "tbody",
+                _vm._l(_vm.property.amenities, function(amenity) {
+                  return _c("tr", { key: amenity.id }, [
+                    _c("td", { staticClass: "data-label" }, [
+                      _vm._v(_vm._s(amenity.name))
+                    ]),
+                    _c("td", [_vm._v(_vm._s(amenity.description))])
+                  ])
+                })
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("a", { attrs: { name: "rates" } }),
+            _vm._v(" "),
+            _c("h2", [_vm._v("Rates")]),
+            _vm._v(" "),
+            _c("table", { staticClass: "table table-striped amenity-table" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.property.rates, function(rate) {
+                  return _c("tr", { key: rate.id }, [
+                    _c("td", { staticClass: "data-label" }, [
+                      _vm._v(
+                        _vm._s(rate.start_date) + " - " + _vm._s(rate.end_date)
+                      )
+                    ]),
+                    _c("td", [_vm._v(_vm._s(rate.monthly))]),
+                    _c("td", [_vm._v(_vm._s(rate.weekly))]),
+                    _c("td", [_vm._v(_vm._s(rate.daily))])
+                  ])
+                })
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row mb-4" }, [
           _c(
             "div",
-            { staticClass: "col-md-6 col-lg-4" },
+            { staticClass: "col-12" },
             [
-              _c("img", {
-                staticClass: "img-fluid",
-                attrs: {
-                  src: _vm.property.images[0].url,
-                  alt: _vm.property.images[0].description
-                }
-              }),
+              _c("hr"),
+              _vm._v(" "),
+              _c("a", { attrs: { name: "photos" } }),
+              _vm._v(" "),
+              _c("h2", [_vm._v("Photos")]),
               _vm._v(" "),
               _c("photo-gallery", {
                 attrs: { "data-photos": _vm.property.images }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "clearfix" })
             ],
             1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-8" }, [
-            _c("p", { staticClass: "subhead" }, [
-              _c("span", { staticClass: "type" }, [
-                _vm._v(_vm._s(_vm.property.type))
-              ]),
-              _vm._v(" •\n            "),
-              _c("span", { staticClass: "location" }, [
-                _vm._v(_vm._s(_vm.property.location))
-              ])
-            ]),
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _c("div", { staticClass: "row mb-4" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _c("hr"),
             _vm._v(" "),
-            _c("div", { staticClass: "row no-gutters tiles" }, [
-              _c("div", { staticClass: "col-auto" }, [
-                _c("span", { staticClass: "data" }, [
-                  _vm._v(_vm._s(_vm.property.details[0].beds))
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "label" }, [_vm._v("BEDS")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
-                _c("span", { staticClass: "data" }, [
-                  _vm._v(_vm._s(_vm.property.details[0].baths))
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "label" }, [_vm._v("BATHS")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [
-                _c("span", { staticClass: "data" }, [
-                  _vm._v(_vm._s(_vm.property.details[0].sleeps))
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
-              ])
-            ]),
+            _c("a", { attrs: { name: "location" } }),
             _vm._v(" "),
-            _c(
-              "table",
-              { staticClass: "table table-striped amenity-table" },
-              _vm._l(_vm.property.amenities, function(amenity) {
-                return _c("tr", { key: amenity.id }, [
-                  _c("td", { staticClass: "label" }, [
-                    _vm._v(_vm._s(amenity.name))
-                  ]),
-                  _c("td", [_vm._v(_vm._s(amenity.description))])
-                ])
-              })
-            )
+            _c("h2", [_vm._v("Location")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "listing-map-frame" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "embed-responsive embed-responsive-16by9",
+                  staticStyle: { border: "1px solid #ddd" }
+                },
+                [
+                  _c("iframe", {
+                    staticClass: "embed-responsive-item",
+                    attrs: {
+                      frameborder: "0",
+                      scrolling: "no",
+                      marginheight: "0",
+                      marginwidth: "0",
+                      src:
+                        "https://maps.google.com/maps?q=" +
+                        _vm.property.details[0].address +
+                        ", FL&hl=es;z=14&output=embed"
+                    }
+                  })
+                ]
+              )
+            ])
           ])
         ])
       ])
     : _vm._e()
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-12 col-md-auto flex-grow-1 text-md-right" },
+      [
+        _c(
+          "a",
+          {
+            staticClass:
+              "btn btn-lg btn-primary btn-rounded btn-outline-primary",
+            attrs: { href: "#" }
+          },
+          [_vm._v("Book Now")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "col-12 col-md-auto action-buttons flex-grow-1 text-md-right"
+      },
+      [
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-info btn-rounded",
+            attrs: { href: "#rates" }
+          },
+          [_vm._v("Rates")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-info btn-rounded",
+            attrs: { href: "#availability" }
+          },
+          [_vm._v("Availability")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-info btn-rounded",
+            attrs: { href: "#photos" }
+          },
+          [_vm._v("Photos")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-info btn-rounded",
+            attrs: { href: "#location" }
+          },
+          [_vm._v("Location")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Date Range")]),
+        _c("th", [_vm._v("Monthly")]),
+        _c("th", [_vm._v("Weekly")]),
+        _c("th", [_vm._v("Daily")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-4" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("hr"),
+        _vm._v(" "),
+        _c("a", { attrs: { name: "availability" } }),
+        _vm._v(" "),
+        _c("h2", [_vm._v("Availability")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -43131,7 +43011,7 @@ var render = function() {
           "div",
           {
             directives: [{ name: "masonry", rawName: "v-masonry" }],
-            staticClass: "row",
+            staticClass: "row photo-container",
             attrs: { "transition-duration": "0.3s", "item-selector": ".item" }
           },
           _vm._l(_vm.photos, function(photo, index) {
@@ -43142,7 +43022,7 @@ var render = function() {
                   { name: "masonry-tile", rawName: "v-masonry-tile" }
                 ],
                 key: photo.id,
-                staticClass: "col-sm-6 col-lg-4 col-xl-3 item"
+                staticClass: "col-6 col-md-4 col-lg-2 item"
               },
               [
                 _c(
@@ -43411,8 +43291,7 @@ const attributesMap = {
   'stamp': 'stamp',
   'gutter': 'gutter',
   'percent-position': 'percentPosition',
-  'horizontal-order': 'horizontalOrder',
-  'stagger': 'stagger'
+  'horizontal-order': 'horizontalOrder'
 }
 const EVENT_ADD = 'vuemasonry.itemAdded'
 const EVENT_REMOVE = 'vuemasonry.itemRemoved'
@@ -43421,20 +43300,12 @@ const EVENT_DESTROY = 'vuemasonry.destroy'
 
 const stringToBool = function (val) { return (val + '').toLowerCase() === 'true' }
 
-const numberOrSelector = function (val) { return isNaN(val) ? val : parseInt(val) }
-
 const collectOptions = function (attrs) {
   var res = {}
   var attributesArray = Array.prototype.slice.call(attrs)
   attributesArray.forEach(function (attr) {
     if (Object.keys(attributesMap).indexOf(attr.name) > -1) {
-      if (attr.name.indexOf('origin') > -1) {
-        res[attributesMap[attr.name]] = stringToBool(attr.value)
-      } else if (attr.name === 'column-width' || attr.name === 'gutter') {
-        res[attributesMap[attr.name]] = numberOrSelector(attr.value)
-      } else {
-        res[attributesMap[attr.name]] = attr.value
-      }
+      res[attributesMap[attr.name]] = (attr.name.indexOf('origin') > -1) ? stringToBool(attr.value) : attr.value
     }
   })
   return res
@@ -43498,7 +43369,7 @@ VueMasonryPlugin.install = function (Vue, options) {
         })
       })
     },
-    unbind: function (el) {
+    beforeDestroy: function (el) {
       Events.$emit(EVENT_REMOVE, {
         'element': el
       })
@@ -43513,17 +43384,12 @@ VueMasonryPlugin.install = function (Vue, options) {
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/vue-simple-calendar/dist/static/css/default.css":
-=======
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-19f838a2\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/FullProperty.vue":
->>>>>>> 94d8f9c2c11aa73153b15bd5389023f26e8f8d48
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-<<<<<<< HEAD
 var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-simple-calendar/dist/static/css/default.css");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
@@ -43578,30 +43444,10 @@ if(false) {
 	}
 	// When the module is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
-=======
-var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-19f838a2\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/FullProperty.vue");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("d7757250", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-19f838a2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FullProperty.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-19f838a2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FullProperty.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
->>>>>>> 94d8f9c2c11aa73153b15bd5389023f26e8f8d48
 }
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/vue-simple-calendar/dist/vue-simple-calendar.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43610,9 +43456,6 @@ if(false) {
 /***/ }),
 
 /***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-25ad9388\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/PortfolioGallery.vue":
-=======
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue":
->>>>>>> 94d8f9c2c11aa73153b15bd5389023f26e8f8d48
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -43737,6 +43580,33 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-472ab48a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FooterNavigationMenu.vue", function() {
      var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-472ab48a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FooterNavigationMenu.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-487ef3bc\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/FullProperty.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-487ef3bc\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/FullProperty.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("11226928", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-487ef3bc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FullProperty.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-487ef3bc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FullProperty.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -55659,7 +55529,7 @@ module.exports = Component.exports
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-19f838a2\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/FullProperty.vue")
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-487ef3bc\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/FullProperty.vue")
 }
 var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
 /* script */
