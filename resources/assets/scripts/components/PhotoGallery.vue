@@ -2,15 +2,15 @@
     <div>
         <div class="photo-gallery">
             <div class="row" v-masonry transition-duration="0.3s" item-selector=".item" >
-                <div v-masonry-tile class="col-sm-6 col-lg-4 item" v-for="(photo, index) in photos" v-bind:key="photo.id" >
+                <div v-masonry-tile class="col-sm-6 col-lg-4 col-xl-3 item" v-for="(photo, index) in photos" v-bind:key="photo.id" >
                     <div class="photo-tile has-text-centered" @click="openViewer(index)">
-                        <img :id="'photo-' + photo.id" :src="photo.sizes.medium" :alt="photo.title" class="img-fluid" >
+                        <img :id="'photo-' + photo.id" :src="photo.url" :alt="photo.description" class="img-fluid" >
                     </div>
                 </div>
             </div>
         </div>
         <b-modal ref="gallery" hide-header hide-footer size="lg" centered >
-            <div class="text-center image-container"><img v-if="activePhoto.sizes" :src="activePhoto.sizes.large" :alt="activePhoto.title" class="img-fluid" /></div>
+            <div class="text-center image-container"><img v-if="activePhoto.url" :src="activePhoto.url" :alt="activePhoto.description" class="img-fluid" /></div>
             <div class="d-flex justify-content-center action-buttons">
                 <a @click="prevPhoto(activePhoto.index)" class="btn btn-outline-white"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
                 <a @click="closeViewer" class="btn btn-outline-white" style="margin: 0 4px;">close</a>
