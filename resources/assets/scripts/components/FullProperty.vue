@@ -38,6 +38,7 @@
     </div>
 </template>
 <script>
+Vue.component('reservation-calendar', require('./ReservationCalendar.vue'));
 export default {
     props: ['rnsId'],
     data(){

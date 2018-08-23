@@ -5650,6 +5650,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+Vue.component('reservation-calendar', __webpack_require__("./resources/assets/scripts/components/ReservationCalendar.vue"));
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['rnsId'],
     data: function data() {
@@ -6011,6 +6012,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         togglePortfolioMenu: function togglePortfolioMenu() {
             this.menuOpen = !this.menuOpen;
         }
+    }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/ReservationCalendar.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_simple_calendar__ = __webpack_require__("./node_modules/vue-simple-calendar/dist/vue-simple-calendar.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_simple_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_simple_calendar__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+__webpack_require__("./node_modules/vue-simple-calendar/dist/static/css/default.css");
+__webpack_require__("./node_modules/vue-simple-calendar/dist/static/css/holidays-us.css");
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        CalendarView: __WEBPACK_IMPORTED_MODULE_0_vue_simple_calendar___default.a
+    },
+    data: function data() {
+        return {
+            showDate: new Date()
+        };
     }
 });
 
@@ -18176,6 +18210,36 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 // module
 exports.push([module.i, "\n.photo-gallery {\n    padding: 2rem 0;\n}\n.photo-tile {\n    margin-bottom: 1rem;\n    cursor: pointer;\n}\n.modal .modal-content {\n    background-color: transparent !important;\n    border: none !important;\n}\n.modal .modal-body {\n    padding: 0 !important;\n}\n.modal {\n    background-color: rgba(0,0,0,.75);\n}\n.image-container {\n    height: 80vh;\n    margin-bottom: 1rem;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.action-buttons a {\n    color: #FFF !important;\n}\n.action-buttons a:hover {\n    color: #000 !important;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-simple-calendar/dist/static/css/default.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "/*\n**************************************************************\nThis theme is the default shipping theme, it includes some\ndecent defaults, but is separate from the calendar component\nto make it easier for users to implement their own themes w/o\nhaving to override as much.\n**************************************************************\n*/\n\n/* Header */\n\n.theme-default .cv-header,\n.theme-default .cv-header-day {\n\tbackground-color: #f0f0f0;\n}\n\n.theme-default .cv-header .periodLabel {\n\tfont-size: 1.5em;\n}\n\n.theme-default .cv-header button {\n\tcolor: #7f7f7f;\n}\n\n.theme-default .cv-header button:disabled {\n\tcolor: #ccc;\n\tbackground-color: #f7f7f7;\n}\n\n/* Grid */\n\n.theme-default .cv-day.today {\n\tbackground-color: #ffe;\n}\n\n.theme-default .cv-day.past {\n\tbackground-color: #fafafa;\n}\n\n.theme-default .cv-day.outsideOfMonth {\n\tbackground-color: #f7f7f7;\n}\n\n/* Events */\n\n.theme-default .cv-event {\n\tborder-color: #e0e0f0;\n\tborder-radius: 0.5em;\n\tbackground-color: #e7e7ff;\n\ttext-overflow: ellipsis;\n}\n\n.theme-default .cv-event.purple {\n\tbackground-color: #f0e0ff;\n\tborder-color: #e7d7f7;\n}\n\n.theme-default .cv-event.orange {\n\tbackground-color: #ffe7d0;\n\tborder-color: #f7e0c7;\n}\n\n.theme-default .cv-event.continued::before,\n.theme-default .cv-event.toBeContinued::after {\n\tcontent: \" \\21E2   \";\n\tcolor: #999;\n}\n\n.theme-default .cv-event.toBeContinued {\n\tborder-right-style: none;\n\tborder-top-right-radius: 0;\n\tborder-bottom-right-radius: 0;\n}\n\n.theme-default .cv-event.hasUrl:hover {\n\ttext-decoration: underline;\n}\n\n.theme-default .cv-event.continued {\n\tborder-left-style: none;\n\tborder-top-left-radius: 0;\n\tborder-bottom-left-radius: 0;\n}\n\n/* Event Times */\n\n.theme-default .cv-event .startTime,\n.theme-default .cv-event .endTime {\n\tfont-weight: bold;\n\tcolor: #666;\n}\n\n/* Drag and drop */\n\n.theme-default .cv-day.draghover {\n\tbox-shadow: inset 0 0 0.2em 0.2em yellow;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-simple-calendar/dist/static/css/holidays-us.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "/*\n********************************************************************************************************\nThis theme adds emoji next to the day number for major holidays traditionally celebrated in the USA.\n\nThere are two types of holidays: officially-recognized holidays, and traditionally-celebrated ones\n(most of the traditionally-celebrated ones are connected with the Christian faith.)\n\nTo activate this theme, include the CSS and decorate the calendar instance with the `holidays-us-official`\nand/or `holidays-us-traditional` classes.\n********************************************************************************************************\n*/\n\n/*\n****************************************************\nTraditional US Holidays\n****************************************************\n*/\n\n/* Easter: example of a holiday that changes each year. Easy to pre-populate for a reasonable number of years. */\n.cv-wrapper.holiday-us-traditional .d2015-04-05 .cv-day-number::before {\n\tcontent: \"\\271D\";\n}\n\n.cv-wrapper.holiday-us-traditional .d2016-03-27 .cv-day-number::before {\n\tcontent: \"\\271D\";\n}\n\n.cv-wrapper.holiday-us-traditional .d2017-04-16 .cv-day-number::before {\n\tcontent: \"\\271D\";\n}\n\n.cv-wrapper.holiday-us-traditional .d2018-04-01 .cv-day-number::before {\n\tcontent: \"\\271D\";\n}\n\n.cv-wrapper.holiday-us-traditional .d2019-04-21 .cv-day-number::before {\n\tcontent: \"\\271D\";\n}\n\n.cv-wrapper.holiday-us-traditional .d2020-04-12 .cv-day-number::before {\n\tcontent: \"\\271D\";\n}\n\n.cv-wrapper.holiday-us-traditional .d2021-04-04 .cv-day-number::before {\n\tcontent: \"\\271D\";\n}\n\n.cv-wrapper.holiday-us-traditional .d2022-04-17 .cv-day-number::before {\n\tcontent: \"\\271D\";\n}\n\n.cv-wrapper.holiday-us-traditional .d2023-04-09 .cv-day-number::before {\n\tcontent: \"\\271D\";\n}\n\n/* Cinco de Mayo */\n.cv-wrapper.holiday-us-traditional .d05-05 .cv-day-number::before {\n\tcontent: \"\\1F1F2\\1F1FD\";\n}\n\n/* Halloween - October 31 */\n.cv-wrapper.holiday-us-traditional .d10-31 .cv-day-number::before {\n\tcontent: \"\\1F383\";\n}\n\n/*\n****************************************************\nOfficial US Holidays\n****************************************************\n*/\n\n/**** Same date every year ****/\n\n/* New Year's Day - January 1 */\n.cv-wrapper.holiday-us-official .d01-01 .cv-day-number::before {\n\tcontent: \"\\1F37E\";\n}\n\n/* Independence Day - July 4 */\n.cv-wrapper.holiday-us-official .d07-04 .cv-day-number::before {\n\tcontent: \"\\1F1FA\\1F1F8\";\n}\n\n/* Veteran's Day - November 11 */\n.cv-wrapper.holiday-us-official .d11-11 .cv-day-number::before {\n\tcontent: \"\\1F396\";\n}\n\n/* Christmas Day - December 25 */\n.cv-wrapper.holiday-us-official .d12-25 .cv-day-number::before {\n\tcontent: \"\\1F384\";\n}\n\n/**** Same month position every year ****/\n\n/* Martin Luther King, Jr. Day - 3rd Monday of January */\n.cv-wrapper.holiday-us-official.m01 .day.dow1.instance3 .cv-day-number::before {\n\tcontent: \"\\270C\\1F3FE\";\n}\n\n/* Washington's Birthday - 3rd Monday in February */\n.cv-wrapper.holiday-us-official.m02 .day.dow1.instance3 .cv-day-number::before {\n\tcontent: \"\\1F34E\";\n}\n\n/* Memorial Day - last Monday in May */\n.cv-wrapper.holiday-us-official.m05 .day.dow1.lastInstance .cv-day-number::before {\n\tcontent: \"\\1F1FA\\1F1F8\";\n}\n\n/* Labor Day - 1st Monday in September */\n.cv-wrapper.holiday-us-official.m09 .day.dow1.instance1 .cv-day-number::before {\n\tcontent: \"\\1F4AA\";\n}\n\n/* Columbus Day - 2nd Monday in October */\n.cv-wrapper.holiday-us-official.m10 .day.dow1.instance2 .cv-day-number::before {\n\tcontent: \"\\2388\";\n}\n\n/* Thanksgiving Day - 4th Thursday of November */\n.cv-wrapper.holiday-us-official.m11 .day.dow4.instance4 .cv-day-number::before {\n\tcontent: \"\\1F64F\";\n}\n", ""]);
 
 // exports
 
@@ -39459,6 +39523,462 @@ exports.isBuffer = function (obj) {
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/lib/addStyles.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(selector) {
+		if (typeof memo[selector] === "undefined") {
+			memo[selector] = fn.call(this, selector);
+		}
+
+		return memo[selector]
+	};
+})(function (target) {
+	return document.querySelector(target)
+});
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__("./node_modules/style-loader/lib/urls.js");
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton) options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+	if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	options.attrs.type = "text/css";
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	options.attrs.type = "text/css";
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = options.transform(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/lib/urls.js":
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/timers-browserify/main.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -40618,6 +41138,30 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-06fba091", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-0cb461fc\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/ReservationCalendar.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("calendar-view", {
+    staticClass: "theme-default holiday-us-traditional holiday-us-official",
+    attrs: { "show-date": _vm.showDate }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0cb461fc", module.exports)
   }
 }
 
@@ -42523,6 +43067,77 @@ VueMasonryPlugin.install = function (Vue, options) {
   }
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-simple-calendar/dist/static/css/default.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-simple-calendar/dist/static/css/default.css");
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/style-loader/lib/addStyles.js")(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../css-loader/index.js!./default.css", function() {
+			var newContent = require("!!../../../../css-loader/index.js!./default.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-simple-calendar/dist/static/css/holidays-us.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-simple-calendar/dist/static/css/holidays-us.css");
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/style-loader/lib/addStyles.js")(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../css-loader/index.js!./holidays-us.css", function() {
+			var newContent = require("!!../../../../css-loader/index.js!./holidays-us.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-simple-calendar/dist/vue-simple-calendar.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,t){ true?module.exports=t():"function"==typeof define&&define.amd?define("CalendarView",[],t):"object"==typeof exports?exports.CalendarView=t():e.CalendarView=t()}(window,function(){return function(e){var t={};function n(r){if(t[r])return t[r].exports;var a=t[r]={i:r,l:!1,exports:{}};return e[r].call(a.exports,a,a.exports,n),a.l=!0,a.exports}return n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:r})},n.r=function(e){Object.defineProperty(e,"__esModule",{value:!0})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=17)}([function(e,t,n){var r=n(11);"string"==typeof r&&(r=[[e.i,r,""]]),r.locals&&(e.exports=r.locals);(0,n(9).default)("1a1e81be",r,!1,{})},function(e,t,n){var r=n(13);"string"==typeof r&&(r=[[e.i,r,""]]),r.locals&&(e.exports=r.locals);(0,n(9).default)("ab36f444",r,!1,{})},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"CalendarViewHeader",props:{headerProps:{type:Object,required:!0}},methods:{onInput:function(e){this.$emit("input",e)}}}},function(e,t,n){"use strict";n.r(t);var r=n(2),a=n.n(r);for(var i in r)"default"!==i&&function(e){n.d(t,e,function(){return r[e]})}(i);t.default=a.a},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=i(n(16)),a=i(n(15));function i(e){return e&&e.__esModule?e:{default:e}}function o(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}t.default={name:"CalendarView",components:{CalendarViewHeader:a.default},mixins:[r.default],props:{showDate:{type:Date,default:function(){}},displayPeriodUom:{type:String,default:function(){return"month"}},displayPeriodCount:{type:Number,default:function(){return 1}},locale:{type:String,default:function(){}},monthNameFormat:{type:String,default:function(){return"long"}},weekdayNameFormat:{type:String,default:function(){return"short"}},showEventTimes:{type:Boolean,default:function(){return!1}},timeFormatOptions:{type:Object,default:function(){}},disablePast:{type:Boolean,default:function(){return!1}},disableFuture:{type:Boolean,default:function(){return!1}},enableDragDrop:{type:Boolean,default:function(){return!1}},startingDayOfWeek:{type:Number,default:function(){return 0}},events:{type:Array,default:function(){return[]}},dateClasses:{type:Object,default:function(){}},eventTop:{type:String,default:function(){return"1.4em"}},eventContentHeight:{type:String,default:function(){return"1.4em"}},eventBorderHeight:{type:String,default:function(){return"2px"}}},data:function(){return{currentDragEvent:null}},computed:{displayLocale:function(){return this.locale||this.getDefaultBrowserLocale()},defaultedShowDate:function(){return this.showDate||this.today()},periodStart:function(){return this.beginningOfPeriod(this.defaultedShowDate,this.displayPeriodUom,this.startingDayOfWeek)},periodEnd:function(){return this.addDays(this.incrementPeriod(this.periodStart,this.displayPeriodUom,this.displayPeriodCount),-1)},displayFirstDate:function(){return this.beginningOfWeek(this.periodStart,this.startingDayOfWeek)},displayLastDate:function(){return this.endOfWeek(this.periodEnd,this.startingDayOfWeek)},weeksOfPeriod:function(){var e=this,t=Math.floor((this.dayDiff(this.displayFirstDate,this.displayLastDate)+1)/7);return Array(t).fill().map(function(t,n){return e.addDays(e.displayFirstDate,7*n)})},monthNames:function(){return this.getFormattedMonthNames(this.displayLocale,this.monthNameFormat)},weekdayNames:function(){return this.getFormattedWeekdayNames(this.displayLocale,this.weekdayNameFormat,this.startingDayOfWeek)},fixedEvents:function(){return this.events.map(this.normalizeEvent)},periodLabel:function(){return this.formattedPeriod(this.periodStart,this.periodEnd,this.displayPeriodUom,this.monthNames)},headerProps:function(){return{previousYear:this.getIncrementedPeriod(-12),previousPeriod:this.getIncrementedPeriod(-1),nextPeriod:this.getIncrementedPeriod(1),nextYear:this.getIncrementedPeriod(12),currentPeriod:this.beginningOfPeriod(this.today(),this.displayPeriodUom,this.startingDayOfWeek),periodStart:this.periodStart,periodEnd:this.periodEnd,displayLocale:this.displayLocale,displayFirstDate:this.displayFirstDate,displayLastDate:this.displayLastDate,monthNames:this.monthNames,fixedEvents:this.fixedEvents}}},methods:{onClickDay:function(e){this.disablePast&&this.isInPast(e)||this.disableFuture&&this.isInFuture(e)||this.$emit("click-date",e)},onClickEvent:function(e,t){this.$emit("click-event",e,t)},onChangeDate:function(e){this.$emit("show-date-change",e)},getIncrementedPeriod:function(e){var t=this.incrementPeriod(this.periodStart,this.displayPeriodUom,e),n=this.incrementPeriod(t,this.displayPeriodUom,this.displayPeriodCount);return this.disablePast&&n<=this.today()?null:this.disableFuture&&t>this.today()?null:t},onDragStart:function(e,t){return!!this.enableDragDrop&&(this.currentDragEvent=e,t.dataTransfer.setData("text","foo"),this.$emit("drag-start",e),!0)},handleDragEvent:function(e,t){return!!this.enableDragDrop&&(!(!this.currentDragEvent&&!this.$scopedSlots.event)&&(this.$emit(e,this.currentDragEvent,t),!0))},onDragOver:function(e){this.handleDragEvent("drag-over-date",e)},onDragEnter:function(e,t){this.handleDragEvent("drag-enter-date",e)&&t.target.classList.add("draghover")},onDragLeave:function(e,t){this.handleDragEvent("drag-leave-date",e)&&t.target.classList.remove("draghover")},onDrop:function(e,t){this.handleDragEvent("drop-on-date",e)&&t.target.classList.remove("draghover")},findAndSortEventsInWeek:function(e){var t=this;return this.fixedEvents.filter(function(n){return n.startDate<t.addDays(e,7)&&n.endDate>=e},this).sort(function(e,t){return e.startDate<t.startDate?-1:t.startDate<e.startDate?1:e.endDate>t.endDate?-1:t.endDate>e.endDate?1:e.id<t.id?-1:1})},getWeekEvents:function(e){for(var t=this.findAndSortEventsInWeek(e),n=[],r=[[],[],[],[],[],[],[]],a=0;a<t.length;a++){var i=Object.assign({},t[a],{classes:[].concat(o(t[a].classes)),eventRow:0}),s=i.startDate<e,d=s?0:this.dayDiff(e,i.startDate),u=Math.min(7-d,this.dayDiff(this.addDays(e,d),i.endDate)+1);s&&i.classes.push("continued"),this.dayDiff(e,i.endDate)>6&&i.classes.push("toBeContinued"),i.originalEvent.url&&i.classes.push("hasUrl");for(var l=0;l<7;l++)if(l===d){for(var c=0;r[l][c];)c++;i.eventRow=c,r[l][c]=!0}else l<d+u&&(r[l][i.eventRow]=!0);i.classes.push("offset"+d),i.classes.push("span"+u),n.push(i)}return n},getFormattedTimeRange:function(e){var t=this.formattedTime(e.startDate,this.displayLocale,this.timeFormatOptions),n="";return this.isSameDateTime(e.startDate,e.endDate)||(n=this.formattedTime(e.endDate,this.displayLocale,this.timeFormatOptions)),(""!==t?'<span class="startTime">'+t+"</span>":"")+(""!==n?'<span class="endTime">'+n+"</span>":"")},getEventTitle:function(e){return this.showEventTimes?this.getFormattedTimeRange(e)+" "+e.title:e.title},getEventTop:function(e){var t=e.eventRow,n=this.eventContentHeight,r=this.eventBorderHeight;return"calc("+this.eventTop+" + "+t+"*"+n+" + "+t+"*"+r+")"}}}},function(e,t,n){"use strict";n.r(t);var r=n(4),a=n.n(r);for(var i in r)"default"!==i&&function(e){n.d(t,e,function(){return r[e]})}(i);t.default=a.a},function(e,t,n){"use strict";function r(e,t,n,r,a,i,o,s){var d,u="function"==typeof e?e.options:e;if(t&&(u.render=t,u.staticRenderFns=n,u._compiled=!0),r&&(u.functional=!0),i&&(u._scopeId="data-v-"+i),o?(d=function(e){(e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),a&&a.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(o)},u._ssrRegister=d):a&&(d=s?function(){a.call(this,this.$root.$options.shadowRoot)}:a),d)if(u.functional){u._injectStyles=d;var l=u.render;u.render=function(e,t){return d.call(t),l(e,t)}}else{var c=u.beforeCreate;u.beforeCreate=c?[].concat(c,d):[d]}return{exports:e,options:u}}n.d(t,"a",function(){return r})},function(e,t,n){"use strict";var r=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"cv-header"},[n("div",{staticClass:"cv-header-nav"},[n("button",{staticClass:"previousYear",attrs:{disabled:!e.headerProps.previousYear},on:{click:function(t){e.onInput(e.headerProps.previousYear)}}},[e._v("<<")]),e._v(" "),n("button",{staticClass:"previousPeriod",attrs:{disabled:!e.headerProps.previousPeriod},on:{click:function(t){e.onInput(e.headerProps.previousPeriod)}}},[e._v("<")]),e._v(" "),n("button",{staticClass:"nextPeriod",attrs:{disabled:!e.headerProps.nextPeriod},on:{click:function(t){e.onInput(e.headerProps.nextPeriod)}}},[e._v(">")]),e._v(" "),n("button",{staticClass:"nextYear",attrs:{disabled:!e.headerProps.nextYear},on:{click:function(t){e.onInput(e.headerProps.nextYear)}}},[e._v(">>")]),e._v(" "),n("button",{staticClass:"currentPeriod",on:{click:function(t){e.onInput(e.headerProps.currentPeriod)}}},[e._v("Today")])]),e._v(" "),n("div",{staticClass:"periodLabel"},[e._t("label")],2)])},a=[];r._withStripped=!0,n.d(t,"a",function(){return r}),n.d(t,"b",function(){return a})},function(e,t,n){"use strict";var r=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{class:["cv-wrapper","locale-"+e.languageCode(e.displayLocale),"locale-"+e.displayLocale,"y"+e.periodStart.getFullYear(),"m"+e.paddedMonth(e.periodStart),"period-"+e.displayPeriodUom,"periodCount-"+e.displayPeriodCount,{past:e.isPastMonth(e.periodStart),future:e.isFutureMonth(e.periodStart),noIntl:!e.supportsIntl}]},[e._t("header",[n("calendar-view-header",{attrs:{"header-props":e.headerProps},on:{input:e.onChangeDate}},[n("template",{slot:"label"},[e._v(e._s(e.periodLabel))])],2)],{headerProps:e.headerProps}),e._v(" "),n("div",{staticClass:"cv-header-days"},[e._l(e.weekdayNames,function(t,r){return[e._t("dayHeader",[n("div",{key:r+"-dow",staticClass:"cv-header-day",class:"dow"+r},[e._v(e._s(t))])],{index:r+"-dow",label:t})]})],2),e._v(" "),n("div",{staticClass:"cv-weeks"},e._l(e.weeksOfPeriod,function(t,r){return n("div",{key:r+"-week",class:["cv-week","week"+(r+1),"ws"+e.isoYearMonthDay(t)]},[e._l(e.daysOfWeek(t),function(t,r){return n("div",{key:r+"-day",class:["cv-day","dow"+t.getDay(),"d"+e.isoYearMonthDay(t),"d"+e.isoMonthDay(t),"d"+e.paddedDay(t),"instance"+e.instanceOfMonth(t),{outsideOfMonth:!e.isSameMonth(t,e.defaultedShowDate),today:e.isSameDate(t,e.today()),past:e.isInPast(t),future:e.isInFuture(t),last:e.isLastDayOfMonth(t),lastInstance:e.isLastInstanceOfMonth(t)}].concat(e.dateClasses&&e.dateClasses[e.isoYearMonthDay(t)]||null),on:{click:function(n){e.onClickDay(t)},drop:function(n){n.preventDefault(),e.onDrop(t,n)},dragover:function(n){n.preventDefault(),e.onDragOver(t)},dragenter:function(n){n.preventDefault(),e.onDragEnter(t,n)},dragleave:function(n){n.preventDefault(),e.onDragLeave(t,n)}}},[n("div",{staticClass:"cv-day-number"},[e._v(e._s(t.getDate()))]),e._v(" "),e._t("dayContent",null,{day:t})],2)}),e._v(" "),e._l(e.getWeekEvents(t),function(r){return[e._t("event",[n("div",{key:r.id,staticClass:"cv-event",class:r.classes,style:"top:"+e.getEventTop(r),attrs:{draggable:e.enableDragDrop,title:r.title},domProps:{innerHTML:e._s(e.getEventTitle(r))},on:{dragstart:function(t){e.onDragStart(r,t)},click:function(t){t.stopPropagation(),e.onClickEvent(r)}}})],{event:r,weekStartDate:t,top:e.getEventTop(r)})]})],2)}))],2)},a=[];r._withStripped=!0,n.d(t,"a",function(){return r}),n.d(t,"b",function(){return a})},function(e,t,n){"use strict";function r(e,t){for(var n=[],r={},a=0;a<t.length;a++){var i=t[a],o=i[0],s={id:e+":"+a,css:i[1],media:i[2],sourceMap:i[3]};r[o]?r[o].parts.push(s):n.push(r[o]={id:o,parts:[s]})}return n}n.r(t),n.d(t,"default",function(){return p});var a="undefined"!=typeof document;if("undefined"!=typeof DEBUG&&DEBUG&&!a)throw new Error("vue-style-loader cannot be used in a non-browser environment. Use { target: 'node' } in your Webpack config to indicate a server-rendering environment.");var i={},o=a&&(document.head||document.getElementsByTagName("head")[0]),s=null,d=0,u=!1,l=function(){},c=null,f="data-vue-ssr-id",h="undefined"!=typeof navigator&&/msie [6-9]\b/.test(navigator.userAgent.toLowerCase());function p(e,t,n,a){u=n,c=a||{};var o=r(e,t);return v(o),function(t){for(var n=[],a=0;a<o.length;a++){var s=o[a];(d=i[s.id]).refs--,n.push(d)}t?v(o=r(e,t)):o=[];for(a=0;a<n.length;a++){var d;if(0===(d=n[a]).refs){for(var u=0;u<d.parts.length;u++)d.parts[u]();delete i[d.id]}}}}function v(e){for(var t=0;t<e.length;t++){var n=e[t],r=i[n.id];if(r){r.refs++;for(var a=0;a<r.parts.length;a++)r.parts[a](n.parts[a]);for(;a<n.parts.length;a++)r.parts.push(y(n.parts[a]));r.parts.length>n.parts.length&&(r.parts.length=n.parts.length)}else{var o=[];for(a=0;a<n.parts.length;a++)o.push(y(n.parts[a]));i[n.id]={id:n.id,refs:1,parts:o}}}}function g(){var e=document.createElement("style");return e.type="text/css",o.appendChild(e),e}function y(e){var t,n,r=document.querySelector("style["+f+'~="'+e.id+'"]');if(r){if(u)return l;r.parentNode.removeChild(r)}if(h){var a=d++;r=s||(s=g()),t=w.bind(null,r,a,!1),n=w.bind(null,r,a,!0)}else r=g(),t=function(e,t){var n=t.css,r=t.media,a=t.sourceMap;r&&e.setAttribute("media",r);c.ssrId&&e.setAttribute(f,t.id);a&&(n+="\n/*# sourceURL="+a.sources[0]+" */",n+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(a))))+" */");if(e.styleSheet)e.styleSheet.cssText=n;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(n))}}.bind(null,r),n=function(){r.parentNode.removeChild(r)};return t(e),function(r){if(r){if(r.css===e.css&&r.media===e.media&&r.sourceMap===e.sourceMap)return;t(e=r)}else n()}}var m,D=(m=[],function(e,t){return m[e]=t,m.filter(Boolean).join("\n")});function w(e,t,n,r){var a=n?"":r.css;if(e.styleSheet)e.styleSheet.cssText=D(t,a);else{var i=document.createTextNode(a),o=e.childNodes;o[t]&&e.removeChild(o[t]),o.length?e.insertBefore(i,o[t]):e.appendChild(i)}}},function(e,t){e.exports=function(e){var t=[];return t.toString=function(){return this.map(function(t){var n=function(e,t){var n=e[1]||"",r=e[3];if(!r)return n;if(t&&"function"==typeof btoa){var a=(o=r,"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(o))))+" */"),i=r.sources.map(function(e){return"/*# sourceURL="+r.sourceRoot+e+" */"});return[n].concat(i).concat([a]).join("\n")}var o;return[n].join("\n")}(t,e);return t[2]?"@media "+t[2]+"{"+n+"}":n}).join("")},t.i=function(e,n){"string"==typeof e&&(e=[[null,e,""]]);for(var r={},a=0;a<this.length;a++){var i=this[a][0];"number"==typeof i&&(r[i]=!0)}for(a=0;a<e.length;a++){var o=e[a];"number"==typeof o[0]&&r[o[0]]||(n&&!o[2]?o[2]=n:n&&(o[2]="("+o[2]+") and ("+n+")"),t.push(o))}},t}},function(e,t,n){(e.exports=n(10)(!1)).push([e.i,'\n.cv-wrapper{display:flex;flex-direction:column;flex-grow:1;height:100%;min-height:100%;max-height:100%;overflow-x:hidden;overflow-y:hidden\n}\n.cv-wrapper,.cv-wrapper div{box-sizing:border-box;line-height:1em;font-size:1em\n}\n.cv-header-days{flex-grow:0;flex-basis:auto;border-width:0 0 0 1px\n}\n.cv-header-day,.cv-header-days{display:flex;flex-shrink:0;flex-flow:row nowrap\n}\n.cv-header-day{flex-grow:1;flex-basis:0;align-items:center;justify-content:center;text-align:center;border-width:1px 1px 0 0\n}\n.cv-weeks{flex-shrink:1;flex-basis:auto;flex-flow:column nowrap;border-width:0 0 1px 1px\n}\n.cv-week,.cv-weeks{display:flex;flex-grow:1;overflow-y:auto;-ms-overflow-style:none\n}\n.cv-week{flex-flow:row nowrap;min-height:3em;border-width:0;position:relative;width:100%\n}\n.cv-day,.cv-week{flex-shrink:0;flex-basis:0\n}\n.cv-day{display:flex;flex-grow:1;position:relative;position:-webkit-sticky;position:sticky;top:0;border-width:1px 1px 0 0\n}\n.cv-day-number{position:absolute;right:0\n}\n.cv-event{position:absolute;white-space:nowrap;overflow:hidden;background-color:#f7f7f7;border-width:1px\n}\n.cv-day,.cv-event,.cv-header-day,.cv-header-days,.cv-week,.cv-weeks{border-style:solid;border-color:#ddd\n}\n.cv-event .endTime:before{content:"-"\n}\n.cv-day-number,.cv-event,.cv-header-day{padding:.2em\n}\n.cv-day-number:before{margin-right:.5em\n}\n.cv-event.offset0{left:0\n}\n.cv-event.offset1{left:14.28571%\n}\n.cv-event.offset2{left:28.57143%\n}\n.cv-event.offset3{left:42.85714%\n}\n.cv-event.offset4{left:57.14286%\n}\n.cv-event.offset5{left:71.42857%\n}\n.cv-event.offset6{left:85.71429%\n}\n.cv-event.span1{width:calc(14.28571% - .05em)\n}\n.cv-event.span2{width:calc(28.57143% - .05em)\n}\n.cv-event.span3{width:calc(42.85714% - .05em);text-align:center\n}\n.cv-event.span4{width:calc(57.14286% - .05em);text-align:center\n}\n.cv-event.span5{width:calc(71.42857% - .05em);text-align:center\n}\n.cv-event.span6{width:calc(85.71429% - .05em);text-align:center\n}\n.cv-event.span7{width:calc(100% - .05em);text-align:center\n}\n.cv-week::-webkit-scrollbar,.cv-weeks::-webkit-scrollbar{width:0;background:transparent\n}',""])},function(e,t,n){"use strict";var r=n(0);n.n(r).a},function(e,t,n){(e.exports=n(10)(!1)).push([e.i,"\n.cv-header{display:flex;flex:0 1 auto;flex-flow:row nowrap;align-items:center;min-height:2.5em;border-width:1px 1px 0\n}\n.cv-header .periodLabel{display:flex;flex:1 1 auto;flex-flow:row nowrap;min-height:1.5em;line-height:1;font-size:1.5em\n}\n.cv-header,.cv-header button{border-style:solid;border-color:#ddd\n}\n.cv-header-nav,.cv-header .periodLabel{margin:.1em .6em\n}\n.cv-header-nav button,.cv-header .periodLabel{padding:.4em .6em\n}\n.cv-header button{box-sizing:border-box;line-height:1em;font-size:1em;border-width:1px\n}",""])},function(e,t,n){"use strict";var r=n(1);n.n(r).a},function(e,t,n){"use strict";n.r(t);var r=n(7),a=n(3);for(var i in a)"default"!==i&&function(e){n.d(t,e,function(){return a[e]})}(i);n(14);var o=n(6),s=Object(o.a)(a.default,r.a,r.b,!1,null,null,null);s.options.__file="src/CalendarViewHeader.vue",t.default=s.exports},function(e,t,n){"use strict";function r(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}Object.defineProperty(t,"__esModule",{value:!0}),t.default={methods:{today:function(){return this.dateOnly(new Date)},beginningOfPeriod:function(e,t,n){switch(t){case"year":return new Date(e.getFullYear(),0);case"month":return new Date(e.getFullYear(),e.getMonth());case"week":return this.beginningOfWeek(e,n);default:return null}},daysOfWeek:function(e){var t=this;return Array(7).fill().map(function(n,r){return t.addDays(e,r)})},addDays:function(e,t){return new Date(e.getFullYear(),e.getMonth(),e.getDate()+t,e.getHours(),e.getMinutes(),e.getSeconds())},beginningOfWeek:function(e,t){return this.addDays(e,(t-e.getDay()-7)%-7)},endOfWeek:function(e,t){return this.addDays(this.beginningOfWeek(e,t),7)},beginningOfMonth:function(e){return new Date(e.getFullYear(),e.getMonth())},instanceOfMonth:function(e){return Math.ceil(e.getDate()/7)},incrementPeriod:function(e,t,n){return new Date(e.getFullYear()+("year"==t?n:0),e.getMonth()+("month"==t?n:0),e.getDate()+("week"==t?7*n:0))},paddedMonth:function(e){return("0"+String(e.getMonth()+1)).slice(-2)},paddedDay:function(e){return("0"+String(e.getDate())).slice(-2)},isoYearMonth:function(e){return e.getFullYear()+"-"+this.paddedMonth(e)},isoYearMonthDay:function(e){return this.isoYearMonth(e)+"-"+this.paddedDay(e)},isoMonthDay:function(e){return this.paddedMonth(e)+"-"+this.paddedDay(e)},formattedTime:function(e,t,n){if(0===e.getHours()&&0===e.getMinutes()&&0===e.getSeconds())return"";if(!this.supportsIntl()){var r=6e4*(new Date).getTimezoneOffset();return new Date(e-r).toISOString().slice(11,16)}return e.toLocaleTimeString(t,n)},formattedPeriod:function(e,t,n,r){var a=e.getFullYear()===t.getFullYear(),i=this.isSameMonth(e,t),o=!("year"===n)&&!("month"===n),s=[];return s.push(r[e.getMonth()]),o&&(s.push(" "),s.push(e.getDate())),a||(s.push(o?", ":" "),s.push(e.getFullYear())),i&&a?o&&s.push(" – "):(s.push(" – "),i||s.push(r[t.getMonth()]),o&&s.push(" ")),o?(s.push(t.getDate()),s.push(", ")):s.push(" "),s.push(t.getFullYear()),s.join("")},dayDiff:function(e,t){var n=new Date(t.getFullYear(),t.getMonth(),t.getDate()),r=new Date(e.getFullYear(),e.getMonth(),e.getDate());return n.setUTCHours(0,0,0,0),r.setUTCHours(0,0,0,0),(n-r)/864e5},isSameDate:function(e,t){return 0===this.dayDiff(e,t)},isSameDateTime:function(e,t){return e.getTime()===t.getTime()},isSameMonth:function(e,t){return e.getFullYear()===t.getFullYear()&&e.getMonth()===t.getMonth()},isPastMonth:function(e){return this.beginningOfMonth(e)<this.beginningOfMonth(this.today())},isFutureMonth:function(e){return this.beginningOfMonth(e)>this.beginningOfMonth(this.today())},isInFuture:function(e){return this.dateOnly(e)>this.today()},isInPast:function(e){return this.dateOnly(e)<this.today()},isLastInstanceOfMonth:function(e){return e.getMonth()!==this.addDays(e,7).getMonth()},isLastDayOfMonth:function(e){return e.getMonth()!==this.addDays(e,1).getMonth()},isSelectedDay:function(e){var t=this,n=Object.keys(this.dateClasses).find(function(n){return t.isSameDate(t.fromIsoStringToLocalDate(n),e)});return n?this.dateClasses[n]:void 0},fromIsoStringToLocalDate:function(e){var t=e.split(/\D/).map(function(e){return Number(e)});return t[1]--,new(Function.prototype.bind.apply(Date,[null].concat(r(t))))},toLocalDate:function(e){return"string"==typeof e?this.fromIsoStringToLocalDate(e):new Date(e)},dateOnly:function(e){var t=new Date(e);return t.setHours(0,0,0,0),t},languageCode:function(e){return e.substring(0,2)},supportsIntl:function(){return"undefined"!=typeof Intl},getFormattedMonthNames:function(e,t){if(!this.supportsIntl())return Array(12).fill("");var n=new Intl.DateTimeFormat(e,{month:t});return Array(12).fill().map(function(e,t){return n.format(new Date(2017,t,1))})},getFormattedWeekdayNames:function(e,t,n){if(!this.supportsIntl())return Array(7).fill("");var r=new Intl.DateTimeFormat(e,{weekday:t});return Array(7).fill().map(function(e,t){return r.format(new Date(2017,0,(t+1+n)%7))})},getDefaultBrowserLocale:function(){return"undefined"==typeof navigator?"unk":(navigator.languages&&navigator.languages.length?navigator.languages[0]:navigator.language||navigator.browserLanguage).toLowerCase()},normalizeEvent:function(e){return{originalEvent:e,startDate:this.toLocalDate(e.startDate),endDate:this.toLocalDate(e.endDate||e.startDate),classes:e.classes?Array.isArray(e.classes)?[].concat(r(e.classes)):[e.classes]:[],title:e.title||"Untitled",id:e.id||"e"+Math.random().toString(36).substr(2,10)}}}}},function(e,t,n){"use strict";n.r(t);var r=n(8),a=n(5);for(var i in a)"default"!==i&&function(e){n.d(t,e,function(){return a[e]})}(i);n(12);var o=n(6),s=Object(o.a)(a.default,r.a,r.b,!1,null,null,null);s.options.__file="src/CalendarView.vue",t.default=s.exports}])});
 
 /***/ }),
 
@@ -54760,6 +55375,54 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-25ad9388", Component.options)
   } else {
     hotAPI.reload("data-v-25ad9388", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ "./resources/assets/scripts/components/ReservationCalendar.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/ReservationCalendar.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-0cb461fc\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/ReservationCalendar.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/scripts/components/ReservationCalendar.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0cb461fc", Component.options)
+  } else {
+    hotAPI.reload("data-v-0cb461fc", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
