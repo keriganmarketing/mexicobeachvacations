@@ -9,15 +9,8 @@
 
         <main role="main" class="support">
             <div class="container">
-                <article class="support">
-                    <header class="text-primary">
-                        <h1>{{ $headline != '' ? $headline : the_title() }}</h1>
-                    </header>
-                    {{ the_content() }}
-
-                    @php
-                        echo '<pre>', print_r($unit), '</pre>';
-                    @endphp
+                <article class="support">                   
+                    <full-property rns-id="{{ $unit }}" ></full-property>
                 </article>
             </div>
         </main>

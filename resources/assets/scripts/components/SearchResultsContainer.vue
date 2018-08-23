@@ -6,13 +6,13 @@
     <div class="col-md-8 col-lg-9 rental-feed">
         <div class="row no-gutters unit" v-for="unit in units" :key="unit.id">
             <div class="col-lg-4">
-                <a class="property-image" :href="'/property?id=' + unit.rns_id" >
+                <a class="property-image" :href="'/property/' + unit.rns_id + '/'" >
                 <img :src="unit.images[0].url" style="width:100%;" >
                 </a>
             </div>
             <div class="col-lg-8">
                 <div class="rental-feed-info mt-3">
-                <h2 class="text-primary"><a  :href="'/property?id=' + unit.rns_id" >{{ unit.name }}</a></h2>
+                <h2 class="text-primary"><a  :href="'/property/' + unit.rns_id + '/'" >{{ unit.name }}</a></h2>
                 <p class="subhead"><span class="type">{{ unit.type }}</span> &bull;
                 <span class="location">{{ unit.location }}</span></p>
                 <div class="row no-gutters tiles">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <p>{{ unit.details[0].description }}</p>
-                <a class="btn btn-lg btn-outline-info btn-rounded" :href="'/property?id=' + unit.rns_id" >View Property &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                <a class="btn btn-lg btn-outline-info btn-rounded" :href="'/property/' + unit.rns_id + '/'" >View Property &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
