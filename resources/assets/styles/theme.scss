@@ -628,6 +628,7 @@ main {
 }
 
 // Rental Feed
+.full-property,
 .rental-feed {
     .unit {
         margin-bottom: 3rem;
@@ -641,6 +642,7 @@ main {
             margin-top: 1rem;
         }
     }
+    .property-info,
     .rental-feed-info {
         padding: 0 1.25rem;
         color: $navy;

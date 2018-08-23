@@ -15215,12 +15215,14 @@ main.front p {
   }
 }
 
+.full-property .unit,
 .rental-feed .unit {
   margin-bottom: 3rem;
   padding: 0 0 3rem;
   border-bottom: 2px solid #dee2e6;
 }
 
+.full-property .unit .property-image,
 .rental-feed .unit .property-image {
   display: block;
   border-radius: .5rem;
@@ -15228,17 +15230,26 @@ main.front p {
   margin-top: 1rem;
 }
 
+.full-property .property-info,
+.full-property .rental-feed-info,
+.rental-feed .property-info,
 .rental-feed .rental-feed-info {
   padding: 0 1.25rem;
   color: #224b68;
 }
 
+.full-property .property-info .tiles,
+.full-property .rental-feed-info .tiles,
+.rental-feed .property-info .tiles,
 .rental-feed .rental-feed-info .tiles {
   color: #fa7a22;
   margin: 0 -.75rem .5rem;
   padding: 0 .5rem;
 }
 
+.full-property .property-info .data,
+.full-property .rental-feed-info .data,
+.rental-feed .property-info .data,
 .rental-feed .rental-feed-info .data {
   font-family: "Fira Sans Condensed", sans-serif;
   text-align: center;
@@ -15247,6 +15258,9 @@ main.front p {
   font-size: 1.8em;
 }
 
+.full-property .property-info .label,
+.full-property .rental-feed-info .label,
+.rental-feed .property-info .label,
 .rental-feed .rental-feed-info .label {
   font-family: "Fira Sans Condensed", sans-serif;
   text-align: center;

@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="photo-gallery">
-            <div class="row" v-masonry transition-duration="0.3s" item-selector=".item" >
-                <div v-masonry-tile class="col-sm-6 col-lg-4 col-xl-3 item" v-for="(photo, index) in photos" v-bind:key="photo.id" >
+            <div class="row photo-container" v-masonry transition-duration="0.3s" item-selector=".item" >
+                <div v-masonry-tile class="col-6 col-md-4 col-lg-2 item" v-for="(photo, index) in photos" v-bind:key="photo.id" >
                     <div class="photo-tile has-text-centered" @click="openViewer(index)">
                         <img :id="'photo-' + photo.id" :src="photo.url" :alt="photo.description" class="img-fluid" >
                     </div>
