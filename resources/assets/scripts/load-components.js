@@ -18,3 +18,4 @@ Vue.component('weather-icon', require('./components/WeatherIcon.vue'));
 Vue.component('search-results-container', require('./components/SearchResultsContainer.vue'));
 Vue.component('full-property', require('./components/FullProperty.vue'));
 Vue.component('photo-gallery', require('./components/PhotoGallery.vue'));
+Vue.component('booking-form', require('./components/BookingForm.vue'));

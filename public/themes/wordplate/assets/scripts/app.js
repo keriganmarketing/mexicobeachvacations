@@ -5456,6 +5456,94 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/BookingForm.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_reservation_info_js__ = __webpack_require__("./resources/assets/scripts/models/reservation-info.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_hotel_datepicker__ = __webpack_require__("./node_modules/vue-hotel-datepicker/dist/vue-hotel-datepicker.min.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_hotel_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_hotel_datepicker__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['unit'],
+    components: {
+        HotelDatePicker: __WEBPACK_IMPORTED_MODULE_1_vue_hotel_datepicker___default.a
+    },
+    data: function data() {
+        return {
+            info: new __WEBPACK_IMPORTED_MODULE_0__models_reservation_info_js__["a" /* default */](),
+            step: 1,
+            checkIn: null,
+            checkOut: null
+        };
+    },
+    mounted: function mounted() {
+        this.info.UnitId = this.unit.rns_id !== undefined ? this.unit.rns_id : 0;
+    },
+
+    methods: {
+        submit: function submit() {
+            this.info.submit();
+        },
+        checkInChanged: function checkInChanged(date) {
+            this.checkIn = new Date(__WEBPACK_IMPORTED_MODULE_2_moment___default()(date));
+            this.info.ArrivalDate = __WEBPACK_IMPORTED_MODULE_2_moment___default()(date).format("MM/DD/YYYY");
+        },
+        checkOutChanged: function checkOutChanged(date) {
+            this.checkOut = new Date(__WEBPACK_IMPORTED_MODULE_2_moment___default()(date));
+            this.info.DepartureDate = __WEBPACK_IMPORTED_MODULE_2_moment___default()(date).format("MM/DD/YYYY");
+        },
+        back: function back() {
+            if (this.step > 1) this.step -= 1;
+        },
+        next: function next() {
+            if (this.step < 5) this.step += 1;
+        }
+    }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/ContactForm.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -42475,6 +42563,236 @@ if (false) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-7f35d80f\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/BookingForm.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("form", [
+      _c("nav", { staticClass: "navbar navbar-light" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-secondary",
+            class: {
+              "btn-outline-success": _vm.step == 1,
+              "btn-sm": _vm.step !== 1
+            },
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                _vm.step = 1
+              }
+            }
+          },
+          [_vm._v("Step 1 - Trip Details")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-secondary",
+            class: {
+              "btn-outline-success": _vm.step == 2,
+              "btn-sm": _vm.step !== 2
+            },
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                _vm.step = 2
+              }
+            }
+          },
+          [_vm._v("Step 2 - Contact Info")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-secondary",
+            class: {
+              "btn-outline-success": _vm.step == 3,
+              "btn-sm": _vm.step !== 3
+            },
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                _vm.step = 3
+              }
+            }
+          },
+          [_vm._v("Step 3 - Payment")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-secondary",
+            class: {
+              "btn-outline-success": _vm.step == 4,
+              "btn-sm": _vm.step !== 4
+            },
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                _vm.step = 4
+              }
+            }
+          },
+          [_vm._v("Step 4 - Billing")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-secondary",
+            class: {
+              "btn-outline-success": _vm.step == 5,
+              "btn-sm": _vm.step !== 5
+            },
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                _vm.step = 5
+              }
+            }
+          },
+          [_vm._v("Step 5 - Confirmation")]
+        )
+      ]),
+      _vm._v(" "),
+      _vm.step == 1
+        ? _c(
+            "div",
+            [
+              _c("HotelDatePicker", {
+                attrs: {
+                  startingDateValue: _vm.checkIn,
+                  endingDateValue: _vm.checkOut,
+                  format: "MM/DD/YYYY",
+                  minNights: 7
+                },
+                on: {
+                  checkInChanged: _vm.checkInChanged,
+                  checkOutChanged: _vm.checkOutChanged
+                }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.info.UnitId,
+                    expression: "info.UnitId"
+                  }
+                ],
+                attrs: { type: "hidden" },
+                domProps: { value: _vm.info.UnitId },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.info, "UnitId", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.info.LocationId,
+                    expression: "info.LocationId"
+                  }
+                ],
+                attrs: { type: "hidden" },
+                domProps: { value: _vm.info.LocationId },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.info, "LocationId", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "numPersons" } }, [
+                _vm._v("Number of people")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.info.Persons,
+                    expression: "info.Persons"
+                  }
+                ],
+                attrs: { type: "number", id: "numPersons" },
+                domProps: { value: _vm.info.Persons },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.info, "Persons", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "comments" } }, [_vm._v("Comments")]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.info.Notes,
+                    expression: "info.Notes"
+                  }
+                ],
+                attrs: { id: "comments" },
+                domProps: { value: _vm.info.Notes },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.info, "Notes", $event.target.value)
+                  }
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.back } }, [_vm._v("Back")]),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.next } }, [_vm._v("Next")])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7f35d80f", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-bfbfc9f4\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/SideSearchBar.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -55437,6 +55755,54 @@ var app = new Vue({
 
 /***/ }),
 
+/***/ "./resources/assets/scripts/components/BookingForm.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/BookingForm.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-7f35d80f\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/BookingForm.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/scripts/components/BookingForm.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7f35d80f", Component.options)
+  } else {
+    hotAPI.reload("data-v-7f35d80f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/scripts/components/ContactForm.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -56216,6 +56582,7 @@ Vue.component('weather-icon', __webpack_require__("./resources/assets/scripts/co
 Vue.component('search-results-container', __webpack_require__("./resources/assets/scripts/components/SearchResultsContainer.vue"));
 Vue.component('full-property', __webpack_require__("./resources/assets/scripts/components/FullProperty.vue"));
 Vue.component('photo-gallery', __webpack_require__("./resources/assets/scripts/components/PhotoGallery.vue"));
+Vue.component('booking-form', __webpack_require__("./resources/assets/scripts/components/BookingForm.vue"));
 
 /***/ }),
 
@@ -56305,6 +56672,70 @@ var Pagination = function Pagination(results) {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Pagination);
+
+/***/ }),
+
+/***/ "./resources/assets/scripts/models/reservation-info.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ReservationInfo = function () {
+    function ReservationInfo() {
+        _classCallCheck(this, ReservationInfo);
+
+        this.BillingAddress = "";
+        this.BillingCity = "";
+        this.BillingState = "";
+        this.BillingZip = "";
+        this.BillingCountry = "";
+        this.CreditCardNumber = "";
+        this.ExpMonth = 0;
+        this.ExpYear = 0;
+        this.NameOnCard = "";
+        this.CCCVCode = "";
+        this.UnitId = 0;
+        this.LocationId = 0;
+        this.ArrivalDate = "";
+        this.DepartureDate = "";
+        this.Persons = 2;
+        this.FirstName = "";
+        this.LastName = "";
+        this.MiddleInitial = "";
+        this.Title = "";
+        this.Email = "";
+        this.Address = "";
+        this.Address2 = "";
+        this.City = "";
+        this.State = "";
+        this.Zip = "";
+        this.Country = "US";
+        this.WorkPhone = "";
+        this.OtherPhone = "";
+        this.HomePhone = "";
+        this.TravelInsAccepted = true;
+        this.Notes = "";
+    }
+
+    _createClass(ReservationInfo, [{
+        key: "submit",
+        value: function submit() {
+            //make the post request with all of the info filled out
+        }
+    }, {
+        key: "clear",
+        value: function clear() {
+            return new ReservationInfo();
+        }
+    }]);
+
+    return ReservationInfo;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (ReservationInfo);
 
 /***/ }),
 
