@@ -4,11 +4,60 @@
         <side-search-bar @apply-filters="applyFilters"></side-search-bar>
     </div>
     <div class="col-md-8 col-lg-9 rental-feed">
+        <div class="icon-key mt-3">
+            <div class="row justify-content-center">
+                <div class="col-6 col-sm-4 col-lg-2 text-center">
+                    <img src="/themes/wordplate/assets/images/pool.png" alt="Pool Available" style="width: 30px;" >
+                    <p>Pool Available</p>
+                </div>
+                <div class="col-6 col-sm-4 col-lg-2 text-center">
+                    <img src="/themes/wordplate/assets/images/anchor.png" alt="Dock Available" style="width: 30px;" >
+                    <p>Dock Available</p>
+                </div>
+                <div class="col-6 col-sm-4 col-lg-2 text-center">
+                    <img src="/themes/wordplate/assets/images/canal.png" alt="Canal Front" style="width: 30px;" >
+                    <p>Canal Front</p>
+                </div>
+                <div class="col-6 col-sm-4 col-lg-2 text-center">
+                    <img src="/themes/wordplate/assets/images/internet.png" alt="Internet Access" style="width: 30px;" >
+                    <p>Internet Access</p>
+                </div>
+                <div class="col-6 col-sm-4 col-lg-2 text-center">
+                    <img src="/themes/wordplate/assets/images/linens.png" alt="Linens Provided" style="width: 30px;" >
+                    <p>Linens Provided</p>
+                </div>
+                <div class="col-6 col-sm-4 col-lg-2 text-center">
+                    <img src="/themes/wordplate/assets/images/pet-friendly.png" alt="Pet Friendly" style="width: 30px;" >
+                    <p>Pet Friendly</p>
+                </div>
+            </div>
+            <hr>
+        </div>
         <div class="row no-gutters unit" v-for="unit in units" :key="unit.id">
             <div class="col-lg-4">
                 <a class="property-image" :href="'/property/' + unit.rns_id + '/'" >
                 <img :src="unit.images[0].url" style="width:100%;" >
                 </a>
+                <div class="row no-gutters justify-content-center">
+                    <div v-show="hasAmenity(unit, 45)" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/pool.png" alt="Pool Available" style="width: 30px;" title="Pool Available" >
+                    </div>
+                    <div v-show="false" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/anchor.png" alt="Dock Available" style="width: 30px;" title="Dock Available" >
+                    </div>
+                    <div v-show="hasSearchCriteria(unit, 'Canal Front')" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/canal.png" alt="Canal Front" style="width: 30px;" title="Canal Front" >
+                    </div>
+                    <div v-show="hasAmenity(unit, 22)" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/internet.png" alt="Internet Access" style="width: 30px;" title="Internet Access" >
+                    </div>
+                    <div v-show="hasAmenity(unit, 48)" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/linens.png" alt="Linens Provided" style="width: 30px;" title="Linens Provided" >
+                    </div>
+                    <div v-show="hasAmenity(unit, 50)" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/pet-friendly.png" alt="Pet Friendly" style="width: 30px;" title="Pet Friendly" >
+                    </div>
+                </div>
             </div>
             <div class="col-lg-8">
                 <div class="rental-feed-info mt-3">
@@ -97,6 +146,20 @@ export default {
             .catch(err => {
                 console.log(err);
             })
+        },
+        hasAmenity(unit, rnsId){
+            let hasAmenity = false;
+            unit.amenities.map(amenity => {
+                if (amenity.rns_id == rnsId && amenity.description !== 'No') hasAmenity = true;
+            })
+            return hasAmenity;
+        },
+        hasSearchCriteria(unit, name){
+            let hasSearchCriteria = false;
+            unit.search_criteria.map(search_criteria => {
+                if (search_criteria.rns_id === name) hasSearchCriteria = true;
+            })
+            return hasSearchCriteria;
         }
     }
 }

@@ -6321,6 +6321,55 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -6375,6 +6424,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).catch(function (err) {
                 console.log(err);
             });
+        },
+        hasAmenity: function hasAmenity(unit, rnsId) {
+            var hasAmenity = false;
+            unit.amenities.map(function (amenity) {
+                if (amenity.rns_id == rnsId && amenity.description !== 'No') hasAmenity = true;
+            });
+            return hasAmenity;
+        },
+        hasSearchCriteria: function hasSearchCriteria(unit, name) {
+            var hasSearchCriteria = false;
+            unit.search_criteria.map(function (search_criteria) {
+                if (search_criteria.rns_id === name) hasSearchCriteria = true;
+            });
+            return hasSearchCriteria;
         }
     }
 });
@@ -43097,92 +43160,343 @@ var render = function() {
     _c(
       "div",
       { staticClass: "col-md-8 col-lg-9 rental-feed" },
-      _vm._l(_vm.units, function(unit) {
-        return _c("div", { key: unit.id, staticClass: "row no-gutters unit" }, [
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c(
-              "a",
-              {
-                staticClass: "property-image",
-                attrs: { href: "/property/" + unit.rns_id + "/" }
-              },
-              [
-                _c("img", {
-                  staticStyle: { width: "100%" },
-                  attrs: { src: unit.images[0].url }
-                })
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-8" }, [
-            _c("div", { staticClass: "rental-feed-info mt-3" }, [
-              _c("h2", { staticClass: "text-primary" }, [
-                _c("a", { attrs: { href: "/property/" + unit.rns_id + "/" } }, [
-                  _vm._v(_vm._s(unit.name))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "subhead" }, [
-                _c("span", { staticClass: "type" }, [
-                  _vm._v(_vm._s(unit.type))
-                ]),
-                _vm._v(" •\r\n                "),
-                _c("span", { staticClass: "location" }, [
-                  _vm._v(_vm._s(unit.location))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row no-gutters tiles" }, [
-                _c("div", { staticClass: "col-auto" }, [
-                  _c("span", { staticClass: "data" }, [
-                    _vm._v(_vm._s(unit.details[0].beds))
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "label" }, [_vm._v("BEDS")])
-                ]),
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.units, function(unit) {
+          return _c(
+            "div",
+            { key: unit.id, staticClass: "row no-gutters unit" },
+            [
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "property-image",
+                    attrs: { href: "/property/" + unit.rns_id + "/" }
+                  },
+                  [
+                    _c("img", {
+                      staticStyle: { width: "100%" },
+                      attrs: { src: unit.images[0].url }
+                    })
+                  ]
+                ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [
-                  _c("span", { staticClass: "data" }, [
-                    _vm._v(_vm._s(unit.details[0].baths))
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "label" }, [_vm._v("BATHS")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [
-                  _c("span", { staticClass: "data" }, [
-                    _vm._v(_vm._s(unit.details[0].sleeps))
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
-                ])
+                _c(
+                  "div",
+                  { staticClass: "row no-gutters justify-content-center" },
+                  [
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.hasAmenity(unit, 45),
+                            expression: "hasAmenity(unit, 45)"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src: "/themes/wordplate/assets/images/pool.png",
+                            alt: "Pool Available",
+                            title: "Pool Available"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: false,
+                            expression: "false"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src: "/themes/wordplate/assets/images/anchor.png",
+                            alt: "Dock Available",
+                            title: "Dock Available"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.hasSearchCriteria(unit, "Canal Front"),
+                            expression: "hasSearchCriteria(unit, 'Canal Front')"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src: "/themes/wordplate/assets/images/canal.png",
+                            alt: "Canal Front",
+                            title: "Canal Front"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.hasAmenity(unit, 22),
+                            expression: "hasAmenity(unit, 22)"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src: "/themes/wordplate/assets/images/internet.png",
+                            alt: "Internet Access",
+                            title: "Internet Access"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.hasAmenity(unit, 48),
+                            expression: "hasAmenity(unit, 48)"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src: "/themes/wordplate/assets/images/linens.png",
+                            alt: "Linens Provided",
+                            title: "Linens Provided"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.hasAmenity(unit, 50),
+                            expression: "hasAmenity(unit, 50)"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src:
+                              "/themes/wordplate/assets/images/pet-friendly.png",
+                            alt: "Pet Friendly",
+                            title: "Pet Friendly"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                )
               ]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(unit.details[0].description))]),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-lg btn-outline-info btn-rounded",
-                  attrs: { href: "/property/" + unit.rns_id + "/" }
-                },
-                [
-                  _vm._v("View Property   "),
-                  _c("i", {
-                    staticClass: "fa fa-angle-right",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]
-              )
-            ])
-          ])
-        ])
-      })
+              _c("div", { staticClass: "col-lg-8" }, [
+                _c("div", { staticClass: "rental-feed-info mt-3" }, [
+                  _c("h2", { staticClass: "text-primary" }, [
+                    _c(
+                      "a",
+                      { attrs: { href: "/property/" + unit.rns_id + "/" } },
+                      [_vm._v(_vm._s(unit.name))]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "subhead" }, [
+                    _c("span", { staticClass: "type" }, [
+                      _vm._v(_vm._s(unit.type))
+                    ]),
+                    _vm._v(" •\r\n                "),
+                    _c("span", { staticClass: "location" }, [
+                      _vm._v(_vm._s(unit.location))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row no-gutters tiles" }, [
+                    _c("div", { staticClass: "col-auto" }, [
+                      _c("span", { staticClass: "data" }, [
+                        _vm._v(_vm._s(unit.details[0].beds))
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "label" }, [_vm._v("BEDS")])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-auto" }, [
+                      _c("span", { staticClass: "data" }, [
+                        _vm._v(_vm._s(unit.details[0].baths))
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "label" }, [_vm._v("BATHS")])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-auto" }, [
+                      _c("span", { staticClass: "data" }, [
+                        _vm._v(_vm._s(unit.details[0].sleeps))
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(unit.details[0].description))]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-lg btn-outline-info btn-rounded",
+                      attrs: { href: "/property/" + unit.rns_id + "/" }
+                    },
+                    [
+                      _vm._v("View Property   "),
+                      _c("i", {
+                        staticClass: "fa fa-angle-right",
+                        attrs: { "aria-hidden": "true" }
+                      })
+                    ]
+                  )
+                ])
+              ])
+            ]
+          )
+        })
+      ],
+      2
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "icon-key mt-3" }, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/pool.png",
+              alt: "Pool Available"
+            }
+          }),
+          _vm._v(" "),
+          _c("p", [_vm._v("Pool Available")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/anchor.png",
+              alt: "Dock Available"
+            }
+          }),
+          _vm._v(" "),
+          _c("p", [_vm._v("Dock Available")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/canal.png",
+              alt: "Canal Front"
+            }
+          }),
+          _vm._v(" "),
+          _c("p", [_vm._v("Canal Front")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/internet.png",
+              alt: "Internet Access"
+            }
+          }),
+          _vm._v(" "),
+          _c("p", [_vm._v("Internet Access")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/linens.png",
+              alt: "Linens Provided"
+            }
+          }),
+          _vm._v(" "),
+          _c("p", [_vm._v("Linens Provided")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/pet-friendly.png",
+              alt: "Pet Friendly"
+            }
+          }),
+          _vm._v(" "),
+          _c("p", [_vm._v("Pet Friendly")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("hr")
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
