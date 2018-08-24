@@ -1,6 +1,6 @@
-import "babel-polyfill"
-window.Vue = require('vue')
-window.axios = require("axios")
+import "babel-polyfill";
+window.Vue = require('vue');
+window.axios = require("axios");
 import { cacheAdapterEnhancer, throttleAdapterEnhancer } from 'axios-extensions';
 
 window.http = axios.create({
@@ -9,10 +9,10 @@ window.http = axios.create({
 	adapter: throttleAdapterEnhancer(axios.defaults.adapter, { threshold: 2 * 1000 })
 });
 
-require('./load-components')
+require('./load-components');
 
 import {VueMasonryPlugin} from 'vue-masonry';
-Vue.use(VueMasonryPlugin)
+Vue.use(VueMasonryPlugin);
 
 const app = new Vue({
     el: '#app',

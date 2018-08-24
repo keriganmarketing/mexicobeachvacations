@@ -21,9 +21,10 @@
         "font-awesome": "^4.7.0",
         "laravel-mix": "^2.1.11",
         "moment": "^2.22.2",
+        "v-calendar": "^0.9.7",
         "vue": "^2.5.16",
         "vue-hotel-datepicker": "^2.2.4",
-        "vue-masonry": "^0.11.6",
+        "vue-masonry": "^0.11.4",
         "weathericons": "^2.1.0"
     },
     "browserslist": [
@@ -40,7 +41,9 @@
         "eslint-plugin-node": "^7.0.1",
         "eslint-plugin-promise": "^3.8.0",
         "eslint-plugin-standard": "^3.1.0",
+        "node-sass": "^4.9.3",
         "purify-css": "^1.2.5",
-        "purifycss-webpack": "^0.7.0"
+        "purifycss-webpack": "^0.7.0",
+        "sass-loader": "^7.1.0"
     }
 }

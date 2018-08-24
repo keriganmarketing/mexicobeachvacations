@@ -14567,6 +14567,7 @@ html .btn {
   font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 700;
   line-height: 1em;
+  transition: background-color .5s linear;
 }
 
 html .btn.btn-lg,
@@ -14653,6 +14654,11 @@ body #app .site-wrapper.full-height {
 @media (min-width: 768px) {
   .top {
     position: fixed;
+  }
+
+  .top .main-navigation {
+    transition: margin .5s linear;
+    margin-top: 1.25rem;
   }
 }
 
@@ -14818,6 +14824,11 @@ ul.navbar-nav li a {
   .scrolling .top .logo img {
     width: 309px;
   }
+
+  .mobile-menu-open .top .main-navigation,
+  .scrolling .top .main-navigation {
+    margin-top: .25rem;
+  }
 }
 
 main {
@@ -14947,7 +14958,7 @@ main.front p {
 
 @media (min-width: 992px) {
   .slider-container {
-    height: 970px;
+    height: 100vh;
   }
 }
 
@@ -15085,6 +15096,7 @@ main.front p {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   overflow: hidden;
+  transition: box-shadow .5s linear;
 }
 
 @media (min-width: 576px) {
@@ -15092,6 +15104,10 @@ main.front p {
     height: 270px;
     width: 270px;
   }
+}
+
+.bubble-buttons .bubble-button:hover {
+  box-shadow: 0 0 15px rgba(255, 111, 116, 0.8);
 }
 
 .bubble-buttons .bubble-button img {
@@ -15195,10 +15211,16 @@ main.front p {
   position: relative;
   padding: 2rem 0;
   background-color: rgba(78, 186, 203, 0.9);
+  margin-top: 0;
+  transition: margin .5s linear;
 }
 
 @media (min-width: 768px) {
   .quick-search {
+    margin-top: -150px;
+  }
+
+  .quick-search.count-viewable {
     margin-top: -170px;
   }
 }

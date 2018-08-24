@@ -100,12 +100,18 @@
             </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row mb-4 availability-section">
             <div class="col-12">
                 <hr>
                 <a name="availability"></a>
                 <h2>Availability</h2>
             </div>
+             <div class="col-auto">
+                <v-calendar
+                    :attributes="calendarOptions"
+                    is-double-paned
+                ></v-calendar>
+             </div>
         </div>
 
         <div class="row mb-4">
@@ -132,12 +138,38 @@
 </template>
 <script>
 import moment from 'moment';
+import { setupCalendar, Calendar} from 'v-calendar'
+import 'v-calendar/lib/v-calendar.min.css';
+
+setupCalendar({
+    firstDayOfWeek: 1,
+    paneWidth: 300,
+    formats: {
+        title: 'MMMM YYYY',
+        weekdays: 'WWW',
+        navMonths: 'MMM',
+        input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
+        dayPopover: 'L',
+    }
+});
+
 export default {
     props: ['rnsId'],
+
     data(){
         return {
             property: {},
-            propertyLoaded: false
+            propertyLoaded: false,
+            calendarOptions: [{
+                dates: [],
+                highlight: {
+                    backgroundColor: '#ff8080',
+                },
+                contentStyle: {
+                    color: '#ffffff',
+                }
+            }],
+            bookings: []
         }
     },
     mounted(){
@@ -145,10 +177,22 @@ export default {
         .then(response => {
             this.property = response.data;
             this.propertyLoaded = true;
+
+            this.property.availability.forEach( booking => {
+                this.bookings.push({
+                    start: booking.arrival_date,
+                    end: booking.departure_date,
+                    title: 'Booked',
+                    id: booking.rns_id
+                });
+            });
+
+            this.calendarOptions[0].dates = this.bookings;
         })
         .catch(err => {
             console.log(err);
         })
+
     },
     methods: {
         formatDate(date){
@@ -160,20 +204,64 @@ export default {
         formatRate(num){
             return (num !== 0 ? '$' + num.toLocaleString() : 'N/A');
         }
-
+        
     }
 
 }
 </script>
-<style>
+<style lang="scss" >
 .action-buttons {
     padding: 0 1rem;
 }
-.action-buttons a {
-    margin: 0 .5rem;
+.action-buttons {
+    a {
+        display: block;
+        margin: 0 .5rem;
+
+        @media (min-width: 576px){
+            display: inline-block;
+        }
+    }
 }
 .unitid {
     color: #ff6f74;
     font-size: .5em;
+}
+.availability-section .c-pane-container .c-pane {
+    background: #FFF;
+    width: 300px !important;
+
+    @media (min-width: 576px){
+        width: 250px !important;
+    }
+    @media (min-width: 768px){
+        width: 345px !important;
+    }
+    @media (min-width: 993px){
+        width: 465px !important;
+        
+        .c-day-content,
+        .c-day-background {
+            height: 2.8rem !important;
+        }
+    }
+    @media (min-width: 1200px){
+        width: 550px !important;
+    }
+
+    .c-weekdays,
+    .c-day-content {
+        font-family: "ABeeZee", sans-serif;
+    }
+    .c-title {
+        font-family: "Fira Sans Condensed", sans-serif;
+    }
+    .c-arrow-layout {
+        padding: 6px 5px 4px;
+        border: 2px solid #ff6f74;
+        border-radius: 50%;
+        color: #ff6f74;
+    }
+
 }
 </style>

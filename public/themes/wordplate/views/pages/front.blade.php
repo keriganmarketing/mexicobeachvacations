@@ -7,7 +7,7 @@
                 
         <kma-slider class="slider-container"></kma-slider>
 
-        @include('partials.quicksearch')
+        <search-bar></search-bar>
         @include('partials.buttons')
         <main role="main" class="front">
             <div class="container">

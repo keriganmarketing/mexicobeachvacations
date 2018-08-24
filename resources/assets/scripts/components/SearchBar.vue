@@ -1,46 +1,51 @@
 <template>
-    <form method="GET" action="/rentals">
-        <input type="hidden" name="checkIn" :value="checkIn">
-        <input type="hidden" name="checkOut" :value="checkOut">
-        <input type="hidden" name="location" :value="location">
-        <input type="hidden" name="type" :value="type">
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4">
-                <hotel-date-picker
-                    class="input-rounded"
-                    @checkInChanged="checkInChanged"
-                    @checkOutChanged="checkOutChanged"
-                    format="MM/DD/YY"
-                    :showYear="true"
-                >
-                </hotel-date-picker> 
-            </div>
-            <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3">
-                <div class="form-group">
-                <select class="custom-select input-rounded" v-model="location" @change="getMatches">
-                    <option value="" >Location</option>
-                    <option value="Beachfront" >Beachfront</option>
-                    <option value="Between Hwy-Beach">Between highway and beach</option>
-                    <option value="Across Hwy from Beach">Across highway from beach</option>
-                </select>
+<div :class="['quick-search', {'count-viewable': numAvailable != null}]">
+    <div class="container">
+        <h2 class="text-center text-white">Vacation Rental Quick Search</h2>
+        <form method="GET" action="/rentals">
+            <input type="hidden" name="checkIn" :value="checkIn">
+            <input type="hidden" name="checkOut" :value="checkOut">
+            <input type="hidden" name="location" :value="location">
+            <input type="hidden" name="type" :value="type">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <hotel-date-picker
+                        class="input-rounded"
+                        @checkInChanged="checkInChanged"
+                        @checkOutChanged="checkOutChanged"
+                        format="MM/DD/YY"
+                        :showYear="true"
+                    >
+                    </hotel-date-picker> 
+                </div>
+                <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3">
+                    <div class="form-group">
+                    <select class="custom-select input-rounded" v-model="location" @change="getMatches">
+                        <option value="" >Location</option>
+                        <option value="Beachfront" >Beachfront</option>
+                        <option value="Between Hwy-Beach">Between highway and beach</option>
+                        <option value="Across Hwy from Beach">Across highway from beach</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3">
+                    <select class="custom-select input-rounded" v-model="type" @change="getMatches">
+                        <option value="" >Type</option>
+                        <option value="Vacation Rental">Vacation Rental</option>
+                        <option value="Long Term Rental">Long Term Rental</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <button v-if="numAvailable == 0" class="btn btn-primary btn-rounded btn-block" disabled>Search</button>
+                    <button v-if="numAvailable > 0 || numAvailable == null" class="btn btn-primary btn-rounded btn-block">Search</button>
+                </div>
+                <div class="col-12 text-center text-white">
+                    <span v-if="numAvailable != null" >Properties matching your search: {{ numAvailable }}</span>
                 </div>
             </div>
-            <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3">
-                <select class="custom-select input-rounded" v-model="type" @change="getMatches">
-                    <option value="" >Type</option>
-                    <option value="Vacation Rental">Vacation Rental</option>
-                    <option value="Long Term Rental">Long Term Rental</option>
-                </select>
-            </div>
-            <div class="col-12 col-md-6 col-lg-2">
-                <button v-if="numAvailable == 0" class="btn btn-primary btn-rounded btn-block" disabled>Search</button>
-                <button v-if="numAvailable > 0 || numAvailable == null" class="btn btn-primary btn-rounded btn-block">Search</button>
-            </div>
-            <div class="col-12 text-center text-white">
-                <span v-if="numAvailable != null" >Properties matching your search: {{ numAvailable }}</span>
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
+</div>
 </template>
 
 <script>
@@ -70,10 +75,13 @@ export default {
         },
         getMatches() {
             let url = 'https://rns.mexicobeachvacations.com/matches?q=search&checkIn=' + this.checkIn + '&checkOut=' + this.checkOut + '&type=' + this.type + '&location=' + this.location;
-            axios.get(url)
-                .then(response => {
-                    this.numAvailable = response.data;
-                })
+
+            if(this.checkIn !== "Invalid date" && this.checkOut !== "Invalid date"){
+                axios.get(url)
+                    .then(response => {
+                        this.numAvailable = response.data;
+                    });
+            }
         }
     }
 }

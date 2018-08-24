@@ -9,6 +9,7 @@ html {
         font-family: $fira;
         font-weight: $font-weight-bold;
         line-height: 1em;
+        transition: background-color .5s linear;
         
         &.btn-lg {
             border-width: 2px;
@@ -99,6 +100,11 @@ body {
 
     @media (min-width: 768px){
         position: fixed;
+
+        .main-navigation {
+            transition: margin .5s linear;
+            margin-top: 1.25rem;
+        }
     }
 
     .logo img {
@@ -256,6 +262,10 @@ ul.navbar-nav {
             .logo img {
                 width: 309px;
             }
+
+            .main-navigation {
+                margin-top: .25rem;
+            }
         }
     }
 }
@@ -374,7 +384,7 @@ main {
     }
 
     @media (min-width: 992px){
-        height: 970px;
+        height: 100vh;
     }
 
     .slide-content {
@@ -503,10 +513,15 @@ main {
         box-shadow: 0 0 15px rgba(0,0,0,.2);
         border-radius: 50%;
         overflow: hidden;
+        transition: box-shadow .5s linear;
 
         @media (min-width: 576px){
             height: 270px;
             width: 270px;
+        }
+
+        &:hover {
+            box-shadow: 0 0 15px rgba(255,111,116,.8);
         }
 
         img {
@@ -611,10 +626,16 @@ main {
     position: relative;
     padding: 2rem 0;
     background-color: rgba(78,186,203,.9);
+    margin-top: 0;
+    transition: margin .5s linear;
 
     @media (min-width: 768px){
-        margin-top: -170px;
+        margin-top: -150px;
+        &.count-viewable {
+            margin-top: -170px;
+        }
     }
+    
 
     h2 {
         font-family: $abeezee;
