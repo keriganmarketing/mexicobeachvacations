@@ -5466,6 +5466,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_hotel_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_hotel_datepicker__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__("./node_modules/moment/moment.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_ccvalidator_js__ = __webpack_require__("./resources/assets/scripts/models/ccvalidator.js");
 //
 //
 //
@@ -5500,6 +5501,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -5514,7 +5555,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             info: new __WEBPACK_IMPORTED_MODULE_0__models_reservation_info_js__["a" /* default */](),
             step: 1,
             checkIn: null,
-            checkOut: null
+            checkOut: null,
+            numNights: 7,
+            email: null,
+            termsAccepted: false
         };
     },
     mounted: function mounted() {
@@ -5530,8 +5574,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.info.ArrivalDate = __WEBPACK_IMPORTED_MODULE_2_moment___default()(date).format("MM/DD/YYYY");
         },
         checkOutChanged: function checkOutChanged(date) {
-            this.checkOut = new Date(__WEBPACK_IMPORTED_MODULE_2_moment___default()(date));
+            var out = __WEBPACK_IMPORTED_MODULE_2_moment___default()(date);
+            this.checkOut = new Date(out);
             this.info.DepartureDate = __WEBPACK_IMPORTED_MODULE_2_moment___default()(date).format("MM/DD/YYYY");
+            this.numNights = out.diff(this.checkIn, 'days');
         },
         back: function back() {
             if (this.step > 1) this.step -= 1;
@@ -43062,6 +43108,31 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
+              _c("label", { attrs: { for: "numNights" } }, [
+                _vm._v("Number of Nights")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.numNights,
+                    expression: "numNights"
+                  }
+                ],
+                attrs: { type: "number", id: "numNights", disabled: "" },
+                domProps: { value: _vm.numNights },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.numNights = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
               _c("label", { attrs: { for: "comments" } }, [_vm._v("Comments")]),
               _vm._v(" "),
               _c("textarea", {
@@ -43083,10 +43154,520 @@ var render = function() {
                     _vm.$set(_vm.info, "Notes", $event.target.value)
                   }
                 }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "email" } }, [
+                _vm._v("\n                Email\n            ")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.info.Email,
+                    expression: "info.Email"
+                  }
+                ],
+                attrs: { id: "email", type: "email", name: "email" },
+                domProps: { value: _vm.info.Email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.info, "Email", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "email_confirmation" } }, [
+                _vm._v("\n                Confirm your Email\n            ")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.email,
+                    expression: "email"
+                  }
+                ],
+                attrs: {
+                  id: "email_confirmation",
+                  type: "email",
+                  name: "email_confirmation"
+                },
+                domProps: { value: _vm.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.email = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "termsAccetped" } }, [
+                _vm._v(
+                  "\n                Do you accept the terms?\n            "
+                )
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.termsAccepted,
+                    expression: "termsAccepted"
+                  }
+                ],
+                attrs: {
+                  id: "termsAccepted",
+                  type: "checkbox",
+                  name: "termsAccepted"
+                },
+                domProps: {
+                  checked: _vm.termsAccepted,
+                  checked: Array.isArray(_vm.termsAccepted)
+                    ? _vm._i(_vm.termsAccepted, null) > -1
+                    : _vm.termsAccepted
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.termsAccepted,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = null,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.termsAccepted = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.termsAccepted = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.termsAccepted = $$c
+                    }
+                  }
+                }
               })
             ],
             1
           )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.step == 2
+        ? _c("div", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.FirstName,
+                  expression: "info.FirstName"
+                }
+              ],
+              attrs: { type: "text", placeholder: "FirstName" },
+              domProps: { value: _vm.info.FirstName },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "FirstName", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.LastName,
+                  expression: "info.LastName"
+                }
+              ],
+              attrs: { type: "text", placeholder: "LastName" },
+              domProps: { value: _vm.info.LastName },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "LastName", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.MiddleInitial,
+                  expression: "info.MiddleInitial"
+                }
+              ],
+              attrs: { type: "text", placeholder: "MiddleInitial" },
+              domProps: { value: _vm.info.MiddleInitial },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "MiddleInitial", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.Title,
+                  expression: "info.Title"
+                }
+              ],
+              attrs: { type: "text", placeholder: "Title" },
+              domProps: { value: _vm.info.Title },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "Title", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.Email,
+                  expression: "info.Email"
+                }
+              ],
+              attrs: { type: "text", placeholder: "Email" },
+              domProps: { value: _vm.info.Email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "Email", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.Address,
+                  expression: "info.Address"
+                }
+              ],
+              attrs: { type: "text", placeholder: "Address" },
+              domProps: { value: _vm.info.Address },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "Address", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.Address2,
+                  expression: "info.Address2"
+                }
+              ],
+              attrs: { type: "text", placeholder: "Address2" },
+              domProps: { value: _vm.info.Address2 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "Address2", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.City,
+                  expression: "info.City"
+                }
+              ],
+              attrs: { type: "text", placeholder: "City" },
+              domProps: { value: _vm.info.City },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "City", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.State,
+                  expression: "info.State"
+                }
+              ],
+              attrs: { type: "text", placeholder: "State" },
+              domProps: { value: _vm.info.State },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "State", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.Zip,
+                  expression: "info.Zip"
+                }
+              ],
+              attrs: { type: "text", placeholder: "Zip" },
+              domProps: { value: _vm.info.Zip },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "Zip", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.Country,
+                  expression: "info.Country"
+                }
+              ],
+              attrs: { type: "text", placeholder: "Country" },
+              domProps: { value: _vm.info.Country },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "Country", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.WorkPhone,
+                  expression: "info.WorkPhone"
+                }
+              ],
+              attrs: { type: "text", placeholder: "WorkPhone" },
+              domProps: { value: _vm.info.WorkPhone },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "WorkPhone", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.OtherPhone,
+                  expression: "info.OtherPhone"
+                }
+              ],
+              attrs: { type: "text", placeholder: "OtherPhone" },
+              domProps: { value: _vm.info.OtherPhone },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "OtherPhone", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.HomePhone,
+                  expression: "info.HomePhone"
+                }
+              ],
+              attrs: { type: "text", placeholder: "HomePhone" },
+              domProps: { value: _vm.info.HomePhone },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "HomePhone", $event.target.value)
+                }
+              }
+            })
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.step == 3
+        ? _c("div", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.CreditCardNumber,
+                  expression: "info.CreditCardNumber"
+                }
+              ],
+              attrs: { type: "number", placeholder: "CreditCardNumber" },
+              domProps: { value: _vm.info.CreditCardNumber },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "CreditCardNumber", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.ExpMonth,
+                  expression: "info.ExpMonth"
+                }
+              ],
+              attrs: { type: "number", placeholder: "ExpMonth" },
+              domProps: { value: _vm.info.ExpMonth },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "ExpMonth", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.ExpYear,
+                  expression: "info.ExpYear"
+                }
+              ],
+              attrs: { type: "number", placeholder: "ExpYear" },
+              domProps: { value: _vm.info.ExpYear },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "ExpYear", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.NameOnCard,
+                  expression: "info.NameOnCard"
+                }
+              ],
+              attrs: { type: "text", placeholder: "NameOnCard" },
+              domProps: { value: _vm.info.NameOnCard },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "NameOnCard", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.CCCVCode,
+                  expression: "info.CCCVCode"
+                }
+              ],
+              attrs: { type: "number", placeholder: "CCCVCode" },
+              domProps: { value: _vm.info.CCCVCode },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "CCCVCode", $event.target.value)
+                }
+              }
+            })
+          ])
         : _vm._e()
     ]),
     _vm._v(" "),
@@ -56900,6 +57481,34 @@ Vue.component('booking-form', __webpack_require__("./resources/assets/scripts/co
 
 /***/ }),
 
+/***/ "./resources/assets/scripts/models/ccvalidator.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CCValidator = function () {
+  function CCValidator() {
+    _classCallCheck(this, CCValidator);
+  }
+
+  _createClass(CCValidator, [{
+    key: "isValid",
+    value: function isValid(ccNumber) {
+      //TODO: make it actually validate
+      return true;
+    }
+  }]);
+
+  return CCValidator;
+}();
+
+/* unused harmony default export */ var _unused_webpack_default_export = (CCValidator);
+
+/***/ }),
+
 /***/ "./resources/assets/scripts/models/contact-form.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -56971,18 +57580,18 @@ var ContactForm = function () {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Pagination = function Pagination(results) {
-    _classCallCheck(this, Pagination);
+  _classCallCheck(this, Pagination);
 
-    this.to = results.to;
-    this.from = results.from;
-    this.path = results.path;
-    this.total = results.tota;
-    this.perPage = results.per_page;
-    this.currentPage = results.current_page;
-    this.lastPageUrl = results.last_page_url;
-    this.nextPageUrl = results.next_page_url;
-    this.prevPageUrl = results.prev_page_url;
-    this.firstPageUrl = results.first_page_url;
+  this.to = results.to;
+  this.from = results.from;
+  this.path = results.path;
+  this.total = results.tota;
+  this.perPage = results.per_page;
+  this.currentPage = results.current_page;
+  this.lastPageUrl = results.last_page_url;
+  this.nextPageUrl = results.next_page_url;
+  this.prevPageUrl = results.prev_page_url;
+  this.firstPageUrl = results.first_page_url;
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Pagination);
@@ -56998,55 +57607,53 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var ReservationInfo = function () {
-    function ReservationInfo() {
-        _classCallCheck(this, ReservationInfo);
+  function ReservationInfo() {
+    _classCallCheck(this, ReservationInfo);
 
-        this.BillingAddress = "";
-        this.BillingCity = "";
-        this.BillingState = "";
-        this.BillingZip = "";
-        this.BillingCountry = "";
-        this.CreditCardNumber = "";
-        this.ExpMonth = 0;
-        this.ExpYear = 0;
-        this.NameOnCard = "";
-        this.CCCVCode = "";
-        this.UnitId = 0;
-        this.LocationId = 0;
-        this.ArrivalDate = "";
-        this.DepartureDate = "";
-        this.Persons = 2;
-        this.FirstName = "";
-        this.LastName = "";
-        this.MiddleInitial = "";
-        this.Title = "";
-        this.Email = "";
-        this.Address = "";
-        this.Address2 = "";
-        this.City = "";
-        this.State = "";
-        this.Zip = "";
-        this.Country = "US";
-        this.WorkPhone = "";
-        this.OtherPhone = "";
-        this.HomePhone = "";
-        this.TravelInsAccepted = true;
-        this.Notes = "";
+    this.BillingAddress = "";
+    this.BillingCity = "";
+    this.BillingState = "";
+    this.BillingZip = "";
+    this.BillingCountry = "";
+    this.CreditCardNumber = "";
+    this.ExpMonth = 0;
+    this.ExpYear = 0;
+    this.NameOnCard = "";
+    this.CCCVCode = "";
+    this.UnitId = 0;
+    this.LocationId = 0;
+    this.ArrivalDate = "";
+    this.DepartureDate = "";
+    this.Persons = 2;
+    this.FirstName = "";
+    this.LastName = "";
+    this.MiddleInitial = "";
+    this.Title = "";
+    this.Email = "";
+    this.Address = "";
+    this.Address2 = "";
+    this.City = "";
+    this.State = "";
+    this.Zip = "";
+    this.Country = "US";
+    this.WorkPhone = "";
+    this.OtherPhone = "";
+    this.HomePhone = "";
+    this.TravelInsAccepted = true;
+    this.Notes = "";
+  }
+
+  _createClass(ReservationInfo, [{
+    key: "submit",
+    value: function submit() {}
+  }, {
+    key: "clear",
+    value: function clear() {
+      return new ReservationInfo();
     }
+  }]);
 
-    _createClass(ReservationInfo, [{
-        key: "submit",
-        value: function submit() {
-            //make the post request with all of the info filled out
-        }
-    }, {
-        key: "clear",
-        value: function clear() {
-            return new ReservationInfo();
-        }
-    }]);
-
-    return ReservationInfo;
+  return ReservationInfo;
 }();
 
 /* harmony default export */ __webpack_exports__["a"] = (ReservationInfo);
