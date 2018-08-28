@@ -25,7 +25,7 @@ export default class ReservationInfo {
     this.City = "";
     this.State = "";
     this.Zip = "";
-    this.Country = "US";
+    this.Country = "United States";
     this.WorkPhone = "";
     this.OtherPhone = "";
     this.HomePhone = "";
