@@ -1,14 +1,11 @@
 <template>
     <div>
         <form>
-            <div class="px-3">
-                <div class="row justify-content-between">
-                    <button class="btn col-md-auto" type="button" :class="{'btn-primary text-white': step == 1, 'btn-outline-secondary': step !== 1}" @click="step = 1">Step 1 - Trip Details</button>
-                    <button class="btn col-md-auto" type="button" :class="{'btn-primary text-white': step == 2, 'btn-outline-secondary': step !== 2}" @click="step = 2">Step 2 - Contact Info</button>
-                    <button class="btn col-md-auto" type="button" :class="{'btn-primary text-white': step == 3, 'btn-outline-secondary': step !== 3}" @click="step = 3">Step 3 - Payment</button>
-                    <button class="btn col-md-auto" type="button" :class="{'btn-primary text-white': step == 4, 'btn-outline-secondary': step !== 4}" @click="step = 4">Step 4 - Billing</button>
-                    <button class="btn col-md-auto" type="button" :class="{'btn-primary text-white': step == 5, 'btn-outline-secondary': step !== 5}" @click="step = 5">Step 5 - Confirmation</button>
-                </div>
+            <div class="row">
+                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-primary text-white': step == 1, 'btn-outline-secondary': step !== 1}" @click="step = 1">Step 1 - Trip Details</button>
+                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-primary text-white': step == 2, 'btn-outline-secondary': step !== 2}" @click="step = 2">Step 2 - Contact Info</button>
+                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-primary text-white': step == 3, 'btn-outline-secondary': step !== 3}" @click="step = 3">Step 3 - Payment</button>
+                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-primary text-white': step == 4, 'btn-outline-secondary': step !== 4}" @click="step = 4">Step 4 - Confirmation</button>
             </div>
             <div v-if="step == 1">
                 <div class="row mt-4">
@@ -64,7 +61,7 @@
                 
                 <label>Read our Rental Terms</label>
                 <div class="form-group">
-                    <div id="termstext" class="p-4 border" style="max-height:145px;" v-html="getTerms()"></div>
+                    <div id="termstext" class="p-4 border" style="max-height:145px; overflow-y: scroll" v-html="getTerms()"></div>
                 </div>
                 <div class="form-group">
                     <div class="custom-control custom-checkbox">
@@ -96,6 +93,11 @@
                 <input type="number" v-model="info.ExpYear" placeholder="ExpYear" />
                 <input type="text" v-model="info.NameOnCard" placeholder="NameOnCard" />
                 <input type="number" v-model="info.CCCVCode" placeholder="CCCVCode" />
+                <input type="text" v-model="info.BillingAddress" />
+                <input type="text" v-model="info.BillingCity" />
+                <input type="text" v-model="info.BillingState" />
+                <input type="number" v-model="info.BillingZip" />
+                <input type="text" v-model="info.BillingCountry" />
             </div>
         </form>
         <button class="btn" @click="back">Back</button>
@@ -147,10 +149,10 @@ export default {
             if (this.step > 1) this.step -= 1;
         },
         next() {
-            if (this.step < 5) this.step += 1;
+            if (this.step < 4) this.step += 1;
         },
         getTerms() {
-            return '<p>Let\'s just hard code a bunch of terms here. Maybe use Axios?</p><p>blah</p><p>blah</p>';
+            return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';
         }
     }
 }
