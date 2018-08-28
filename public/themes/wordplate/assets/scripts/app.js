@@ -5543,6 +5543,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5601,6 +5633,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         next: function next() {
             if (this.step < 4) this.step += 1;
+        },
+        getTerms: function getTerms() {
+            return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';
         }
     }
 });
@@ -42949,14 +42984,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("form", [
-      _c("nav", { staticClass: "navbar navbar-light" }, [
+      _c("div", { staticClass: "row" }, [
         _c(
           "button",
           {
-            staticClass: "btn btn-outline-secondary",
+            staticClass: "btn col-md mx-3 my-1",
             class: {
-              "btn-outline-success": _vm.step == 1,
-              "btn-sm": _vm.step !== 1
+              "btn-primary text-white": _vm.step == 1,
+              "btn-outline-secondary": _vm.step !== 1
             },
             attrs: { type: "button" },
             on: {
@@ -42971,10 +43006,10 @@ var render = function() {
         _c(
           "button",
           {
-            staticClass: "btn btn-outline-secondary",
+            staticClass: "btn col-md mx-3 my-1",
             class: {
-              "btn-outline-success": _vm.step == 2,
-              "btn-sm": _vm.step !== 2
+              "btn-primary text-white": _vm.step == 2,
+              "btn-outline-secondary": _vm.step !== 2
             },
             attrs: { type: "button" },
             on: {
@@ -42989,10 +43024,10 @@ var render = function() {
         _c(
           "button",
           {
-            staticClass: "btn btn-outline-secondary",
+            staticClass: "btn col-md mx-3 my-1",
             class: {
-              "btn-outline-success": _vm.step == 3,
-              "btn-sm": _vm.step !== 3
+              "btn-primary text-white": _vm.step == 3,
+              "btn-outline-secondary": _vm.step !== 3
             },
             attrs: { type: "button" },
             on: {
@@ -43007,10 +43042,10 @@ var render = function() {
         _c(
           "button",
           {
-            staticClass: "btn btn-outline-secondary",
+            staticClass: "btn col-md mx-3 my-1",
             class: {
-              "btn-outline-success": _vm.step == 4,
-              "btn-sm": _vm.step !== 4
+              "btn-primary text-white": _vm.step == 4,
+              "btn-outline-secondary": _vm.step !== 4
             },
             attrs: { type: "button" },
             on: {
@@ -43024,242 +43059,296 @@ var render = function() {
       ]),
       _vm._v(" "),
       _vm.step == 1
-        ? _c(
-            "div",
-            [
-              _c("HotelDatePicker", {
-                attrs: {
-                  startingDateValue: _vm.checkIn,
-                  endingDateValue: _vm.checkOut,
-                  format: "MM/DD/YYYY",
-                  minNights: 7
-                },
-                on: {
-                  checkInChanged: _vm.checkInChanged,
-                  checkOutChanged: _vm.checkOutChanged
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.info.UnitId,
-                    expression: "info.UnitId"
-                  }
-                ],
-                attrs: { type: "hidden" },
-                domProps: { value: _vm.info.UnitId },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.info, "UnitId", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.info.LocationId,
-                    expression: "info.LocationId"
-                  }
-                ],
-                attrs: { type: "hidden" },
-                domProps: { value: _vm.info.LocationId },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.info, "LocationId", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "numPersons" } }, [
-                _vm._v("Number of people")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.info.Persons,
-                    expression: "info.Persons"
-                  }
-                ],
-                attrs: { type: "number", id: "numPersons" },
-                domProps: { value: _vm.info.Persons },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.info, "Persons", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "numNights" } }, [
-                _vm._v("Number of Nights")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.numNights,
-                    expression: "numNights"
-                  }
-                ],
-                attrs: { type: "number", id: "numNights", disabled: "" },
-                domProps: { value: _vm.numNights },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.numNights = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "comments" } }, [_vm._v("Comments")]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.info.Notes,
-                    expression: "info.Notes"
-                  }
-                ],
-                attrs: { id: "comments" },
-                domProps: { value: _vm.info.Notes },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.info, "Notes", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "email" } }, [
-                _vm._v("\n                Email\n            ")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.info.Email,
-                    expression: "info.Email"
-                  }
-                ],
-                attrs: { id: "email", type: "email", name: "email" },
-                domProps: { value: _vm.info.Email },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.info, "Email", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "email_confirmation" } }, [
-                _vm._v("\n                Confirm your Email\n            ")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.email,
-                    expression: "email"
-                  }
-                ],
-                attrs: {
-                  id: "email_confirmation",
-                  type: "email",
-                  name: "email_confirmation"
-                },
-                domProps: { value: _vm.email },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.email = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "termsAccetped" } }, [
-                _vm._v(
-                  "\n                Do you accept the terms?\n            "
+        ? _c("div", [
+            _c("div", { staticClass: "row mt-4" }, [
+              _c("div", { staticClass: "col-md-6" }, [
+                _c("label", [_vm._v("Trip Schedule")]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("HotelDatePicker", {
+                      attrs: {
+                        startingDateValue: _vm.checkIn,
+                        endingDateValue: _vm.checkOut,
+                        format: "MM/DD/YY",
+                        minNights: 7
+                      },
+                      on: {
+                        checkInChanged: _vm.checkInChanged,
+                        checkOutChanged: _vm.checkOutChanged
+                      }
+                    })
+                  ],
+                  1
                 )
               ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.termsAccepted,
-                    expression: "termsAccepted"
-                  }
-                ],
-                attrs: {
-                  id: "termsAccepted",
-                  type: "checkbox",
-                  name: "termsAccepted"
-                },
-                domProps: {
-                  checked: _vm.termsAccepted,
-                  checked: Array.isArray(_vm.termsAccepted)
-                    ? _vm._i(_vm.termsAccepted, null) > -1
-                    : _vm.termsAccepted
-                },
-                on: {
-                  change: function($event) {
-                    var $$a = _vm.termsAccepted,
-                      $$el = $event.target,
-                      $$c = $$el.checked ? true : false
-                    if (Array.isArray($$a)) {
-                      var $$v = null,
-                        $$i = _vm._i($$a, $$v)
-                      if ($$el.checked) {
-                        $$i < 0 && (_vm.termsAccepted = $$a.concat([$$v]))
-                      } else {
-                        $$i > -1 &&
-                          (_vm.termsAccepted = $$a
-                            .slice(0, $$i)
-                            .concat($$a.slice($$i + 1)))
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("label", { attrs: { for: "numNights" } }, [
+                  _vm._v("Number of Nights")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.numNights,
+                        expression: "numNights"
                       }
-                    } else {
-                      _vm.termsAccepted = $$c
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "number", id: "numNights", disabled: "" },
+                    domProps: { value: _vm.numNights },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.numNights = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("label", { attrs: { for: "numPersons" } }, [
+                  _vm._v("Number of people")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.info.Persons,
+                        expression: "info.Persons"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "number", id: "numPersons" },
+                    domProps: { value: _vm.info.Persons },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.info, "Persons", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-4" }, [
+                _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.info.Email,
+                        expression: "info.Email"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "email", type: "email", name: "email" },
+                    domProps: { value: _vm.info.Email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.info, "Email", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "email_confirmation" } }, [
+                  _vm._v("Confirm your Email")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.email,
+                        expression: "email"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "email_confirmation",
+                      type: "email",
+                      name: "email_confirmation"
+                    },
+                    domProps: { value: _vm.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.email = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-8" }, [
+                _c("label", { attrs: { for: "comments" } }, [
+                  _vm._v("Comments")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.info.Notes,
+                        expression: "info.Notes"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    staticStyle: { height: "145px" },
+                    attrs: { id: "comments" },
+                    domProps: { value: _vm.info.Notes },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.info, "Notes", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.UnitId,
+                  expression: "info.UnitId"
+                }
+              ],
+              attrs: { type: "hidden" },
+              domProps: { value: _vm.info.UnitId },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "UnitId", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.LocationId,
+                  expression: "info.LocationId"
+                }
+              ],
+              attrs: { type: "hidden" },
+              domProps: { value: _vm.info.LocationId },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "LocationId", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v("Read our Rental Terms")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("div", {
+                staticClass: "p-4 border",
+                staticStyle: { "max-height": "145px", "overflow-y": "scroll" },
+                attrs: { id: "termstext" },
+                domProps: { innerHTML: _vm._s(_vm.getTerms()) }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("div", { staticClass: "custom-control custom-checkbox" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.termsAccepted,
+                      expression: "termsAccepted"
+                    }
+                  ],
+                  staticClass: "custom-control-input",
+                  attrs: {
+                    id: "termsAccepted",
+                    type: "checkbox",
+                    name: "termsAccepted"
+                  },
+                  domProps: {
+                    checked: _vm.termsAccepted,
+                    checked: Array.isArray(_vm.termsAccepted)
+                      ? _vm._i(_vm.termsAccepted, null) > -1
+                      : _vm.termsAccepted
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = _vm.termsAccepted,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.termsAccepted = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.termsAccepted = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.termsAccepted = $$c
+                      }
                     }
                   }
-                }
-              })
-            ],
-            1
-          )
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "custom-control-label",
+                    attrs: { for: "termsAccetped" }
+                  },
+                  [_vm._v("Do you accept the terms?")]
+                )
+              ])
+            ])
+          ])
         : _vm._e(),
       _vm._v(" "),
       _vm.step == 2
@@ -43775,9 +43864,15 @@ var render = function() {
         : _vm._e()
     ]),
     _vm._v(" "),
-    _c("button", { on: { click: _vm.back } }, [_vm._v("Back")]),
+    _c("button", { staticClass: "btn", on: { click: _vm.back } }, [
+      _vm._v("Back")
+    ]),
     _vm._v(" "),
-    _c("button", { on: { click: _vm.next } }, [_vm._v("Next")])
+    _c(
+      "button",
+      { staticClass: "btn btn-primary text-white", on: { click: _vm.next } },
+      [_vm._v("Next")]
+    )
   ])
 }
 var staticRenderFns = []
