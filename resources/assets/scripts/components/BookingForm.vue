@@ -37,7 +37,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    
                     <div class="col-md-4">
                         <label for="email">Email</label>
                         <div class="form-group">
@@ -55,10 +54,8 @@
                         </div>
                     </div>
                 </div>
-
                 <input type="hidden" v-model="info.UnitId">
                 <input type="hidden" v-model="info.LocationId">
-                
                 <label>Read our Rental Terms</label>
                 <div class="form-group">
                     <div id="termstext" class="p-4 border" style="max-height:145px; overflow-y: scroll" v-html="getTerms()"></div>
@@ -69,7 +66,6 @@
                         <label class="custom-control-label" for="termsAccetped">Do you accept the terms?</label>
                     </div>
                 </div>
-
             </div>
             <div v-if="step == 2">
                 <input type="text" v-model="info.FirstName" placeholder="FirstName"/>
@@ -113,7 +109,7 @@ import moment from 'moment';
 import CCValidator from '../models/ccvalidator.js';
 
 export default {
-    props: ['unit'],
+    props: ['unitId'],
     components: {
         HotelDatePicker
     },
@@ -125,11 +121,14 @@ export default {
             checkOut: null,
             numNights: 7,
             email: null,
-            termsAccepted: false
+            termsAccepted: false,
+            unit: {}
         }
     },
     mounted () {
-        this.info.UnitId = this.unit.rns_id !== undefined ? this.unit.rns_id : 0;
+        this.info.UnitId = this.unitId;
+        this.getUnit();
+
     },
     computed: {
         CCCVCode() {
@@ -155,7 +154,7 @@ export default {
         checkOutChanged (date) {
             let out = moment(date);
             this.checkOut = new Date(out);
-            this.info.DepartureDate = moment(date).format("MM/DD/YYYY");
+            this.info.DepartureDate = out.format("MM/DD/YYYY");
             this.numNights = out.diff(this.checkIn, 'days');
         },
         back() {
@@ -163,6 +162,15 @@ export default {
         },
         next() {
             if (this.step < 4) this.step += 1;
+        },
+        getUnit() {
+            axios.get('https://rns.mexicobeachvacations.com/units/' + this.unitId)
+                .then(response => {
+                    this.unit = response.data;
+                })
+                .catch(err => {
+                    console.log(err)
+                })
         },
         getTerms() {
             return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';

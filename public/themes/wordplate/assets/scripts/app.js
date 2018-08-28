@@ -5571,10 +5571,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -5582,7 +5578,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['unit'],
+    props: ['unitId'],
     components: {
         HotelDatePicker: __WEBPACK_IMPORTED_MODULE_1_vue_hotel_datepicker___default.a
     },
@@ -5594,11 +5590,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             checkOut: null,
             numNights: 7,
             email: null,
-            termsAccepted: false
+            termsAccepted: false,
+            unit: {}
         };
     },
     mounted: function mounted() {
-        this.info.UnitId = this.unit.rns_id !== undefined ? this.unit.rns_id : 0;
+        this.info.UnitId = this.unitId;
+        this.getUnit();
     },
 
     computed: {
@@ -5625,7 +5623,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         checkOutChanged: function checkOutChanged(date) {
             var out = __WEBPACK_IMPORTED_MODULE_2_moment___default()(date);
             this.checkOut = new Date(out);
-            this.info.DepartureDate = __WEBPACK_IMPORTED_MODULE_2_moment___default()(date).format("MM/DD/YYYY");
+            this.info.DepartureDate = out.format("MM/DD/YYYY");
             this.numNights = out.diff(this.checkIn, 'days');
         },
         back: function back() {
@@ -5633,6 +5631,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         next: function next() {
             if (this.step < 4) this.step += 1;
+        },
+        getUnit: function getUnit() {
+            var _this = this;
+
+            axios.get('https://rns.mexicobeachvacations.com/units/' + this.unitId).then(function (response) {
+                _this.unit = response.data;
+            }).catch(function (err) {
+                console.log(err);
+            });
         },
         getTerms: function getTerms() {
             return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';
