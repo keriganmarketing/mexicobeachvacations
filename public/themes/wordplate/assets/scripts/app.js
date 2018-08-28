@@ -5569,6 +5569,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.info.UnitId = this.unit.rns_id !== undefined ? this.unit.rns_id : 0;
     },
 
+    computed: {
+        CCCVCode: function CCCVCode() {
+            return this.info.CCCVCode;
+        }
+    },
+    watch: {
+        CCCVCode: function CCCVCode(newCode, oldCode) {
+            var vm = this;
+            if (newCode.length > 4) {
+                this.info.CCCVCode = this.info.CCCVCode.slice(0, -1);
+            }
+        }
+    },
     methods: {
         submit: function submit() {
             this.info.submit();
@@ -43663,7 +43676,7 @@ var render = function() {
                   expression: "info.BillingAddress"
                 }
               ],
-              attrs: { type: "text" },
+              attrs: { type: "text", placeholder: "BillingAddress" },
               domProps: { value: _vm.info.BillingAddress },
               on: {
                 input: function($event) {
@@ -43684,7 +43697,7 @@ var render = function() {
                   expression: "info.BillingCity"
                 }
               ],
-              attrs: { type: "text" },
+              attrs: { type: "text", placeholder: "BillingCity" },
               domProps: { value: _vm.info.BillingCity },
               on: {
                 input: function($event) {
@@ -43705,7 +43718,7 @@ var render = function() {
                   expression: "info.BillingState"
                 }
               ],
-              attrs: { type: "text" },
+              attrs: { type: "text", placeholder: "BillingState" },
               domProps: { value: _vm.info.BillingState },
               on: {
                 input: function($event) {
@@ -43726,7 +43739,7 @@ var render = function() {
                   expression: "info.BillingZip"
                 }
               ],
-              attrs: { type: "number" },
+              attrs: { type: "number", placeholder: "BillingZip" },
               domProps: { value: _vm.info.BillingZip },
               on: {
                 input: function($event) {
@@ -43747,7 +43760,7 @@ var render = function() {
                   expression: "info.BillingCountry"
                 }
               ],
-              attrs: { type: "text" },
+              attrs: { type: "text", placeholder: "BillingCountry" },
               domProps: { value: _vm.info.BillingCountry },
               on: {
                 input: function($event) {

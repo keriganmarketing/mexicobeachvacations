@@ -61,11 +61,11 @@
                 <input type="number" v-model="info.ExpYear" placeholder="ExpYear" />
                 <input type="text" v-model="info.NameOnCard" placeholder="NameOnCard" />
                 <input type="number" v-model="info.CCCVCode" placeholder="CCCVCode" />
-                <input type="text" v-model="info.BillingAddress" />
-                <input type="text" v-model="info.BillingCity" />
-                <input type="text" v-model="info.BillingState" />
-                <input type="number" v-model="info.BillingZip" />
-                <input type="text" v-model="info.BillingCountry" />
+                <input type="text" v-model="info.BillingAddress" placeholder="BillingAddress"/>
+                <input type="text" v-model="info.BillingCity" placeholder="BillingCity"/>
+                <input type="text" v-model="info.BillingState" placeholder="BillingState"/>
+                <input type="number" v-model="info.BillingZip" placeholder="BillingZip"/>
+                <input type="text" v-model="info.BillingCountry" placeholder="BillingCountry"/>
             </div>
         </form>
         <button @click="back">Back</button>
@@ -98,6 +98,19 @@ export default {
     },
     mounted () {
         this.info.UnitId = this.unit.rns_id !== undefined ? this.unit.rns_id : 0;
+    },
+    computed: {
+        CCCVCode() {
+            return this.info.CCCVCode;
+        }
+    },
+    watch: {
+        CCCVCode: function (newCode, oldCode) {
+            var vm = this;
+            if (newCode.length > 4) {
+                this.info.CCCVCode = this.info.CCCVCode.slice(0, -1);
+            }
+        }
     },
     methods: {
         submit() {
