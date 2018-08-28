@@ -10,7 +10,7 @@
                 <article class="support">
                     {{ the_content() }}
 
-                    <booking-form></booking-form>
+                    <booking-form unit-id="{{ $unitId }}"></booking-form>
                 </article>
             </div>
         </main>

@@ -2,10 +2,10 @@
     <div>
         <form>
             <div class="row">
-                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-primary text-white': step == 1, 'btn-outline-secondary': step !== 1}" @click="step = 1">Step 1 - Trip Details</button>
-                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-primary text-white': step == 2, 'btn-outline-secondary': step !== 2}" @click="step = 2">Step 2 - Contact Info</button>
-                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-primary text-white': step == 3, 'btn-outline-secondary': step !== 3}" @click="step = 3">Step 3 - Payment</button>
-                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-primary text-white': step == 4, 'btn-outline-secondary': step !== 4}" @click="step = 4">Step 4 - Confirmation</button>
+                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-info text-white': step == 1, 'btn-outline-secondary': step !== 1}" @click="step = 1">Step 1 - Trip Details</button>
+                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-info text-white': step == 2, 'btn-outline-secondary': step !== 2}" @click="step = 2">Step 2 - Contact Info</button>
+                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-info text-white': step == 3, 'btn-outline-secondary': step !== 3}" @click="step = 3">Step 3 - Payment</button>
+                <button class="btn col-md mx-3 my-1" type="button" :class="{'btn-info text-white': step == 4, 'btn-outline-secondary': step !== 4}" @click="step = 4">Step 4 - Confirmation</button>
             </div>
             <div class="mt-4 text-right text-sm">
                 <p><span class="required">*</span> = required</p>
@@ -14,42 +14,61 @@
                 <div class="mt-4">
                     <h2>Trip Details</h2>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>Trip Schedule <span class="required">*</span></label>
+                <div class="row align-items-end">
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <label for="ArrivalDate">Check-in</label>
                         <div class="form-group">
-                            <HotelDatePicker 
-                                :startingDateValue="checkIn" 
-                                :endingDateValue="checkOut" 
-                                format="MM/DD/YY" 
-                                :minNights=7
-                                @checkInChanged="checkInChanged"
-                                @checkOutChanged="checkOutChanged"
-                            >
-                            </HotelDatePicker>
+                            <input type="text" id="ArrivalDate" class="form-control" v-model="info.ArrivalDate" disabled>
                         </div>
                     </div>
-                    <div class="col-md-auto">
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <label for="DepartureDate">Check-out</label>
+                        <div class="form-group">
+                            <input type="text" id="DepartureDate" class="form-control" v-model="info.DepartureDate" disabled>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group text-lg-right">
+                        <p>Use the calendar to select the dates of your stay.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 availability-cal mb-2">
+                        <div class="form-group">
+                            <v-date-picker
+                                mode="range"
+                                :attributes="calendarOptions"
+                                is-double-paned
+                                v-model="info.selectedDate"
+                                :disabled-dates="calendarOptions[0].dates"
+                                :popover-expanded="true"
+                                :is-inline="true"
+                                @dayclick="changeDate"
+                            >
+                            </v-date-picker>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
                         <label for="numNights">Number of Nights</label>
                         <div class="form-group">
                             <input type="number" id="numNights" class="form-control" v-model="numNights" disabled>
                         </div>
                     </div>
-                    
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="numPersons">Number of people <span class="required">*</span></label>
                         <div class="form-group">
                             <input type="number" id="numPersons" class="form-control" v-model="info.Persons">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="promoCode">Promo Code</label>
                         <div class="form-group">
                             <input id="promoCode" class="form-control" type="text" name="promoCode" v-model="info.PromoCode">
                         </div>
+
                     </div>
+                    
+                </div>
+                <div class="row">
                     <div class="col-md-12">
                         <label for="comments">Comments</label>
                         <div class="form-group">
@@ -57,10 +76,8 @@
                         </div>
                     </div>
                 </div>
-
                 <input type="hidden" v-model="info.UnitId">
                 <input type="hidden" v-model="info.LocationId">
-                
                 <label>Read our Rental Terms</label>
                 <div class="form-group">
                     <div id="termstext" class="p-4 border" style="max-height:145px; overflow-y: scroll" v-html="getTerms()"></div>
@@ -71,7 +88,6 @@
                         <label class="custom-control-label" for="termsAccetped">Do you accept the terms? <span class="required">*</span></label>
                     </div>
                 </div>
-
             </div>
             <div v-if="step == 2">
                 <div class="mt-4">
@@ -484,11 +500,11 @@
                 <input type="number" v-model="info.ExpYear" placeholder="ExpYear" />
                 <input type="text" v-model="info.NameOnCard" placeholder="NameOnCard" />
                 <input type="number" v-model="info.CCCVCode" placeholder="CCCVCode" />
-                <input type="text" v-model="info.BillingAddress" />
-                <input type="text" v-model="info.BillingCity" />
-                <input type="text" v-model="info.BillingState" />
-                <input type="number" v-model="info.BillingZip" />
-                <input type="text" v-model="info.BillingCountry" />
+                <input type="text" v-model="info.BillingAddress" placeholder="BillingAddress"/>
+                <input type="text" v-model="info.BillingCity" placeholder="BillingCity"/>
+                <input type="text" v-model="info.BillingState" placeholder="BillingState"/>
+                <input type="number" v-model="info.BillingZip" placeholder="BillingZip"/>
+                <input type="text" v-model="info.BillingCountry" placeholder="BillingCountry"/>
             </div>
         </form>
         <div class="my-4">
@@ -501,15 +517,26 @@
 
 <script>
 import ReservationInfo from '../models/reservation-info.js';
-import HotelDatePicker from 'vue-hotel-datepicker';
+import { setupCalendar, Calendar} from 'v-calendar'
+import 'v-calendar/lib/v-calendar.min.css';
 import moment from 'moment';
 import CCValidator from '../models/ccvalidator.js';
 
+setupCalendar({
+    firstDayOfWeek: 1,
+    paneWidth: 300,
+    formats: {
+        title: 'MMMM YYYY',
+        weekdays: 'WWW',
+        navMonths: 'MMM',
+        input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
+        dayPopover: 'L',
+    }
+});
+
+
 export default {
-    props: ['unit'],
-    components: {
-        HotelDatePicker
-    },
+    props: ['unitId'],
     data() {
         return {
             info: new ReservationInfo(),
@@ -518,11 +545,37 @@ export default {
             checkOut: null,
             numNights: 7,
             email: null,
-            termsAccepted: false
+            termsAccepted: false,
+            unit: {},
+            calendarOptions: [{
+                dates: [],
+                highlight: {
+                    backgroundColor: '#ff8080',
+                },
+                contentStyle: {
+                    color: '#ffffff',
+                }
+            }],
+            bookings: []
         }
     },
     mounted () {
-        this.info.UnitId = this.unit.rns_id !== undefined ? this.unit.rns_id : 0;
+        this.info.UnitId = this.unitId;
+        this.getUnit();
+
+    },
+    computed: {
+        CCCVCode() {
+            return this.info.CCCVCode;
+        }
+    },
+    watch: {
+        CCCVCode: function (newCode, oldCode) {
+            var vm = this;
+            if (newCode.length > 4) {
+                this.info.CCCVCode = this.info.CCCVCode.slice(0, -1);
+            }
+        }
     },
     methods: {
         submit() {
@@ -535,8 +588,12 @@ export default {
         checkOutChanged (date) {
             let out = moment(date);
             this.checkOut = new Date(out);
-            this.info.DepartureDate = moment(date).format("MM/DD/YYYY");
+            this.info.DepartureDate = out.format("MM/DD/YYYY");
             this.numNights = out.diff(this.checkIn, 'days');
+        },
+        clearDates() {
+            this.info.ArrivalDate = null;
+            this.info.DepartureDate = null;
         },
         back() {
             if (this.step > 1) this.step -= 1;
@@ -544,8 +601,42 @@ export default {
         next() {
             if (this.step < 4) this.step += 1;
         },
+        getUnit() {
+            axios.get('https://rns.mexicobeachvacations.com/units/' + this.unitId)
+                .then(response => {
+                    this.unit = response.data;
+
+                    this.unit.availability.forEach( booking => {
+                        this.bookings.push({
+                            start: booking.arrival_date,
+                            end: booking.departure_date,
+                            title: 'Booked',
+                            id: booking.rns_id
+                        });
+                    });
+
+                    this.calendarOptions[0].dates = this.bookings;
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
         getTerms() {
             return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';
+        },
+        changeDate(value){
+            console.log(value);
+
+            if(value.attributes.length === 0){
+                this.checkIn = new Date(moment(value.dateTime));
+                this.info.ArrivalDate = moment(value.dateTime).format("MM/DD/YYYY");
+            }
+            if(value.attributes.length === 1){
+                let out = moment(value.dateTime);
+                this.checkOut = new Date(out);
+                this.info.DepartureDate = out.format("MM/DD/YYYY");
+                this.numNights = out.diff(this.checkIn, 'days');
+            }
         }
     }
 }
@@ -553,5 +644,46 @@ export default {
 <style lang="scss" >
 .required {
     color: red;
+}
+.availability-cal .c-pane-container .c-pane {
+    background: #FFF;
+    width: 300px !important;
+
+    @media (min-width: 576px){
+        width: 250px !important;
+    }
+    @media (min-width: 768px){
+        width: 345px !important;
+    }
+    @media (min-width: 993px){
+        width: 465px !important;
+        
+        .c-day-content,
+        .c-day-background {
+            height: 2.8rem !important;
+
+            &:hover {
+                width: 2.8rem !important;
+            }
+        }
+    }
+    @media (min-width: 1200px){
+        width: 550px !important;
+    }
+
+    .c-weekdays,
+    .c-day-content {
+        font-family: "ABeeZee", sans-serif;
+    }
+    .c-title {
+        font-family: "Fira Sans Condensed", sans-serif;
+    }
+    .c-arrow-layout {
+        padding: 6px 5px 4px;
+        border: 2px solid #ff6f74;
+        border-radius: 50%;
+        color: #ff6f74;
+    }
+
 }
 </style>

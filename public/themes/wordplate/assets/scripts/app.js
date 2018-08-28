@@ -5462,11 +5462,29 @@ module.exports = {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_reservation_info_js__ = __webpack_require__("./resources/assets/scripts/models/reservation-info.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_hotel_datepicker__ = __webpack_require__("./node_modules/vue-hotel-datepicker/dist/vue-hotel-datepicker.min.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_hotel_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_hotel_datepicker__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__("./node_modules/moment/moment.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_ccvalidator_js__ = __webpack_require__("./resources/assets/scripts/models/ccvalidator.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_v_calendar__ = __webpack_require__("./node_modules/v-calendar/lib/v-calendar.min.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_v_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_v_calendar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_v_calendar_lib_v_calendar_min_css__ = __webpack_require__("./node_modules/v-calendar/lib/v-calendar.min.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_v_calendar_lib_v_calendar_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_v_calendar_lib_v_calendar_min_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_ccvalidator_js__ = __webpack_require__("./resources/assets/scripts/models/ccvalidator.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5973,12 +5991,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
+
+Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
+    firstDayOfWeek: 1,
+    paneWidth: 300,
+    formats: {
+        title: 'MMMM YYYY',
+        weekdays: 'WWW',
+        navMonths: 'MMM',
+        input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
+        dayPopover: 'L'
+    }
+});
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['unit'],
-    components: {
-        HotelDatePicker: __WEBPACK_IMPORTED_MODULE_1_vue_hotel_datepicker___default.a
-    },
+    props: ['unitId'],
     data: function data() {
         return {
             info: new __WEBPACK_IMPORTED_MODULE_0__models_reservation_info_js__["a" /* default */](),
@@ -5987,26 +6015,55 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             checkOut: null,
             numNights: 7,
             email: null,
-            termsAccepted: false
+            termsAccepted: false,
+            unit: {},
+            calendarOptions: [{
+                dates: [],
+                highlight: {
+                    backgroundColor: '#ff8080'
+                },
+                contentStyle: {
+                    color: '#ffffff'
+                }
+            }],
+            bookings: []
         };
     },
     mounted: function mounted() {
-        this.info.UnitId = this.unit.rns_id !== undefined ? this.unit.rns_id : 0;
+        this.info.UnitId = this.unitId;
+        this.getUnit();
     },
 
+    computed: {
+        CCCVCode: function CCCVCode() {
+            return this.info.CCCVCode;
+        }
+    },
+    watch: {
+        CCCVCode: function CCCVCode(newCode, oldCode) {
+            var vm = this;
+            if (newCode.length > 4) {
+                this.info.CCCVCode = this.info.CCCVCode.slice(0, -1);
+            }
+        }
+    },
     methods: {
         submit: function submit() {
             this.info.submit();
         },
         checkInChanged: function checkInChanged(date) {
-            this.checkIn = new Date(__WEBPACK_IMPORTED_MODULE_2_moment___default()(date));
-            this.info.ArrivalDate = __WEBPACK_IMPORTED_MODULE_2_moment___default()(date).format("MM/DD/YYYY");
+            this.checkIn = new Date(__WEBPACK_IMPORTED_MODULE_3_moment___default()(date));
+            this.info.ArrivalDate = __WEBPACK_IMPORTED_MODULE_3_moment___default()(date).format("MM/DD/YYYY");
         },
         checkOutChanged: function checkOutChanged(date) {
-            var out = __WEBPACK_IMPORTED_MODULE_2_moment___default()(date);
+            var out = __WEBPACK_IMPORTED_MODULE_3_moment___default()(date);
             this.checkOut = new Date(out);
-            this.info.DepartureDate = __WEBPACK_IMPORTED_MODULE_2_moment___default()(date).format("MM/DD/YYYY");
+            this.info.DepartureDate = out.format("MM/DD/YYYY");
             this.numNights = out.diff(this.checkIn, 'days');
+        },
+        clearDates: function clearDates() {
+            this.info.ArrivalDate = null;
+            this.info.DepartureDate = null;
         },
         back: function back() {
             if (this.step > 1) this.step -= 1;
@@ -6014,8 +6071,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         next: function next() {
             if (this.step < 4) this.step += 1;
         },
+        getUnit: function getUnit() {
+            var _this = this;
+
+            axios.get('https://rns.mexicobeachvacations.com/units/' + this.unitId).then(function (response) {
+                _this.unit = response.data;
+
+                _this.unit.availability.forEach(function (booking) {
+                    _this.bookings.push({
+                        start: booking.arrival_date,
+                        end: booking.departure_date,
+                        title: 'Booked',
+                        id: booking.rns_id
+                    });
+                });
+
+                _this.calendarOptions[0].dates = _this.bookings;
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
         getTerms: function getTerms() {
             return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';
+        },
+        changeDate: function changeDate(value) {
+            console.log(value);
+
+            if (value.attributes.length === 0) {
+                this.checkIn = new Date(__WEBPACK_IMPORTED_MODULE_3_moment___default()(value.dateTime));
+                this.info.ArrivalDate = __WEBPACK_IMPORTED_MODULE_3_moment___default()(value.dateTime).format("MM/DD/YYYY");
+            }
+            if (value.attributes.length === 1) {
+                var out = __WEBPACK_IMPORTED_MODULE_3_moment___default()(value.dateTime);
+                this.checkOut = new Date(out);
+                this.info.DepartureDate = out.format("MM/DD/YYYY");
+                this.numNights = out.diff(this.checkIn, 'days');
+            }
         }
     }
 });
@@ -18977,7 +19068,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.required {\n  color: red;\n}\n", ""]);
+exports.push([module.i, "\n.required {\n  color: red;\n}\n.availability-cal .c-pane-container .c-pane {\n  background: #FFF;\n  width: 300px !important;\n}\n@media (min-width: 576px) {\n.availability-cal .c-pane-container .c-pane {\n      width: 250px !important;\n}\n}\n@media (min-width: 768px) {\n.availability-cal .c-pane-container .c-pane {\n      width: 345px !important;\n}\n}\n@media (min-width: 993px) {\n.availability-cal .c-pane-container .c-pane {\n      width: 465px !important;\n}\n.availability-cal .c-pane-container .c-pane .c-day-content,\n      .availability-cal .c-pane-container .c-pane .c-day-background {\n        height: 2.8rem !important;\n}\n.availability-cal .c-pane-container .c-pane .c-day-content:hover,\n        .availability-cal .c-pane-container .c-pane .c-day-background:hover {\n          width: 2.8rem !important;\n}\n}\n@media (min-width: 1200px) {\n.availability-cal .c-pane-container .c-pane {\n      width: 550px !important;\n}\n}\n.availability-cal .c-pane-container .c-pane .c-weekdays,\n  .availability-cal .c-pane-container .c-pane .c-day-content {\n    font-family: \"ABeeZee\", sans-serif;\n}\n.availability-cal .c-pane-container .c-pane .c-title {\n    font-family: \"Fira Sans Condensed\", sans-serif;\n}\n.availability-cal .c-pane-container .c-pane .c-arrow-layout {\n    padding: 6px 5px 4px;\n    border: 2px solid #ff6f74;\n    border-radius: 50%;\n    color: #ff6f74;\n}\n", ""]);
 
 // exports
 
@@ -44104,7 +44195,7 @@ var render = function() {
           {
             staticClass: "btn col-md mx-3 my-1",
             class: {
-              "btn-primary text-white": _vm.step == 1,
+              "btn-info text-white": _vm.step == 1,
               "btn-outline-secondary": _vm.step !== 1
             },
             attrs: { type: "button" },
@@ -44122,7 +44213,7 @@ var render = function() {
           {
             staticClass: "btn col-md mx-3 my-1",
             class: {
-              "btn-primary text-white": _vm.step == 2,
+              "btn-info text-white": _vm.step == 2,
               "btn-outline-secondary": _vm.step !== 2
             },
             attrs: { type: "button" },
@@ -44140,7 +44231,7 @@ var render = function() {
           {
             staticClass: "btn col-md mx-3 my-1",
             class: {
-              "btn-primary text-white": _vm.step == 3,
+              "btn-info text-white": _vm.step == 3,
               "btn-outline-secondary": _vm.step !== 3
             },
             attrs: { type: "button" },
@@ -44158,7 +44249,7 @@ var render = function() {
           {
             staticClass: "btn col-md mx-3 my-1",
             class: {
-              "btn-primary text-white": _vm.step == 4,
+              "btn-info text-white": _vm.step == 4,
               "btn-outline-secondary": _vm.step !== 4
             },
             attrs: { type: "button" },
@@ -44178,24 +44269,90 @@ var render = function() {
         ? _c("div", [
             _vm._m(1),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-6" }, [
-                _vm._m(2),
+            _c("div", { staticClass: "row align-items-end" }, [
+              _c("div", { staticClass: "col-6 col-md-4 col-lg-3" }, [
+                _c("label", { attrs: { for: "ArrivalDate" } }, [
+                  _vm._v("Check-in")
+                ]),
                 _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.info.ArrivalDate,
+                        expression: "info.ArrivalDate"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "ArrivalDate", disabled: "" },
+                    domProps: { value: _vm.info.ArrivalDate },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.info, "ArrivalDate", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-6 col-md-4 col-lg-3" }, [
+                _c("label", { attrs: { for: "DepartureDate" } }, [
+                  _vm._v("Check-out")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.info.DepartureDate,
+                        expression: "info.DepartureDate"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "DepartureDate", disabled: "" },
+                    domProps: { value: _vm.info.DepartureDate },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.info, "DepartureDate", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 availability-cal mb-2" }, [
                 _c(
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("HotelDatePicker", {
+                    _c("v-date-picker", {
                       attrs: {
-                        startingDateValue: _vm.checkIn,
-                        endingDateValue: _vm.checkOut,
-                        format: "MM/DD/YY",
-                        minNights: 7
+                        mode: "range",
+                        attributes: _vm.calendarOptions,
+                        "is-double-paned": "",
+                        "disabled-dates": _vm.calendarOptions[0].dates,
+                        "popover-expanded": true,
+                        "is-inline": true
                       },
-                      on: {
-                        checkInChanged: _vm.checkInChanged,
-                        checkOutChanged: _vm.checkOutChanged
+                      on: { dayclick: _vm.changeDate },
+                      model: {
+                        value: _vm.info.selectedDate,
+                        callback: function($$v) {
+                          _vm.$set(_vm.info, "selectedDate", $$v)
+                        },
+                        expression: "info.selectedDate"
                       }
                     })
                   ],
@@ -44203,7 +44360,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-auto" }, [
+              _c("div", { staticClass: "col-md-4" }, [
                 _c("label", { attrs: { for: "numNights" } }, [
                   _vm._v("Number of Nights")
                 ]),
@@ -44231,11 +44388,9 @@ var render = function() {
                     }
                   })
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-6" }, [
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-4" }, [
                 _vm._m(3),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
@@ -44263,7 +44418,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
+              _c("div", { staticClass: "col-md-4" }, [
                 _c("label", { attrs: { for: "promoCode" } }, [
                   _vm._v("Promo Code")
                 ]),
@@ -44291,8 +44446,10 @@ var render = function() {
                     }
                   })
                 ])
-              ]),
-              _vm._v(" "),
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-md-12" }, [
                 _c("label", { attrs: { for: "comments" } }, [
                   _vm._v("Comments")
@@ -46301,7 +46458,7 @@ var render = function() {
                   expression: "info.BillingAddress"
                 }
               ],
-              attrs: { type: "text" },
+              attrs: { type: "text", placeholder: "BillingAddress" },
               domProps: { value: _vm.info.BillingAddress },
               on: {
                 input: function($event) {
@@ -46322,7 +46479,7 @@ var render = function() {
                   expression: "info.BillingCity"
                 }
               ],
-              attrs: { type: "text" },
+              attrs: { type: "text", placeholder: "BillingCity" },
               domProps: { value: _vm.info.BillingCity },
               on: {
                 input: function($event) {
@@ -46343,7 +46500,7 @@ var render = function() {
                   expression: "info.BillingState"
                 }
               ],
-              attrs: { type: "text" },
+              attrs: { type: "text", placeholder: "BillingState" },
               domProps: { value: _vm.info.BillingState },
               on: {
                 input: function($event) {
@@ -46364,7 +46521,7 @@ var render = function() {
                   expression: "info.BillingZip"
                 }
               ],
-              attrs: { type: "number" },
+              attrs: { type: "number", placeholder: "BillingZip" },
               domProps: { value: _vm.info.BillingZip },
               on: {
                 input: function($event) {
@@ -46385,7 +46542,7 @@ var render = function() {
                   expression: "info.BillingCountry"
                 }
               ],
-              attrs: { type: "text" },
+              attrs: { type: "text", placeholder: "BillingCountry" },
               domProps: { value: _vm.info.BillingCountry },
               on: {
                 input: function($event) {
@@ -46437,9 +46594,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("Trip Schedule "),
-      _c("span", { staticClass: "required" }, [_vm._v("*")])
+    return _c("div", { staticClass: "col" }, [
+      _c("div", { staticClass: "form-group text-lg-right" }, [
+        _c("p", [_vm._v("Use the calendar to select the dates of your stay.")])
+      ])
     ])
   },
   function() {
