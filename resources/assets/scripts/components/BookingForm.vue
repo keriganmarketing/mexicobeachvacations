@@ -5,8 +5,7 @@
                 <button class="btn btn-outline-secondary" type="button" :class="{'btn-outline-success': step == 1, 'btn-sm': step !== 1}" @click="step = 1">Step 1 - Trip Details</button>
                 <button class="btn btn-outline-secondary" type="button" :class="{'btn-outline-success': step == 2, 'btn-sm': step !== 2}" @click="step = 2">Step 2 - Contact Info</button>
                 <button class="btn btn-outline-secondary" type="button" :class="{'btn-outline-success': step == 3, 'btn-sm': step !== 3}" @click="step = 3">Step 3 - Payment</button>
-                <button class="btn btn-outline-secondary" type="button" :class="{'btn-outline-success': step == 4, 'btn-sm': step !== 4}" @click="step = 4">Step 4 - Billing</button>
-                <button class="btn btn-outline-secondary" type="button" :class="{'btn-outline-success': step == 5, 'btn-sm': step !== 5}" @click="step = 5">Step 5 - Confirmation</button>
+                <button class="btn btn-outline-secondary" type="button" :class="{'btn-outline-success': step == 4, 'btn-sm': step !== 4}" @click="step = 4">Step 4 - Confirmation</button>
             </nav>
             <div v-if="step == 1">
                 <HotelDatePicker 
@@ -62,6 +61,11 @@
                 <input type="number" v-model="info.ExpYear" placeholder="ExpYear" />
                 <input type="text" v-model="info.NameOnCard" placeholder="NameOnCard" />
                 <input type="number" v-model="info.CCCVCode" placeholder="CCCVCode" />
+                <input type="text" v-model="info.BillingAddress" />
+                <input type="text" v-model="info.BillingCity" />
+                <input type="text" v-model="info.BillingState" />
+                <input type="number" v-model="info.BillingZip" />
+                <input type="text" v-model="info.BillingCountry" />
             </div>
         </form>
         <button @click="back">Back</button>
@@ -113,7 +117,7 @@ export default {
             if (this.step > 1) this.step -= 1;
         },
         next() {
-            if (this.step < 5) this.step += 1;
+            if (this.step < 4) this.step += 1;
         }
     }
 }

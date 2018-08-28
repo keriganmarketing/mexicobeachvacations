@@ -5539,6 +5539,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -5583,7 +5587,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.step > 1) this.step -= 1;
         },
         next: function next() {
-            if (this.step < 5) this.step += 1;
+            if (this.step < 4) this.step += 1;
         }
     }
 });
@@ -43002,25 +43006,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("Step 4 - Billing")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-outline-secondary",
-            class: {
-              "btn-outline-success": _vm.step == 5,
-              "btn-sm": _vm.step !== 5
-            },
-            attrs: { type: "button" },
-            on: {
-              click: function($event) {
-                _vm.step = 5
-              }
-            }
-          },
-          [_vm._v("Step 5 - Confirmation")]
+          [_vm._v("Step 4 - Confirmation")]
         )
       ]),
       _vm._v(" "),
@@ -43664,6 +43650,111 @@ var render = function() {
                     return
                   }
                   _vm.$set(_vm.info, "CCCVCode", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.BillingAddress,
+                  expression: "info.BillingAddress"
+                }
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.info.BillingAddress },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "BillingAddress", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.BillingCity,
+                  expression: "info.BillingCity"
+                }
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.info.BillingCity },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "BillingCity", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.BillingState,
+                  expression: "info.BillingState"
+                }
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.info.BillingState },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "BillingState", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.BillingZip,
+                  expression: "info.BillingZip"
+                }
+              ],
+              attrs: { type: "number" },
+              domProps: { value: _vm.info.BillingZip },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "BillingZip", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.BillingCountry,
+                  expression: "info.BillingCountry"
+                }
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.info.BillingCountry },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.info, "BillingCountry", $event.target.value)
                 }
               }
             })
