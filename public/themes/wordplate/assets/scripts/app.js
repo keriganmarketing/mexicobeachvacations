@@ -5791,24 +5791,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
 
 
 
-
-Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
-    firstDayOfWeek: 1,
-    paneWidth: 300,
-    formats: {
-        title: 'MMMM YYYY',
-        weekdays: 'WWW',
-        navMonths: 'MMM',
-        input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
-        dayPopover: 'L'
-    }
-});
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['unitId'],
@@ -5816,9 +5807,9 @@ Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
         return {
             info: new __WEBPACK_IMPORTED_MODULE_0__models_reservation_info_js__["a" /* default */](),
             step: 1,
-            checkIn: null,
-            checkOut: null,
             numNights: 7,
+            isAvailable: false,
+            unitLoaded: false,
             email: null,
             termsAccepted: false,
             unit: {},
@@ -5838,6 +5829,17 @@ Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
         };
     },
     mounted: function mounted() {
+        Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
+            firstDayOfWeek: 1,
+            paneWidth: 300,
+            formats: {
+                title: 'MMMM YYYY',
+                weekdays: 'WWW',
+                navMonths: 'MMM',
+                input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
+                dayPopover: 'L'
+            }
+        });
         this.info.UnitId = this.unitId;
         this.getUnit();
         this.getToken();
@@ -5846,30 +5848,29 @@ Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
     computed: {
         CCCVCode: function CCCVCode() {
             return this.info.CCCVCode;
+        },
+        selectedDates: function selectedDates() {
+            return this.info.selectedDates;
         }
     },
     watch: {
         CCCVCode: function CCCVCode(newCode, oldCode) {
-            var vm = this;
             if (newCode.length > 4) {
                 this.info.CCCVCode = this.info.CCCVCode.slice(0, -1);
             }
+        },
+        selectedDates: function selectedDates(newDates, oldDates) {
+            var checkIn = __WEBPACK_IMPORTED_MODULE_3_moment___default()(newDates.start);
+            var checkOut = __WEBPACK_IMPORTED_MODULE_3_moment___default()(newDates.end);
+            this.info.ArrivalDate = checkIn.format("MM/DD/YYYY");
+            this.info.DepartureDate = checkOut.format("MM/DD/YYYY");
+            this.numNights = checkOut.diff(checkIn, 'days');
+            this.getRateDetails();
         }
     },
     methods: {
         submit: function submit() {
             this.info.submit();
-        },
-        checkInChanged: function checkInChanged(date) {
-            this.checkIn = new Date(__WEBPACK_IMPORTED_MODULE_3_moment___default()(date));
-            this.info.ArrivalDate = __WEBPACK_IMPORTED_MODULE_3_moment___default()(date).format("MM/DD/YYYY");
-        },
-        checkOutChanged: function checkOutChanged(date) {
-            var out = __WEBPACK_IMPORTED_MODULE_3_moment___default()(date);
-            this.checkOut = new Date(out);
-            this.info.DepartureDate = out.format("MM/DD/YYYY");
-            this.numNights = out.diff(this.checkIn, 'days');
-            this.getRateDetails();
         },
         clearDates: function clearDates() {
             this.info.ArrivalDate = null;
@@ -5897,6 +5898,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
                 });
 
                 _this.calendarOptions[0].dates = _this.bookings;
+                _this.unitLoaded = true;
             }).catch(function (err) {
                 console.log(err);
             });
@@ -5909,15 +5911,19 @@ Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
             };
 
             axios.post('https://core.rnshosted.com/api/v17/Units/' + this.unitId + '/Rates?clientid=RNS.ParkerRealty.KeriganMarketing', {
-                "ArrivalDate": __WEBPACK_IMPORTED_MODULE_3_moment___default()(this.checkIn).format("MM/DD/YYYY"),
-                "DepartureDate": __WEBPACK_IMPORTED_MODULE_3_moment___default()(this.checkOut).format("MM/DD/YYYY"),
+                "ArrivalDate": this.info.ArrivalDate,
+                "DepartureDate": this.info.DepartureDate,
                 "Persons": this.info.Persons,
                 "DeclineTravelInsurance": false,
                 "PromoCode": '',
                 "IncludeSDP": true,
                 "SDPStrict": true
             }, config).then(function (response) {
-                _this2.rateDetails = response.data;
+                var ad = _this2.selectedDates.start;
+                var dd = _this2.selectedDates.end;
+
+                _this2.rateDetails = response.data[0];
+                _this2.isAvailable = _this2.rateDetails.IsUnitAvailable && __WEBPACK_IMPORTED_MODULE_3_moment___default()(ad).weekday() == 6 && __WEBPACK_IMPORTED_MODULE_3_moment___default()(dd).weekday() == 6 && _this2.numNights >= 7;
             }).catch(function (err) {
                 console.log(err);
             });
@@ -5937,18 +5943,6 @@ Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
         },
         getTerms: function getTerms() {
             return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';
-        },
-        changeDate: function changeDate(value) {
-            if (value.attributes.length === 0) {
-                this.checkIn = new Date(__WEBPACK_IMPORTED_MODULE_3_moment___default()(value.dateTime));
-                this.info.ArrivalDate = __WEBPACK_IMPORTED_MODULE_3_moment___default()(value.dateTime).format("MM/DD/YYYY");
-            }
-            if (value.attributes.length === 1) {
-                var out = __WEBPACK_IMPORTED_MODULE_3_moment___default()(value.dateTime);
-                this.checkOut = new Date(out);
-                this.info.DepartureDate = out.format("MM/DD/YYYY");
-                this.numNights = out.diff(this.checkIn, 'days');
-            }
         },
         setBillingState: function setBillingState(value) {
             this.info.BillingState = value;
@@ -44668,7 +44662,7 @@ var render = function() {
   return _c("div", [
     _c("h1", [_vm._v("Book Now")]),
     _vm._v(" "),
-    _vm.unit
+    _vm.unitLoaded
       ? _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-6 col-lg-4 mb-4" }, [
             _c("h2", { staticStyle: { "text-transform": "capitalize" } }, [
@@ -44684,7 +44678,53 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _vm._m(0)
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("h2", [_vm._v("Cost Breakdown")]),
+            _vm._v(" "),
+            _vm.selectedDates
+              ? _c("div", [
+                  _vm.isAvailable
+                    ? _c("div", { staticClass: "alert alert-success" }, [
+                        _vm._v("This unit is available for the selected dates")
+                      ])
+                    : _c("div", { staticClass: "alert alert-danger" }, [
+                        _vm._v(
+                          "This unit is not available for the selected dates. Please select another time period."
+                        )
+                      ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                { staticClass: "table table-sm table-striped rate-table" },
+                [
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.rateDetails.GuestCharges, function(detail) {
+                      return _c("tr", { key: detail.HeadingsListId }, [
+                        _c("td", { staticClass: "data-label" }, [
+                          _vm._v(_vm._s(detail.HeadingName))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              detail.ChgAmount.toLocaleString("en-US", {
+                                style: "currency",
+                                currency: "USD"
+                              })
+                            )
+                          )
+                        ])
+                      ])
+                    })
+                  )
+                ]
+              )
+            ])
+          ])
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -44771,11 +44811,11 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
       _vm.step == 1
         ? _c("div", [
-            _vm._m(2),
+            _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "row align-items-end" }, [
               _c("div", { staticClass: "col-6 col-md-4 col-lg-3" }, [
@@ -44838,7 +44878,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c("div", { staticClass: "col-12 availability-cal mb-2" }, [
                 _c(
@@ -44854,13 +44894,12 @@ var render = function() {
                         "popover-expanded": true,
                         "is-inline": true
                       },
-                      on: { dayclick: _vm.changeDate },
                       model: {
-                        value: _vm.info.selectedDate,
+                        value: _vm.info.selectedDates,
                         callback: function($$v) {
-                          _vm.$set(_vm.info, "selectedDate", $$v)
+                          _vm.$set(_vm.info, "selectedDates", $$v)
                         },
-                        expression: "info.selectedDate"
+                        expression: "info.selectedDates"
                       }
                     })
                   ],
@@ -44899,7 +44938,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-4" }, [
-                _vm._m(4),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("input", {
@@ -45099,7 +45138,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm._m(5)
+                  _vm._m(4)
                 ]
               )
             ])
@@ -45108,11 +45147,11 @@ var render = function() {
       _vm._v(" "),
       _vm.step == 2
         ? _c("div", [
-            _vm._m(6),
+            _vm._m(5),
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-md-4" }, [
-                _vm._m(7),
+                _vm._m(6),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("input", {
@@ -45140,7 +45179,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-4" }, [
-                _vm._m(8),
+                _vm._m(7),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("input", {
@@ -45200,7 +45239,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-md-4" }, [
-                _vm._m(9),
+                _vm._m(8),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("input", {
@@ -45272,7 +45311,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-8" }, [
-                _vm._m(10),
+                _vm._m(9),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-md-5" }, [
@@ -45418,7 +45457,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-md-4" }, [
-                _vm._m(11),
+                _vm._m(10),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("input", {
@@ -45531,11 +45570,11 @@ var render = function() {
       _vm._v(" "),
       _vm.step == 3
         ? _c("div", [
-            _vm._m(12),
+            _vm._m(11),
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-sm-6" }, [
-                _vm._m(13),
+                _vm._m(12),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("input", {
@@ -45571,7 +45610,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-6 col-sm-auto" }, [
-                _vm._m(14),
+                _vm._m(13),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-auto" }, [
@@ -45735,7 +45774,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-sm-6" }, [
-                _vm._m(15),
+                _vm._m(14),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("input", {
@@ -45763,7 +45802,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-auto" }, [
-                _vm._m(16),
+                _vm._m(15),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("input", {
@@ -45793,7 +45832,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-md-9" }, [
-                _vm._m(17),
+                _vm._m(16),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-md-5" }, [
@@ -45955,7 +45994,7 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _vm.step == 4 ? _c("div", [_vm._m(18)]) : _vm._e()
+      _vm.step == 4 ? _c("div", [_vm._m(17)]) : _vm._e()
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "my-4" }, [
@@ -45972,30 +46011,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("h2", [_vm._v("Cost Breakdown")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "table-responsive" }, [
-        _c(
-          "table",
-          { staticClass: "table table-sm table-striped rate-table" },
-          [
-            _c("tbody", [
-              _c("tr", [
-                _c("td", { staticClass: "data-label" }),
-                _vm._v(" "),
-                _c("td")
-              ])
-            ])
-          ]
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

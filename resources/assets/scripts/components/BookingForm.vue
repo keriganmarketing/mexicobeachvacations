@@ -1,19 +1,23 @@
 <template>
     <div>
         <h1>Book Now</h1>
-        <div class="row" v-if="unit" >
+        <div class="row" v-if="unitLoaded" >
             <div class="col-md-6 col-lg-4 mb-4">
                 <h2 style="text-transform: capitalize;">{{ unit.name.toLowerCase() }}</h2>           
                 <img :src="unit.images[0].url" :alt="unit.images[0].description" class="img-fluid" >
             </div>
             <div class="col-md-6">
                 <h2>Cost Breakdown</h2>
+                <div v-if="selectedDates">
+                    <div class="alert alert-success" v-if="isAvailable">This unit is available for the selected dates</div>
+                    <div class="alert alert-danger" v-else>This unit is not available for the selected dates. Please select another time period.</div>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-sm table-striped rate-table">
                         <tbody>
-                            <tr>
-                                <td class="data-label"></td>
-                                <td></td>
+                            <tr v-for="detail in rateDetails.GuestCharges" :key="detail.HeadingsListId">
+                                <td class="data-label">{{ detail.HeadingName }}</td>
+                                <td>{{ detail.ChgAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -66,11 +70,10 @@
                                 mode="range"
                                 :attributes="calendarOptions"
                                 is-double-paned
-                                v-model="info.selectedDate"
+                                v-model="info.selectedDates"
                                 :disabled-dates="calendarOptions[0].dates"
                                 :popover-expanded="true"
                                 :is-inline="true"
-                                @dayclick="changeDate"
                             >
                             </v-date-picker>
                         </div>
@@ -327,17 +330,6 @@ import 'v-calendar/lib/v-calendar.min.css';
 import moment from 'moment';
 import CCValidator from '../models/ccvalidator.js';
 
-setupCalendar({
-    firstDayOfWeek: 1,
-    paneWidth: 300,
-    formats: {
-        title: 'MMMM YYYY',
-        weekdays: 'WWW',
-        navMonths: 'MMM',
-        input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
-        dayPopover: 'L',
-    }
-});
 
 
 export default {
@@ -346,9 +338,9 @@ export default {
         return {
             info: new ReservationInfo(),
             step: 1,
-            checkIn: null,
-            checkOut: null,
             numNights: 7,
+            isAvailable: false,
+            unitLoaded: false,
             email: null,
             termsAccepted: false,
             unit: {},
@@ -368,6 +360,17 @@ export default {
         }
     },
     mounted () {
+        setupCalendar({
+            firstDayOfWeek: 1,
+            paneWidth: 300,
+            formats: {
+                title: 'MMMM YYYY',
+                weekdays: 'WWW',
+                navMonths: 'MMM',
+                input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
+                dayPopover: 'L',
+            }
+        });
         this.info.UnitId = this.unitId;
         this.getUnit();
         this.getToken();
@@ -376,30 +379,29 @@ export default {
     computed: {
         CCCVCode() {
             return this.info.CCCVCode;
+        },
+        selectedDates() {
+            return this.info.selectedDates;
         }
     },
     watch: {
         CCCVCode: function (newCode, oldCode) {
-            var vm = this;
             if (newCode.length > 4) {
                 this.info.CCCVCode = this.info.CCCVCode.slice(0, -1);
             }
+        },
+        selectedDates: function (newDates, oldDates) {
+            let checkIn = moment(newDates.start);
+            let checkOut = moment(newDates.end);
+            this.info.ArrivalDate   = checkIn.format("MM/DD/YYYY");
+            this.info.DepartureDate = checkOut.format("MM/DD/YYYY");
+            this.numNights = checkOut.diff(checkIn, 'days');
+            this.getRateDetails();
         }
     },
     methods: {
         submit() {
             this.info.submit();
-        },
-        checkInChanged (date) {
-            this.checkIn = new Date(moment(date));
-            this.info.ArrivalDate = moment(date).format("MM/DD/YYYY");
-        },
-        checkOutChanged (date) {
-            let out = moment(date);
-            this.checkOut = new Date(out);
-            this.info.DepartureDate = out.format("MM/DD/YYYY");
-            this.numNights = out.diff(this.checkIn, 'days');
-            this.getRateDetails();
         },
         clearDates() {
             this.info.ArrivalDate = null;
@@ -426,6 +428,7 @@ export default {
                     });
 
                     this.calendarOptions[0].dates = this.bookings;
+                    this.unitLoaded = true;
                 })
                 .catch(err => {
                     console.log(err)
@@ -437,8 +440,8 @@ export default {
             }
 
             axios.post('https://core.rnshosted.com/api/v17/Units/' + this.unitId + '/Rates?clientid=RNS.ParkerRealty.KeriganMarketing', {
-                   "ArrivalDate": moment(this.checkIn).format("MM/DD/YYYY"),
-                   "DepartureDate": moment(this.checkOut).format("MM/DD/YYYY"),
+                   "ArrivalDate": this.info.ArrivalDate,
+                   "DepartureDate": this.info.DepartureDate,
                    "Persons": this.info.Persons,
                    "DeclineTravelInsurance": false,
                    "PromoCode": '',
@@ -446,7 +449,11 @@ export default {
                    "SDPStrict": true
             }, config)
                 .then(response => {
-                    this.rateDetails = response.data;
+                    let ad = this.selectedDates.start;
+                    let dd = this.selectedDates.end;
+                    
+                    this.rateDetails = response.data[0];
+                    this.isAvailable = this.rateDetails.IsUnitAvailable && moment(ad).weekday() == 6 && moment(dd).weekday() == 6 && this.numNights >= 7;
                 })
                 .catch(err => {
                     console.log(err);
@@ -469,18 +476,6 @@ export default {
         },
         getTerms() {
             return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';
-        },
-        changeDate(value){
-            if(value.attributes.length === 0){
-                this.checkIn = new Date(moment(value.dateTime));
-                this.info.ArrivalDate = moment(value.dateTime).format("MM/DD/YYYY");
-            }
-            if(value.attributes.length === 1){
-                let out = moment(value.dateTime);
-                this.checkOut = new Date(out);
-                this.info.DepartureDate = out.format("MM/DD/YYYY");
-                this.numNights = out.diff(this.checkIn, 'days');
-            }
         },
         setBillingState(value){
             this.info.BillingState = value;
