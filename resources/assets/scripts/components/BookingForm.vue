@@ -61,7 +61,7 @@
                     <div id="termstext" class="p-4 border" style="max-height:145px; overflow-y: scroll" v-html="getTerms()"></div>
                 </div>
                 <div class="form-group">
-                    <div class="custom-control custom-checkbox">
+                    <div class="custom-control custom-checkbox" @click="termsAccepted = ! termsAccepted">
                         <input id="termsAccepted" class="custom-control-input" type="checkbox" name="termsAccepted" v-model="termsAccepted" :checked="termsAccepted">
                         <label class="custom-control-label" for="termsAccetped">Do you accept the terms?</label>
                     </div>
@@ -122,12 +122,16 @@ export default {
             numNights: 7,
             email: null,
             termsAccepted: false,
-            unit: {}
+            unit: {},
+            rateDetails: {},
+            rnsBaseUrl: 'https://core.rnshosted.com/api/v17/',
+            token: ''
         }
     },
     mounted () {
         this.info.UnitId = this.unitId;
         this.getUnit();
+        this.getToken();
 
     },
     computed: {
@@ -156,6 +160,7 @@ export default {
             this.checkOut = new Date(out);
             this.info.DepartureDate = out.format("MM/DD/YYYY");
             this.numNights = out.diff(this.checkIn, 'days');
+            this.getRateDetails();
         },
         back() {
             if (this.step > 1) this.step -= 1;
@@ -171,6 +176,42 @@ export default {
                 .catch(err => {
                     console.log(err)
                 })
+        },
+        getRateDetails() {
+            let config = {
+                headers: { 'Authorization': 'Bearer ' + this.token }
+            }
+
+            axios.post('https://core.rnshosted.com/api/v17/Units/' + this.unitId + '/Rates?clientid=RNS.ParkerRealty.KeriganMarketing', {
+                   "ArrivalDate": moment(this.checkIn).format("MM/DD/YYYY"),
+                   "DepartureDate": moment(this.checkOut).format("MM/DD/YYYY"),
+                   "Persons": this.info.Persons,
+                   "DeclineTravelInsurance": false,
+                   "PromoCode": '',
+                   "IncludeSDP": true,
+                   "SDPStrict": true
+            }, config)
+                .then(response => {
+                    this.rateDetails = response.data;
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        },
+        getToken() {
+            axios.post(this.rnsBaseUrl + 'Account/AccessToken?clientid=RNS.ParkerRealty.KeriganMarketing', {
+                ClientId: "RNS.ParkerRealty.KeriganMarketing",
+                ClientSecret: "0f869127-9043-4c71-bc8d-2e391cb04822",
+                Scope: "rns.v17.api"
+            })
+                .then(response => {
+                    this.token = response.data.access_token
+                    
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+
         },
         getTerms() {
             return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';

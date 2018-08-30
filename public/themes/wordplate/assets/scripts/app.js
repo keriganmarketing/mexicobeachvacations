@@ -5591,12 +5591,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             numNights: 7,
             email: null,
             termsAccepted: false,
-            unit: {}
+            unit: {},
+            rateDetails: {},
+            rnsBaseUrl: 'https://core.rnshosted.com/api/v17/',
+            token: ''
         };
     },
     mounted: function mounted() {
         this.info.UnitId = this.unitId;
         this.getUnit();
+        this.getToken();
     },
 
     computed: {
@@ -5625,6 +5629,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.checkOut = new Date(out);
             this.info.DepartureDate = out.format("MM/DD/YYYY");
             this.numNights = out.diff(this.checkIn, 'days');
+            this.getRateDetails();
         },
         back: function back() {
             if (this.step > 1) this.step -= 1;
@@ -5637,6 +5642,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.get('https://rns.mexicobeachvacations.com/units/' + this.unitId).then(function (response) {
                 _this.unit = response.data;
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
+        getRateDetails: function getRateDetails() {
+            var _this2 = this;
+
+            var config = {
+                headers: { 'Authorization': 'Bearer ' + this.token }
+            };
+
+            axios.post('https://core.rnshosted.com/api/v17/Units/' + this.unitId + '/Rates?clientid=RNS.ParkerRealty.KeriganMarketing', {
+                "ArrivalDate": __WEBPACK_IMPORTED_MODULE_2_moment___default()(this.checkIn).format("MM/DD/YYYY"),
+                "DepartureDate": __WEBPACK_IMPORTED_MODULE_2_moment___default()(this.checkOut).format("MM/DD/YYYY"),
+                "Persons": this.info.Persons,
+                "DeclineTravelInsurance": false,
+                "PromoCode": '',
+                "IncludeSDP": true,
+                "SDPStrict": true
+            }, config).then(function (response) {
+                _this2.rateDetails = response.data;
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
+        getToken: function getToken() {
+            var _this3 = this;
+
+            axios.post(this.rnsBaseUrl + 'Account/AccessToken?clientid=RNS.ParkerRealty.KeriganMarketing', {
+                ClientId: "RNS.ParkerRealty.KeriganMarketing",
+                ClientSecret: "0f869127-9043-4c71-bc8d-2e391cb04822",
+                Scope: "rns.v17.api"
+            }).then(function (response) {
+                _this3.token = response.data.access_token;
             }).catch(function (err) {
                 console.log(err);
             });
@@ -43300,60 +43339,71 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("div", { staticClass: "custom-control custom-checkbox" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.termsAccepted,
-                      expression: "termsAccepted"
-                    }
-                  ],
-                  staticClass: "custom-control-input",
-                  attrs: {
-                    id: "termsAccepted",
-                    type: "checkbox",
-                    name: "termsAccepted"
-                  },
-                  domProps: {
-                    checked: _vm.termsAccepted,
-                    checked: Array.isArray(_vm.termsAccepted)
-                      ? _vm._i(_vm.termsAccepted, null) > -1
-                      : _vm.termsAccepted
-                  },
+              _c(
+                "div",
+                {
+                  staticClass: "custom-control custom-checkbox",
                   on: {
-                    change: function($event) {
-                      var $$a = _vm.termsAccepted,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = null,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 && (_vm.termsAccepted = $$a.concat([$$v]))
-                        } else {
-                          $$i > -1 &&
-                            (_vm.termsAccepted = $$a
-                              .slice(0, $$i)
-                              .concat($$a.slice($$i + 1)))
-                        }
-                      } else {
-                        _vm.termsAccepted = $$c
-                      }
+                    click: function($event) {
+                      _vm.termsAccepted = !_vm.termsAccepted
                     }
                   }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "custom-control-label",
-                    attrs: { for: "termsAccetped" }
-                  },
-                  [_vm._v("Do you accept the terms?")]
-                )
-              ])
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.termsAccepted,
+                        expression: "termsAccepted"
+                      }
+                    ],
+                    staticClass: "custom-control-input",
+                    attrs: {
+                      id: "termsAccepted",
+                      type: "checkbox",
+                      name: "termsAccepted"
+                    },
+                    domProps: {
+                      checked: _vm.termsAccepted,
+                      checked: Array.isArray(_vm.termsAccepted)
+                        ? _vm._i(_vm.termsAccepted, null) > -1
+                        : _vm.termsAccepted
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.termsAccepted,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.termsAccepted = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.termsAccepted = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.termsAccepted = $$c
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "custom-control-label",
+                      attrs: { for: "termsAccetped" }
+                    },
+                    [_vm._v("Do you accept the terms?")]
+                  )
+                ]
+              )
             ])
           ])
         : _vm._e(),
