@@ -67,11 +67,11 @@ export default {
     methods: {
         checkInChanged(date) {
             this.checkIn = moment(date).format("YYYY-MM-DD");
-            this.getMatches();
+            if (this.checkOut !== null) this.getMatches();
         },
         checkOutChanged(date) {
             this.checkOut = moment(date).format("YYYY-MM-DD");
-            this.getMatches();
+            if (this.checkIn !== null) this.getMatches();
         },
         getMatches() {
             let url = 'https://rns.mexicobeachvacations.com/matches?q=search&checkIn=' + this.checkIn + '&checkOut=' + this.checkOut + '&type=' + this.type + '&location=' + this.location;

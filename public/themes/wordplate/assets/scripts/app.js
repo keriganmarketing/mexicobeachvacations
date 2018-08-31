@@ -5794,6 +5794,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -5816,6 +5821,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             rateDetails: {},
             rnsBaseUrl: 'https://core.rnshosted.com/api/v17/',
             token: '',
+            errorMessage: '',
             calendarOptions: [{
                 dates: [],
                 highlight: {
@@ -5919,11 +5925,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 "IncludeSDP": true,
                 "SDPStrict": true
             }, config).then(function (response) {
-                var ad = _this2.selectedDates.start;
-                var dd = _this2.selectedDates.end;
-
                 _this2.rateDetails = response.data[0];
-                _this2.isAvailable = _this2.rateDetails.IsUnitAvailable && __WEBPACK_IMPORTED_MODULE_3_moment___default()(ad).weekday() == 6 && __WEBPACK_IMPORTED_MODULE_3_moment___default()(dd).weekday() == 6 && _this2.numNights >= 7;
+                _this2.isAvailable = _this2.checkAvailability();
             }).catch(function (err) {
                 console.log(err);
             });
@@ -5943,6 +5946,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         getTerms: function getTerms() {
             return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';
+        },
+        checkAvailability: function checkAvailability() {
+            var passesCheck = this.rateDetails.IsUnitAvailable;
+
+            if (!passesCheck) {
+                this.errorMessage = this.rateDetails.UserMessage !== "" ? this.rateDetails.UserMessage : "We're sorry, but the unit isn't available for the selected dates. Please select new dates and try again.";
+                return false;
+            }
+
+            return true;
         },
         setBillingState: function setBillingState(value) {
             this.info.BillingState = value;
@@ -7015,11 +7028,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         checkInChanged: function checkInChanged(date) {
             this.checkIn = __WEBPACK_IMPORTED_MODULE_1_moment___default()(date).format("YYYY-MM-DD");
-            this.getMatches();
+            if (this.checkOut !== null) this.getMatches();
         },
         checkOutChanged: function checkOutChanged(date) {
             this.checkOut = __WEBPACK_IMPORTED_MODULE_1_moment___default()(date).format("YYYY-MM-DD");
-            this.getMatches();
+            if (this.checkIn !== null) this.getMatches();
         },
         getMatches: function getMatches() {
             var _this = this;
@@ -44681,19 +44694,11 @@ var render = function() {
           _c("div", { staticClass: "col-md-6" }, [
             _c("h2", [_vm._v("Cost Breakdown")]),
             _vm._v(" "),
-            _vm.selectedDates
-              ? _c("div", [
-                  _vm.isAvailable
-                    ? _c("div", { staticClass: "alert alert-success" }, [
-                        _vm._v("This unit is available for the selected dates")
-                      ])
-                    : _c("div", { staticClass: "alert alert-danger" }, [
-                        _vm._v(
-                          "This unit is not available for the selected dates. Please select another time period."
-                        )
-                      ])
-                ])
-              : _vm._e(),
+            _c("div", { staticClass: "alert alert-info" }, [
+              _vm._v(
+                "\n                Please select a reservation from the available dates below to see the cost breakdown.\n            "
+              )
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "table-responsive" }, [
               _c(
@@ -44703,22 +44708,24 @@ var render = function() {
                   _c(
                     "tbody",
                     _vm._l(_vm.rateDetails.GuestCharges, function(detail) {
-                      return _c("tr", { key: detail.HeadingsListId }, [
-                        _c("td", { staticClass: "data-label" }, [
-                          _vm._v(_vm._s(detail.HeadingName))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            _vm._s(
-                              detail.ChgAmount.toLocaleString("en-US", {
-                                style: "currency",
-                                currency: "USD"
-                              })
-                            )
-                          )
-                        ])
-                      ])
+                      return _vm.isAvailable
+                        ? _c("tr", { key: detail.HeadingsListId }, [
+                            _c("td", { staticClass: "data-label" }, [
+                              _vm._v(_vm._s(detail.HeadingName))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  detail.ChgAmount.toLocaleString("en-US", {
+                                    style: "currency",
+                                    currency: "USD"
+                                  })
+                                )
+                              )
+                            ])
+                          ])
+                        : _vm._e()
                     })
                   )
                 ]
@@ -44879,6 +44886,22 @@ var render = function() {
               ]),
               _vm._v(" "),
               _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-6" }, [
+                _vm.selectedDates
+                  ? _c("div", [
+                      _vm.isAvailable
+                        ? _c("div", { staticClass: "alert alert-success" }, [
+                            _vm._v(
+                              "This unit is available for the selected dates"
+                            )
+                          ])
+                        : _c("div", { staticClass: "alert alert-danger" }, [
+                            _vm._v(_vm._s(_vm.errorMessage))
+                          ])
+                    ])
+                  : _vm._e()
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-12 availability-cal mb-2" }, [
                 _c(

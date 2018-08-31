@@ -8,14 +8,13 @@
             </div>
             <div class="col-md-6">
                 <h2>Cost Breakdown</h2>
-                <div v-if="selectedDates">
-                    <div class="alert alert-success" v-if="isAvailable">This unit is available for the selected dates</div>
-                    <div class="alert alert-danger" v-else>This unit is not available for the selected dates. Please select another time period.</div>
+                <div class="alert alert-info">
+                    Please select a reservation from the available dates below to see the cost breakdown.
                 </div>
                 <div class="table-responsive">
                     <table class="table table-sm table-striped rate-table">
                         <tbody>
-                            <tr v-for="detail in rateDetails.GuestCharges" :key="detail.HeadingsListId">
+                            <tr v-for="detail in rateDetails.GuestCharges" :key="detail.HeadingsListId" v-if="isAvailable">
                                 <td class="data-label">{{ detail.HeadingName }}</td>
                                 <td>{{ detail.ChgAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }}</td>
                             </tr>
@@ -62,6 +61,12 @@
                     <div class="col">
                         <div class="form-group text-lg-right">
                         <p>Use the calendar to select the dates of your stay.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div v-if="selectedDates">
+                            <div class="alert alert-success" v-if="isAvailable">This unit is available for the selected dates</div>
+                            <div class="alert alert-danger" v-else>{{ errorMessage }}</div>
                         </div>
                     </div>
                     <div class="col-12 availability-cal mb-2">
@@ -330,8 +335,6 @@ import 'v-calendar/lib/v-calendar.min.css';
 import moment from 'moment';
 import CCValidator from '../models/ccvalidator.js';
 
-
-
 export default {
     props: ['unitId'],
     data() {
@@ -347,6 +350,7 @@ export default {
             rateDetails: {},
             rnsBaseUrl: 'https://core.rnshosted.com/api/v17/',
             token: '',
+            errorMessage: '',
             calendarOptions: [{
                 dates: [],
                 highlight: {
@@ -449,11 +453,8 @@ export default {
                    "SDPStrict": true
             }, config)
                 .then(response => {
-                    let ad = this.selectedDates.start;
-                    let dd = this.selectedDates.end;
-                    
                     this.rateDetails = response.data[0];
-                    this.isAvailable = this.rateDetails.IsUnitAvailable && moment(ad).weekday() == 6 && moment(dd).weekday() == 6 && this.numNights >= 7;
+                    this.isAvailable = this.checkAvailability();
                 })
                 .catch(err => {
                     console.log(err);
@@ -476,6 +477,17 @@ export default {
         },
         getTerms() {
             return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';
+        },
+        checkAvailability() {
+            let passesCheck = this.rateDetails.IsUnitAvailable;
+
+            if(! passesCheck) {
+                this.errorMessage = this.rateDetails.UserMessage !== "" ? this.rateDetails.UserMessage : "We're sorry, but the unit isn't available for the selected dates. Please select new dates and try again."
+                return false;
+            }
+
+            return true
+
         },
         setBillingState(value){
             this.info.BillingState = value;
