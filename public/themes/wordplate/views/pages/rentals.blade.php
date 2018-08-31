@@ -17,6 +17,7 @@
                 </article>
 
             <search-results-container
+                data-filters="{{ $filters }}"
                 :data-results="{{ $units }}"
                 data-check-in="{{ $checkIn }}"
                 data-check-out="{{ $checkOut }}"
