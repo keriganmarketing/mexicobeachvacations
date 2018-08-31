@@ -1,7 +1,7 @@
 <template>
 <div class="row">
     <div class="col-md-4 col-lg-3 mb-4">
-        <side-search-bar @apply-filters="applyFilters"></side-search-bar>
+        <side-search-bar @apply-filters="applyFilters" ></side-search-bar>
     </div>
     <div class="col-md-8 col-lg-9 rental-feed">
         <div class="icon-key mt-3">
@@ -36,7 +36,7 @@
         <div class="row no-gutters unit" v-for="unit in units" :key="unit.id">
             <div class="col-lg-4">
                 <a class="property-image" :href="'/property/' + unit.rns_id + '/'" >
-                <img :src="unit.images[0].url" style="width:100%;" >
+                    <img :src="unit.images[0].url" style="width:100%;" >
                 </a>
                 <div class="row no-gutters justify-content-center">
                     <div v-show="hasAmenity(unit, 45)" class="col-auto py-2 px-1">
@@ -96,7 +96,8 @@ export default {
         'data-check-in', 
         'data-check-out', 
         'data-location', 
-        'data-type'
+        'data-type',
+        'data-filters'
     ],
     data() {
         return {

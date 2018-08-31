@@ -1,13 +1,21 @@
 <template>
     <div>
-        <h1>Book Now</h1>
+        <h1>Booking <span style="text-transform: capitalize;">{{ unit.name.toLowerCase() }}</span></h1>
+        <div class="row">
+            <div class="col-auto">
+                <p class="proprty-address fira">{{ unit.details[0].address }}</p>
+            </div>
+            <div class="col-auto">
+                <p class="proprty-beds-baths fira">{{ unit.details[0].baths }} Beds | {{ unit.details[0].baths }} Baths | Sleeps {{ unit.details[0].sleeps }}</p>
+            </div>
+        </div>
+        
+        <hr>
         <div class="row" v-if="unitLoaded" >
             <div class="col-md-6 col-lg-4 mb-4">
-                <h2 style="text-transform: capitalize;">{{ unit.name.toLowerCase() }}</h2>           
                 <img :src="unit.images[0].url" :alt="unit.images[0].description" class="img-fluid" >
             </div>
             <div class="col-md-6">
-                <h2>Cost Breakdown</h2>
                 <div v-if="selectedDates">
                     <div class="alert alert-success" v-if="isAvailable">This unit is available for the selected dates</div>
                     <div class="alert alert-danger" v-else>This unit is not available for the selected dates. Please select another time period.</div>
