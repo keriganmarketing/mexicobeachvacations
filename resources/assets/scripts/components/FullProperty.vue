@@ -17,7 +17,7 @@
                         <span class="location">{{ property.location }}</span></h2>
                     </div>
                     <div class="col-12 col-md-auto flex-grow-1 text-md-right" >
-                        <a href="#" class="btn btn-lg btn-primary btn-rounded btn-outline-primary">Book Now</a>
+                        <a :href="'/book-now/?unit_id=' + property.rns_id" class="btn btn-lg btn-primary btn-rounded btn-outline-primary">Book Now</a>
                     </div>
                 </div>
 

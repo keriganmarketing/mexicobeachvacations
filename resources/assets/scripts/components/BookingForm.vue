@@ -1,16 +1,23 @@
 <template>
     <div>
-        <h1>Book Now</h1>
+        <div v-if="unitLoaded">
+            <h1>Booking <span style="text-transform: capitalize;">{{ unit.name.toLowerCase() }}</span></h1>
+            <div class="row">
+                <div class="col-auto">
+                    <p class="proprty-address fira">{{ unit.details[0].address }}</p>
+                </div>
+                <div class="col-auto">
+                    <p class="proprty-beds-baths fira">{{ unit.details[0].baths }} Beds | {{ unit.details[0].baths }} Baths | Sleeps {{ unit.details[0].sleeps }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <hr>
         <div class="row" v-if="unitLoaded" >
             <div class="col-md-6 col-lg-4 mb-4">
-                <h2 style="text-transform: capitalize;">{{ unit.name.toLowerCase() }}</h2>           
                 <img :src="unit.images[0].url" :alt="unit.images[0].description" class="img-fluid" >
             </div>
             <div class="col-md-6">
-                <h2>Cost Breakdown</h2>
-                <div class="alert alert-info">
-                    Please select a reservation from the available dates below to see the cost breakdown.
-                </div>
                 <div class="table-responsive">
                     <table class="table table-sm table-striped rate-table">
                         <tbody>

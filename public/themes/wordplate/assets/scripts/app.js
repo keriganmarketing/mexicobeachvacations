@@ -5799,6 +5799,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -7151,7 +7158,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['data-results', 'data-check-in', 'data-check-out', 'data-location', 'data-type'],
+    props: ['data-results', 'data-check-in', 'data-check-out', 'data-location', 'data-type', 'data-filters'],
     data: function data() {
         return {
             units: [],
@@ -43498,7 +43505,25 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(0)
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-12 col-md-auto flex-grow-1 text-md-right"
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "btn btn-lg btn-primary btn-rounded btn-outline-primary",
+                        attrs: {
+                          href: "/book-now/?unit_id=" + _vm.property.rns_id
+                        }
+                      },
+                      [_vm._v("Book Now")]
+                    )
+                  ]
+                )
               ]
             ),
             _vm._v(" "),
@@ -43535,7 +43560,7 @@ var render = function() {
                   _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
                 ]),
                 _vm._v(" "),
-                _vm._m(1)
+                _vm._m(0)
               ]
             ),
             _vm._v(" "),
@@ -43586,7 +43611,7 @@ var render = function() {
                 "table",
                 { staticClass: "table table-sm table-striped rate-table" },
                 [
-                  _vm._m(2),
+                  _vm._m(1),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -43641,7 +43666,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row mb-4 availability-section" }, [
-          _vm._m(3),
+          _vm._m(2),
           _vm._v(" "),
           _c(
             "div",
@@ -43696,26 +43721,6 @@ var render = function() {
     : _vm._e()
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-12 col-md-auto flex-grow-1 text-md-right" },
-      [
-        _c(
-          "a",
-          {
-            staticClass:
-              "btn btn-lg btn-primary btn-rounded btn-outline-primary",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Book Now")]
-        )
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -44673,15 +44678,42 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v("Book Now")]),
+    _vm.unitLoaded
+      ? _c("div", [
+          _c("h1", [
+            _vm._v("Booking "),
+            _c("span", { staticStyle: { "text-transform": "capitalize" } }, [
+              _vm._v(_vm._s(_vm.unit.name.toLowerCase()))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-auto" }, [
+              _c("p", { staticClass: "proprty-address fira" }, [
+                _vm._v(_vm._s(_vm.unit.details[0].address))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-auto" }, [
+              _c("p", { staticClass: "proprty-beds-baths fira" }, [
+                _vm._v(
+                  _vm._s(_vm.unit.details[0].baths) +
+                    " Beds | " +
+                    _vm._s(_vm.unit.details[0].baths) +
+                    " Baths | Sleeps " +
+                    _vm._s(_vm.unit.details[0].sleeps)
+                )
+              ])
+            ])
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("hr"),
     _vm._v(" "),
     _vm.unitLoaded
       ? _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-6 col-lg-4 mb-4" }, [
-            _c("h2", { staticStyle: { "text-transform": "capitalize" } }, [
-              _vm._v(_vm._s(_vm.unit.name.toLowerCase()))
-            ]),
-            _vm._v(" "),
             _c("img", {
               staticClass: "img-fluid",
               attrs: {
@@ -44692,14 +44724,6 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-6" }, [
-            _c("h2", [_vm._v("Cost Breakdown")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "alert alert-info" }, [
-              _vm._v(
-                "\n                Please select a reservation from the available dates below to see the cost breakdown.\n            "
-              )
-            ]),
-            _vm._v(" "),
             _c("div", { staticClass: "table-responsive" }, [
               _c(
                 "table",
