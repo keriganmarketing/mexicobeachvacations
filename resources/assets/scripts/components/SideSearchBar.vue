@@ -108,7 +108,7 @@ export default {
     components: {
         HotelDatePicker
     },
-    props: ['searchData'],
+    props: ['data-type'],
     data() {
         return {
             checkIn: '',
@@ -127,6 +127,12 @@ export default {
                 pets: false
             }
         }
+    },
+    mounted () {
+        // wait for data to be loaded in order to change the search bar
+        setTimeout(() => {
+            this.type = this.dataType;
+        }, 100);
     },
     methods: {
         checkInChanged(date) {

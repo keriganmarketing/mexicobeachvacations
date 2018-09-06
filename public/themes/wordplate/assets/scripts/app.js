@@ -7161,6 +7161,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -7179,7 +7183,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         this.units = this.dataResults.data;
-        console.log(this.units);
         this.pagination = new __WEBPACK_IMPORTED_MODULE_0__models_pagination_js__["a" /* default */](this.dataResults);
         this.checkIn = this.dataCheckIn;
         this.checkOut = this.dataCheckOut;
@@ -7355,7 +7358,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {
         HotelDatePicker: __WEBPACK_IMPORTED_MODULE_0_vue_hotel_datepicker___default.a
     },
-    props: ['searchData'],
+    props: ['data-type'],
     data: function data() {
         return {
             checkIn: '',
@@ -7375,6 +7378,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         };
     },
+    mounted: function mounted() {
+        var _this = this;
+
+        // wait for data to be loaded in order to change the search bar
+        setTimeout(function () {
+            _this.type = _this.dataType;
+        }, 100);
+    },
 
     methods: {
         checkInChanged: function checkInChanged(date) {
@@ -7386,7 +7397,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.getMatches();
         },
         getMatches: function getMatches() {
-            var _this = this;
+            var _this2 = this;
 
             var url = 'https://rns.mexicobeachvacations.com/matches';
 
@@ -7405,7 +7416,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 }
             }).then(function (response) {
-                _this.numAvailable = response.data;
+                _this2.numAvailable = response.data;
             }).catch(function (err) {
                 console.log(err);
             });
@@ -42202,7 +42213,12 @@ var render = function() {
     _c(
       "div",
       { staticClass: "col-md-4 col-lg-3 mb-4" },
-      [_c("side-search-bar", { on: { "apply-filters": _vm.applyFilters } })],
+      [
+        _c("side-search-bar", {
+          attrs: { "data-type": _vm.type },
+          on: { "apply-filters": _vm.applyFilters }
+        })
+      ],
       1
     ),
     _vm._v(" "),

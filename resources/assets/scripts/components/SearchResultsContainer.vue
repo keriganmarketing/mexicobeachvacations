@@ -1,7 +1,11 @@
 <template>
 <div class="row">
     <div class="col-md-4 col-lg-3 mb-4">
-        <side-search-bar @apply-filters="applyFilters" ></side-search-bar>
+        <side-search-bar 
+            :data-type="type"
+            @apply-filters="applyFilters" 
+        >
+        </side-search-bar>
     </div>
     <div class="col-md-8 col-lg-9 rental-feed">
         <div class="icon-key mt-3">
@@ -113,7 +117,6 @@ export default {
     },
     mounted() {
         this.units      = this.dataResults.data;
-        console.log(this.units);
         this.pagination = new Pagination(this.dataResults);
         this.checkIn    = this.dataCheckIn;
         this.checkOut   = this.dataCheckOut;
