@@ -5806,6 +5806,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -7154,6 +7160,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -7172,6 +7179,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         this.units = this.dataResults.data;
+        console.log(this.units);
         this.pagination = new __WEBPACK_IMPORTED_MODULE_0__models_pagination_js__["a" /* default */](this.dataResults);
         this.checkIn = this.dataCheckIn;
         this.checkOut = this.dataCheckOut;
@@ -42392,15 +42400,15 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("p", { staticClass: "subhead" }, [
-                    _c("span", { staticClass: "type" }, [
-                      _vm._v(_vm._s(unit.type))
-                    ]),
-                    _vm._v(" •\n                "),
-                    _c("span", { staticClass: "location" }, [
-                      _vm._v(_vm._s(unit.location))
-                    ])
-                  ]),
+                  _c(
+                    "p",
+                    { staticClass: "subhead d-flex flex-column" },
+                    _vm._l(unit.search_criteria, function(sc) {
+                      return _c("span", { key: sc.id }, [
+                        _vm._v("• " + _vm._s(sc.name))
+                      ])
+                    })
+                  ),
                   _vm._v(" "),
                   _c("div", { staticClass: "row no-gutters tiles" }, [
                     _c("div", { staticClass: "col-auto" }, [
@@ -43873,6 +43881,10 @@ var render = function() {
       [
         _c("option", { attrs: { value: "" } }, [_vm._v("Country")]),
         _vm._v(" "),
+        _c("option", { attrs: { value: "United States" } }, [
+          _vm._v("US - United States")
+        ]),
+        _vm._v(" "),
         _c("option", { attrs: { value: "Albania" } }, [_vm._v("AL - Albania")]),
         _vm._v(" "),
         _c("option", { attrs: { value: "Algeria" } }, [_vm._v("DZ - Algeria")]),
@@ -44541,10 +44553,6 @@ var render = function() {
         _vm._v(" "),
         _c("option", { attrs: { value: "United Kingdom" } }, [
           _vm._v("UK - United Kingdom")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "United States" } }, [
-          _vm._v("US - United States")
         ]),
         _vm._v(" "),
         _c("option", { attrs: { value: "United States Islands" } }, [
@@ -45810,6 +45818,34 @@ var render = function() {
                           _vm._v(" "),
                           _c("option", { attrs: { value: "2022" } }, [
                             _vm._v("2022")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2023" } }, [
+                            _vm._v("2023")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2024" } }, [
+                            _vm._v("2024")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2025" } }, [
+                            _vm._v("2025")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2026" } }, [
+                            _vm._v("2026")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2027" } }, [
+                            _vm._v("2027")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2028" } }, [
+                            _vm._v("2028")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2029" } }, [
+                            _vm._v("2029")
                           ])
                         ]
                       )
@@ -59174,9 +59210,11 @@ window.axios = __webpack_require__("./node_modules/axios/index.js");
 
 
 window.http = axios.create({
-    baseURL: '/',
-    headers: { 'Cache-Control': 'no-cache' },
-    adapter: Object(__WEBPACK_IMPORTED_MODULE_1_axios_extensions__["a" /* throttleAdapterEnhancer */])(axios.defaults.adapter, { threshold: 2 * 1000 })
+  baseURL: "/",
+  headers: { "Cache-Control": "no-cache" },
+  adapter: Object(__WEBPACK_IMPORTED_MODULE_1_axios_extensions__["a" /* throttleAdapterEnhancer */])(axios.defaults.adapter, {
+    threshold: 2 * 1000
+  })
 });
 
 __webpack_require__("./resources/assets/scripts/load-components.js");
@@ -59185,41 +59223,41 @@ __webpack_require__("./resources/assets/scripts/load-components.js");
 Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_masonry__["a" /* VueMasonryPlugin */]);
 
 var app = new Vue({
-    el: '#app',
+  el: "#app",
 
-    data: {
-        clientHeight: 0,
-        windowHeight: 0,
-        windowWidth: 0,
-        isScrolling: false,
-        scrollPosition: 0,
-        footerStuck: false,
-        mobileMenuOpen: false
-    },
+  data: {
+    clientHeight: 0,
+    windowHeight: 0,
+    windowWidth: 0,
+    isScrolling: false,
+    scrollPosition: 0,
+    footerStuck: false,
+    mobileMenuOpen: false
+  },
 
-    methods: {
-        handleScroll: function handleScroll() {
-            this.scrollPosition = window.scrollY;
-            this.isScrolling = this.scrollPosition > 40;
-        },
-        toggleMenu: function toggleMenu() {
-            this.mobileMenuOpen = !this.mobileMenuOpen;
-        }
+  methods: {
+    handleScroll: function handleScroll() {
+      this.scrollPosition = window.scrollY;
+      this.isScrolling = this.scrollPosition > 40;
     },
-
-    mounted: function mounted() {
-        this.footerStuck = window.innerHeight > this.$root.$el.children[0].clientHeight;
-        this.clientHeight = this.$root.$el.children[0].clientHeight;
-        this.windowHeight = window.innerHeight;
-        this.windowWidth = window.innerWidth;
-        this.handleScroll();
-    },
-    created: function created() {
-        window.addEventListener('scroll', this.handleScroll);
-    },
-    destroyed: function destroyed() {
-        window.removeEventListener('scroll', this.handleScroll);
+    toggleMenu: function toggleMenu() {
+      this.mobileMenuOpen = !this.mobileMenuOpen;
     }
+  },
+
+  mounted: function mounted() {
+    this.footerStuck = window.innerHeight > this.$root.$el.children[0].clientHeight;
+    this.clientHeight = this.$root.$el.children[0].clientHeight;
+    this.windowHeight = window.innerHeight;
+    this.windowWidth = window.innerWidth;
+    this.handleScroll();
+  },
+  created: function created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
 });
 
 /***/ }),
@@ -60316,6 +60354,7 @@ var ReservationInfo = function () {
     this.OtherPhone = "";
     this.HomePhone = "";
     this.TravelInsAccepted = true;
+    this.PromoCode = "";
     this.Notes = "";
   }
 

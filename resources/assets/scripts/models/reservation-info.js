@@ -30,6 +30,7 @@ export default class ReservationInfo {
     this.OtherPhone = "";
     this.HomePhone = "";
     this.TravelInsAccepted = true;
+    this.PromoCode = "";
     this.Notes = "";
   }
 

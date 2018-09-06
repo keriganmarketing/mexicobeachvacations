@@ -2,6 +2,7 @@
     <div class="form-group">
         <select class="custom-select" v-model="modelData" required @change="$emit('selectOption',modelData)" >
             <option value="">Country</option>
+            <option value="United States">US - United States</option>
             <option value="Albania">AL - Albania</option>
             <option value="Algeria">DZ - Algeria</option>
             <option value="American Samoa">AS - American Samoa</option>
@@ -223,7 +224,6 @@
             <option value="Ukraine">UA - Ukraine</option>
             <option value="United Arab Emirates">AE - United Arab Emirates</option>
             <option value="United Kingdom">UK - United Kingdom</option>
-            <option value="United States">US - United States</option>
             <option value="United States Islands">UM - United States Islands</option>
             <option value="Uruguay">UY - Uruguay</option>
             <option value="Uzbekistan">UZ - Uzbekistan</option>

@@ -9,7 +9,7 @@ class Search {
 
     public static function getUnits($request)
     {
-        $checkIn     = $request['checkIn'] ?? Carbon::now()->toDateString();
+        $checkIn     = $request['checkIn'] ?? null;
         $checkOut    = $request['checkOut'] ?? null;
         $location    = $request['location'] ?? null;
         $type        = $request['type'] ?? null;

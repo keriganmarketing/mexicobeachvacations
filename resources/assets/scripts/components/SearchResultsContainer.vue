@@ -62,8 +62,9 @@
             <div class="col-lg-8">
                 <div class="rental-feed-info mt-3">
                 <h2 class="text-primary"><a  :href="'/property/' + unit.rns_id + '/'" >{{ unit.name }}</a></h2>
-                <p class="subhead"><span class="type">{{ unit.type }}</span> &bull;
-                <span class="location">{{ unit.location }}</span></p>
+                <p class="subhead d-flex flex-column">
+                    <span v-for="sc in unit.search_criteria" :key="sc.id">&bull; {{ sc.name }}</span>
+                </p>
                 <div class="row no-gutters tiles">
                     <div class="col-auto">
                         <span class="data">{{ unit.details[0].beds }}</span>
@@ -112,6 +113,7 @@ export default {
     },
     mounted() {
         this.units      = this.dataResults.data;
+        console.log(this.units);
         this.pagination = new Pagination(this.dataResults);
         this.checkIn    = this.dataCheckIn;
         this.checkOut   = this.dataCheckOut;
