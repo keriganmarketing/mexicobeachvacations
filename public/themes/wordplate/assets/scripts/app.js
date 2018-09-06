@@ -6543,7 +6543,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -6611,6 +6610,10 @@ Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
         },
         formatRate: function formatRate(num) {
             return num !== 0 ? '$' + num.toLocaleString() : 'N/A';
+        },
+        goto: function goto(destination) {
+            var section = this.$refs[destination];
+            window.scrollTo(0, section.offsetTop);
         }
     }
 
@@ -43653,7 +43656,66 @@ var render = function() {
                   _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
                 ]),
                 _vm._v(" "),
-                _vm._m(0)
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-12 col-md-auto action-buttons flex-grow-1 text-xl-right"
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-info btn-rounded my-1",
+                        on: {
+                          click: function($event) {
+                            _vm.goto("rates")
+                          }
+                        }
+                      },
+                      [_vm._v("Rates")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-info btn-rounded my-1",
+                        on: {
+                          click: function($event) {
+                            _vm.goto("availability")
+                          }
+                        }
+                      },
+                      [_vm._v("Availability")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-info btn-rounded my-1",
+                        on: {
+                          click: function($event) {
+                            _vm.goto("photos")
+                          }
+                        }
+                      },
+                      [_vm._v("Photos")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-info btn-rounded my-1",
+                        on: {
+                          click: function($event) {
+                            _vm.goto("location")
+                          }
+                        }
+                      },
+                      [_vm._v("Location")]
+                    )
+                  ]
+                )
               ]
             ),
             _vm._v(" "),
@@ -43694,9 +43756,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-6" }, [
-            _c("a", { attrs: { name: "rates" } }),
-            _vm._v(" "),
+          _c("div", { ref: "rates", staticClass: "col-md-6" }, [
             _c("h2", [_vm._v("Rates")]),
             _vm._v(" "),
             _c("div", { staticClass: "table-responsive" }, [
@@ -43704,7 +43764,7 @@ var render = function() {
                 "table",
                 { staticClass: "table table-sm table-striped rate-table" },
                 [
-                  _vm._m(1),
+                  _vm._m(0),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -43737,7 +43797,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "row mb-4" }, [
+        _c("div", { ref: "photos", staticClass: "row mb-4" }, [
           _c(
             "div",
             { staticClass: "col-12" },
@@ -43758,25 +43818,29 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "row mb-4 availability-section" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-auto" },
-            [
-              _c("v-calendar", {
-                attrs: {
-                  attributes: _vm.calendarOptions,
-                  "is-double-paned": ""
-                }
-              })
-            ],
-            1
-          )
-        ]),
+        _c(
+          "div",
+          { ref: "availability", staticClass: "row mb-4 availability-section" },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-auto" },
+              [
+                _c("v-calendar", {
+                  attrs: {
+                    attributes: _vm.calendarOptions,
+                    "is-double-paned": ""
+                  }
+                })
+              ],
+              1
+            )
+          ]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "row mb-4" }, [
+        _c("div", { ref: "location", staticClass: "row mb-4" }, [
           _c("div", { staticClass: "col-12" }, [
             _c("hr"),
             _vm._v(" "),
@@ -43814,55 +43878,6 @@ var render = function() {
     : _vm._e()
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "col-12 col-md-auto action-buttons flex-grow-1 text-xl-right"
-      },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-info btn-rounded my-1",
-            attrs: { href: "#rates" }
-          },
-          [_vm._v("Rates")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-info btn-rounded my-1",
-            attrs: { href: "#availability" }
-          },
-          [_vm._v("Availability")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-info btn-rounded my-1",
-            attrs: { href: "#photos" }
-          },
-          [_vm._v("Photos")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-info btn-rounded my-1",
-            attrs: { href: "#location" }
-          },
-          [_vm._v("Location")]
-        )
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

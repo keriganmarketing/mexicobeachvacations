@@ -37,10 +37,10 @@
                         <span class="label">SLEEPS</span>
                     </div>
                     <div class="col-12 col-md-auto action-buttons flex-grow-1 text-xl-right" >
-                        <a class="btn btn-info btn-rounded my-1" href="#rates" >Rates</a>
-                        <a class="btn btn-info btn-rounded my-1" href="#availability" >Availability</a>
-                        <a class="btn btn-info btn-rounded my-1" href="#photos" >Photos</a>
-                        <a class="btn btn-info btn-rounded my-1" href="#location" >Location</a>
+                        <a class="btn btn-info btn-rounded my-1" @click="goto('rates')">Rates</a>
+                        <a class="btn btn-info btn-rounded my-1" @click="goto('availability')">Availability</a>
+                        <a class="btn btn-info btn-rounded my-1" @click="goto('photos')">Photos</a>
+                        <a class="btn btn-info btn-rounded my-1" @click="goto('location')">Location</a>
                     </div>
                 </div>
 
@@ -67,8 +67,7 @@
                 </table>
                 </div>
             </div>
-            <div class="col-md-6">
-                <a name="rates"></a>
+            <div class="col-md-6" ref="rates">
                 <h2>Rates</h2>
                 <div class="table-responsive">
                     <table class="table table-sm table-striped rate-table">
@@ -90,7 +89,7 @@
             </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row mb-4" ref="photos">
             <div class="col-12">
                 <hr>
                 <a name="photos"></a>
@@ -100,7 +99,7 @@
             </div>
         </div>
 
-        <div class="row mb-4 availability-section">
+        <div class="row mb-4 availability-section" ref="availability">
             <div class="col-12">
                 <hr>
                 <a name="availability"></a>
@@ -114,7 +113,7 @@
              </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row mb-4" ref="location">
             <div class="col-12">
                 <hr>
                 <a name="location"></a>
@@ -203,6 +202,10 @@ export default {
         },
         formatRate(num){
             return (num !== 0 ? '$' + num.toLocaleString() : 'N/A');
+        },
+        goto(destination) {
+            let section = this.$refs[destination];
+            window.scrollTo(0, section.offsetTop)
         }
         
     }
