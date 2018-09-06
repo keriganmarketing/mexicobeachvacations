@@ -116,7 +116,7 @@ function team_shortcode() {
                 </div>
             </div>
             <div class="member-button text-center">
-                <a href="' . $member['link'] . '" class="btn btn-outline-light" >View Bio</a>
+                <a href="' . $member['link'] . '" class="btn btn-outline-light text-dark" >View Bio</a>
             </div>
         </div>';
     }
