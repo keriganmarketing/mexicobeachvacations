@@ -4,8 +4,6 @@
         <side-search-bar 
             :data-type="type"
             :data-location="location"
-            :data-checkin="checkIn"
-            :data-checkout="checkOut"
             @apply-filters="applyFilters" 
         >
         </side-search-bar>
@@ -92,6 +90,11 @@
             </div>
         </div>
     </div>
+    <div class="offset-lg-3 d-flex justify-content-center align-items-center mb-4">
+        <button class="btn btn-info" :class="{ 'disabled': pagination.prevPageUrl === null }" @click="prevPage">Previous</button>
+        <button class="btn btn-outline-info">Page {{ pagination.currentPage }} of {{ pagination.pages }}</button>
+        <button class="btn btn-info" :class="{ 'disabled': pagination.nextPageUrl === null }" @click="nextPage">Next</button>
+    </div>
 </div>
 </template>
 
@@ -115,16 +118,16 @@ export default {
             checkOut: '',
             location: '',
             type: '',
-            filters: {}
+            filters: {},
         }
     },
-    mounted() {
+    created () {
         this.units      = this.dataResults.data;
-        this.pagination = new Pagination(this.dataResults);
         this.checkIn    = this.dataCheckIn;
         this.checkOut   = this.dataCheckOut;
         this.location   = this.dataLocation;
         this.type       = this.dataType;
+        this.pagination = new Pagination(this.dataResults);
     },
     methods: {
         applyFilters(filters, type) {
@@ -152,6 +155,7 @@ export default {
             })
             .then(response => {
                 this.units = response.data.data;
+                this.pagination = new Pagination(response.data);
             })
             .catch(err => {
                 console.log(err);
@@ -170,6 +174,26 @@ export default {
                 if (search_criteria.rns_id === name) hasSearchCriteria = true;
             })
             return hasSearchCriteria;
+        },
+        prevPage () {
+            if (this.pagination.prevPageUrl) {
+                axios.get(this.pagination.prevPageUrl)
+                    .then(response => {
+                        this.units = response.data.data;
+                        this.pagination = new Pagination(response.data);
+                        window.scrollTo(0, 0);
+                })
+            }
+        },
+        nextPage () {
+            if (this.pagination.nextPageUrl) {
+                axios.get(this.pagination.nextPageUrl)
+                    .then(response => {
+                        this.units = response.data.data;
+                        this.pagination = new Pagination(response.data);
+                        window.scrollTo(0, 0);
+                })
+            }
         }
     }
 }

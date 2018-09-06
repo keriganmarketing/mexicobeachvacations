@@ -3,12 +3,13 @@ export default class Pagination {
     this.to = results.to;
     this.from = results.from;
     this.path = results.path;
-    this.total = results.tota;
+    this.total = results.total;
     this.perPage = results.per_page;
     this.currentPage = results.current_page;
     this.lastPageUrl = results.last_page_url;
     this.nextPageUrl = results.next_page_url;
     this.prevPageUrl = results.prev_page_url;
     this.firstPageUrl = results.first_page_url;
+    this.pages = Math.ceil(this.total / this.perPage);
   }
 }

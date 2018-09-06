@@ -7168,6 +7168,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -7184,13 +7187,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             filters: {}
         };
     },
-    mounted: function mounted() {
+    created: function created() {
         this.units = this.dataResults.data;
-        this.pagination = new __WEBPACK_IMPORTED_MODULE_0__models_pagination_js__["a" /* default */](this.dataResults);
         this.checkIn = this.dataCheckIn;
         this.checkOut = this.dataCheckOut;
         this.location = this.dataLocation;
         this.type = this.dataType;
+        this.pagination = new __WEBPACK_IMPORTED_MODULE_0__models_pagination_js__["a" /* default */](this.dataResults);
     },
 
     methods: {
@@ -7220,6 +7223,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             }).then(function (response) {
                 _this.units = response.data.data;
+                _this.pagination = new __WEBPACK_IMPORTED_MODULE_0__models_pagination_js__["a" /* default */](response.data);
             }).catch(function (err) {
                 console.log(err);
             });
@@ -7237,6 +7241,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (search_criteria.rns_id === name) hasSearchCriteria = true;
             });
             return hasSearchCriteria;
+        },
+        prevPage: function prevPage() {
+            var _this2 = this;
+
+            if (this.pagination.prevPageUrl) {
+                axios.get(this.pagination.prevPageUrl).then(function (response) {
+                    _this2.units = response.data.data;
+                    _this2.pagination = new __WEBPACK_IMPORTED_MODULE_0__models_pagination_js__["a" /* default */](response.data);
+                    window.scrollTo(0, 0);
+                });
+            }
+        },
+        nextPage: function nextPage() {
+            var _this3 = this;
+
+            if (this.pagination.nextPageUrl) {
+                axios.get(this.pagination.nextPageUrl).then(function (response) {
+                    _this3.units = response.data.data;
+                    _this3.pagination = new __WEBPACK_IMPORTED_MODULE_0__models_pagination_js__["a" /* default */](response.data);
+                    window.scrollTo(0, 0);
+                });
+            }
         }
     }
 });
@@ -42220,12 +42246,7 @@ var render = function() {
       { staticClass: "col-md-4 col-lg-3 mb-4" },
       [
         _c("side-search-bar", {
-          attrs: {
-            "data-type": _vm.type,
-            "data-location": _vm.location,
-            "data-checkin": _vm.checkIn,
-            "data-checkout": _vm.checkOut
-          },
+          attrs: { "data-type": _vm.type, "data-location": _vm.location },
           on: { "apply-filters": _vm.applyFilters }
         })
       ],
@@ -42485,6 +42506,44 @@ var render = function() {
         })
       ],
       2
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "offset-lg-3 d-flex justify-content-center align-items-center mb-4"
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-info",
+            class: { disabled: _vm.pagination.prevPageUrl === null },
+            on: { click: _vm.prevPage }
+          },
+          [_vm._v("Previous")]
+        ),
+        _vm._v(" "),
+        _c("button", { staticClass: "btn btn-outline-info" }, [
+          _vm._v(
+            "Page " +
+              _vm._s(_vm.pagination.currentPage) +
+              " of " +
+              _vm._s(_vm.pagination.pages)
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-info",
+            class: { disabled: _vm.pagination.nextPageUrl === null },
+            on: { click: _vm.nextPage }
+          },
+          [_vm._v("Next")]
+        )
+      ]
     )
   ])
 }
@@ -60325,13 +60384,14 @@ var Pagination = function Pagination(results) {
   this.to = results.to;
   this.from = results.from;
   this.path = results.path;
-  this.total = results.tota;
+  this.total = results.total;
   this.perPage = results.per_page;
   this.currentPage = results.current_page;
   this.lastPageUrl = results.last_page_url;
   this.nextPageUrl = results.next_page_url;
   this.prevPageUrl = results.prev_page_url;
   this.firstPageUrl = results.first_page_url;
+  this.pages = Math.ceil(this.total / this.perPage);
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Pagination);

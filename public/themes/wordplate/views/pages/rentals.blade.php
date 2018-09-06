@@ -16,16 +16,15 @@
                     {{ the_content() }}
                 </article>
 
-            <search-results-container
-                data-filters="{{ $filters }}"
-                :data-results="{{ $units }}"
-                data-check-in="{{ $checkIn }}"
-                data-check-out="{{ $checkOut }}"
-                data-location="{{ $location }}"
-                data-type="{{ $type }}"
-            >
-            </search-results-container>
-
+                <search-results-container
+                    data-filters="{{ $filters }}"
+                    :data-results="{{ $units }}"
+                    data-check-in="{{ $checkIn }}"
+                    data-check-out="{{ $checkOut }}"
+                    data-location="{{ $location }}"
+                    data-type="{{ $type }}"
+                >
+                </search-results-container>
             </div>
         </main>
     @endwhile
