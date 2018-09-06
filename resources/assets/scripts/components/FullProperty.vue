@@ -13,8 +13,9 @@
                 
                 <div class="row no-gutters tiles align-items-center full-width text-center text-md-left">
                     <div class="col-md-auto">
-                        <h2 class="subhead"><span class="type">{{ property.type }}</span> &bull;
-                        <span class="location">{{ property.location }}</span></h2>
+                        <h2 class="subhead d-flex flex-row justify-content-between">
+                            <span v-for="sc in property.search_criteria" :key="sc.id" class="mx-2 border p-2">{{ sc.name }}</span>
+                        </h2>
                     </div>
                     <div class="col-12 col-md-auto flex-grow-1 text-md-right" >
                         <a :href="'/book-now/?unit_id=' + property.rns_id" class="btn btn-lg btn-primary btn-rounded btn-outline-primary">Book Now</a>

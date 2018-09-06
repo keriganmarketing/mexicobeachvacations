@@ -6543,6 +6543,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -43590,15 +43591,20 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "col-md-auto" }, [
-                  _c("h2", { staticClass: "subhead" }, [
-                    _c("span", { staticClass: "type" }, [
-                      _vm._v(_vm._s(_vm.property.type))
-                    ]),
-                    _vm._v(" •\n                    "),
-                    _c("span", { staticClass: "location" }, [
-                      _vm._v(_vm._s(_vm.property.location))
-                    ])
-                  ])
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "subhead d-flex flex-row justify-content-between"
+                    },
+                    _vm._l(_vm.property.search_criteria, function(sc) {
+                      return _c(
+                        "span",
+                        { key: sc.id, staticClass: "mx-2 border p-2" },
+                        [_vm._v(_vm._s(sc.name))]
+                      )
+                    })
+                  )
                 ]),
                 _vm._v(" "),
                 _c(

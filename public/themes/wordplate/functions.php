@@ -109,7 +109,7 @@ function team_shortcode() {
                 </a>
                 <div class="card-body">
                     <h3 class="text-uppercase text-dark">' . $member['name'] . '</h3>
-                    <p class="text-uppercase text-light">' . $member['title'] . '</p>
+                    <p class="text-uppercase text-dark">' . $member['title'] . '</p>
                     <p class="text-uppercase text-light">
                     <a href="mailto:' . $member['email'] . '" >' . $member['email'] . '</a><br>
                     <a href="tel:' . $member['phone'] . '" >' . $member['phone'] . '</p>
