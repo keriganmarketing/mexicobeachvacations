@@ -111,7 +111,7 @@ function team_shortcode() {
                     <h3 class="text-uppercase text-dark">' . $member['name'] . '</h3>
                     <p class="text-uppercase text-dark">' . $member['title'] . '</p>
                     <p class="text-uppercase text-light">
-                    <a href="mailto:' . $member['email'] . '" >' . $member['email'] . '</a><br>
+                    <a href="mailto:' . $member['email'] . '" style="font-size: 0.9rem">' . $member['email'] . '</a><br>
                     <a href="tel:' . $member['phone'] . '" >' . $member['phone'] . '</p>
                 </div>
             </div>
