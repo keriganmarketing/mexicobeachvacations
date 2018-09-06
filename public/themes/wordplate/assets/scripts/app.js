@@ -7191,15 +7191,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
-        applyFilters: function applyFilters(filters) {
+        applyFilters: function applyFilters(filters, type) {
             var _this = this;
 
             var url = 'https://rns.mexicobeachvacations.com/search';
             this.filters = filters;
+            this.type = type;
 
             axios.get(url, {
                 params: {
-                    type: this.type.replace,
+                    type: this.type,
                     checkIn: this.checkIn,
                     checkOut: this.checkOut,
                     dock: this.filters.dock,
@@ -7422,7 +7423,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         applyFilters: function applyFilters() {
-            this.$emit('apply-filters', this.filters);
+            this.$emit('apply-filters', this.filters, this.type);
         },
         toggleSearch: function toggleSearch() {
             this.searchIsOpen = !this.searchIsOpen;

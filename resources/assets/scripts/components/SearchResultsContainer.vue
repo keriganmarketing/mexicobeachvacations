@@ -124,13 +124,14 @@ export default {
         this.type       = this.dataType;
     },
     methods: {
-        applyFilters(filters) {
+        applyFilters(filters, type) {
             let url = 'https://rns.mexicobeachvacations.com/search';
             this.filters = filters
+            this.type = type;
 
             axios.get(url, {
                 params: {
-                    type: this.type.replace,
+                    type: this.type,
                     checkIn: this.checkIn,
                     checkOut: this.checkOut,
                     dock: this.filters.dock,

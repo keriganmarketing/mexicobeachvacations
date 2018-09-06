@@ -170,7 +170,7 @@ export default {
 
         },
         applyFilters() {
-            this.$emit('apply-filters', this.filters)
+            this.$emit('apply-filters', this.filters, this.type)
         },
         toggleSearch() {
             this.searchIsOpen = !this.searchIsOpen;
