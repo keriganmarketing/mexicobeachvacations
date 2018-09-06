@@ -3,6 +3,9 @@
     <div class="col-md-4 col-lg-3 mb-4">
         <side-search-bar 
             :data-type="type"
+            :data-location="location"
+            :data-checkin="checkIn"
+            :data-checkout="checkOut"
             @apply-filters="applyFilters" 
         >
         </side-search-bar>

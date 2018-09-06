@@ -7165,6 +7165,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -7359,7 +7362,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {
         HotelDatePicker: __WEBPACK_IMPORTED_MODULE_0_vue_hotel_datepicker___default.a
     },
-    props: ['data-type'],
+    props: ['data-type', 'data-location'],
     data: function data() {
         return {
             checkIn: '',
@@ -7385,7 +7388,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         // wait for data to be loaded in order to change the search bar
         setTimeout(function () {
             _this.type = _this.dataType;
-        }, 100);
+            _this.location = _this.dataLocation;
+        }, 200);
     },
 
     methods: {
@@ -42216,7 +42220,12 @@ var render = function() {
       { staticClass: "col-md-4 col-lg-3 mb-4" },
       [
         _c("side-search-bar", {
-          attrs: { "data-type": _vm.type },
+          attrs: {
+            "data-type": _vm.type,
+            "data-location": _vm.location,
+            "data-checkin": _vm.checkIn,
+            "data-checkout": _vm.checkOut
+          },
           on: { "apply-filters": _vm.applyFilters }
         })
       ],
