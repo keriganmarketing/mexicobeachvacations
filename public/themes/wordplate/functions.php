@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Testing\KMAMail;
-use Testing\ContactForm;
+use Testing\PropertyManagementForm;
 use KeriganSolutions\KMATeam\Team;
 use KeriganSolutions\Search\Search;
 use KeriganSolutions\KMAContactInfo\ContactInfo;
@@ -14,7 +14,9 @@ require template_path('includes/plugins/plate.php');
 require template_path('includes/plugins/theme-setup.php');
 require template_path('includes/plugins/acf-page-fields.php');
 require('testing/ContactForm.php');
+require('testing/PropertyManagementForm.php');
 require('post-types/contact_request.php');
+require('post-types/property_request.php');
 require('testing/KMAMail/KMAMail.php');
 require('testing/KMAMail/Message.php');
 
@@ -28,7 +30,7 @@ require('testing/KMAMail/Message.php');
     'type' => 'text',
     'parent' => 'group_contact_info',
 ])->use();
-new ContactForm();
+new PropertyManagementForm();
 
 $socialLinks = new KeriganSolutions\SocialMedia\SocialSettingsPage();
 if (is_admin()) {

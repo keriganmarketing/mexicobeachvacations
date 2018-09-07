@@ -14,6 +14,7 @@
                         @checkInChanged="checkInChanged"
                         @checkOutChanged="checkOutChanged"
                         format="MM/DD/YY"
+                        :hoveringTooltip="false"
                         :showYear="true"
                     >
                     </hotel-date-picker> 

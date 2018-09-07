@@ -84,12 +84,12 @@ export default {
 </script>
 <style scoped>
 .unit-list-item {
-    transition: all 0.5s;
+    transition: all 0.3s;
 
 }
 .unit-list-enter, .unit-list-leave-to {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateX(30px);
 
 }
 .unit-list-leave-active {
