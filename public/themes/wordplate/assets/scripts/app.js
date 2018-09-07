@@ -7075,6 +7075,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_pagination_js__ = __webpack_require__("./resources/assets/scripts/models/pagination.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_qs__ = __webpack_require__("./node_modules/qs/lib/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_qs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_qs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UnitList_vue__ = __webpack_require__("./resources/assets/scripts/components/UnitList.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UnitList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__UnitList_vue__);
 //
 //
 //
@@ -7125,60 +7127,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        UnitList: __WEBPACK_IMPORTED_MODULE_2__UnitList_vue___default.a
+    },
     props: ['data-results', 'data-check-in', 'data-check-out', 'data-location', 'data-type', 'data-filters'],
     data: function data() {
         return {
@@ -7231,20 +7187,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).catch(function (err) {
                 console.log(err);
             });
-        },
-        hasAmenity: function hasAmenity(unit, rnsId) {
-            var hasAmenity = false;
-            unit.amenities.map(function (amenity) {
-                if (amenity.rns_id == rnsId && amenity.description !== 'No') hasAmenity = true;
-            });
-            return hasAmenity;
-        },
-        hasSearchCriteria: function hasSearchCriteria(unit, name) {
-            var hasSearchCriteria = false;
-            unit.search_criteria.map(function (search_criteria) {
-                if (search_criteria.rns_id === name) hasSearchCriteria = true;
-            });
-            return hasSearchCriteria;
         },
         prevPage: function prevPage() {
             var _this2 = this;
@@ -7600,6 +7542,95 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             modelData: ''
         };
+    }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/UnitList.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['units'],
+    data: function data() {
+        return {};
+    },
+
+    methods: {
+        hasAmenity: function hasAmenity(unit, rnsId) {
+            var hasAmenity = false;
+            unit.amenities.map(function (amenity) {
+                if (amenity.rns_id == rnsId && amenity.description !== 'No') hasAmenity = true;
+            });
+            return hasAmenity;
+        },
+        hasSearchCriteria: function hasSearchCriteria(unit, name) {
+            var hasSearchCriteria = false;
+            unit.search_criteria.map(function (search_criteria) {
+                if (search_criteria.rns_id === name) hasSearchCriteria = true;
+            });
+            return hasSearchCriteria;
+        }
     }
 });
 
@@ -19308,6 +19339,21 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 // module
 exports.push([module.i, "\n.action-buttons {\n  padding: 0 1rem;\n}\n.action-buttons a {\n  display: block;\n  margin: 0 .5rem;\n}\n@media (min-width: 576px) {\n.action-buttons a {\n      display: inline-block;\n}\n}\n.unitid {\n  color: #ff6f74;\n  font-size: .5em;\n}\n.availability-section .c-pane-container .c-pane {\n  background: #FFF;\n  width: 300px !important;\n}\n@media (min-width: 576px) {\n.availability-section .c-pane-container .c-pane {\n      width: 250px !important;\n}\n}\n@media (min-width: 768px) {\n.availability-section .c-pane-container .c-pane {\n      width: 345px !important;\n}\n}\n@media (min-width: 993px) {\n.availability-section .c-pane-container .c-pane {\n      width: 465px !important;\n}\n.availability-section .c-pane-container .c-pane .c-day-content,\n      .availability-section .c-pane-container .c-pane .c-day-background {\n        height: 2.8rem !important;\n}\n}\n@media (min-width: 1200px) {\n.availability-section .c-pane-container .c-pane {\n      width: 550px !important;\n}\n}\n.availability-section .c-pane-container .c-pane .c-weekdays,\n  .availability-section .c-pane-container .c-pane .c-day-content {\n    font-family: \"ABeeZee\", sans-serif;\n}\n.availability-section .c-pane-container .c-pane .c-title {\n    font-family: \"Fira Sans Condensed\", sans-serif;\n}\n.availability-section .c-pane-container .c-pane .c-arrow-layout {\n    padding: 6px 5px 4px;\n    border: 2px solid #ff6f74;\n    border-radius: 50%;\n    color: #ff6f74;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4caa20e0\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.unit-list-item[data-v-4caa20e0] {\n    transition: all 0.5s;\n}\n.unit-list-enter[data-v-4caa20e0], .unit-list-leave-to[data-v-4caa20e0] {\n    opacity: 0;\n    -webkit-transform: translateY(30px);\n            transform: translateY(30px);\n}\n.unit-list-leave-active[data-v-4caa20e0] {\n    position: absolute;\n}\n", ""]);
 
 // exports
 
@@ -42263,253 +42309,9 @@ var render = function() {
       [
         _vm._m(0),
         _vm._v(" "),
-        _vm._l(_vm.units, function(unit) {
-          return _c(
-            "div",
-            { key: unit.id, staticClass: "row no-gutters unit" },
-            [
-              _c("div", { staticClass: "col-lg-4" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "property-image",
-                    attrs: { href: "/property/" + unit.rns_id + "/" }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: { width: "100%" },
-                      attrs: { src: unit.images[0].url }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "row no-gutters justify-content-center" },
-                  [
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.hasAmenity(unit, 45),
-                            expression: "hasAmenity(unit, 45)"
-                          }
-                        ],
-                        staticClass: "col-auto py-2 px-1"
-                      },
-                      [
-                        _c("img", {
-                          staticStyle: { width: "30px" },
-                          attrs: {
-                            src: "/themes/wordplate/assets/images/pool.png",
-                            alt: "Pool Available",
-                            title: "Pool Available"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: false,
-                            expression: "false"
-                          }
-                        ],
-                        staticClass: "col-auto py-2 px-1"
-                      },
-                      [
-                        _c("img", {
-                          staticStyle: { width: "30px" },
-                          attrs: {
-                            src: "/themes/wordplate/assets/images/anchor.png",
-                            alt: "Dock Available",
-                            title: "Dock Available"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.hasSearchCriteria(unit, "Canal Front"),
-                            expression: "hasSearchCriteria(unit, 'Canal Front')"
-                          }
-                        ],
-                        staticClass: "col-auto py-2 px-1"
-                      },
-                      [
-                        _c("img", {
-                          staticStyle: { width: "30px" },
-                          attrs: {
-                            src: "/themes/wordplate/assets/images/canal.png",
-                            alt: "Canal Front",
-                            title: "Canal Front"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.hasAmenity(unit, 22),
-                            expression: "hasAmenity(unit, 22)"
-                          }
-                        ],
-                        staticClass: "col-auto py-2 px-1"
-                      },
-                      [
-                        _c("img", {
-                          staticStyle: { width: "30px" },
-                          attrs: {
-                            src: "/themes/wordplate/assets/images/internet.png",
-                            alt: "Internet Access",
-                            title: "Internet Access"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.hasAmenity(unit, 48),
-                            expression: "hasAmenity(unit, 48)"
-                          }
-                        ],
-                        staticClass: "col-auto py-2 px-1"
-                      },
-                      [
-                        _c("img", {
-                          staticStyle: { width: "30px" },
-                          attrs: {
-                            src: "/themes/wordplate/assets/images/linens.png",
-                            alt: "Linens Provided",
-                            title: "Linens Provided"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.hasAmenity(unit, 50),
-                            expression: "hasAmenity(unit, 50)"
-                          }
-                        ],
-                        staticClass: "col-auto py-2 px-1"
-                      },
-                      [
-                        _c("img", {
-                          staticStyle: { width: "30px" },
-                          attrs: {
-                            src:
-                              "/themes/wordplate/assets/images/pet-friendly.png",
-                            alt: "Pet Friendly",
-                            title: "Pet Friendly"
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-8" }, [
-                _c("div", { staticClass: "rental-feed-info mt-3" }, [
-                  _c("h2", { staticClass: "text-primary" }, [
-                    _c(
-                      "a",
-                      { attrs: { href: "/property/" + unit.rns_id + "/" } },
-                      [_vm._v(_vm._s(unit.name))]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "subhead d-flex flex-column" },
-                    _vm._l(unit.search_criteria, function(sc) {
-                      return _c("span", { key: sc.id }, [
-                        _vm._v("• " + _vm._s(sc.name))
-                      ])
-                    })
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row no-gutters tiles" }, [
-                    _c("div", { staticClass: "col-auto" }, [
-                      _c("span", { staticClass: "data" }, [
-                        _vm._v(_vm._s(unit.details[0].beds))
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "label" }, [_vm._v("BEDS")])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-auto" }, [
-                      _c("span", { staticClass: "data" }, [
-                        _vm._v(_vm._s(unit.details[0].baths))
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "label" }, [_vm._v("BATHS")])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-auto" }, [
-                      _c("span", { staticClass: "data" }, [
-                        _vm._v(_vm._s(unit.details[0].sleeps))
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(unit.details[0].description))]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-lg btn-outline-info btn-rounded",
-                      attrs: { href: "/property/" + unit.rns_id + "/" }
-                    },
-                    [
-                      _vm._v("View Property   "),
-                      _c("i", {
-                        staticClass: "fa fa-angle-right",
-                        attrs: { "aria-hidden": "true" }
-                      })
-                    ]
-                  )
-                ])
-              ])
-            ]
-          )
-        })
+        _c("unit-list", { attrs: { units: _vm.units } })
       ],
-      2
+      1
     ),
     _vm._v(" "),
     _c(
@@ -43916,6 +43718,272 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-487ef3bc", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-4caa20e0\",\"hasScoped\":true,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/UnitList.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "transition-group",
+    { attrs: { name: "unit-list", appear: "" } },
+    _vm._l(_vm.units, function(unit) {
+      return _c(
+        "div",
+        { key: unit.id, staticClass: "row no-gutters unit unit-list-item" },
+        [
+          _c("div", { staticClass: "col-lg-4" }, [
+            _c(
+              "a",
+              {
+                staticClass: "property-image",
+                attrs: { href: "/property/" + unit.rns_id + "/" }
+              },
+              [
+                _c("img", {
+                  staticStyle: { width: "100%" },
+                  attrs: { src: unit.images[0].url }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row no-gutters justify-content-center" },
+              [
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.hasAmenity(unit, 45),
+                        expression: "hasAmenity(unit, 45)"
+                      }
+                    ],
+                    staticClass: "col-auto py-2 px-1"
+                  },
+                  [
+                    _c("img", {
+                      staticStyle: { width: "30px" },
+                      attrs: {
+                        src: "/themes/wordplate/assets/images/pool.png",
+                        alt: "Pool Available",
+                        title: "Pool Available"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: false,
+                        expression: "false"
+                      }
+                    ],
+                    staticClass: "col-auto py-2 px-1"
+                  },
+                  [
+                    _c("img", {
+                      staticStyle: { width: "30px" },
+                      attrs: {
+                        src: "/themes/wordplate/assets/images/anchor.png",
+                        alt: "Dock Available",
+                        title: "Dock Available"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.hasSearchCriteria(unit, "Canal Front"),
+                        expression: "hasSearchCriteria(unit, 'Canal Front')"
+                      }
+                    ],
+                    staticClass: "col-auto py-2 px-1"
+                  },
+                  [
+                    _c("img", {
+                      staticStyle: { width: "30px" },
+                      attrs: {
+                        src: "/themes/wordplate/assets/images/canal.png",
+                        alt: "Canal Front",
+                        title: "Canal Front"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.hasAmenity(unit, 22),
+                        expression: "hasAmenity(unit, 22)"
+                      }
+                    ],
+                    staticClass: "col-auto py-2 px-1"
+                  },
+                  [
+                    _c("img", {
+                      staticStyle: { width: "30px" },
+                      attrs: {
+                        src: "/themes/wordplate/assets/images/internet.png",
+                        alt: "Internet Access",
+                        title: "Internet Access"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.hasAmenity(unit, 48),
+                        expression: "hasAmenity(unit, 48)"
+                      }
+                    ],
+                    staticClass: "col-auto py-2 px-1"
+                  },
+                  [
+                    _c("img", {
+                      staticStyle: { width: "30px" },
+                      attrs: {
+                        src: "/themes/wordplate/assets/images/linens.png",
+                        alt: "Linens Provided",
+                        title: "Linens Provided"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.hasAmenity(unit, 50),
+                        expression: "hasAmenity(unit, 50)"
+                      }
+                    ],
+                    staticClass: "col-auto py-2 px-1"
+                  },
+                  [
+                    _c("img", {
+                      staticStyle: { width: "30px" },
+                      attrs: {
+                        src: "/themes/wordplate/assets/images/pet-friendly.png",
+                        alt: "Pet Friendly",
+                        title: "Pet Friendly"
+                      }
+                    })
+                  ]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-8" }, [
+            _c("div", { staticClass: "rental-feed-info mt-3" }, [
+              _c("h2", { staticClass: "text-primary" }, [
+                _c("a", { attrs: { href: "/property/" + unit.rns_id + "/" } }, [
+                  _vm._v(_vm._s(unit.name))
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "p",
+                { staticClass: "subhead d-flex flex-column" },
+                _vm._l(unit.search_criteria, function(sc) {
+                  return _c("span", { key: sc.id }, [
+                    _vm._v("• " + _vm._s(sc.name))
+                  ])
+                })
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "row no-gutters tiles" }, [
+                _c("div", { staticClass: "col-auto" }, [
+                  _c("span", { staticClass: "data" }, [
+                    _vm._v(_vm._s(unit.details[0].beds))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "label" }, [_vm._v("BEDS")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [
+                  _c("span", { staticClass: "data" }, [
+                    _vm._v(_vm._s(unit.details[0].baths))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "label" }, [_vm._v("BATHS")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [
+                  _c("span", { staticClass: "data" }, [
+                    _vm._v(_vm._s(unit.details[0].sleeps))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(unit.details[0].description))]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-lg btn-outline-info btn-rounded",
+                  attrs: { href: "/property/" + unit.rns_id + "/" }
+                },
+                [
+                  _vm._v("View Property   "),
+                  _c("i", {
+                    staticClass: "fa fa-angle-right",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
+              )
+            ])
+          ])
+        ]
+      )
+    })
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4caa20e0", module.exports)
   }
 }
 
@@ -47519,6 +47587,33 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-487ef3bc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FullProperty.vue", function() {
      var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-487ef3bc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FullProperty.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4caa20e0\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4caa20e0\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("21a4b7e1", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4caa20e0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UnitList.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4caa20e0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UnitList.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -60009,6 +60104,58 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-37c798eb", Component.options)
   } else {
     hotAPI.reload("data-v-37c798eb", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ "./resources/assets/scripts/components/UnitList.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4caa20e0\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue")
+}
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/UnitList.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-4caa20e0\",\"hasScoped\":true,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/UnitList.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-4caa20e0"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/scripts/components/UnitList.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4caa20e0", Component.options)
+  } else {
+    hotAPI.reload("data-v-4caa20e0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
