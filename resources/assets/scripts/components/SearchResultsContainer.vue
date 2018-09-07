@@ -40,7 +40,7 @@
         </div>
         <unit-list :units="units"></unit-list>
     </div>
-    <div class="offset-lg-3 d-flex justify-content-center align-items-center mb-4">
+    <div class="offset-lg-6 d-flex justify-content-center align-items-center mb-4">
         <button class="btn btn-info" :class="{ 'disabled': pagination.prevPageUrl === null }" @click="prevPage">Previous</button>
         <button class="btn btn-outline-info">Page {{ pagination.currentPage }} of {{ pagination.pages }}</button>
         <button class="btn btn-info" :class="{ 'disabled': pagination.nextPageUrl === null }" @click="nextPage">Next</button>
@@ -62,7 +62,7 @@ export default {
         'data-check-out', 
         'data-location', 
         'data-type',
-        'data-filters'
+        'data-pool'
     ],
     data() {
         return {

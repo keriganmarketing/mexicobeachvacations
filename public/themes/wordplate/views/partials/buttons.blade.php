@@ -8,10 +8,10 @@
                 <h3><a href="/rentals/?location=Beachfront" >Beachfront Rentals</a></h3>
             </div>
             <div class="col-auto col-lg-4">
-                <a href="/rentals/?filter=pool" class="bubble-button">
+                <a href="/rentals/?pool=true" class="bubble-button">
                     <img src="/themes/wordplate/assets/images/rentals-with-pools.png" alt="Rentals with pools in Mexico Beach, Florida" >
                 </a>
-                <h3><a href="/rentals/?filter=pool" >Rentals with Pools</a></h3>
+                <h3><a href="/rentals?pool=true" >Rentals with Pools</a></h3>
             </div>
             <div class="col-auto col-lg-4">
                 <a href="/travel-guide/" class="bubble-button">

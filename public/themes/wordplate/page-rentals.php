@@ -7,7 +7,7 @@ $checkIn = isset($_GET['checkIn']) && $_GET['checkIn'] !== '' ? $_GET['checkIn']
 $checkOut = isset($_GET['checkOut']) && $_GET['checkOut'] !== '' ? $_GET['checkOut'] : null;
 $location = isset($_GET['location']) && $_GET['location'] !== '' ? $_GET['location'] : null;
 $type = isset($_GET['type']) && $_GET['type'] !== '' ? $_GET['type'] : null;
-$filters = isset($_GET['filter']) && $_GET['filter'] !== '' ? $_GET['filter'] : null;
+$pool = isset($_GET['pool']) && $_GET['pool'] !== '' ? $_GET['pool'] : null;
 $headerImageData = get_field('header_image');
 
 bladerunner('views.pages.rentals',[
@@ -16,7 +16,7 @@ bladerunner('views.pages.rentals',[
     'checkOut'    => $checkOut,
     'location'    => $location,
     'type'        => $type,
-    'filters'     => $filters,
+    'pool'        => $pool,
     'headerImage' => $headerImageData['url'],
     'headline'    => get_field('headline')
 ]);

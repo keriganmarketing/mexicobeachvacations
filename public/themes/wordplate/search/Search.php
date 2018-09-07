@@ -13,6 +13,7 @@ class Search {
         $checkOut    = $request['checkOut'] ?? null;
         $location    = $request['location'] ?? null;
         $type        = $request['type'] ?? null;
+        $pool        = $request['pool'] ?? null;
 
         $client = new Client();
 
@@ -21,7 +22,8 @@ class Search {
                 'checkIn'  => $checkIn,
                 'checkOut' => $checkOut,
                 'location' => $location,
-                'type'     => $type
+                'type'     => $type,
+                'pool'     => $pool
             ]
         ]);
 

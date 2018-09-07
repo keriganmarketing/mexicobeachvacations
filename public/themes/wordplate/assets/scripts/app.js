@@ -7259,7 +7259,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {
         UnitList: __WEBPACK_IMPORTED_MODULE_2__UnitList_vue___default.a
     },
-    props: ['data-results', 'data-check-in', 'data-check-out', 'data-location', 'data-type', 'data-filters'],
+    props: ['data-results', 'data-check-in', 'data-check-out', 'data-location', 'data-type', 'data-pool'],
     data: function data() {
         return {
             units: [],
@@ -42443,7 +42443,7 @@ var render = function() {
       "div",
       {
         staticClass:
-          "offset-lg-3 d-flex justify-content-center align-items-center mb-4"
+          "offset-lg-6 d-flex justify-content-center align-items-center mb-4"
       },
       [
         _c(
