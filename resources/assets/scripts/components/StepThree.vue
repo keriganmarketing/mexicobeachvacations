@@ -71,10 +71,10 @@
     <div class="row">
         <div class="col-md-9">
             <label for="comments">Billing Address <span class="required">*</span></label>
-                <div class="form-group">
-                    <label for="duplicateMailingAddress">Same as mailing address?</label>
-                    <input id="duplicateMailingAddress" type="checkbox" v-model="duplicateAddress" :checked="duplicateAddress">
-                </div>
+            <div class="form-group">
+                <label for="duplicateMailingAddress">Same as mailing address?</label>
+                <input id="duplicateMailingAddress" type="checkbox" v-model="duplicateAddress" :checked="duplicateAddress">
+            </div>
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
@@ -103,7 +103,7 @@
                     <div class="form-group">
                         <select class="custom-select" v-model="info.Country" required>
                             <option value="">Country</option>
-                            <option v-for="country in countries" :value="country">{{ country }}</option>
+                            <option v-for="(country, abbreviation) in countries" :value="abbreviation">{{ country }}</option>
                         </select>
                     </div>
                 </div>

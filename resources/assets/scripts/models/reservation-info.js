@@ -9,6 +9,7 @@ export default class ReservationInfo {
     this.ExpMonth = 0;
     this.ExpYear = 0;
     this.NameOnCard = "";
+    this.ResvCode = "";
     this.CCCVCode = "";
     this.UnitId = 0;
     this.LocationId = 0;
@@ -32,6 +33,7 @@ export default class ReservationInfo {
     this.TravelInsAccepted = true;
     this.PromoCode = "";
     this.Notes = "";
+    this.SDPStrict = false;
   }
 
   submit() {}
