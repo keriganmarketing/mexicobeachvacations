@@ -103,11 +103,15 @@ function team_shortcode() {
     $members = $team->queryTeam();
 
     foreach($members as $member){
+        $image = ( isset($member['image']['sizes']['thumbnail']) && $member['image']['sizes']['thumbnail'] != '' 
+                ? $member['image']['sizes']['thumbnail'] 
+                : '/themes/wordplate/assets/images/placeholder-team.jpg' );
+
         $output .=
         '<div class="col-md-6 col-lg-4">
             <div class="card team-member text-center">
                 <a href="' . $member['link'] . '" >
-                    <img src="' . $member['image']['sizes']['thumbnail'] . '" class="card-img-top" alt="' . $member['name'] . '" >
+                    <img src="' . $image . '" class="card-img-top" alt="' . $member['name'] . '" >
                 </a>
                 <div class="card-body">
                     <h3 class="text-uppercase text-dark">' . $member['name'] . '</h3>
