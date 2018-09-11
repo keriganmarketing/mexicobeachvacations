@@ -31,22 +31,27 @@
             >
             </hotel-date-picker> 
 
-            <div class="form-group">
-                <select class="custom-select input-rounded" v-model="location" @change="getMatches">
-                    <option value="" >Location</option>
-                    <option value="Beachfront" >Beachfront</option>
-                    <option value="Between Hwy-Beach">Between highway and beach</option>
-                    <option value="Across Hwy from Beach">Across highway from beach</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <select class="custom-select input-rounded" v-model="type" @change="getMatches">
-                    <option value="" >Type</option>
-                    <option value="Vacation Rental">Vacation Rental</option>
-                    <option value="Long Term Rental">Long Term Rental</option>
-                </select>
-            </div>
+            <dropdown 
+                class="custom-select input-rounded mb-2"
+                :options="[
+                    { name: 'Beachfront', value: 'Beachfront' },
+                    { name: 'Between highway and beach', value: 'Between Hwy-Beach' },
+                    { name: 'Across highway from beach', value: 'Across Hwy from Beach' }
+                ]" 
+                :selected="location" 
+                v-on:updateOption="locationChanged" 
+                :placeholder="'Location'">
+            </dropdown>
+            <dropdown 
+                class="custom-select input-rounded mb-2"
+                :options="[
+                    { name: 'Vacation Rental', value: 'Vacation Rental' },
+                    { name: 'Long Term Rental', value: 'Long Term Rental' }
+                ]" 
+                :selected="type" 
+                v-on:updateOption="typeChanged" 
+                :placeholder="'Type'">
+            </dropdown>
 
             <button v-if="numAvailable == 0" class="btn btn-primary btn-rounded btn-block" disabled>Search</button>
             <button v-if="numAvailable > 0 || numAvailable == null" class="btn btn-primary btn-rounded btn-block">Search</button>
@@ -179,6 +184,12 @@ export default {
         },
         toggleFilters() {
             this.filterIsOpen = !this.filterIsOpen;
+        },
+        typeChanged(payload) {
+            this.type = payload;
+        },
+        locationChanged(payload) {
+            this.location = payload;
         }
     }
 }
@@ -204,7 +215,10 @@ export default {
     height: 44px;
 }
 .custom-select.input-rounded {
-    padding: 0.425rem 1.75rem 0.375rem 1rem;
+    padding: 0;
+    cursor: pointer;
+    background: #FFF;
+    border: 0 !important;
 }
 .btn-primary,
 .btn-primary.disabled, 
