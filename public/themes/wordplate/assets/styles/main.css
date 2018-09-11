@@ -14945,6 +14945,10 @@ main article ol {
   font-size: 16px;
 }
 
+main article td {
+  font-size: 16px;
+}
+
 main article h1 {
   color: #224b68;
   font-size: 3em;
