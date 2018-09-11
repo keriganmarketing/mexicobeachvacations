@@ -111,14 +111,11 @@ function team_shortcode() {
                 </a>
                 <div class="card-body">
                     <h3 class="text-uppercase text-dark">' . $member['name'] . '</h3>
-                    <p class="text-uppercase text-dark">' . $member['title'] . '</p>
-                    <p class="text-uppercase text-light">
+                    <p class="text-dark">' . $member['title'] . '</p>
+                    <p class="text-light">
                     <a href="mailto:' . $member['email'] . '" style="font-size: 0.9rem">' . $member['email'] . '</a><br>
                     <a href="tel:' . $member['phone'] . '" >' . $member['phone'] . '</p>
                 </div>
-            </div>
-            <div class="member-button text-center">
-                <a href="' . $member['link'] . '" class="btn btn-outline-light text-dark" >View Bio</a>
             </div>
         </div>';
     }
