@@ -5,9 +5,6 @@ $testimonials = new Testimonial;
 $featuredTestimonial = $testimonials->queryTestimonials(true, 1, 'date', 'DESC', 115);
 
 bladerunner('views.pages.front', [
-    'locations' => json_encode(get_terms([
-        'taxonomy' => 'build-location',
-    ])),
     'featureBox1' => [
         'title' => get_field('feat_1_headline'),
         'text' => get_field('feat_1_text'),

@@ -88,7 +88,7 @@ export default {
 }
 
 </script>
-<style>
+<style lang="scss">
 .input-rounded button {
     border: 0 !important;
     height: 44px !important;
@@ -134,13 +134,15 @@ export default {
 .datepicker__wrapper .datepicker__month-button {
     background: none !important;
     cursor: pointer;
-    display: inline-block;
-    height: 45px;
-    width: 45px;
+    @media (min-width:768px){
+        display: inline-block;
+    }
+    height: 40px;
+    width: 40px;
     border: 2px solid #ff6f74;
     border-radius: 50%;
     margin-bottom: 15px;
-    padding: 14px 15px;
+    padding: 12px 13px;
 }
 
 .datepicker__wrapper .datepicker__month-button::before {
