@@ -111,7 +111,7 @@ function team_shortcode() {
         '<div class="col-md-6 col-lg-4">
             <div class="card team-member text-center border-0">
                 <a href="' . $member['link'] . '" >
-                    <img src="' . $image . '" class="card-img-top rounded-circle" alt="' . $member['name'] . '" >
+                    <img src="' . $image . '" class="rounded-circle" alt="' . $member['name'] . '" >
                 </a>
                 <div class="card-body">
                     <h3 class="text-uppercase text-dark">' . $member['name'] . '</h3>
