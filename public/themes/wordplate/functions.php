@@ -156,3 +156,12 @@ function testimonial_shortcode( $atts ) {
     return $output;
 }
 add_shortcode( 'kma_testimonials', 'testimonial_shortcode' );
+
+
+add_shortcode( 'kma_photos', function($atts){
+    $a = shortcode_atts( [
+        'gallery' => '',
+    ], $atts );
+
+    return get_field($a['gallery']);
+} );
