@@ -66,59 +66,59 @@
         </form>
     </div>
     <div 
-        class="sidebar-filter-box d-md-flex" 
+        class="sidebar-filter-box d-md-flex row" 
         :class="{
             'd-none': !filterIsOpen,
             'd-block': filterIsOpen
         }">
-        <div class="custom-checkbox my-2 d-flex">
+        <div class="col-auto custom-checkbox my-2 d-flex">
             <input class="d-none" type="checkbox" v-model="filters.pool" :checked="filters.pool" id="pool" @change="applyFilters">
-            <label class="d-flex align-items-center px-4" for="pool">
+            <label class="d-flex align-items-center px-1" for="pool">
                 <div class="svg-icon mr-2" :class="{ 'active': filters.pool }" >
                     <img src="/themes/wordplate/assets/images/pool.svg" alt="Pool Available" >
                 </div>
                 Pool Available
             </label>
         </div>
-        <div class="custom-checkbox my-2 d-flex">
+        <div class="col-auto custom-checkbox my-2 d-flex">
             <input class="d-none" type="checkbox" v-model="filters.dock" :checked="filters.dock" id="dock" @change="applyFilters">
-            <label class="d-flex align-items-center px-4" for="dock">
+            <label class="d-flex align-items-center px-1" for="dock">
                 <div class="svg-icon mr-2" :class="{ 'active': filters.dock }" >
                     <img src="/themes/wordplate/assets/images/anchor.svg" alt="Dock Available" >
                 </div>
                 Dock Available
             </label>
         </div>
-        <div class="custom-checkbox my-2 d-flex">
+        <div class="col-auto custom-checkbox my-2 d-flex">
             <input class="d-none" type="checkbox" v-model="filters.canal" :checked="filters.canal" id="canal" @change="applyFilters">
-            <label class="d-flex align-items-center px-4" for="canal">
+            <label class="d-flex align-items-center px-1" for="canal">
                 <div class="svg-icon mr-2" :class="{ 'active': filters.canal }" >
                     <img src="/themes/wordplate/assets/images/canal.svg" alt="Canal Front" >
                 </div>
                 Canal Front
             </label>
         </div>
-        <div class="custom-checkbox my-2 d-flex">
+        <div class="col-auto custom-checkbox my-2 d-flex">
             <input class="d-none" type="checkbox" v-model="filters.internet" :checked="filters.internet" id="internet" @change="applyFilters">
-            <label class="d-flex align-items-center px-4" for="internet">
+            <label class="d-flex align-items-center px-1" for="internet">
                 <div class="svg-icon mr-2" :class="{ 'active': filters.internet }" >
                     <img src="/themes/wordplate/assets/images/internet.svg" alt="Internet Access" >
                 </div>
                 Internet Access
             </label>
         </div>
-        <div class="custom-checkbox my-2 d-flex">
+        <div class="col-auto custom-checkbox my-2 d-flex">
             <input class="d-none" type="checkbox" v-model="filters.linens" :checked="filters.linens" id="linens" @change="applyFilters">
-            <label class="d-flex align-items-center px-4" for="linens">
+            <label class="d-flex align-items-center px-1" for="linens">
                 <div class="svg-icon mr-2" :class="{ 'active': filters.linens }" >
                     <img src="/themes/wordplate/assets/images/linens.svg" alt="Linens Provided" >
                 </div>
                 Linens Provided
             </label>
         </div>
-        <div class="custom-checkbox my-2 d-flex" >
+        <div class="col-auto custom-checkbox my-2 d-flex" >
             <input class="d-none" type="checkbox" v-model="filters.pets" :checked="filters.pets" id="pets" @change="applyFilters">
-            <label class="d-flex align-items-center px-4" for="pets">
+            <label class="d-flex align-items-center px-1" for="pets">
                 <div class="svg-icon mr-2" :class="{ 'active': filters.pets }" >
                     <img src="/themes/wordplate/assets/images/pet-friendly.svg" alt="Pet Friendly" >
                 </div>

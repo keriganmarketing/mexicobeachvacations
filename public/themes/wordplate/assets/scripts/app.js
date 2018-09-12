@@ -43133,14 +43133,14 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "sidebar-filter-box d-md-flex",
+        staticClass: "sidebar-filter-box d-md-flex row",
         class: {
           "d-none": !_vm.filterIsOpen,
           "d-block": _vm.filterIsOpen
         }
       },
       [
-        _c("div", { staticClass: "custom-checkbox my-2 d-flex" }, [
+        _c("div", { staticClass: "col-auto custom-checkbox my-2 d-flex" }, [
           _c("input", {
             directives: [
               {
@@ -43190,7 +43190,7 @@ var render = function() {
           _c(
             "label",
             {
-              staticClass: "d-flex align-items-center px-4",
+              staticClass: "d-flex align-items-center px-1",
               attrs: { for: "pool" }
             },
             [
@@ -43214,7 +43214,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "custom-checkbox my-2 d-flex" }, [
+        _c("div", { staticClass: "col-auto custom-checkbox my-2 d-flex" }, [
           _c("input", {
             directives: [
               {
@@ -43264,7 +43264,7 @@ var render = function() {
           _c(
             "label",
             {
-              staticClass: "d-flex align-items-center px-4",
+              staticClass: "d-flex align-items-center px-1",
               attrs: { for: "dock" }
             },
             [
@@ -43288,7 +43288,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "custom-checkbox my-2 d-flex" }, [
+        _c("div", { staticClass: "col-auto custom-checkbox my-2 d-flex" }, [
           _c("input", {
             directives: [
               {
@@ -43338,7 +43338,7 @@ var render = function() {
           _c(
             "label",
             {
-              staticClass: "d-flex align-items-center px-4",
+              staticClass: "d-flex align-items-center px-1",
               attrs: { for: "canal" }
             },
             [
@@ -43362,7 +43362,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "custom-checkbox my-2 d-flex" }, [
+        _c("div", { staticClass: "col-auto custom-checkbox my-2 d-flex" }, [
           _c("input", {
             directives: [
               {
@@ -43412,7 +43412,7 @@ var render = function() {
           _c(
             "label",
             {
-              staticClass: "d-flex align-items-center px-4",
+              staticClass: "d-flex align-items-center px-1",
               attrs: { for: "internet" }
             },
             [
@@ -43436,7 +43436,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "custom-checkbox my-2 d-flex" }, [
+        _c("div", { staticClass: "col-auto custom-checkbox my-2 d-flex" }, [
           _c("input", {
             directives: [
               {
@@ -43486,7 +43486,7 @@ var render = function() {
           _c(
             "label",
             {
-              staticClass: "d-flex align-items-center px-4",
+              staticClass: "d-flex align-items-center px-1",
               attrs: { for: "linens" }
             },
             [
@@ -43510,7 +43510,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "custom-checkbox my-2 d-flex" }, [
+        _c("div", { staticClass: "col-auto custom-checkbox my-2 d-flex" }, [
           _c("input", {
             directives: [
               {
@@ -43560,7 +43560,7 @@ var render = function() {
           _c(
             "label",
             {
-              staticClass: "d-flex align-items-center px-4",
+              staticClass: "d-flex align-items-center px-1",
               attrs: { for: "pets" }
             },
             [
