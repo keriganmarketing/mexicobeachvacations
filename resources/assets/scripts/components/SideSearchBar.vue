@@ -9,101 +9,112 @@
         </a>
     </div>
     <div 
-        class="sidebar-search-box d-md-block mb-4" 
+        class="sidebar-search-box d-md-block mb-2" 
         :class="{
             'd-none': !searchIsOpen,
             'd-block': searchIsOpen
         }">
-        <h3>Update Search Criteria</h3>
-        <form method="GET" action="/rentals">
+
+        <form method="GET" action="/rentals" class="row">
             <input type="hidden" name="checkIn" :value="checkIn">
             <input type="hidden" name="checkOut" :value="checkOut">
             <input type="hidden" name="location" :value="location">
             <input type="hidden" name="type" :value="type">
-
-            <hotel-date-picker
-                class="input-rounded"
-                @checkInChanged="checkInChanged"
-                @checkOutChanged="checkOutChanged"
-                format="MM/DD/YY"
-                :showYear="true"
-                :hoveringTooltip="false"
-            >
-            </hotel-date-picker> 
-
-            <dropdown 
-                class="custom-select input-rounded mb-2"
-                :options="[
-                    { name: 'Beachfront', value: 'Beachfront' },
-                    { name: 'Between highway and beach', value: 'Between Hwy-Beach' },
-                    { name: 'Across highway from beach', value: 'Across Hwy from Beach' }
-                ]" 
-                :selected="location" 
-                v-on:updateOption="locationChanged" 
-                :placeholder="'Location'">
-            </dropdown>
-            <dropdown 
-                class="custom-select input-rounded mb-2"
-                :options="[
-                    { name: 'Vacation Rental', value: 'Vacation Rental' },
-                    { name: 'Long Term Rental', value: 'Long Term Rental' }
-                ]" 
-                :selected="type" 
-                v-on:updateOption="typeChanged" 
-                :placeholder="'Type'">
-            </dropdown>
-
-            <button v-if="numAvailable == 0" class="btn btn-primary btn-rounded btn-block" disabled>Search</button>
-            <button v-if="numAvailable > 0 || numAvailable == null" class="btn btn-primary btn-rounded btn-block">Search</button>
-
-            <p v-if="numAvailable != null" >Properties matching your search: {{ numAvailable }}</p>
-
+            <div class="col-12 col-md-6 col-lg-4">
+                <hotel-date-picker
+                    class="input-rounded"
+                    @checkInChanged="checkInChanged"
+                    @checkOutChanged="checkOutChanged"
+                    format="MM/DD/YY"
+                    :showYear="true"
+                    :hoveringTooltip="false"
+                >
+                </hotel-date-picker> 
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <dropdown 
+                    class="custom-select input-rounded mb-2"
+                    :options="[
+                        { name: 'Beachfront', value: 'Beachfront' },
+                        { name: 'Between highway and beach', value: 'Between Hwy-Beach' },
+                        { name: 'Across highway from beach', value: 'Across Hwy from Beach' }
+                    ]" 
+                    :selected="location" 
+                    v-on:updateOption="locationChanged" 
+                    :placeholder="'Location'">
+                </dropdown>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <dropdown 
+                    class="custom-select input-rounded mb-2"
+                    :options="[
+                        { name: 'Vacation Rental', value: 'Vacation Rental' },
+                        { name: 'Long Term Rental', value: 'Long Term Rental' }
+                    ]" 
+                    :selected="type" 
+                    v-on:updateOption="typeChanged" 
+                    :placeholder="'Type'">
+                </dropdown>
+            </div>
+            <div class="col-12 col-md-6 col-lg-2">
+                <button v-if="numAvailable == 0" class="btn btn-primary btn-rounded btn-block" disabled>Search</button>
+                <button v-if="numAvailable > 0 || numAvailable == null" class="btn btn-primary btn-rounded btn-block">Search</button>
+            </div>
+            <div class="col-12 text-center text-white">
+                <p v-if="numAvailable != null" >Properties matching your search: {{ numAvailable }}</p>
+            </div>
         </form>
     </div>
     <div 
-        class="sidebar-filter-box d-md-block" 
+        class="sidebar-filter-box d-md-flex" 
         :class="{
             'd-none': !filterIsOpen,
             'd-block': filterIsOpen
         }">
-        <h3>Filter Results</h3>
         <div class="custom-control custom-checkbox my-2">
+            <img src="/themes/wordplate/assets/images/pool.png" alt="Pool Available" style="width: 30px;" >
             <input class="custom-control-input" type="checkbox" v-model="filters.pool" :checked="filters.pool" id="pool" @change="applyFilters">
             <label class="custom-control-label pt-1" for="pool">
                 Pool Available
             </label>
         </div>
         <div class="custom-control custom-checkbox my-2">
+            <img src="/themes/wordplate/assets/images/anchor.png" alt="Dock Available" style="width: 30px;" >
             <input class="custom-control-input" type="checkbox" v-model="filters.dock" :checked="filters.dock" id="dock" @change="applyFilters">
             <label class="custom-control-label pt-1" for="dock">
-                Dock Available<br>(Doesn't work right now)
+                Dock Available
             </label>
         </div>
         <div class="custom-control custom-checkbox my-2">
+            <img src="/themes/wordplate/assets/images/canal.png" alt="Canal Front" style="width: 30px;" >
             <input class="custom-control-input" type="checkbox" v-model="filters.canal" :checked="filters.canal" id="canal" @change="applyFilters">
             <label class="custom-control-label pt-1" for="canal">
-                Canal Front<br>(Doesn't work right now)
+                Canal Front
             </label>
         </div>
         <div class="custom-control custom-checkbox my-2">
+            <img src="/themes/wordplate/assets/images/internet.png" alt="Internet Access" style="width: 30px;" >
             <input class="custom-control-input" type="checkbox" v-model="filters.internet" :checked="filters.internet" id="internet" @change="applyFilters">
             <label class="custom-control-label pt-1" for="internet">
                 Internet Access
             </label>
         </div>
         <div class="custom-control custom-checkbox my-2">
+            <img src="/themes/wordplate/assets/images/linens.png" alt="Linens Provided" style="width: 30px;" >
             <input class="custom-control-input" type="checkbox" v-model="filters.linens" :checked="filters.linens" id="linens" @change="applyFilters">
             <label class="custom-control-label pt-1" for="linens">
-                Linens Provided<br>(Doesn't work right now)
+                Linens Provided
             </label>
         </div>
         <div class="custom-control custom-checkbox my-2">
+            <img src="/themes/wordplate/assets/images/pet-friendly.png" alt="Pet Friendly" style="width: 30px;" >
             <input class="custom-control-input" type="checkbox" v-model="filters.pets" :checked="filters.pets" id="pets" @change="applyFilters">
             <label class="custom-control-label pt-1" for="pets">
                 Pet Friendly
             </label>
         </div>
     </div>
+    <hr>
 </div>
 </template>
 
@@ -195,7 +206,7 @@ export default {
 }
 
 </script>
-<style>
+<style lang="scss">
 .input-rounded button {
     border: 0 !important;
     height: 44px !important;
@@ -265,7 +276,9 @@ export default {
 .datepicker__wrapper .datepicker__month-button {
     background: none !important;
     cursor: pointer;
-    display: inline-block;
+    @media (min-width:768px){
+        display: inline-block;
+    }
     height: 45px;
     width: 45px;
     border: 2px solid #ff6f74;

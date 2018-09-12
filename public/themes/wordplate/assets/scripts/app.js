@@ -7311,35 +7311,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -7437,6 +7408,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_hotel_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_hotel_datepicker__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__("./node_modules/moment/moment.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7777,6 +7759,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -19495,7 +19489,7 @@ exports.push([module.i, "\n.action-buttons {\n  padding: 0 1rem;\n}\n.action-but
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue":
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
@@ -19503,7 +19497,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.input-rounded button {\r\n    border: 0 !important;\r\n    height: 44px !important;\n}\n.datepicker__wrapper,\r\n.datepicker__dummy-wrapper {\r\n    border: 0 !important;\r\n    height: 44px !important;\n}\n.datepicker__clear-button {\r\n    height: 40px !important;\r\n    margin: 1px 0 0 0 !important;\n}\n.input-rounded {\r\n    border-radius: 2em;\r\n    border: 2px solid #46a5b5 !important;\r\n    height: 44px;\n}\n.custom-select.input-rounded {\r\n    padding: 0;\r\n    cursor: pointer;\r\n    background: #FFF;\r\n    border: 0 !important;\n}\n.btn-primary,\r\n.btn-primary.disabled, \r\n.btn-primary:disabled {\r\n    color: #FFF;\r\n    opacity: 1 !important;\r\n    border: 2px solid #46a5b5 !important;\n}\n.datepicker--open {\r\n    z-index: 9999 !important;\n}\n.form-group {\r\n    margin: 0 0 .5rem;\n}\n.datepicker__wrapper button.datepicker__input {\r\n    padding-right: 15px;\r\n    padding-left: 25px;\r\n    width: 50% !important;\n}\n.datepicker__wrapper button.datepicker__input + button.datepicker__input {\r\n    padding-left: 10px;\n}\n.datepicker__wrapper .square:hover {\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    background-color: #ddd;\n}\n.datepicker__wrapper .datepicker__month-day--selected {\r\n    background-color: rgba(255,111,116,.6);\n}\n.datepicker__wrapper .datepicker__month-day--first-day-selected {\r\n    border-radius: 2rem 0 0 2rem;\r\n    background-color: #ff6f74;\n}\n.datepicker__wrapper .datepicker__month-day--last-day-selected {\r\n    border-radius: 0 2rem 2rem 0;\r\n    background-color: #ff6f74;\n}\n.datepicker__wrapper .datepicker__month-button {\r\n    background: none !important;\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    height: 45px;\r\n    width: 45px;\r\n    border: 2px solid #ff6f74;\r\n    border-radius: 50%;\r\n    margin-bottom: 15px;\r\n    padding: 14px 15px;\n}\n.datepicker__wrapper .datepicker__month-button::before {\r\n    content: \"\\203A\";\r\n    color: #ff6f74;\r\n    font-size: 30px;\n}\n.datepicker__wrapper.input-rounded .datepicker__dummy-input--is-active {\r\n    color: #ff6f74;\n}\n.datepicker__wrapper .datepicker__clear-button {\r\n    color: #ff6f74;\r\n    height: 41px !important;\n}\n@media (min-width:768px){\n.datepicker__wrapper .datepicker {\r\n        left: 50%;\r\n        top: 50%;\r\n        position: fixed;\r\n        z-index: 2;\r\n        margin: -190px 0 0 -345px;\n}\n}\n.datepicker__wrapper {\r\n    background: #fff url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTkuOTcgMjEuMzIiPjxkZWZzPjxzdHlsZT4uY2xzLTF7aXNvbGF0aW9uOmlzb2xhdGU7fS5jbHMtMntmaWxsOiNmZmY7fS5jbHMtM3tjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgpO30uY2xzLTR7ZmlsbDpub25lO30uY2xzLTV7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTIpO30uY2xzLTZ7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTMpO30uY2xzLTd7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTQpO30uY2xzLTh7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTUpO30uY2xzLTl7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTYpO30uY2xzLTEwe2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC03KTt9LmNscy0xMXtjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgtOCk7fS5jbHMtMTJ7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTkpO30uY2xzLTEze2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0xMCk7fS5jbHMtMTR7ZmlsbDojOWI5YjliO30uY2xzLTE1e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0xMSk7fS5jbHMtMTZ7bWFzazp1cmwoI21hc2spO30uY2xzLTE3e2ZpbGw6I2ZmNmY3NDt9LmNscy0xOHttYXNrOnVybCgjbWFzay0yKTt9LmNscy0xOXtjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgtMTQpO30uY2xzLTIwe21hc2s6dXJsKCNtYXNrLTMpO30uY2xzLTIxe2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0xNSk7fS5jbHMtMjJ7bWFzazp1cmwoI21hc2stNCk7fS5jbHMtMjN7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTE2KTt9LmNscy0yNHttYXNrOnVybCgjbWFzay01KTt9LmNscy0yNXtjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgtMTcpO30uY2xzLTI2e21hc2s6dXJsKCNtYXNrLTYpO30uY2xzLTI3e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0xOCk7fS5jbHMtMjh7bWFzazp1cmwoI21hc2stNyk7fS5jbHMtMjl7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTE5KTt9LmNscy0zMHttYXNrOnVybCgjbWFzay04KTt9LmNscy0zMXtjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgtMjApO30uY2xzLTMye21hc2s6dXJsKCNtYXNrLTkpO30uY2xzLTMze2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0yMSk7fS5jbHMtMzR7bWFzazp1cmwoI21hc2stMTApO30uY2xzLTM1e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0yMik7fS5jbHMtMzZ7bWFzazp1cmwoI21hc2stMTEpO30uY2xzLTM3e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0yMyk7fTwvc3R5bGU+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgiPjxyZWN0IGNsYXNzPSJjbHMtNCIgeD0iMTAuNjciIHk9IjE2LjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY1Ii8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC0yIj48cmVjdCBjbGFzcz0iY2xzLTQiIHg9IjYuNjYiIHk9IjguMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTMiPjxyZWN0IGNsYXNzPSJjbHMtNCIgeD0iNi42NiIgeT0iMTYuMDEiIHdpZHRoPSIyLjY1IiBoZWlnaHQ9IjIuNjQiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTQiPjxyZWN0IGNsYXNzPSJjbHMtNCIgeD0iMi42NiIgeT0iMTYuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTUiPjxyZWN0IGNsYXNzPSJjbHMtNCIgeD0iMTQuNjYiIHk9IjEyLjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC02Ij48cmVjdCBjbGFzcz0iY2xzLTQiIHg9IjEwLjY2IiB5PSIxMi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtNyI+PHJlY3QgY2xhc3M9ImNscy00IiB4PSI2LjY2IiB5PSIxMi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtOCI+PHJlY3QgY2xhc3M9ImNscy00IiB4PSIyLjY3IiB5PSIxMi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtOSI+PHJlY3QgY2xhc3M9ImNscy00IiB4PSIxNC42NiIgeT0iOC4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMTAiPjxyZWN0IGNsYXNzPSJjbHMtNCIgeD0iMTAuNjYiIHk9IjguMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTExIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCBjbGFzcz0iY2xzLTQiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2siIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3Qgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIi8+PGcgY2xhc3M9ImNscy0xIj48cmVjdCBjbGFzcz0iY2xzLTIiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIvPjwvZz48L2c+PC9tYXNrPjxtYXNrIGlkPSJtYXNrLTIiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgeD0iMTAuNjciIHk9IjE2LjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY1Ii8+PGcgY2xhc3M9ImNscy0xIj48ZyBjbGFzcz0iY2xzLTMiPjxyZWN0IGNsYXNzPSJjbHMtMiIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIi8+PC9nPjwvZz48L2c+PC9tYXNrPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTE0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCBjbGFzcz0iY2xzLTE0IiB4PSIxMC42NyIgeT0iMTYuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjUiLz48L2NsaXBQYXRoPjxtYXNrIGlkPSJtYXNrLTMiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgeD0iNi42NiIgeT0iMTYuMDEiIHdpZHRoPSIyLjY1IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTEiPjxnIGNsYXNzPSJjbHMtNiI+PHJlY3QgY2xhc3M9ImNscy0yIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiLz48L2c+PC9nPjwvZz48L21hc2s+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMTUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjYuNjYiIHk9IjE2LjAxIiB3aWR0aD0iMi42NSIgaGVpZ2h0PSIyLjY0Ii8+PC9jbGlwUGF0aD48bWFzayBpZD0ibWFzay00IiB4PSIwIiB5PSIwIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IHg9IjIuNjYiIHk9IjE2LjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0xIj48ZyBjbGFzcz0iY2xzLTciPjxyZWN0IGNsYXNzPSJjbHMtMiIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIi8+PC9nPjwvZz48L2c+PC9tYXNrPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTE2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCBjbGFzcz0iY2xzLTE0IiB4PSIyLjY2IiB5PSIxNi4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2stNSIgeD0iMCIgeT0iMCIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCB4PSIxNC42NiIgeT0iMTIuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTEiPjxnIGNsYXNzPSJjbHMtOCI+PHJlY3QgY2xhc3M9ImNscy0yIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiLz48L2c+PC9nPjwvZz48L21hc2s+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjE0LjY2IiB5PSIxMi4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2stNiIgeD0iMCIgeT0iMCIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCB4PSIxMC42NiIgeT0iMTIuMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTEiPjxnIGNsYXNzPSJjbHMtOSI+PHJlY3QgY2xhc3M9ImNscy0yIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiLz48L2c+PC9nPjwvZz48L21hc2s+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMTgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjEwLjY2IiB5PSIxMi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2stNyIgeD0iMCIgeT0iMCIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCB4PSI2LjY2IiB5PSIxMi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjxnIGNsYXNzPSJjbHMtMSI+PGcgY2xhc3M9ImNscy0xMCI+PHJlY3QgY2xhc3M9ImNscy0yIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiLz48L2c+PC9nPjwvZz48L21hc2s+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMTkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjYuNjYiIHk9IjEyLjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PC9jbGlwUGF0aD48bWFzayBpZD0ibWFzay04IiB4PSIwIiB5PSIwIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IHg9IjIuNjciIHk9IjEyLjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0xIj48ZyBjbGFzcz0iY2xzLTExIj48cmVjdCBjbGFzcz0iY2xzLTIiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIvPjwvZz48L2c+PC9nPjwvbWFzaz48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC0yMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgY2xhc3M9ImNscy0xNCIgeD0iMi42NyIgeT0iMTIuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2NsaXBQYXRoPjxtYXNrIGlkPSJtYXNrLTkiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgeD0iMTQuNjYiIHk9IjguMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTEiPjxnIGNsYXNzPSJjbHMtMTIiPjxyZWN0IGNsYXNzPSJjbHMtMiIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIi8+PC9nPjwvZz48L2c+PC9tYXNrPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCBjbGFzcz0iY2xzLTE0IiB4PSIxNC42NiIgeT0iOC4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2stMTAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgeD0iMTAuNjYiIHk9IjguMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTEiPjxnIGNsYXNzPSJjbHMtMTMiPjxyZWN0IGNsYXNzPSJjbHMtMiIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIi8+PC9nPjwvZz48L2c+PC9tYXNrPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTIyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCBjbGFzcz0iY2xzLTE0IiB4PSIxMC42NiIgeT0iOC4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2stMTEiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgeD0iNi42NiIgeT0iOC4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjxnIGNsYXNzPSJjbHMtMSI+PGcgY2xhc3M9ImNscy01Ij48cmVjdCBjbGFzcz0iY2xzLTIiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIvPjwvZz48L2c+PC9nPjwvbWFzaz48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC0yMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgY2xhc3M9ImNscy0xNCIgeD0iNi42NiIgeT0iOC4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PC9kZWZzPjx0aXRsZT5jYWxlbmRhcjwvdGl0bGU+PGcgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PGcgaWQ9IkxheWVyXzEtMiIgZGF0YS1uYW1lPSJMYXllciAxIj48ZyBjbGFzcz0iY2xzLTE1Ij48ZyBjbGFzcz0iY2xzLTE1Ij48ZyBjbGFzcz0iY2xzLTE2Ij48ZyBjbGFzcz0iY2xzLTE1Ij48cGF0aCBjbGFzcz0iY2xzLTE3IiBkPSJNNCw0SDUuM1YxLjM1SDRaTTE0LjY3LDRIMTZWMS4zNUgxNC42N1pNMS4zMywyMEgxOC42NFY2LjY4SDEuMzNaTTEzLjgyLDBoM2EuNzcuNzcsMCwwLDEsLjUxLjg0YzAsLjU0LDAsMS4wOCwwLDEuNjN2LjIxSDIwVjIxLjMySDBWMi42NkgyLjY1YzAtLjYyLDAtMS4yMiwwLTEuODJBLjc4Ljc4LDAsMCwxLDMuMTUsMGgzYS43OC43OCwwLDAsMSwuNS44NGMwLC41NSwwLDEuMSwwLDEuNjUsMCwuMDYsMCwuMTIsMCwuMTdoNi42NWMwLS42MSwwLTEuMjIsMC0xLjgyYS43OC43OCwwLDAsMSwuNS0uODQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMTgiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjEwLjY3IiB5PSIxNi4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NSIvPjxnIGNsYXNzPSJjbHMtMTkiPjxyZWN0IGNsYXNzPSJjbHMtMTciIHg9IjEwLjY3IiB5PSIxNi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NSIvPjwvZz48L2c+PGcgY2xhc3M9ImNscy0yMCI+PHJlY3QgY2xhc3M9ImNscy0xNCIgeD0iNi42NiIgeT0iMTYuMDEiIHdpZHRoPSIyLjY1IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTIxIj48cmVjdCBjbGFzcz0iY2xzLTE3IiB4PSI2LjY2IiB5PSIxNi4wMSIgd2lkdGg9IjIuNjUiIGhlaWdodD0iMi42NCIvPjwvZz48L2c+PGcgY2xhc3M9ImNscy0yMiI+PHJlY3QgY2xhc3M9ImNscy0xNCIgeD0iMi42NiIgeT0iMTYuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTIzIj48cmVjdCBjbGFzcz0iY2xzLTE3IiB4PSIyLjY2IiB5PSIxNi4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvZz48L2c+PGcgY2xhc3M9ImNscy0yNCI+PHJlY3QgY2xhc3M9ImNscy0xNCIgeD0iMTQuNjYiIHk9IjEyLjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0yNSI+PHJlY3QgY2xhc3M9ImNscy0xNyIgeD0iMTQuNjYiIHk9IjEyLjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PC9nPjwvZz48ZyBjbGFzcz0iY2xzLTI2Ij48cmVjdCBjbGFzcz0iY2xzLTE0IiB4PSIxMC42NiIgeT0iMTIuMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTI3Ij48cmVjdCBjbGFzcz0iY2xzLTE3IiB4PSIxMC42NiIgeT0iMTIuMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMjgiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjYuNjYiIHk9IjEyLjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0yOSI+PHJlY3QgY2xhc3M9ImNscy0xNyIgeD0iNi42NiIgeT0iMTIuMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMzAiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjIuNjciIHk9IjEyLjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0zMSI+PHJlY3QgY2xhc3M9ImNscy0xNyIgeD0iMi42NyIgeT0iMTIuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMzIiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjE0LjY2IiB5PSI4LjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0zMyI+PHJlY3QgY2xhc3M9ImNscy0xNyIgeD0iMTQuNjYiIHk9IjguMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMzQiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjEwLjY2IiB5PSI4LjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0zNSI+PHJlY3QgY2xhc3M9ImNscy0xNyIgeD0iMTAuNjYiIHk9IjguMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMzYiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjYuNjYiIHk9IjguMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTM3Ij48cmVjdCBjbGFzcz0iY2xzLTE3IiB4PSI2LjY2IiB5PSI4LjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9zdmc+) no-repeat 17px/16px !important;\n}\r\n", ""]);
+exports.push([module.i, "\n.input-rounded button {\n  border: 0 !important;\n  height: 44px !important;\n}\n.datepicker__wrapper,\n.datepicker__dummy-wrapper {\n  border: 0 !important;\n  height: 44px !important;\n}\n.datepicker__clear-button {\n  height: 40px !important;\n  margin: 1px 0 0 0 !important;\n}\n.input-rounded {\n  border-radius: 2em;\n  border: 2px solid #46a5b5 !important;\n  height: 44px;\n}\n.custom-select.input-rounded {\n  padding: 0;\n  cursor: pointer;\n  background: #FFF;\n  border: 0 !important;\n}\n.btn-primary,\n.btn-primary.disabled,\n.btn-primary:disabled {\n  color: #FFF;\n  opacity: 1 !important;\n  border: 2px solid #46a5b5 !important;\n}\n.datepicker--open {\n  z-index: 9999 !important;\n}\n.form-group {\n  margin: 0 0 .5rem;\n}\n.datepicker__wrapper button.datepicker__input {\n  padding-right: 15px;\n  padding-left: 25px;\n  width: 50% !important;\n}\n.datepicker__wrapper button.datepicker__input + button.datepicker__input {\n  padding-left: 10px;\n}\n.datepicker__wrapper .square:hover {\n  border-radius: 50%;\n  cursor: pointer;\n  background-color: #ddd;\n}\n.datepicker__wrapper .datepicker__month-day--selected {\n  background-color: rgba(255, 111, 116, 0.6);\n}\n.datepicker__wrapper .datepicker__month-day--first-day-selected {\n  border-radius: 2rem 0 0 2rem;\n  background-color: #ff6f74;\n}\n.datepicker__wrapper .datepicker__month-day--last-day-selected {\n  border-radius: 0 2rem 2rem 0;\n  background-color: #ff6f74;\n}\n.datepicker__wrapper .datepicker__month-button {\n  background: none !important;\n  cursor: pointer;\n  height: 45px;\n  width: 45px;\n  border: 2px solid #ff6f74;\n  border-radius: 50%;\n  margin-bottom: 15px;\n  padding: 14px 15px;\n}\n@media (min-width: 768px) {\n.datepicker__wrapper .datepicker__month-button {\n      display: inline-block;\n}\n}\n.datepicker__wrapper .datepicker__month-button::before {\n  content: \"\\203A\";\n  color: #ff6f74;\n  font-size: 30px;\n}\n.datepicker__wrapper.input-rounded .datepicker__dummy-input--is-active {\n  color: #ff6f74;\n}\n.datepicker__wrapper .datepicker__clear-button {\n  color: #ff6f74;\n  height: 41px !important;\n}\n@media (min-width: 768px) {\n.datepicker__wrapper .datepicker {\n    left: 50%;\n    top: 50%;\n    position: fixed;\n    z-index: 2;\n    margin: -190px 0 0 -345px;\n}\n}\n.datepicker__wrapper {\n  background: #fff url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTkuOTcgMjEuMzIiPjxkZWZzPjxzdHlsZT4uY2xzLTF7aXNvbGF0aW9uOmlzb2xhdGU7fS5jbHMtMntmaWxsOiNmZmY7fS5jbHMtM3tjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgpO30uY2xzLTR7ZmlsbDpub25lO30uY2xzLTV7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTIpO30uY2xzLTZ7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTMpO30uY2xzLTd7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTQpO30uY2xzLTh7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTUpO30uY2xzLTl7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTYpO30uY2xzLTEwe2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC03KTt9LmNscy0xMXtjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgtOCk7fS5jbHMtMTJ7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTkpO30uY2xzLTEze2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0xMCk7fS5jbHMtMTR7ZmlsbDojOWI5YjliO30uY2xzLTE1e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0xMSk7fS5jbHMtMTZ7bWFzazp1cmwoI21hc2spO30uY2xzLTE3e2ZpbGw6I2ZmNmY3NDt9LmNscy0xOHttYXNrOnVybCgjbWFzay0yKTt9LmNscy0xOXtjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgtMTQpO30uY2xzLTIwe21hc2s6dXJsKCNtYXNrLTMpO30uY2xzLTIxe2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0xNSk7fS5jbHMtMjJ7bWFzazp1cmwoI21hc2stNCk7fS5jbHMtMjN7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTE2KTt9LmNscy0yNHttYXNrOnVybCgjbWFzay01KTt9LmNscy0yNXtjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgtMTcpO30uY2xzLTI2e21hc2s6dXJsKCNtYXNrLTYpO30uY2xzLTI3e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0xOCk7fS5jbHMtMjh7bWFzazp1cmwoI21hc2stNyk7fS5jbHMtMjl7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTE5KTt9LmNscy0zMHttYXNrOnVybCgjbWFzay04KTt9LmNscy0zMXtjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgtMjApO30uY2xzLTMye21hc2s6dXJsKCNtYXNrLTkpO30uY2xzLTMze2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0yMSk7fS5jbHMtMzR7bWFzazp1cmwoI21hc2stMTApO30uY2xzLTM1e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0yMik7fS5jbHMtMzZ7bWFzazp1cmwoI21hc2stMTEpO30uY2xzLTM3e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0yMyk7fTwvc3R5bGU+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgiPjxyZWN0IGNsYXNzPSJjbHMtNCIgeD0iMTAuNjciIHk9IjE2LjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY1Ii8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC0yIj48cmVjdCBjbGFzcz0iY2xzLTQiIHg9IjYuNjYiIHk9IjguMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTMiPjxyZWN0IGNsYXNzPSJjbHMtNCIgeD0iNi42NiIgeT0iMTYuMDEiIHdpZHRoPSIyLjY1IiBoZWlnaHQ9IjIuNjQiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTQiPjxyZWN0IGNsYXNzPSJjbHMtNCIgeD0iMi42NiIgeT0iMTYuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTUiPjxyZWN0IGNsYXNzPSJjbHMtNCIgeD0iMTQuNjYiIHk9IjEyLjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC02Ij48cmVjdCBjbGFzcz0iY2xzLTQiIHg9IjEwLjY2IiB5PSIxMi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtNyI+PHJlY3QgY2xhc3M9ImNscy00IiB4PSI2LjY2IiB5PSIxMi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtOCI+PHJlY3QgY2xhc3M9ImNscy00IiB4PSIyLjY3IiB5PSIxMi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtOSI+PHJlY3QgY2xhc3M9ImNscy00IiB4PSIxNC42NiIgeT0iOC4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMTAiPjxyZWN0IGNsYXNzPSJjbHMtNCIgeD0iMTAuNjYiIHk9IjguMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTExIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCBjbGFzcz0iY2xzLTQiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2siIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3Qgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIi8+PGcgY2xhc3M9ImNscy0xIj48cmVjdCBjbGFzcz0iY2xzLTIiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIvPjwvZz48L2c+PC9tYXNrPjxtYXNrIGlkPSJtYXNrLTIiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgeD0iMTAuNjciIHk9IjE2LjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY1Ii8+PGcgY2xhc3M9ImNscy0xIj48ZyBjbGFzcz0iY2xzLTMiPjxyZWN0IGNsYXNzPSJjbHMtMiIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIi8+PC9nPjwvZz48L2c+PC9tYXNrPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTE0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCBjbGFzcz0iY2xzLTE0IiB4PSIxMC42NyIgeT0iMTYuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjUiLz48L2NsaXBQYXRoPjxtYXNrIGlkPSJtYXNrLTMiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgeD0iNi42NiIgeT0iMTYuMDEiIHdpZHRoPSIyLjY1IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTEiPjxnIGNsYXNzPSJjbHMtNiI+PHJlY3QgY2xhc3M9ImNscy0yIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiLz48L2c+PC9nPjwvZz48L21hc2s+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMTUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjYuNjYiIHk9IjE2LjAxIiB3aWR0aD0iMi42NSIgaGVpZ2h0PSIyLjY0Ii8+PC9jbGlwUGF0aD48bWFzayBpZD0ibWFzay00IiB4PSIwIiB5PSIwIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IHg9IjIuNjYiIHk9IjE2LjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0xIj48ZyBjbGFzcz0iY2xzLTciPjxyZWN0IGNsYXNzPSJjbHMtMiIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIi8+PC9nPjwvZz48L2c+PC9tYXNrPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTE2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCBjbGFzcz0iY2xzLTE0IiB4PSIyLjY2IiB5PSIxNi4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2stNSIgeD0iMCIgeT0iMCIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCB4PSIxNC42NiIgeT0iMTIuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTEiPjxnIGNsYXNzPSJjbHMtOCI+PHJlY3QgY2xhc3M9ImNscy0yIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiLz48L2c+PC9nPjwvZz48L21hc2s+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjE0LjY2IiB5PSIxMi4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2stNiIgeD0iMCIgeT0iMCIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCB4PSIxMC42NiIgeT0iMTIuMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTEiPjxnIGNsYXNzPSJjbHMtOSI+PHJlY3QgY2xhc3M9ImNscy0yIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiLz48L2c+PC9nPjwvZz48L21hc2s+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMTgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjEwLjY2IiB5PSIxMi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2stNyIgeD0iMCIgeT0iMCIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCB4PSI2LjY2IiB5PSIxMi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjxnIGNsYXNzPSJjbHMtMSI+PGcgY2xhc3M9ImNscy0xMCI+PHJlY3QgY2xhc3M9ImNscy0yIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiLz48L2c+PC9nPjwvZz48L21hc2s+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMTkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjYuNjYiIHk9IjEyLjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PC9jbGlwUGF0aD48bWFzayBpZD0ibWFzay04IiB4PSIwIiB5PSIwIiB3aWR0aD0iMTkuOTciIGhlaWdodD0iMjEuMzIiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiPjxyZWN0IHg9IjIuNjciIHk9IjEyLjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0xIj48ZyBjbGFzcz0iY2xzLTExIj48cmVjdCBjbGFzcz0iY2xzLTIiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIvPjwvZz48L2c+PC9nPjwvbWFzaz48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC0yMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgY2xhc3M9ImNscy0xNCIgeD0iMi42NyIgeT0iMTIuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2NsaXBQYXRoPjxtYXNrIGlkPSJtYXNrLTkiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgeD0iMTQuNjYiIHk9IjguMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTEiPjxnIGNsYXNzPSJjbHMtMTIiPjxyZWN0IGNsYXNzPSJjbHMtMiIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIi8+PC9nPjwvZz48L2c+PC9tYXNrPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCBjbGFzcz0iY2xzLTE0IiB4PSIxNC42NiIgeT0iOC4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2stMTAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgeD0iMTAuNjYiIHk9IjguMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTEiPjxnIGNsYXNzPSJjbHMtMTMiPjxyZWN0IGNsYXNzPSJjbHMtMiIgd2lkdGg9IjE5Ljk3IiBoZWlnaHQ9IjIxLjMyIi8+PC9nPjwvZz48L2c+PC9tYXNrPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTIyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDApIj48cmVjdCBjbGFzcz0iY2xzLTE0IiB4PSIxMC42NiIgeT0iOC4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PG1hc2sgaWQ9Im1hc2stMTEiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgeD0iNi42NiIgeT0iOC4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjxnIGNsYXNzPSJjbHMtMSI+PGcgY2xhc3M9ImNscy01Ij48cmVjdCBjbGFzcz0iY2xzLTIiIHdpZHRoPSIxOS45NyIgaGVpZ2h0PSIyMS4zMiIvPjwvZz48L2c+PC9nPjwvbWFzaz48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC0yMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwKSI+PHJlY3QgY2xhc3M9ImNscy0xNCIgeD0iNi42NiIgeT0iOC4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvY2xpcFBhdGg+PC9kZWZzPjx0aXRsZT5jYWxlbmRhcjwvdGl0bGU+PGcgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PGcgaWQ9IkxheWVyXzEtMiIgZGF0YS1uYW1lPSJMYXllciAxIj48ZyBjbGFzcz0iY2xzLTE1Ij48ZyBjbGFzcz0iY2xzLTE1Ij48ZyBjbGFzcz0iY2xzLTE2Ij48ZyBjbGFzcz0iY2xzLTE1Ij48cGF0aCBjbGFzcz0iY2xzLTE3IiBkPSJNNCw0SDUuM1YxLjM1SDRaTTE0LjY3LDRIMTZWMS4zNUgxNC42N1pNMS4zMywyMEgxOC42NFY2LjY4SDEuMzNaTTEzLjgyLDBoM2EuNzcuNzcsMCwwLDEsLjUxLjg0YzAsLjU0LDAsMS4wOCwwLDEuNjN2LjIxSDIwVjIxLjMySDBWMi42NkgyLjY1YzAtLjYyLDAtMS4yMiwwLTEuODJBLjc4Ljc4LDAsMCwxLDMuMTUsMGgzYS43OC43OCwwLDAsMSwuNS44NGMwLC41NSwwLDEuMSwwLDEuNjUsMCwuMDYsMCwuMTIsMCwuMTdoNi42NWMwLS42MSwwLTEuMjIsMC0xLjgyYS43OC43OCwwLDAsMSwuNS0uODQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMTgiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjEwLjY3IiB5PSIxNi4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NSIvPjxnIGNsYXNzPSJjbHMtMTkiPjxyZWN0IGNsYXNzPSJjbHMtMTciIHg9IjEwLjY3IiB5PSIxNi4wMiIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NSIvPjwvZz48L2c+PGcgY2xhc3M9ImNscy0yMCI+PHJlY3QgY2xhc3M9ImNscy0xNCIgeD0iNi42NiIgeT0iMTYuMDEiIHdpZHRoPSIyLjY1IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTIxIj48cmVjdCBjbGFzcz0iY2xzLTE3IiB4PSI2LjY2IiB5PSIxNi4wMSIgd2lkdGg9IjIuNjUiIGhlaWdodD0iMi42NCIvPjwvZz48L2c+PGcgY2xhc3M9ImNscy0yMiI+PHJlY3QgY2xhc3M9ImNscy0xNCIgeD0iMi42NiIgeT0iMTYuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTIzIj48cmVjdCBjbGFzcz0iY2xzLTE3IiB4PSIyLjY2IiB5PSIxNi4wMSIgd2lkdGg9IjIuNjQiIGhlaWdodD0iMi42NCIvPjwvZz48L2c+PGcgY2xhc3M9ImNscy0yNCI+PHJlY3QgY2xhc3M9ImNscy0xNCIgeD0iMTQuNjYiIHk9IjEyLjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0yNSI+PHJlY3QgY2xhc3M9ImNscy0xNyIgeD0iMTQuNjYiIHk9IjEyLjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PC9nPjwvZz48ZyBjbGFzcz0iY2xzLTI2Ij48cmVjdCBjbGFzcz0iY2xzLTE0IiB4PSIxMC42NiIgeT0iMTIuMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTI3Ij48cmVjdCBjbGFzcz0iY2xzLTE3IiB4PSIxMC42NiIgeT0iMTIuMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMjgiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjYuNjYiIHk9IjEyLjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0yOSI+PHJlY3QgY2xhc3M9ImNscy0xNyIgeD0iNi42NiIgeT0iMTIuMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMzAiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjIuNjciIHk9IjEyLjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0zMSI+PHJlY3QgY2xhc3M9ImNscy0xNyIgeD0iMi42NyIgeT0iMTIuMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMzIiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjE0LjY2IiB5PSI4LjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0zMyI+PHJlY3QgY2xhc3M9ImNscy0xNyIgeD0iMTQuNjYiIHk9IjguMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMzQiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjEwLjY2IiB5PSI4LjAxIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PGcgY2xhc3M9ImNscy0zNSI+PHJlY3QgY2xhc3M9ImNscy0xNyIgeD0iMTAuNjYiIHk9IjguMDEiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48L2c+PC9nPjxnIGNsYXNzPSJjbHMtMzYiPjxyZWN0IGNsYXNzPSJjbHMtMTQiIHg9IjYuNjYiIHk9IjguMDIiIHdpZHRoPSIyLjY0IiBoZWlnaHQ9IjIuNjQiLz48ZyBjbGFzcz0iY2xzLTM3Ij48cmVjdCBjbGFzcz0iY2xzLTE3IiB4PSI2LjY2IiB5PSI4LjAyIiB3aWR0aD0iMi42NCIgaGVpZ2h0PSIyLjY0Ii8+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PC9zdmc+) no-repeat 17px/16px !important;\n}\n", ""]);
 
 // exports
 
@@ -19570,7 +19564,7 @@ exports.push([module.i, "\n.photo-gallery {\n    padding: 2rem 0;\n}\n.photo-til
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue":
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
@@ -19578,7 +19572,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.unit-list-item[data-v-68c1d940] {\r\n    transition: all 0.3s;\n}\n.unit-list-enter[data-v-68c1d940], .unit-list-leave-to[data-v-68c1d940] {\r\n    opacity: 0;\r\n    -webkit-transform: translateX(30px);\r\n            transform: translateX(30px);\n}\n.unit-list-leave-active[data-v-68c1d940] {\r\n    position: absolute;\n}\r\n", ""]);
+exports.push([module.i, "\n.unit-list-item[data-v-68c1d940] {\n  transition: all 0.3s;\n}\n.unit-list-enter[data-v-68c1d940], .unit-list-leave-to[data-v-68c1d940] {\n  opacity: 0;\n  -webkit-transform: translateX(30px);\n          transform: translateX(30px);\n}\n.unit-list-leave-active[data-v-68c1d940] {\n  position: absolute;\n}\n.tiles .data[data-v-68c1d940] {\n  font-size: 1.5em;\n}\n@media (min-width: 768px) {\n.tiles .data[data-v-68c1d940] {\n      font-size: 2em;\n}\n}\n", ""]);
 
 // exports
 
@@ -42978,18 +42972,16 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "sidebar-search-box d-md-block mb-4",
+        staticClass: "sidebar-search-box d-md-block mb-2",
         class: {
           "d-none": !_vm.searchIsOpen,
           "d-block": _vm.searchIsOpen
         }
       },
       [
-        _c("h3", [_vm._v("Update Search Criteria")]),
-        _vm._v(" "),
         _c(
           "form",
-          { attrs: { method: "GET", action: "/rentals" } },
+          { staticClass: "row", attrs: { method: "GET", action: "/rentals" } },
           [
             _c("input", {
               attrs: { type: "hidden", name: "checkIn" },
@@ -43011,81 +43003,105 @@ var render = function() {
               domProps: { value: _vm.type }
             }),
             _vm._v(" "),
-            _c("hotel-date-picker", {
-              staticClass: "input-rounded",
-              attrs: {
-                format: "MM/DD/YY",
-                showYear: true,
-                hoveringTooltip: false
-              },
-              on: {
-                checkInChanged: _vm.checkInChanged,
-                checkOutChanged: _vm.checkOutChanged
-              }
-            }),
-            _vm._v(" "),
-            _c("dropdown", {
-              staticClass: "custom-select input-rounded mb-2",
-              attrs: {
-                options: [
-                  { name: "Beachfront", value: "Beachfront" },
-                  {
-                    name: "Between highway and beach",
-                    value: "Between Hwy-Beach"
+            _c(
+              "div",
+              { staticClass: "col-12 col-md-6 col-lg-4" },
+              [
+                _c("hotel-date-picker", {
+                  staticClass: "input-rounded",
+                  attrs: {
+                    format: "MM/DD/YY",
+                    showYear: true,
+                    hoveringTooltip: false
                   },
-                  {
-                    name: "Across highway from beach",
-                    value: "Across Hwy from Beach"
+                  on: {
+                    checkInChanged: _vm.checkInChanged,
+                    checkOutChanged: _vm.checkOutChanged
                   }
-                ],
-                selected: _vm.location,
-                placeholder: "Location"
-              },
-              on: { updateOption: _vm.locationChanged }
-            }),
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("dropdown", {
-              staticClass: "custom-select input-rounded mb-2",
-              attrs: {
-                options: [
-                  { name: "Vacation Rental", value: "Vacation Rental" },
-                  { name: "Long Term Rental", value: "Long Term Rental" }
-                ],
-                selected: _vm.type,
-                placeholder: "Type"
-              },
-              on: { updateOption: _vm.typeChanged }
-            }),
-            _vm._v(" "),
-            _vm.numAvailable == 0
-              ? _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary btn-rounded btn-block",
-                    attrs: { disabled: "" }
+            _c(
+              "div",
+              { staticClass: "col-12 col-sm-6 col-lg-3" },
+              [
+                _c("dropdown", {
+                  staticClass: "custom-select input-rounded mb-2",
+                  attrs: {
+                    options: [
+                      { name: "Beachfront", value: "Beachfront" },
+                      {
+                        name: "Between highway and beach",
+                        value: "Between Hwy-Beach"
+                      },
+                      {
+                        name: "Across highway from beach",
+                        value: "Across Hwy from Beach"
+                      }
+                    ],
+                    selected: _vm.location,
+                    placeholder: "Location"
                   },
-                  [_vm._v("Search")]
-                )
-              : _vm._e(),
+                  on: { updateOption: _vm.locationChanged }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _vm.numAvailable > 0 || _vm.numAvailable == null
-              ? _c(
-                  "button",
-                  { staticClass: "btn btn-primary btn-rounded btn-block" },
-                  [_vm._v("Search")]
-                )
-              : _vm._e(),
+            _c(
+              "div",
+              { staticClass: "col-12 col-sm-6 col-lg-3" },
+              [
+                _c("dropdown", {
+                  staticClass: "custom-select input-rounded mb-2",
+                  attrs: {
+                    options: [
+                      { name: "Vacation Rental", value: "Vacation Rental" },
+                      { name: "Long Term Rental", value: "Long Term Rental" }
+                    ],
+                    selected: _vm.type,
+                    placeholder: "Type"
+                  },
+                  on: { updateOption: _vm.typeChanged }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _vm.numAvailable != null
-              ? _c("p", [
-                  _vm._v(
-                    "Properties matching your search: " +
-                      _vm._s(_vm.numAvailable)
+            _c("div", { staticClass: "col-12 col-md-6 col-lg-2" }, [
+              _vm.numAvailable == 0
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary btn-rounded btn-block",
+                      attrs: { disabled: "" }
+                    },
+                    [_vm._v("Search")]
                   )
-                ])
-              : _vm._e()
-          ],
-          1
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.numAvailable > 0 || _vm.numAvailable == null
+                ? _c(
+                    "button",
+                    { staticClass: "btn btn-primary btn-rounded btn-block" },
+                    [_vm._v("Search")]
+                  )
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 text-center text-white" }, [
+              _vm.numAvailable != null
+                ? _c("p", [
+                    _vm._v(
+                      "Properties matching your search: " +
+                        _vm._s(_vm.numAvailable)
+                    )
+                  ])
+                : _vm._e()
+            ])
+          ]
         )
       ]
     ),
@@ -43093,16 +43109,22 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "sidebar-filter-box d-md-block",
+        staticClass: "sidebar-filter-box d-md-flex",
         class: {
           "d-none": !_vm.filterIsOpen,
           "d-block": _vm.filterIsOpen
         }
       },
       [
-        _c("h3", [_vm._v("Filter Results")]),
-        _vm._v(" "),
         _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/pool.png",
+              alt: "Pool Available"
+            }
+          }),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -43160,6 +43182,14 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/anchor.png",
+              alt: "Dock Available"
+            }
+          }),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -43206,10 +43236,25 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _vm._m(0)
+          _c(
+            "label",
+            {
+              staticClass: "custom-control-label pt-1",
+              attrs: { for: "dock" }
+            },
+            [_vm._v("\r\n                Dock Available\r\n            ")]
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/canal.png",
+              alt: "Canal Front"
+            }
+          }),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -43256,10 +43301,25 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _vm._m(1)
+          _c(
+            "label",
+            {
+              staticClass: "custom-control-label pt-1",
+              attrs: { for: "canal" }
+            },
+            [_vm._v("\r\n                Canal Front\r\n            ")]
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/internet.png",
+              alt: "Internet Access"
+            }
+          }),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -43317,6 +43377,14 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/linens.png",
+              alt: "Linens Provided"
+            }
+          }),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -43363,10 +43431,25 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _vm._m(2)
+          _c(
+            "label",
+            {
+              staticClass: "custom-control-label pt-1",
+              attrs: { for: "linens" }
+            },
+            [_vm._v("\r\n                Linens Provided\r\n            ")]
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "custom-control custom-checkbox my-2" }, [
+          _c("img", {
+            staticStyle: { width: "30px" },
+            attrs: {
+              src: "/themes/wordplate/assets/images/pet-friendly.png",
+              alt: "Pet Friendly"
+            }
+          }),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -43423,53 +43506,12 @@ var render = function() {
           )
         ])
       ]
-    )
+    ),
+    _vm._v(" "),
+    _c("hr")
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      { staticClass: "custom-control-label pt-1", attrs: { for: "dock" } },
-      [
-        _vm._v("\r\n                Dock Available"),
-        _c("br"),
-        _vm._v("(Doesn't work right now)\r\n            ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      { staticClass: "custom-control-label pt-1", attrs: { for: "canal" } },
-      [
-        _vm._v("\r\n                Canal Front"),
-        _c("br"),
-        _vm._v("(Doesn't work right now)\r\n            ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      { staticClass: "custom-control-label pt-1", attrs: { for: "linens" } },
-      [
-        _vm._v("\r\n                Linens Provided"),
-        _c("br"),
-        _vm._v("(Doesn't work right now)\r\n            ")
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -44780,9 +44822,191 @@ var render = function() {
     _vm._l(_vm.units, function(unit) {
       return _c(
         "div",
-        { key: unit.id, staticClass: "row no-gutters unit unit-list-item" },
+        { key: unit.id, staticClass: "row unit unit-list-item" },
         [
-          _c("div", { staticClass: "col-lg-4" }, [
+          _c("div", { staticClass: "col-12 mb-2" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "d-flex justify-content-between align-items-center p-2 bg-dark px-4"
+              },
+              [
+                _c("h2", { staticClass: "p-0 m-0" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "text-white",
+                      attrs: { href: "/property/" + unit.rns_id + "/" }
+                    },
+                    [_vm._v(_vm._s(unit.name))]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "unit-icons row no-gutters justify-content-center"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.hasAmenity(unit, 45),
+                            expression: "hasAmenity(unit, 45)"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src: "/themes/wordplate/assets/images/pool.png",
+                            alt: "Pool Available",
+                            title: "Pool Available"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: false,
+                            expression: "false"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src: "/themes/wordplate/assets/images/anchor.png",
+                            alt: "Dock Available",
+                            title: "Dock Available"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.hasSearchCriteria(unit, "Canal Front"),
+                            expression: "hasSearchCriteria(unit, 'Canal Front')"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src: "/themes/wordplate/assets/images/canal.png",
+                            alt: "Canal Front",
+                            title: "Canal Front"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.hasAmenity(unit, 22),
+                            expression: "hasAmenity(unit, 22)"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src: "/themes/wordplate/assets/images/internet.png",
+                            alt: "Internet Access",
+                            title: "Internet Access"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.hasAmenity(unit, 48),
+                            expression: "hasAmenity(unit, 48)"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src: "/themes/wordplate/assets/images/linens.png",
+                            alt: "Linens Provided",
+                            title: "Linens Provided"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.hasAmenity(unit, 50),
+                            expression: "hasAmenity(unit, 50)"
+                          }
+                        ],
+                        staticClass: "col-auto py-2 px-1"
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "30px" },
+                          attrs: {
+                            src:
+                              "/themes/wordplate/assets/images/pet-friendly.png",
+                            alt: "Pet Friendly",
+                            title: "Pet Friendly"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-4 col-xl-3" }, [
             _c(
               "a",
               {
@@ -44795,211 +45019,84 @@ var render = function() {
                   attrs: { src: unit.images[0].url }
                 })
               ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "row no-gutters justify-content-center" },
-              [
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.hasAmenity(unit, 45),
-                        expression: "hasAmenity(unit, 45)"
-                      }
-                    ],
-                    staticClass: "col-auto py-2 px-1"
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: { width: "30px" },
-                      attrs: {
-                        src: "/themes/wordplate/assets/images/pool.png",
-                        alt: "Pool Available",
-                        title: "Pool Available"
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: false,
-                        expression: "false"
-                      }
-                    ],
-                    staticClass: "col-auto py-2 px-1"
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: { width: "30px" },
-                      attrs: {
-                        src: "/themes/wordplate/assets/images/anchor.png",
-                        alt: "Dock Available",
-                        title: "Dock Available"
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.hasSearchCriteria(unit, "Canal Front"),
-                        expression: "hasSearchCriteria(unit, 'Canal Front')"
-                      }
-                    ],
-                    staticClass: "col-auto py-2 px-1"
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: { width: "30px" },
-                      attrs: {
-                        src: "/themes/wordplate/assets/images/canal.png",
-                        alt: "Canal Front",
-                        title: "Canal Front"
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.hasAmenity(unit, 22),
-                        expression: "hasAmenity(unit, 22)"
-                      }
-                    ],
-                    staticClass: "col-auto py-2 px-1"
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: { width: "30px" },
-                      attrs: {
-                        src: "/themes/wordplate/assets/images/internet.png",
-                        alt: "Internet Access",
-                        title: "Internet Access"
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.hasAmenity(unit, 48),
-                        expression: "hasAmenity(unit, 48)"
-                      }
-                    ],
-                    staticClass: "col-auto py-2 px-1"
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: { width: "30px" },
-                      attrs: {
-                        src: "/themes/wordplate/assets/images/linens.png",
-                        alt: "Linens Provided",
-                        title: "Linens Provided"
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.hasAmenity(unit, 50),
-                        expression: "hasAmenity(unit, 50)"
-                      }
-                    ],
-                    staticClass: "col-auto py-2 px-1"
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: { width: "30px" },
-                      attrs: {
-                        src: "/themes/wordplate/assets/images/pet-friendly.png",
-                        alt: "Pet Friendly",
-                        title: "Pet Friendly"
-                      }
-                    })
-                  ]
-                )
-              ]
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-lg-8" }, [
-            _c("div", { staticClass: "rental-feed-info mt-3" }, [
-              _c("h2", { staticClass: "text-primary" }, [
-                _c("a", { attrs: { href: "/property/" + unit.rns_id + "/" } }, [
-                  _vm._v(_vm._s(unit.name))
-                ])
-              ]),
-              _vm._v(" "),
+          _c("div", { staticClass: "col-lg-8 col-xl-9" }, [
+            _c("div", { staticClass: "rental-feed-info" }, [
               _c(
-                "p",
-                { staticClass: "subhead d-flex flex-column" },
-                _vm._l(unit.search_criteria, function(sc) {
-                  return _c("span", { key: sc.id }, [
-                    _vm._v("• " + _vm._s(sc.name))
+                "div",
+                {
+                  staticClass:
+                    "row no-gutters tiles justify-content-center align-items-center"
+                },
+                [
+                  _c("div", { staticClass: "col-auto text-center p-2 px-3" }, [
+                    _c("span", { staticClass: "data fira text-orange" }, [
+                      _vm._v(_vm._s(unit.details[0].beds))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      { staticClass: "label fira text-info d-block" },
+                      [_vm._v("BEDS")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-auto text-center p-2 px-3" }, [
+                    _c("span", { staticClass: "data fira text-orange" }, [
+                      _vm._v(_vm._s(unit.details[0].baths))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      { staticClass: "label fira text-info d-block" },
+                      [_vm._v("BATHS")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-auto text-center p-2 px-3" }, [
+                    _c("span", { staticClass: "data fira text-orange" }, [
+                      _vm._v(_vm._s(unit.details[0].sleeps))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      { staticClass: "label fira text-info d-block" },
+                      [_vm._v("SLEEPS")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-auto p-2 flex-grow-1" }, [
+                    _c(
+                      "p",
+                      { staticClass: "subhead text-center" },
+                      _vm._l(unit.search_criteria, function(sc) {
+                        return _c(
+                          "span",
+                          {
+                            key: sc.id,
+                            staticClass:
+                              "px-3 py-1 m-1 fira text-uppercase d-inline-block bg-info text-white"
+                          },
+                          [_vm._v(_vm._s(sc.name))]
+                        )
+                      })
+                    )
                   ])
-                })
+                ]
               ),
               _vm._v(" "),
-              _c("div", { staticClass: "row no-gutters tiles" }, [
-                _c("div", { staticClass: "col-auto" }, [
-                  _c("span", { staticClass: "data" }, [
-                    _vm._v(_vm._s(unit.details[0].beds))
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "label" }, [_vm._v("BEDS")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [
-                  _c("span", { staticClass: "data" }, [
-                    _vm._v(_vm._s(unit.details[0].baths))
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "label" }, [_vm._v("BATHS")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [
-                  _c("span", { staticClass: "data" }, [
-                    _vm._v(_vm._s(unit.details[0].sleeps))
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(unit.details[0].description))]),
-              _vm._v(" "),
+              _c("p", { staticClass: "m-0" }, [
+                _vm._v(_vm._s(unit.details[0].description))
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-12 d-flex mb-5 py-4 justify-content-between" },
+            [
               _c(
                 "a",
                 {
@@ -45013,9 +45110,24 @@ var render = function() {
                     attrs: { "aria-hidden": "true" }
                   })
                 ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-lg btn-outline-primary btn-rounded",
+                  attrs: { href: "/book-now/?unit_id=" + unit.rns_id + "/" }
+                },
+                [
+                  _vm._v("Book Now   "),
+                  _c("i", {
+                    staticClass: "fa fa-angle-right",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
               )
-            ])
-          ])
+            ]
+          )
         ]
       )
     })
@@ -45833,10 +45945,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
+  return _c("div", [
     _c(
       "div",
-      { staticClass: "col-md-4 col-lg-3 mb-4" },
       [
         _c("side-search-bar", {
           attrs: { "data-type": _vm.type, "data-location": _vm.location },
@@ -45846,23 +45957,11 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "col-md-8 col-lg-9 rental-feed" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("unit-list", { attrs: { units: _vm.units } })
-      ],
-      1
-    ),
+    _c("div", [_c("unit-list", { attrs: { units: _vm.units } })], 1),
     _vm._v(" "),
     _c(
       "div",
-      {
-        staticClass:
-          "offset-lg-6 d-flex justify-content-center align-items-center mb-4"
-      },
+      { staticClass: "d-flex justify-content-center align-items-center mb-4" },
       [
         _c(
           "button",
@@ -45896,90 +45995,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "icon-key mt-3" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
-          _c("img", {
-            staticStyle: { width: "30px" },
-            attrs: {
-              src: "/themes/wordplate/assets/images/pool.png",
-              alt: "Pool Available"
-            }
-          }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Pool Available")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
-          _c("img", {
-            staticStyle: { width: "30px" },
-            attrs: {
-              src: "/themes/wordplate/assets/images/anchor.png",
-              alt: "Dock Available"
-            }
-          }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Dock Available")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
-          _c("img", {
-            staticStyle: { width: "30px" },
-            attrs: {
-              src: "/themes/wordplate/assets/images/canal.png",
-              alt: "Canal Front"
-            }
-          }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Canal Front")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
-          _c("img", {
-            staticStyle: { width: "30px" },
-            attrs: {
-              src: "/themes/wordplate/assets/images/internet.png",
-              alt: "Internet Access"
-            }
-          }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Internet Access")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
-          _c("img", {
-            staticStyle: { width: "30px" },
-            attrs: {
-              src: "/themes/wordplate/assets/images/linens.png",
-              alt: "Linens Provided"
-            }
-          }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Linens Provided")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-6 col-sm-4 col-lg-2 text-center" }, [
-          _c("img", {
-            staticStyle: { width: "30px" },
-            attrs: {
-              src: "/themes/wordplate/assets/images/pet-friendly.png",
-              alt: "Pet Friendly"
-            }
-          }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Pet Friendly")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("hr")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -47882,23 +47898,23 @@ if(false) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue":
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue");
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("23a710a1", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("108be1a4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SideSearchBar.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SideSearchBar.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SideSearchBar.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SideSearchBar.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -48017,23 +48033,23 @@ if(false) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue":
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue");
+var content = __webpack_require__("./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("6686116c", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("5081909a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UnitList.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UnitList.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UnitList.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UnitList.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -60520,7 +60536,7 @@ module.exports = Component.exports
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue")
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28deb886\",\"scoped\":false,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/SideSearchBar.vue")
 }
 var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
 /* script */
@@ -60668,7 +60684,7 @@ module.exports = Component.exports
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue")
+  __webpack_require__("./node_modules/vue-style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68c1d940\",\"scoped\":true,\"hasInlineConfig\":true}!./node_modules/sass-loader/lib/loader.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./resources/assets/scripts/components/UnitList.vue")
 }
 var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
 /* script */

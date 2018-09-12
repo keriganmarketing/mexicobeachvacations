@@ -1,54 +1,66 @@
 <template>
 <transition-group name="unit-list" appear>
-    <div class="row no-gutters unit unit-list-item" v-for="unit in units" :key="unit.id">
-        <div class="col-lg-4">
-            <a class="property-image" :href="'/property/' + unit.rns_id + '/'" >
-                <img :src="unit.images[0].url" style="width:100%;" >
-            </a>
-            <div class="row no-gutters justify-content-center">
-                <div v-show="hasAmenity(unit, 45)" class="col-auto py-2 px-1">
-                    <img src="/themes/wordplate/assets/images/pool.png" alt="Pool Available" style="width: 30px;" title="Pool Available" >
-                </div>
-                <div v-show="false" class="col-auto py-2 px-1">
-                    <img src="/themes/wordplate/assets/images/anchor.png" alt="Dock Available" style="width: 30px;" title="Dock Available" >
-                </div>
-                <div v-show="hasSearchCriteria(unit, 'Canal Front')" class="col-auto py-2 px-1">
-                    <img src="/themes/wordplate/assets/images/canal.png" alt="Canal Front" style="width: 30px;" title="Canal Front" >
-                </div>
-                <div v-show="hasAmenity(unit, 22)" class="col-auto py-2 px-1">
-                    <img src="/themes/wordplate/assets/images/internet.png" alt="Internet Access" style="width: 30px;" title="Internet Access" >
-                </div>
-                <div v-show="hasAmenity(unit, 48)" class="col-auto py-2 px-1">
-                    <img src="/themes/wordplate/assets/images/linens.png" alt="Linens Provided" style="width: 30px;" title="Linens Provided" >
-                </div>
-                <div v-show="hasAmenity(unit, 50)" class="col-auto py-2 px-1">
-                    <img src="/themes/wordplate/assets/images/pet-friendly.png" alt="Pet Friendly" style="width: 30px;" title="Pet Friendly" >
+    <div class="row unit unit-list-item" v-for="unit in units" :key="unit.id">
+        <div class="col-12 mb-2">
+            <div class="d-flex justify-content-between align-items-center p-2 bg-dark px-4">
+                <h2 class="p-0 m-0"><a class="text-white" :href="'/property/' + unit.rns_id + '/'" >{{ unit.name }}</a></h2>
+                <div class="unit-icons row no-gutters justify-content-center">
+                    <div v-show="hasAmenity(unit, 45)" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/pool.png" alt="Pool Available" style="width: 30px;" title="Pool Available" >
+                    </div>
+                    <div v-show="false" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/anchor.png" alt="Dock Available" style="width: 30px;" title="Dock Available" >
+                    </div>
+                    <div v-show="hasSearchCriteria(unit, 'Canal Front')" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/canal.png" alt="Canal Front" style="width: 30px;" title="Canal Front" >
+                    </div>
+                    <div v-show="hasAmenity(unit, 22)" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/internet.png" alt="Internet Access" style="width: 30px;" title="Internet Access" >
+                    </div>
+                    <div v-show="hasAmenity(unit, 48)" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/linens.png" alt="Linens Provided" style="width: 30px;" title="Linens Provided" >
+                    </div>
+                    <div v-show="hasAmenity(unit, 50)" class="col-auto py-2 px-1">
+                        <img src="/themes/wordplate/assets/images/pet-friendly.png" alt="Pet Friendly" style="width: 30px;" title="Pet Friendly" >
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-8">
-            <div class="rental-feed-info mt-3">
-            <h2 class="text-primary"><a  :href="'/property/' + unit.rns_id + '/'" >{{ unit.name }}</a></h2>
-            <p class="subhead d-flex flex-column">
-                <span v-for="sc in unit.search_criteria" :key="sc.id">&bull; {{ sc.name }}</span>
-            </p>
-            <div class="row no-gutters tiles">
-                <div class="col-auto">
-                    <span class="data">{{ unit.details[0].beds }}</span>
-                    <span class="label">BEDS</span>
+        <div class="col-lg-4 col-xl-3">
+            <a class="property-image" :href="'/property/' + unit.rns_id + '/'" >
+                <img :src="unit.images[0].url" style="width:100%;" >
+            </a>
+            
+        </div>
+        <div class="col-lg-8 col-xl-9">
+            <div class="rental-feed-info">
+                
+                <div class="row no-gutters tiles justify-content-center align-items-center">
+                    <div class="col-auto text-center p-2 px-3">
+                        <span class="data fira text-orange">{{ unit.details[0].beds }}</span>
+                        <span class="label fira text-info d-block">BEDS</span>
+                    </div>
+                    <div class="col-auto text-center p-2 px-3">
+                        <span class="data fira text-orange">{{ unit.details[0].baths }}</span>
+                        <span class="label fira text-info d-block">BATHS</span>
+                    </div>
+                    <div class="col-auto text-center p-2 px-3">
+                        <span class="data fira text-orange">{{ unit.details[0].sleeps }}</span>
+                        <span class="label fira text-info d-block">SLEEPS</span>
+                    </div>
+                    <div class="col-md-auto p-2 flex-grow-1">
+                        <p class="subhead text-center">
+                            <span class="px-3 py-1 m-1 fira text-uppercase d-inline-block bg-info text-white" v-for="sc in unit.search_criteria" :key="sc.id">{{ sc.name }}</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="col-auto">
-                    <span class="data">{{ unit.details[0].baths }}</span>
-                    <span class="label">BATHS</span>
-                </div>
-                <div class="col-auto">
-                    <span class="data">{{ unit.details[0].sleeps }}</span>
-                    <span class="label">SLEEPS</span>
-                </div>
+                
+                <p class="m-0">{{ unit.details[0].description }}</p>
             </div>
-            <p>{{ unit.details[0].description }}</p>
+        </div>
+        <div class="col-12 d-flex mb-5 py-4 justify-content-between">
             <a class="btn btn-lg btn-outline-info btn-rounded" :href="'/property/' + unit.rns_id + '/'" >View Property &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-            </div>
+            <a class="btn btn-lg btn-outline-primary btn-rounded" :href="'/book-now/?unit_id=' + unit.rns_id + '/'" >Book Now &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
         </div>
     </div>
 </transition-group>
@@ -82,7 +94,7 @@ export default {
 }
 
 </script>
-<style scoped>
+<style scoped lang="scss">
 .unit-list-item {
     transition: all 0.3s;
 
@@ -95,5 +107,12 @@ export default {
 .unit-list-leave-active {
     position: absolute;
 
+}
+
+.tiles .data {
+    font-size: 1.5em;
+    @media (min-width:768px){
+        font-size: 2em;
+    }
 }
 </style>
