@@ -163,5 +163,7 @@ add_shortcode( 'kma_photos', function($atts){
         'gallery' => '',
     ], $atts );
 
-    return get_field($a['gallery']);
+    $gallery = json_encode(get_field($a['gallery']));
+
+    return "<photo-gallery :data-photos='" . $gallery . "' ></photo-gallery>";
 } );
