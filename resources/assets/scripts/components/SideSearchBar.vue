@@ -71,45 +71,57 @@
             'd-none': !filterIsOpen,
             'd-block': filterIsOpen
         }">
-        <div class="custom-control custom-checkbox my-2">
-            <img src="/themes/wordplate/assets/images/pool.png" alt="Pool Available" style="width: 30px;" >
-            <input class="custom-control-input" type="checkbox" v-model="filters.pool" :checked="filters.pool" id="pool" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="pool">
+        <div class="custom-checkbox my-2 d-flex">
+            <input class="d-none" type="checkbox" v-model="filters.pool" :checked="filters.pool" id="pool" @change="applyFilters">
+            <label class="d-flex align-items-center px-4" for="pool">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.pool }" >
+                    <img src="/themes/wordplate/assets/images/pool.svg" alt="Pool Available" >
+                </div>
                 Pool Available
             </label>
         </div>
-        <div class="custom-control custom-checkbox my-2">
-            <img src="/themes/wordplate/assets/images/anchor.png" alt="Dock Available" style="width: 30px;" >
-            <input class="custom-control-input" type="checkbox" v-model="filters.dock" :checked="filters.dock" id="dock" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="dock">
+        <div class="custom-checkbox my-2 d-flex">
+            <input class="d-none" type="checkbox" v-model="filters.dock" :checked="filters.dock" id="dock" @change="applyFilters">
+            <label class="d-flex align-items-center px-4" for="dock">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.dock }" >
+                    <img src="/themes/wordplate/assets/images/anchor.svg" alt="Dock Available" >
+                </div>
                 Dock Available
             </label>
         </div>
-        <div class="custom-control custom-checkbox my-2">
-            <img src="/themes/wordplate/assets/images/canal.png" alt="Canal Front" style="width: 30px;" >
-            <input class="custom-control-input" type="checkbox" v-model="filters.canal" :checked="filters.canal" id="canal" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="canal">
+        <div class="custom-checkbox my-2 d-flex">
+            <input class="d-none" type="checkbox" v-model="filters.canal" :checked="filters.canal" id="canal" @change="applyFilters">
+            <label class="d-flex align-items-center px-4" for="canal">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.canal }" >
+                    <img src="/themes/wordplate/assets/images/canal.svg" alt="Canal Front" >
+                </div>
                 Canal Front
             </label>
         </div>
-        <div class="custom-control custom-checkbox my-2">
-            <img src="/themes/wordplate/assets/images/internet.png" alt="Internet Access" style="width: 30px;" >
-            <input class="custom-control-input" type="checkbox" v-model="filters.internet" :checked="filters.internet" id="internet" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="internet">
+        <div class="custom-checkbox my-2 d-flex">
+            <input class="d-none" type="checkbox" v-model="filters.internet" :checked="filters.internet" id="internet" @change="applyFilters">
+            <label class="d-flex align-items-center px-4" for="internet">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.internet }" >
+                    <img src="/themes/wordplate/assets/images/internet.svg" alt="Internet Access" >
+                </div>
                 Internet Access
             </label>
         </div>
-        <div class="custom-control custom-checkbox my-2">
-            <img src="/themes/wordplate/assets/images/linens.png" alt="Linens Provided" style="width: 30px;" >
-            <input class="custom-control-input" type="checkbox" v-model="filters.linens" :checked="filters.linens" id="linens" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="linens">
+        <div class="custom-checkbox my-2 d-flex">
+            <input class="d-none" type="checkbox" v-model="filters.linens" :checked="filters.linens" id="linens" @change="applyFilters">
+            <label class="d-flex align-items-center px-4" for="linens">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.linens }" >
+                    <img src="/themes/wordplate/assets/images/linens.svg" alt="Linens Provided" >
+                </div>
                 Linens Provided
             </label>
         </div>
-        <div class="custom-control custom-checkbox my-2">
-            <img src="/themes/wordplate/assets/images/pet-friendly.png" alt="Pet Friendly" style="width: 30px;" >
-            <input class="custom-control-input" type="checkbox" v-model="filters.pets" :checked="filters.pets" id="pets" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="pets">
+        <div class="custom-checkbox my-2 d-flex" >
+            <input class="d-none" type="checkbox" v-model="filters.pets" :checked="filters.pets" id="pets" @change="applyFilters">
+            <label class="d-flex align-items-center px-4" for="pets">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.pets }" >
+                    <img src="/themes/wordplate/assets/images/pet-friendly.svg" alt="Pet Friendly" >
+                </div>
                 Pet Friendly
             </label>
         </div>
@@ -207,6 +219,28 @@ export default {
 
 </script>
 <style lang="scss">
+.custom-checkbox label {
+    cursor: pointer;
+}
+.svg-icon {
+    height: 34px;
+    width: 34px;
+    padding: 8px;
+    border-radius:50%;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+        background-color: #fa7a22;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+    }
+}
 .input-rounded button {
     border: 0 !important;
     height: 44px !important;

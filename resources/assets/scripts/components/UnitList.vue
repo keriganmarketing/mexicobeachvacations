@@ -2,26 +2,38 @@
 <transition-group name="unit-list" appear>
     <div class="row unit unit-list-item" v-for="unit in units" :key="unit.id">
         <div class="col-12 mb-2">
-            <div class="d-flex justify-content-between align-items-center p-2 bg-dark px-4">
+            <div class="d-flex justify-content-between align-items-center p-1 bg-dark px-4">
                 <h2 class="p-0 m-0"><a class="text-white" :href="'/property/' + unit.rns_id + '/'" >{{ unit.name }}</a></h2>
                 <div class="unit-icons row no-gutters justify-content-center">
-                    <div v-show="hasAmenity(unit, 45)" class="col-auto py-2 px-1">
-                        <img src="/themes/wordplate/assets/images/pool.png" alt="Pool Available" style="width: 30px;" title="Pool Available" >
+                    <div v-show="hasAmenity(unit, 45)" class="col-auto p-1">
+                        <div class="svg-icon active" >
+                        <img src="/themes/wordplate/assets/images/pool.svg" alt="Pool Available" title="Pool Available" >
+                        </div>
                     </div>
-                    <div v-show="false" class="col-auto py-2 px-1">
-                        <img src="/themes/wordplate/assets/images/anchor.png" alt="Dock Available" style="width: 30px;" title="Dock Available" >
+                    <div v-show="false" class="col-auto p-1">
+                        <div class="svg-icon active" >
+                        <img src="/themes/wordplate/assets/images/anchor.svg" alt="Dock Available" title="Dock Available" >
+                        </div>
                     </div>
-                    <div v-show="hasSearchCriteria(unit, 'Canal Front')" class="col-auto py-2 px-1">
-                        <img src="/themes/wordplate/assets/images/canal.png" alt="Canal Front" style="width: 30px;" title="Canal Front" >
+                    <div v-show="hasSearchCriteria(unit, 'Canal Front')" class="col-auto p-1">
+                        <div class="svg-icon active" >
+                        <img src="/themes/wordplate/assets/images/canal.svg" alt="Canal Front" title="Canal Front" >
+                        </div>
                     </div>
-                    <div v-show="hasAmenity(unit, 22)" class="col-auto py-2 px-1">
-                        <img src="/themes/wordplate/assets/images/internet.png" alt="Internet Access" style="width: 30px;" title="Internet Access" >
+                    <div v-show="hasAmenity(unit, 22)" class="col-auto p-1">
+                        <div class="svg-icon active" >
+                        <img src="/themes/wordplate/assets/images/internet.svg" alt="Internet Access" title="Internet Access" >
+                        </div>
                     </div>
-                    <div v-show="hasAmenity(unit, 48)" class="col-auto py-2 px-1">
-                        <img src="/themes/wordplate/assets/images/linens.png" alt="Linens Provided" style="width: 30px;" title="Linens Provided" >
+                    <div v-show="hasAmenity(unit, 48)" class="col-auto p-1">
+                        <div class="svg-icon active" >
+                        <img src="/themes/wordplate/assets/images/linens.svg" alt="Linens Provided" title="Linens Provided" >
+                        </div>
                     </div>
-                    <div v-show="hasAmenity(unit, 50)" class="col-auto py-2 px-1">
-                        <img src="/themes/wordplate/assets/images/pet-friendly.png" alt="Pet Friendly" style="width: 30px;" title="Pet Friendly" >
+                    <div v-show="hasAmenity(unit, 50)" class="col-auto p-1">
+                        <div class="svg-icon active" >
+                        <img src="/themes/wordplate/assets/images/pet-friendly.svg" alt="Pet Friendly" title="Pet Friendly" >
+                        </div>
                     </div>
                 </div>
             </div>
@@ -113,6 +125,26 @@ export default {
     font-size: 1.5em;
     @media (min-width:768px){
         font-size: 2em;
+    }
+}
+
+.svg-icon {
+    height: 34px;
+    width: 34px;
+    padding: 8px;
+    border-radius:50%;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+        background-color: #fa7a22;
+    }
+
+    img {
+        display: block;
+        width: 100%;
     }
 }
 </style>
