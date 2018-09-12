@@ -98,7 +98,7 @@ body {
     position: absolute;
     width: 100%;
 
-    @media (min-width: 768px){
+    @media (min-width: 993px){
         position: fixed;
 
         .main-navigation {
@@ -141,11 +141,11 @@ body {
         .container {
             flex-direction: column-reverse;
 
-            @media (min-width: 768px){
+            @media (min-width: 993px){
                 flex-direction: row;
             }
 
-            @media (max-width: 767px){
+            @media (max-width: 992px){
                 width: 100% !important;
                 margin: 0 !important;
                 max-width: none !important;
@@ -209,13 +209,15 @@ body {
             padding-top: .25rem;
             height: 40px;
 
-            @media (min-width: 768px){
+            @media (min-width: 993px){
                 justify-content: flex-end;
                 background-color: transparent;
                 box-shadow: none;
             }
 
             a.link {
+                display: inline-block;
+                // width: 100px;
                 font-family: $fira;
                 font-weight: 700;
                 font-size: 18px;
@@ -223,10 +225,16 @@ body {
                 margin: -4px 1rem 0;
                 line-height: 1em;
             }
+
+            .mini-weather {
+                @media (max-width:993px){
+                    flex-grow: 1;
+                }
+            }
         }
 
         .main-navigation {
-            @media (max-width: 767px){
+            @media (max-width: 992px){
                 width: 100%;
             }
         }
@@ -255,7 +263,7 @@ ul.navbar-nav {
 .scrolling {
     .top {
 
-        @media (min-width: 768px){
+        @media (min-width: 993px){
             background-color: #FFF;
             box-shadow: 0 0 .5rem rgba(0,0,0,.2);
 

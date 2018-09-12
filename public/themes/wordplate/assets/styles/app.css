@@ -14725,7 +14725,7 @@ body #app .site-wrapper.full-height {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 993px) {
   .top {
     position: fixed;
   }
@@ -14776,13 +14776,13 @@ body #app .site-wrapper.full-height {
   flex-direction: column-reverse;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 993px) {
   .top .topnav .container {
     flex-direction: row;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   .top .topnav .container {
     width: 100% !important;
     margin: 0 !important;
@@ -14849,7 +14849,7 @@ body #app .site-wrapper.full-height {
   height: 40px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 993px) {
   .top .topnav .mini-nav {
     justify-content: flex-end;
     background-color: transparent;
@@ -14858,6 +14858,7 @@ body #app .site-wrapper.full-height {
 }
 
 .top .topnav .mini-nav a.link {
+  display: inline-block;
   font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -14866,7 +14867,13 @@ body #app .site-wrapper.full-height {
   line-height: 1em;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 993px) {
+  .top .topnav .mini-nav .mini-weather {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 992px) {
   .top .topnav .main-navigation {
     width: 100%;
   }
@@ -14887,7 +14894,7 @@ ul.navbar-nav li a {
   transition: all .5s linear;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 993px) {
   .mobile-menu-open .top,
   .scrolling .top {
     background-color: #FFF;
