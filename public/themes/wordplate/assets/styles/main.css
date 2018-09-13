@@ -15286,6 +15286,11 @@ main.front p {
 .feature-box-section .feature-box.feat-two {
   background: url("/themes/wordplate/assets/images/photo-gallery-bg.jpg") no-repeat;
   background-size: cover;
+  box-shadow: inset 0 -40px 40px rgba(0, 0, 0, 0.4);
+}
+
+.feature-box-section.travel-guide .feature-box {
+  background-position: center;
 }
 
 .feature-box-section.travel-guide .feature-box.feat-one {
@@ -15303,6 +15308,19 @@ main.front p {
   background-size: cover;
 }
 
+.feature-box-section.travel-guide .feature-box.feat-three h3 {
+  color: #333333 !important;
+}
+
+.feature-box-section.travel-guide .feature-box.feat-four {
+  background: url("/themes/wordplate/assets/images/dock.jpg") no-repeat;
+  background-size: cover;
+}
+
+.feature-box-section.travel-guide .feature-box.feat-four h3 {
+  color: #333333 !important;
+}
+
 .feature-box-section.travel-guide .feature-box.feat-five {
   background: url("/themes/wordplate/assets/images/sunset.jpg") no-repeat;
   background-size: cover;
@@ -15311,15 +15329,17 @@ main.front p {
 .feature-box-section.travel-guide .feature-box.feat-one,
 .feature-box-section.travel-guide .feature-box.feat-two,
 .feature-box-section.travel-guide .feature-box.feat-three,
+.feature-box-section.travel-guide .feature-box.feat-four,
 .feature-box-section.travel-guide .feature-box.feat-five {
-  box-shadow: inset 0 -40px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 -50px 40px rgba(0, 0, 0, 0.5);
 }
 
 .feature-box-section.travel-guide .feature-box.feat-one h3,
 .feature-box-section.travel-guide .feature-box.feat-two h3,
 .feature-box-section.travel-guide .feature-box.feat-three h3,
+.feature-box-section.travel-guide .feature-box.feat-four h3,
 .feature-box-section.travel-guide .feature-box.feat-five h3 {
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 .team-grid {

@@ -306,7 +306,7 @@ export default {
     border-radius: 0 2rem 2rem 0;
     background-color: #ff6f74;
 }
-
+ 
 .datepicker__wrapper .datepicker__month-button {
     background: none !important;
     cursor: pointer;
