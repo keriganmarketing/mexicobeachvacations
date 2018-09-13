@@ -83,13 +83,14 @@
                     :unit="unit"
                     :rate-details="rateDetails"
                     @booked="submit"
+                    :submitting="submitting"
                 >
                 </step-four>
             </div>
         </form>
-        <div class="my-4">
-            <button class="btn" @click="back" v-if="step > 1">Back</button>
-            <button class="btn btn-primary text-white" @click="next">Next</button>
+        <div class="my-4 text-center">
+            <button class="btn btn-lg btn-rounded" @click="back" v-if="step > 1">Back</button>
+            <button class="btn btn-lg btn-rounded btn-info text-white" @click="next" v-if="step < 4">Next</button>
         </div>
     </div>
 </template>
@@ -133,7 +134,8 @@ export default {
             rnsBaseUrl: 'https://core.rnshosted.com/api/v17/',
             token: '',
             errorMessage: '',
-            bookings: []
+            bookings: [],
+            submitting: false
         }
     },
     created () {
@@ -181,7 +183,9 @@ export default {
             this.termsAccepted = value;
         },
         submit() {
+            this.submitting = true;
             this.info.submit();
+            this.submitting = false;
         },
         clearDates() {
             this.info.ArrivalDate = null;
