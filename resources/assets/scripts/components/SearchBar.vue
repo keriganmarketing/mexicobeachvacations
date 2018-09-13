@@ -20,21 +20,29 @@
                     </hotel-date-picker> 
                 </div>
                 <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3">
-                    <div class="form-group">
-                    <select class="custom-select input-rounded" v-model="location" @change="getMatches">
-                        <option value="" >Location</option>
-                        <option value="Beachfront" >Beachfront</option>
-                        <option value="Between Hwy-Beach">Between highway and beach</option>
-                        <option value="Across Hwy from Beach">Across highway from beach</option>
-                    </select>
-                    </div>
+                    <dropdown 
+                        class="custom-select input-rounded"
+                        :options="[
+                            { name: 'Beachfront', value: 'Beachfront' },
+                            { name: 'Between highway and beach', value: 'Between Hwy-Beach' },
+                            { name: 'Across highway from beach', value: 'Across Hwy from Beach' }
+                        ]" 
+                        :selected="location" 
+                        v-on:updateOption="locationChanged" 
+                        :placeholder="'Location'">
+                    </dropdown>
                 </div>
                 <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3">
-                    <select class="custom-select input-rounded" v-model="type" @change="getMatches">
-                        <option value="" >Type</option>
-                        <option value="Vacation Rental">Vacation Rental</option>
-                        <option value="Long Term Rental">Long Term Rental</option>
-                    </select>
+                    <dropdown 
+                        class="custom-select input-rounded"
+                        :options="[
+                            { name: 'Vacation Rental', value: 'Vacation Rental' },
+                            { name: 'Long Term Rental', value: 'Long Term Rental' }
+                        ]" 
+                        :selected="type" 
+                        v-on:updateOption="typeChanged" 
+                        :placeholder="'Type'">
+                    </dropdown>
                 </div>
                 <div class="col-12 col-md-6 col-lg-2">
                     <button v-if="numAvailable == 0" class="btn btn-primary btn-rounded btn-block" disabled>Search</button>
@@ -83,12 +91,18 @@ export default {
                         this.numAvailable = response.data;
                     });
             }
+        },
+        typeChanged(payload) {
+            this.type = payload;
+        },
+        locationChanged(payload) {
+            this.location = payload;
         }
     }
 }
 
 </script>
-<style>
+<style lang="scss">
 .input-rounded button {
     border: 0 !important;
     height: 44px !important;
@@ -108,7 +122,10 @@ export default {
     height: 44px;
 }
 .custom-select.input-rounded {
-    padding: 0.425rem 1.75rem 0.375rem 1rem;
+    padding: 0;
+    cursor: pointer;
+    background: #FFF;
+    border: 0 !important;
 }
 .btn-primary,
 .btn-primary.disabled, 
@@ -134,13 +151,15 @@ export default {
 .datepicker__wrapper .datepicker__month-button {
     background: none !important;
     cursor: pointer;
-    display: inline-block;
-    height: 45px;
-    width: 45px;
+    @media (min-width:768px){
+        display: inline-block;
+    }
+    height: 40px;
+    width: 40px;
     border: 2px solid #ff6f74;
     border-radius: 50%;
     margin-bottom: 15px;
-    padding: 14px 15px;
+    padding: 12px 13px;
 }
 
 .datepicker__wrapper .datepicker__month-button::before {

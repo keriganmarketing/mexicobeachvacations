@@ -9,96 +9,124 @@
         </a>
     </div>
     <div 
-        class="sidebar-search-box d-md-block mb-4" 
+        class="sidebar-search-box d-md-block mb-2" 
         :class="{
             'd-none': !searchIsOpen,
             'd-block': searchIsOpen
         }">
-        <h3>Update Search Criteria</h3>
-        <form method="GET" action="/rentals">
+
+        <form method="GET" action="/rentals" class="row">
             <input type="hidden" name="checkIn" :value="checkIn">
             <input type="hidden" name="checkOut" :value="checkOut">
             <input type="hidden" name="location" :value="location">
             <input type="hidden" name="type" :value="type">
-
-            <hotel-date-picker
-                class="input-rounded"
-                @checkInChanged="checkInChanged"
-                @checkOutChanged="checkOutChanged"
-                format="MM/DD/YY"
-                :showYear="true"
-                :hoveringTooltip="false"
-            >
-            </hotel-date-picker> 
-
-            <div class="form-group">
-                <select class="custom-select input-rounded" v-model="location" @change="getMatches">
-                    <option value="" >Location</option>
-                    <option value="Beachfront" >Beachfront</option>
-                    <option value="Between Hwy-Beach">Between highway and beach</option>
-                    <option value="Across Hwy from Beach">Across highway from beach</option>
-                </select>
+            <div class="col-12 col-md-6 col-lg-4">
+                <hotel-date-picker
+                    class="input-rounded"
+                    @checkInChanged="checkInChanged"
+                    @checkOutChanged="checkOutChanged"
+                    format="MM/DD/YY"
+                    :showYear="true"
+                    :hoveringTooltip="false"
+                >
+                </hotel-date-picker> 
             </div>
-
-            <div class="form-group">
-                <select class="custom-select input-rounded" v-model="type" @change="getMatches">
-                    <option value="" >Type</option>
-                    <option value="Vacation Rental">Vacation Rental</option>
-                    <option value="Long Term Rental">Long Term Rental</option>
-                </select>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <dropdown 
+                    class="custom-select input-rounded mb-2"
+                    :options="[
+                        { name: 'Beachfront', value: 'Beachfront' },
+                        { name: 'Between highway and beach', value: 'Between Hwy-Beach' },
+                        { name: 'Across highway from beach', value: 'Across Hwy from Beach' }
+                    ]" 
+                    :selected="location" 
+                    v-on:updateOption="locationChanged" 
+                    :placeholder="'Location'">
+                </dropdown>
             </div>
-
-            <button v-if="numAvailable == 0" class="btn btn-primary btn-rounded btn-block" disabled>Search</button>
-            <button v-if="numAvailable > 0 || numAvailable == null" class="btn btn-primary btn-rounded btn-block">Search</button>
-
-            <p v-if="numAvailable != null" >Properties matching your search: {{ numAvailable }}</p>
-
+            <div class="col-12 col-sm-6 col-lg-3">
+                <dropdown 
+                    class="custom-select input-rounded mb-2"
+                    :options="[
+                        { name: 'Vacation Rental', value: 'Vacation Rental' },
+                        { name: 'Long Term Rental', value: 'Long Term Rental' }
+                    ]" 
+                    :selected="type" 
+                    v-on:updateOption="typeChanged" 
+                    :placeholder="'Type'">
+                </dropdown>
+            </div>
+            <div class="col-12 col-md-6 col-lg-2">
+                <button v-if="numAvailable == 0" class="btn btn-primary btn-rounded btn-block" disabled>Search</button>
+                <button v-if="numAvailable > 0 || numAvailable == null" class="btn btn-primary btn-rounded btn-block">Search</button>
+            </div>
+            <div class="col-12 text-center text-white">
+                <p v-if="numAvailable != null" >Properties matching your search: {{ numAvailable }}</p>
+            </div>
         </form>
     </div>
     <div 
-        class="sidebar-filter-box d-md-block" 
+        class="sidebar-filter-box d-md-flex row" 
         :class="{
             'd-none': !filterIsOpen,
             'd-block': filterIsOpen
         }">
-        <h3>Filter Results</h3>
-        <div class="custom-control custom-checkbox my-2">
-            <input class="custom-control-input" type="checkbox" v-model="filters.pool" :checked="filters.pool" id="pool" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="pool">
+        <div class="col-auto custom-checkbox my-2 d-flex">
+            <input class="d-none" type="checkbox" v-model="filters.pool" :checked="filters.pool" id="pool" @change="applyFilters">
+            <label class="d-flex align-items-center px-1" for="pool">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.pool }" >
+                    <img src="/themes/wordplate/assets/images/pool.svg" alt="Pool Available" >
+                </div>
                 Pool Available
             </label>
         </div>
-        <div class="custom-control custom-checkbox my-2">
-            <input class="custom-control-input" type="checkbox" v-model="filters.dock" :checked="filters.dock" id="dock" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="dock">
-                Dock Available<br>(Doesn't work right now)
+        <div class="col-auto custom-checkbox my-2 d-flex">
+            <input class="d-none" type="checkbox" v-model="filters.dock" :checked="filters.dock" id="dock" @change="applyFilters">
+            <label class="d-flex align-items-center px-1" for="dock">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.dock }" >
+                    <img src="/themes/wordplate/assets/images/anchor.svg" alt="Dock Available" >
+                </div>
+                Dock Available
             </label>
         </div>
-        <div class="custom-control custom-checkbox my-2">
-            <input class="custom-control-input" type="checkbox" v-model="filters.canal" :checked="filters.canal" id="canal" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="canal">
-                Canal Front<br>(Doesn't work right now)
+        <div class="col-auto custom-checkbox my-2 d-flex">
+            <input class="d-none" type="checkbox" v-model="filters.canal" :checked="filters.canal" id="canal" @change="applyFilters">
+            <label class="d-flex align-items-center px-1" for="canal">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.canal }" >
+                    <img src="/themes/wordplate/assets/images/canal.svg" alt="Canal Front" >
+                </div>
+                Canal Front
             </label>
         </div>
-        <div class="custom-control custom-checkbox my-2">
-            <input class="custom-control-input" type="checkbox" v-model="filters.internet" :checked="filters.internet" id="internet" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="internet">
+        <div class="col-auto custom-checkbox my-2 d-flex">
+            <input class="d-none" type="checkbox" v-model="filters.internet" :checked="filters.internet" id="internet" @change="applyFilters">
+            <label class="d-flex align-items-center px-1" for="internet">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.internet }" >
+                    <img src="/themes/wordplate/assets/images/internet.svg" alt="Internet Access" >
+                </div>
                 Internet Access
             </label>
         </div>
-        <div class="custom-control custom-checkbox my-2">
-            <input class="custom-control-input" type="checkbox" v-model="filters.linens" :checked="filters.linens" id="linens" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="linens">
-                Linens Provided<br>(Doesn't work right now)
+        <div class="col-auto custom-checkbox my-2 d-flex">
+            <input class="d-none" type="checkbox" v-model="filters.linens" :checked="filters.linens" id="linens" @change="applyFilters">
+            <label class="d-flex align-items-center px-1" for="linens">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.linens }" >
+                    <img src="/themes/wordplate/assets/images/linens.svg" alt="Linens Provided" >
+                </div>
+                Linens Provided
             </label>
         </div>
-        <div class="custom-control custom-checkbox my-2">
-            <input class="custom-control-input" type="checkbox" v-model="filters.pets" :checked="filters.pets" id="pets" @change="applyFilters">
-            <label class="custom-control-label pt-1" for="pets">
+        <div class="col-auto custom-checkbox my-2 d-flex" >
+            <input class="d-none" type="checkbox" v-model="filters.pets" :checked="filters.pets" id="pets" @change="applyFilters">
+            <label class="d-flex align-items-center px-1" for="pets">
+                <div class="svg-icon mr-2" :class="{ 'active': filters.pets }" >
+                    <img src="/themes/wordplate/assets/images/pet-friendly.svg" alt="Pet Friendly" >
+                </div>
                 Pet Friendly
             </label>
         </div>
     </div>
+    <hr>
 </div>
 </template>
 
@@ -179,12 +207,40 @@ export default {
         },
         toggleFilters() {
             this.filterIsOpen = !this.filterIsOpen;
+        },
+        typeChanged(payload) {
+            this.type = payload;
+        },
+        locationChanged(payload) {
+            this.location = payload;
         }
     }
 }
 
 </script>
-<style>
+<style lang="scss">
+.custom-checkbox label {
+    cursor: pointer;
+}
+.svg-icon {
+    height: 34px;
+    width: 34px;
+    padding: 8px;
+    border-radius:50%;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+        background-color: #fa7a22;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+    }
+}
 .input-rounded button {
     border: 0 !important;
     height: 44px !important;
@@ -204,7 +260,10 @@ export default {
     height: 44px;
 }
 .custom-select.input-rounded {
-    padding: 0.425rem 1.75rem 0.375rem 1rem;
+    padding: 0;
+    cursor: pointer;
+    background: #FFF;
+    border: 0 !important;
 }
 .btn-primary,
 .btn-primary.disabled, 
@@ -251,7 +310,9 @@ export default {
 .datepicker__wrapper .datepicker__month-button {
     background: none !important;
     cursor: pointer;
-    display: inline-block;
+    @media (min-width:768px){
+        display: inline-block;
+    }
     height: 45px;
     width: 45px;
     border: 2px solid #ff6f74;

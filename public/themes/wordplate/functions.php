@@ -103,22 +103,23 @@ function team_shortcode() {
     $members = $team->queryTeam();
 
     foreach($members as $member){
+        $image = ( isset($member['image']['sizes']['thumbnail']) && $member['image']['sizes']['thumbnail'] != '' 
+                ? $member['image']['sizes']['thumbnail'] 
+                : '/themes/wordplate/assets/images/placeholder-team.jpg' );
+
         $output .=
         '<div class="col-md-6 col-lg-4">
-            <div class="card team-member text-center">
+            <div class="card team-member text-center border-0">
                 <a href="' . $member['link'] . '" >
-                    <img src="' . $member['image']['sizes']['thumbnail'] . '" class="card-img-top" alt="' . $member['name'] . '" >
+                    <img src="' . $image . '" class="rounded-circle" alt="' . $member['name'] . '" >
                 </a>
                 <div class="card-body">
                     <h3 class="text-uppercase text-dark">' . $member['name'] . '</h3>
-                    <p class="text-uppercase text-dark">' . $member['title'] . '</p>
-                    <p class="text-uppercase text-light">
+                    <p class="text-dark">' . $member['title'] . '</p>
+                    <p class="text-light">
                     <a href="mailto:' . $member['email'] . '" style="font-size: 0.9rem">' . $member['email'] . '</a><br>
                     <a href="tel:' . $member['phone'] . '" >' . $member['phone'] . '</p>
                 </div>
-            </div>
-            <div class="member-button text-center">
-                <a href="' . $member['link'] . '" class="btn btn-outline-light text-dark" >View Bio</a>
             </div>
         </div>';
     }
@@ -155,3 +156,14 @@ function testimonial_shortcode( $atts ) {
     return $output;
 }
 add_shortcode( 'kma_testimonials', 'testimonial_shortcode' );
+
+
+add_shortcode( 'kma_photos', function($atts){
+    $a = shortcode_atts( [
+        'gallery' => '',
+    ], $atts );
+
+    $gallery = json_encode(get_field($a['gallery']));
+
+    return "<photo-gallery :data-photos='" . $gallery . "' ></photo-gallery>";
+} );

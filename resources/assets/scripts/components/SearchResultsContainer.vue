@@ -1,6 +1,6 @@
 <template>
-<div class="row">
-    <div class="col-md-4 col-lg-3 mb-4">
+<div>
+    <div>
         <side-search-bar 
             :data-type="type"
             :data-location="location"
@@ -8,39 +8,10 @@
         >
         </side-search-bar>
     </div>
-    <div class="col-md-8 col-lg-9 rental-feed">
-        <div class="icon-key mt-3">
-            <div class="row justify-content-center">
-                <div class="col-6 col-sm-4 col-lg-2 text-center">
-                    <img src="/themes/wordplate/assets/images/pool.png" alt="Pool Available" style="width: 30px;" >
-                    <p>Pool Available</p>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2 text-center">
-                    <img src="/themes/wordplate/assets/images/anchor.png" alt="Dock Available" style="width: 30px;" >
-                    <p>Dock Available</p>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2 text-center">
-                    <img src="/themes/wordplate/assets/images/canal.png" alt="Canal Front" style="width: 30px;" >
-                    <p>Canal Front</p>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2 text-center">
-                    <img src="/themes/wordplate/assets/images/internet.png" alt="Internet Access" style="width: 30px;" >
-                    <p>Internet Access</p>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2 text-center">
-                    <img src="/themes/wordplate/assets/images/linens.png" alt="Linens Provided" style="width: 30px;" >
-                    <p>Linens Provided</p>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2 text-center">
-                    <img src="/themes/wordplate/assets/images/pet-friendly.png" alt="Pet Friendly" style="width: 30px;" >
-                    <p>Pet Friendly</p>
-                </div>
-            </div>
-            <hr>
-        </div>
+    <div>
         <unit-list :units="units"></unit-list>
     </div>
-    <div class="offset-lg-6 d-flex justify-content-center align-items-center mb-4">
+    <div class="d-flex justify-content-center align-items-center mb-4">
         <button class="btn btn-info" :class="{ 'disabled': pagination.prevPageUrl === null }" @click="prevPage">Previous</button>
         <button class="btn btn-outline-info">Page {{ pagination.currentPage }} of {{ pagination.pages }}</button>
         <button class="btn btn-info" :class="{ 'disabled': pagination.nextPageUrl === null }" @click="nextPage">Next</button>

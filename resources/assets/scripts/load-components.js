@@ -40,3 +40,5 @@ Vue.component(
   "property-management-form",
   require("./components/PropertyManagementForm.vue")
 );
+
+Vue.component("dropdown", require("./components/Dropdowns.vue"));

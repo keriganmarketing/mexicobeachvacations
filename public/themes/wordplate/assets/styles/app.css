@@ -14599,6 +14599,80 @@ a.text-black:focus {
   }
 }
 
+/* Text meant only for screen readers. */
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+
+#content[tabindex="-1"]:focus {
+  outline: 0;
+}
+
+/*--------------------------------------------------------------
+  # Alignments
+  --------------------------------------------------------------*/
+
+.alignleft {
+  display: block;
+  margin: .5rem auto .75rem;
+}
+
+@media (min-width: 576px) {
+  .alignleft {
+    float: left;
+    margin-right: 1.5em;
+  }
+}
+
+.alignright {
+  display: block;
+  margin: .5rem auto .75rem;
+}
+
+@media (min-width: 576px) {
+  .alignright {
+    float: right;
+    margin-left: 1.5em;
+  }
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: .5rem;
+}
+
 html {
   height: 100%;
 }
@@ -14693,7 +14767,7 @@ body #app .site-wrapper.full-height {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 993px) {
   .top {
     position: fixed;
   }
@@ -14744,13 +14818,13 @@ body #app .site-wrapper.full-height {
   flex-direction: column-reverse;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 993px) {
   .top .topnav .container {
     flex-direction: row;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   .top .topnav .container {
     width: 100% !important;
     margin: 0 !important;
@@ -14817,7 +14891,7 @@ body #app .site-wrapper.full-height {
   height: 40px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 993px) {
   .top .topnav .mini-nav {
     justify-content: flex-end;
     background-color: transparent;
@@ -14826,6 +14900,7 @@ body #app .site-wrapper.full-height {
 }
 
 .top .topnav .mini-nav a.link {
+  display: inline-block;
   font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -14834,7 +14909,13 @@ body #app .site-wrapper.full-height {
   line-height: 1em;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 993px) {
+  .top .topnav .mini-nav .mini-weather {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 992px) {
   .top .topnav .main-navigation {
     width: 100%;
   }
@@ -14855,7 +14936,7 @@ ul.navbar-nav li a {
   transition: all .5s linear;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 993px) {
   .mobile-menu-open .top,
   .scrolling .top {
     background-color: #FFF;
@@ -14898,6 +14979,10 @@ main article p,
 main article ul,
 main article ol {
   line-height: 1.8em;
+  font-size: 16px;
+}
+
+main article td {
   font-size: 16px;
 }
 
@@ -15126,6 +15211,7 @@ main.front p {
 @media (min-width: 768px) {
   .bubble-buttons {
     background: url("/themes/wordplate/assets/images/sand-large.jpg") no-repeat #f1efeb;
+    background-size: cover;
   }
 }
 
@@ -15229,6 +15315,40 @@ main.front p {
 .feature-box-section .feature-box.feat-two {
   background: url("/themes/wordplate/assets/images/photo-gallery-bg.jpg") no-repeat;
   background-size: cover;
+}
+
+.feature-box-section.travel-guide .feature-box.feat-one {
+  background: url("/themes/wordplate/assets/images/amberjack.jpg") no-repeat;
+  background-size: cover;
+}
+
+.feature-box-section.travel-guide .feature-box.feat-two {
+  background: url("/themes/wordplate/assets/images/things-to-do.jpg") no-repeat;
+  background-size: cover;
+}
+
+.feature-box-section.travel-guide .feature-box.feat-three {
+  background: url("/themes/wordplate/assets/images/canal-history.jpg") no-repeat;
+  background-size: cover;
+}
+
+.feature-box-section.travel-guide .feature-box.feat-five {
+  background: url("/themes/wordplate/assets/images/sunset.jpg") no-repeat;
+  background-size: cover;
+}
+
+.feature-box-section.travel-guide .feature-box.feat-one,
+.feature-box-section.travel-guide .feature-box.feat-two,
+.feature-box-section.travel-guide .feature-box.feat-three,
+.feature-box-section.travel-guide .feature-box.feat-five {
+  box-shadow: inset 0 -40px 40px rgba(0, 0, 0, 0.4);
+}
+
+.feature-box-section.travel-guide .feature-box.feat-one h3,
+.feature-box-section.travel-guide .feature-box.feat-two h3,
+.feature-box-section.travel-guide .feature-box.feat-three h3,
+.feature-box-section.travel-guide .feature-box.feat-five h3 {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .team-grid {
