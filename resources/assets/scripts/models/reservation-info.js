@@ -1,3 +1,4 @@
+import axios from "axios";
 export default class ReservationInfo {
   constructor() {
     this.BillingAddress = "";
@@ -34,9 +35,18 @@ export default class ReservationInfo {
     this.PromoCode = "";
     this.Notes = "";
     this.SDPStrict = false;
+    this.token = "";
   }
 
-  submit() {}
+  submit() {
+    //submit the form
+    axios.get("https://rns.mexicobeachvacations.com/token").then(response => {
+      this.token = response.data;
+    });
+    let url =
+      "https://core.rnshosted.com/api/v17/Reservations?clientid=RNS.ParkerRealty.KeriganMarketing";
+    axios.post();
+  }
 
   clear() {
     return new ReservationInfo();

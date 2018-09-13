@@ -20,7 +20,15 @@
                 <div class="table-responsive">
                     <table class="table table-sm table-striped rate-table">
                         <tbody>
-                            <tr v-for="detail in rateDetails.GuestCharges" :key="detail.HeadingsListId" v-if="isAvailable">
+                            <tr 
+                                v-for="detail in rateDetails.GuestCharges" 
+                                :key="detail.HeadingsListId" 
+                                v-if="isAvailable" 
+                                :class="{
+                                    'text-primary': detail.HeadingName === 'Total Cost', 
+                                    'font-weight-bold': detail.HeadingName === 'Total Cost' 
+                                }"
+                            >
                                 <td class="data-label">{{ detail.HeadingName }}</td>
                                 <td>{{ detail.ChgAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }}</td>
                             </tr>
@@ -52,10 +60,11 @@
                     :data-info="info"
                     :is-available="isAvailable"
                     :num-nights="numNights"
-                    :terms-accepted="termsAccepted"
+                    :data-terms-accepted="termsAccepted"
                     :selected-dates="info.selectedDates"
                     :errorMessage="errorMessage"
                     :calendarOptions="calendarOptions"
+                    @terms-accepted="acceptTerms"
                 >
                 </step-one>
             </div>
@@ -69,13 +78,17 @@
                 </step-three>
             </div>
             <div v-if="step == 4">
-                <div class="mt-4">
-                    <h2>Step 4: Confirmation</h2>
-                </div>
+                <step-four
+                    :data-info="info"
+                    :unit="unit"
+                    :rate-details="rateDetails"
+                    @booked="submit"
+                >
+                </step-four>
             </div>
         </form>
         <div class="my-4">
-            <button class="btn" @click="back">Back</button>
+            <button class="btn" @click="back" v-if="step > 1">Back</button>
             <button class="btn btn-primary text-white" @click="next">Next</button>
         </div>
     </div>
@@ -87,13 +100,14 @@ import ReservationInfo from '../models/reservation-info.js';
 import StepOne from './StepOne.vue';
 import StepTwo from './StepTwo.vue';
 import StepThree from './StepThree.vue';
+import StepFour from './StepFour.vue';
 import {setupCalendar, Calendar} from 'v-calendar'
 import 'v-calendar/lib/v-calendar.min.css';
 import moment from 'moment';
 
 export default {
     components: {
-        StepOne, StepTwo, StepThree
+        StepOne, StepTwo, StepThree, StepFour
     },
     props: ['unitId'],
     data() {
@@ -163,6 +177,9 @@ export default {
         }
     },
     methods: {
+        acceptTerms(value) {
+            this.termsAccepted = value;
+        },
         submit() {
             this.info.submit();
         },

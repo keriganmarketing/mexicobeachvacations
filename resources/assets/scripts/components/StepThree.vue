@@ -36,18 +36,7 @@
                     <div class="form-group">
                         <select class="custom-select" v-model="info.ExpYear" id="ExpYear" required >
                             <option value="">YYYY</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="2026">2026</option>
-                            <option value="2027">2027</option>
-                            <option value="2028">2028</option>
-                            <option value="2029">2029</option>
+                            <option :value="year" v-for="year in expYears" :key="year">{{ year }}</option>
                         </select>
                     </div>
                 </div>
@@ -88,7 +77,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <select class="custom-select" v-model="info.State" required>
+                        <select class="custom-select" v-model="info.BillingState" required>
                             <option value="">State</option>
                             <option v-for="(name, abbreviation) in states" :value="abbreviation">{{ name }}</option>
                         </select>
@@ -116,14 +105,19 @@
 <script>
 import stateslist from '../helpers/states.js'
 import countryList from '../helpers/countries.js'
+import moment from 'moment';
 export default {
     props: ['data-info'],
+    created () {
+        this.buildExpYears();
+    },
     data() {
         return {
             info: this.dataInfo,
             duplicateAddress: false,
             states: stateslist,
-            countries: countryList
+            countries: countryList,
+            expYears: [ moment().format("YYYY") ]
         }
     },
     watch: {
@@ -141,6 +135,15 @@ export default {
                 this.info.BillingAddress = '';
                 this.info.BillingCountry = '';
             }            
+        }
+    },
+    methods: {
+        buildExpYears() {
+            let today = moment();
+            for (let i = 0; i < 10; i++) {
+                this.expYears.push(today.add(1, 'years').format("YYYY"));
+            }
+
         }
     }
 }

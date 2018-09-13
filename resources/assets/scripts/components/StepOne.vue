@@ -88,10 +88,16 @@
 
 <script>
 export default {
-    props: ['data-info', 'is-available', 'num-nights', 'terms-accepted', 'selected-dates', 'errorMessage', 'calendarOptions'],
+    props: ['data-info', 'is-available', 'num-nights', 'data-terms-accepted', 'selected-dates', 'errorMessage', 'calendarOptions'],
     data() {
         return {
             info: this.dataInfo,
+            termsAccepted: this.dataTermsAccepted
+        }
+    },
+    watch: {
+        termsAccepted: function (newValue) {
+            this.$emit('terms-accepted', this.termsAccepted);
         }
     },
     methods: {

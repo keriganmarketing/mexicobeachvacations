@@ -5468,12 +5468,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__StepTwo_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__StepTwo_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__StepThree_vue__ = __webpack_require__("./resources/assets/scripts/components/StepThree.vue");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__StepThree_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__StepThree_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_v_calendar__ = __webpack_require__("./node_modules/v-calendar/lib/v-calendar.min.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_v_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_v_calendar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_v_calendar_lib_v_calendar_min_css__ = __webpack_require__("./node_modules/v-calendar/lib/v-calendar.min.css");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_v_calendar_lib_v_calendar_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_v_calendar_lib_v_calendar_min_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__("./node_modules/moment/moment.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__StepFour_vue__ = __webpack_require__("./resources/assets/scripts/components/StepFour.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__StepFour_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__StepFour_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_v_calendar__ = __webpack_require__("./node_modules/v-calendar/lib/v-calendar.min.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_v_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_v_calendar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_v_calendar_lib_v_calendar_min_css__ = __webpack_require__("./node_modules/v-calendar/lib/v-calendar.min.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_v_calendar_lib_v_calendar_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_v_calendar_lib_v_calendar_min_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_moment__);
 //
 //
 //
@@ -5558,6 +5560,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -5569,7 +5585,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
-        StepOne: __WEBPACK_IMPORTED_MODULE_1__StepOne_vue___default.a, StepTwo: __WEBPACK_IMPORTED_MODULE_2__StepTwo_vue___default.a, StepThree: __WEBPACK_IMPORTED_MODULE_3__StepThree_vue___default.a
+        StepOne: __WEBPACK_IMPORTED_MODULE_1__StepOne_vue___default.a, StepTwo: __WEBPACK_IMPORTED_MODULE_2__StepTwo_vue___default.a, StepThree: __WEBPACK_IMPORTED_MODULE_3__StepThree_vue___default.a, StepFour: __WEBPACK_IMPORTED_MODULE_4__StepFour_vue___default.a
     },
     props: ['unitId'],
     data: function data() {
@@ -5599,7 +5615,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     created: function created() {
-        Object(__WEBPACK_IMPORTED_MODULE_4_v_calendar__["setupCalendar"])({
+        Object(__WEBPACK_IMPORTED_MODULE_5_v_calendar__["setupCalendar"])({
             firstDayOfWeek: 1,
             paneWidth: 300,
             formats: {
@@ -5630,8 +5646,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         selectedDates: function selectedDates(newDates, oldDates) {
-            var checkIn = __WEBPACK_IMPORTED_MODULE_6_moment___default()(newDates.start);
-            var checkOut = __WEBPACK_IMPORTED_MODULE_6_moment___default()(newDates.end);
+            var checkIn = __WEBPACK_IMPORTED_MODULE_7_moment___default()(newDates.start);
+            var checkOut = __WEBPACK_IMPORTED_MODULE_7_moment___default()(newDates.end);
             this.info.ArrivalDate = checkIn.format("MM/DD/YYYY");
             this.info.DepartureDate = checkOut.format("MM/DD/YYYY");
             this.numNights = checkOut.diff(checkIn, 'days');
@@ -5639,6 +5655,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     methods: {
+        acceptTerms: function acceptTerms(value) {
+            this.termsAccepted = value;
+        },
         submit: function submit() {
             this.info.submit();
         },
@@ -7420,6 +7439,94 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/StepFour.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_validate_js__ = __webpack_require__("./resources/assets/scripts/helpers/validate.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['data-info', 'unit', 'rate-details'],
+    data: function data() {
+        return {
+            validator: new __WEBPACK_IMPORTED_MODULE_0__helpers_validate_js__["a" /* default */](this.dataInfo),
+            errorMessages: [],
+            info: this.dataInfo
+
+        };
+    },
+    mounted: function mounted() {
+        if (!this.validator.passes()) {
+            this.errorMessages = this.validator.errorMessages;
+        }
+    },
+
+    methods: {
+        booked: function booked() {
+            this.$emit('booked');
+        }
+    }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/StepOne.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -7515,13 +7622,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['data-info', 'is-available', 'num-nights', 'terms-accepted', 'selected-dates', 'errorMessage', 'calendarOptions'],
+    props: ['data-info', 'is-available', 'num-nights', 'data-terms-accepted', 'selected-dates', 'errorMessage', 'calendarOptions'],
     data: function data() {
         return {
-            info: this.dataInfo
+            info: this.dataInfo,
+            termsAccepted: this.dataTermsAccepted
         };
     },
 
+    watch: {
+        termsAccepted: function termsAccepted(newValue) {
+            this.$emit('terms-accepted', this.termsAccepted);
+        }
+    },
     methods: {
         getTerms: function getTerms() {
             return '<p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p><p>terms will go here...</p>';
@@ -7538,6 +7651,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_states_js__ = __webpack_require__("./resources/assets/scripts/helpers/states.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_countries_js__ = __webpack_require__("./resources/assets/scripts/helpers/countries.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
 //
 //
 //
@@ -7642,28 +7757,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['data-info'],
+    created: function created() {
+        this.buildExpYears();
+    },
     data: function data() {
         return {
             info: this.dataInfo,
             duplicateAddress: false,
             states: __WEBPACK_IMPORTED_MODULE_0__helpers_states_js__["a" /* default */],
-            countries: __WEBPACK_IMPORTED_MODULE_1__helpers_countries_js__["a" /* default */]
+            countries: __WEBPACK_IMPORTED_MODULE_1__helpers_countries_js__["a" /* default */],
+            expYears: [__WEBPACK_IMPORTED_MODULE_2_moment___default()().format("YYYY")]
         };
     },
 
@@ -7681,6 +7790,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.info.BillingState = '';
                 this.info.BillingAddress = '';
                 this.info.BillingCountry = '';
+            }
+        }
+    },
+    methods: {
+        buildExpYears: function buildExpYears() {
+            var today = __WEBPACK_IMPORTED_MODULE_2_moment___default()();
+            for (var i = 0; i < 10; i++) {
+                this.expYears.push(today.add(1, 'years').format("YYYY"));
             }
         }
     }
@@ -45579,30 +45696,15 @@ var render = function() {
                 [
                   _c("option", { attrs: { value: "" } }, [_vm._v("YYYY")]),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "2018" } }, [_vm._v("2018")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2019" } }, [_vm._v("2019")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2020" } }, [_vm._v("2020")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2021" } }, [_vm._v("2021")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2022" } }, [_vm._v("2022")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2023" } }, [_vm._v("2023")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2024" } }, [_vm._v("2024")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2025" } }, [_vm._v("2025")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2026" } }, [_vm._v("2026")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2027" } }, [_vm._v("2027")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2028" } }, [_vm._v("2028")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2029" } }, [_vm._v("2029")])
-                ]
+                  _vm._l(_vm.expYears, function(year) {
+                    return _c(
+                      "option",
+                      { key: year, domProps: { value: year } },
+                      [_vm._v(_vm._s(year))]
+                    )
+                  })
+                ],
+                2
               )
             ])
           ])
@@ -45779,8 +45881,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.info.State,
-                      expression: "info.State"
+                      value: _vm.info.BillingState,
+                      expression: "info.BillingState"
                     }
                   ],
                   staticClass: "custom-select",
@@ -45797,7 +45899,7 @@ var render = function() {
                         })
                       _vm.$set(
                         _vm.info,
-                        "State",
+                        "BillingState",
                         $event.target.multiple
                           ? $$selectedVal
                           : $$selectedVal[0]
@@ -45959,6 +46061,143 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-63aef584", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-69d75eb0\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/StepFour.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "mt-4" }, [
+      _c("h2", [_vm._v("Step 4: Confirmation")]),
+      _vm._v(" "),
+      _vm.errorMessages.length > 0
+        ? _c("div", { staticClass: "col alert alert-danger" }, [
+            _c(
+              "ul",
+              _vm._l(_vm.errorMessages, function(message) {
+                return _c("li", { key: message }, [_vm._v(_vm._s(message))])
+              })
+            )
+          ])
+        : _c("div", [
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "table-responsive" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-sm table-striped rate-table" },
+                  [
+                    _c(
+                      "tbody",
+                      [
+                        _c("tr", [
+                          _c("td", { staticClass: "data-label" }, [
+                            _vm._v("Unit")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.unit.name))])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", { staticClass: "data-label" }, [
+                            _vm._v("Check In ")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.info.ArrivalDate))])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", { staticClass: "data-label" }, [
+                            _vm._v("Check Out ")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.info.DepartureDate))])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", { staticClass: "data-label" }, [
+                            _vm._v("Persons")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.info.Persons))])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", { staticClass: "data-label" }, [
+                            _vm._v("Persons")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.info.Persons))])
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.rateDetails.GuestCharges, function(detail) {
+                          return _c(
+                            "tr",
+                            {
+                              key: detail.HeadingsListId,
+                              class: {
+                                "text-primary":
+                                  detail.HeadingName === "Total Cost",
+                                "font-weight-bold":
+                                  detail.HeadingName === "Total Cost"
+                              }
+                            },
+                            [
+                              _c("td", { staticClass: "data-label" }, [
+                                _vm._v(_vm._s(detail.HeadingName))
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _vm._v(
+                                  _vm._s(
+                                    detail.ChgAmount.toLocaleString("en-US", {
+                                      style: "currency",
+                                      currency: "USD"
+                                    })
+                                  )
+                                )
+                              ])
+                            ]
+                          )
+                        })
+                      ],
+                      2
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.booked($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Book Now")]
+                )
+              ])
+            ])
+          ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-69d75eb0", module.exports)
   }
 }
 
@@ -46869,22 +47108,34 @@ var render = function() {
                     "tbody",
                     _vm._l(_vm.rateDetails.GuestCharges, function(detail) {
                       return _vm.isAvailable
-                        ? _c("tr", { key: detail.HeadingsListId }, [
-                            _c("td", { staticClass: "data-label" }, [
-                              _vm._v(_vm._s(detail.HeadingName))
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(
-                                _vm._s(
-                                  detail.ChgAmount.toLocaleString("en-US", {
-                                    style: "currency",
-                                    currency: "USD"
-                                  })
+                        ? _c(
+                            "tr",
+                            {
+                              key: detail.HeadingsListId,
+                              class: {
+                                "text-primary":
+                                  detail.HeadingName === "Total Cost",
+                                "font-weight-bold":
+                                  detail.HeadingName === "Total Cost"
+                              }
+                            },
+                            [
+                              _c("td", { staticClass: "data-label" }, [
+                                _vm._v(_vm._s(detail.HeadingName))
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _vm._v(
+                                  _vm._s(
+                                    detail.ChgAmount.toLocaleString("en-US", {
+                                      style: "currency",
+                                      currency: "USD"
+                                    })
+                                  )
                                 )
-                              )
-                            ])
-                          ])
+                              ])
+                            ]
+                          )
                         : _vm._e()
                     })
                   )
@@ -46989,11 +47240,12 @@ var render = function() {
                   "data-info": _vm.info,
                   "is-available": _vm.isAvailable,
                   "num-nights": _vm.numNights,
-                  "terms-accepted": _vm.termsAccepted,
+                  "data-terms-accepted": _vm.termsAccepted,
                   "selected-dates": _vm.info.selectedDates,
                   errorMessage: _vm.errorMessage,
                   calendarOptions: _vm.calendarOptions
-                }
+                },
+                on: { "terms-accepted": _vm.acceptTerms }
               })
             ],
             1
@@ -47008,13 +47260,30 @@ var render = function() {
         ? _c("div", [_c("step-three", { attrs: { "data-info": _vm.info } })], 1)
         : _vm._e(),
       _vm._v(" "),
-      _vm.step == 4 ? _c("div", [_vm._m(1)]) : _vm._e()
+      _vm.step == 4
+        ? _c(
+            "div",
+            [
+              _c("step-four", {
+                attrs: {
+                  "data-info": _vm.info,
+                  unit: _vm.unit,
+                  "rate-details": _vm.rateDetails
+                },
+                on: { booked: _vm.submit }
+              })
+            ],
+            1
+          )
+        : _vm._e()
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "my-4" }, [
-      _c("button", { staticClass: "btn", on: { click: _vm.back } }, [
-        _vm._v("Back")
-      ]),
+      _vm.step > 1
+        ? _c("button", { staticClass: "btn", on: { click: _vm.back } }, [
+            _vm._v("Back")
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "button",
@@ -47034,14 +47303,6 @@ var staticRenderFns = [
         _c("span", { staticClass: "required" }, [_vm._v("*")]),
         _vm._v(" = required")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-4" }, [
-      _c("h2", [_vm._v("Step 4: Confirmation")])
     ])
   }
 ]
@@ -60778,6 +61039,54 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/scripts/components/StepFour.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/scripts/components/StepFour.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-69d75eb0\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/scripts/components/StepFour.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/scripts/components/StepFour.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-69d75eb0", Component.options)
+  } else {
+    hotAPI.reload("data-v-69d75eb0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/scripts/components/StepOne.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61549,6 +61858,102 @@ var stateslist = {
 
 /***/ }),
 
+/***/ "./resources/assets/scripts/helpers/validate.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Validator = function () {
+  function Validator(info) {
+    _classCallCheck(this, Validator);
+
+    for (var field in info) {
+      this[field] = info[field];
+    }
+    this.errorMessages = [];
+  }
+
+  _createClass(Validator, [{
+    key: "passes",
+    value: function passes() {
+      if (this.Address === "") {
+        this.errorMessages.push("The Address field in Step 2 is required");
+      }
+      if (this.ArrivalDate === "") {
+        this.errorMessages.push("The Check In field in Step 1 is required");
+      }
+      if (this.BillingAddress === "") {
+        this.errorMessages.push("The Billing Address field in Step 3 is required");
+      }
+      if (this.BillingCity === "") {
+        this.errorMessages.push("The Billing City field in Step 3 is required");
+      }
+      if (this.BillingCountry === "") {
+        this.errorMessages.push("The Billing Country field in Step 3 is required");
+      }
+      if (this.BillingState === "") {
+        this.errorMessages.push("The BillingState field in Step 3 is required");
+      }
+      if (this.BillingZip === "") {
+        this.errorMessages.push("The Billing Zip field in Step 3 is required");
+      }
+      if (this.CCCVCode === "") {
+        this.errorMessages.push("The CCCV field in Step 3 is required");
+      }
+      if (this.City === "") {
+        this.errorMessages.push("The City field in Step 2 is required");
+      }
+      if (this.Country === "") {
+        this.errorMessages.push("The Country field in Step 2 is required");
+      }
+      if (this.CreditCardNumber === "") {
+        this.errorMessages.push("The Credit Card field in Step 3 is required");
+      }
+      if (this.DepartureDate === "") {
+        this.errorMessages.push("The Checkout Date field in Step 1 is required");
+      }
+      if (this.Email === "") {
+        this.errorMessages.push("The Email field in Step 2 is required");
+      }
+      if (this.ExpMonth === 0) {
+        this.errorMessages.push("The Expiration Month field in Step 3 is required");
+      }
+      if (this.ExpYear === 0) {
+        this.errorMessages.push("The Expiration Year field in Step 3 is required");
+      }
+      if (this.FirstName === "") {
+        this.errorMessages.push("The First name field in Step 2 is required");
+      }
+      if (this.LastName === "") {
+        this.errorMessages.push("The Last Name field in Step 2 is required");
+      }
+      if (this.NameOnCard === "") {
+        this.errorMessages.push("You must provide a valid name for the credit card on Step 3");
+      }
+      if (this.Persons === "") {
+        this.errorMessages.push("You must specify the number of persons in Step 1");
+      }
+      if (this.State === "") {
+        this.errorMessages.push("The State field in Step 2 is required");
+      }
+      if (this.Zip === "") {
+        this.errorMessages.push("The Zip field in Step 2 is required");
+      }
+
+      return this.errorMessages.length === 0;
+    }
+  }]);
+
+  return Validator;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Validator);
+
+/***/ }),
+
 /***/ "./resources/assets/scripts/load-components.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61743,9 +62148,13 @@ var PropertyForm = function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__("./node_modules/axios/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
 
 var ReservationInfo = function () {
   function ReservationInfo() {
@@ -61785,11 +62194,21 @@ var ReservationInfo = function () {
     this.PromoCode = "";
     this.Notes = "";
     this.SDPStrict = false;
+    this.token = "";
   }
 
   _createClass(ReservationInfo, [{
     key: "submit",
-    value: function submit() {}
+    value: function submit() {
+      var _this = this;
+
+      //submit the form
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get("https://rns.mexicobeachvacations.com/token").then(function (response) {
+        _this.token = response.data;
+      });
+      var url = "https://core.rnshosted.com/api/v17/Reservations?clientid=RNS.ParkerRealty.KeriganMarketing";
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post();
+    }
   }, {
     key: "clear",
     value: function clear() {
