@@ -52,7 +52,7 @@
 
                                 <h2>Forecast</h2>
                                 <div class="row">
-                                    <div v-for="item in weatherInfo.item.forecast" :key="item.key" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                                    <div v-for="item in weatherInfo.item.forecast" :key="item.key" class="col-6 col-md-4 col-lg-3 col-xl-2 mb-4">
                                         <div class="card text-center">
                                             <div class="card-body">
                                         <p><span v-text="item.day"></span><br>

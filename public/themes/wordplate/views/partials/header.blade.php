@@ -22,11 +22,11 @@
             <div class="main-navigation flex-grow-1">
                 <div class="mini-nav d-flex align-items-center">
                     <weather-fetcher location="mexico beach, fl" class="mini-weather" >
-                        <span slot-scope="{weatherIcon, weatherInfo, loading}">
-                            <div v-if="! loading">
+                        <span slot-scope="slotProps">
+                            <div v-if="! slotProps.loading">
                                 <a class="link" href="/current-weather/" >
-                                    <i class="wi" :class="weatherIcon"></i>
-                                    <span v-text="weatherInfo.item.condition.temp + '&deg;F'"></span>
+                                    <i class="wi" :class="slotProps.weatherIcon"></i>
+                                    <span v-text="slotProps.weatherInfo.item.condition.temp + '&deg;F'"></span>
                                 </a> 
                             </div>
                         </span>

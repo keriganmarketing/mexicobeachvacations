@@ -34,7 +34,7 @@ const app = new Vue({
 
   methods: {
     handleScroll() {
-      this.scrollPosition = window.scrollY;
+      this.scrollPosition = window.pageYOffset;
       this.isScrolling = this.scrollPosition > 40;
     },
     toggleMenu() {

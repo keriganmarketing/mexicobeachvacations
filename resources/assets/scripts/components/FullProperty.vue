@@ -113,26 +113,26 @@
                 ></v-calendar>
              </div>
         </div>
+        <div class="clearfix"></div>
 
-        <div class="row mb-4" ref="location">
-            <div class="col-12">
-                <hr>
-                <a name="location"></a>
-                <h2>Location</h2>
-                <div class="listing-map-frame">
-                    <div class="embed-responsive embed-responsive-16by9" style="border:1px solid #ddd;">
-                        <iframe 
-                            class="embed-responsive-item"
-                            frameborder="0" 
-                            scrolling="no" 
-                            marginheight="0" 
-                            marginwidth="0" 
-                            :src="'https://maps.google.com/maps?q=' + property.details[0].address + ', FL&hl=es;z=14&amp;output=embed'"
-                        ></iframe>
-                    </div>
+        <div class="mb-4" ref="location">
+            <hr>
+            <a name="location"></a>
+            <h2>Location</h2>
+            <div class="listing-map-frame">
+                <div class="embed-responsive embed-responsive-16by9" style="border:1px solid #ddd;">
+                    <iframe 
+                        class="embed-responsive-item"
+                        frameborder="0" 
+                        scrolling="no" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        :src="'https://maps.google.com/maps?q=' + property.details[0].address + ', FL&hl=es;z=14&amp;output=embed'"
+                    ></iframe>
                 </div>
             </div>
         </div>
+        <div class="clearfix"></div>
 
     </div>
 </template>
@@ -267,5 +267,11 @@ export default {
         color: #ff6f74;
     }
 
+}
+.listing-map-frame {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        /* IE10+ CSS styles go here */
+        min-height: 800px;
+    }
 }
 </style>

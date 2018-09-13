@@ -306,7 +306,7 @@ export default {
     border-radius: 0 2rem 2rem 0;
     background-color: #ff6f74;
 }
-
+ 
 .datepicker__wrapper .datepicker__month-button {
     background: none !important;
     cursor: pointer;
@@ -334,16 +334,6 @@ export default {
 .datepicker__wrapper .datepicker__clear-button {
     color: #ff6f74;
     height: 41px !important;
-}
-
-@media (min-width:768px){
-    .datepicker__wrapper .datepicker {
-        left: 50%;
-        top: 50%;
-        position: fixed;
-        z-index: 2;
-        margin: -190px 0 0 -345px;
-    }
 }
 
 .datepicker__wrapper {

@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-md-6 col-lg-4 text-white box-container">
                         <div class="feature-box feat-three">
-                            <h3 class="text-black">{{ $featureBox3['title'] }}</h3>
+                            <h3 class="text-white">{{ $featureBox3['title'] }}</h3>
                             <p>{{ $featureBox3['text'] }}</p>
                             <a class="btn btn-lg btn-outline-white btn-rounded" href="{{ $featureBox3['link']['url'] }}" >{{ $featureBox3['link']['title'] }} &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                         </div>
