@@ -8,7 +8,7 @@
             <input type="hidden" name="location" :value="location">
             <input type="hidden" name="type" :value="type">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4" @click="goto('scrollto')">
                     <hotel-date-picker
                         class="input-rounded"
                         @checkInChanged="checkInChanged"
@@ -19,7 +19,7 @@
                     >
                     </hotel-date-picker> 
                 </div>
-                <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3">
+                <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3" @click="goto('scrollto')">
                     <dropdown 
                         class="custom-select input-rounded"
                         :options="[
@@ -32,7 +32,7 @@
                         :placeholder="'Location'">
                     </dropdown>
                 </div>
-                <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3">
+                <div class="d-none d-sm-block col-12 col-sm-6 col-lg-3" @click="goto('scrollto')">
                     <dropdown 
                         class="custom-select input-rounded"
                         :options="[
@@ -53,6 +53,7 @@
                 </div>
             </div>
         </form>
+        <div class="scrollto" ref="scrollto"></div>
     </div>
 </div>
 </template>
@@ -97,6 +98,12 @@ export default {
         },
         locationChanged(payload) {
             this.location = payload;
+        },
+        goto(destination) {
+            let section = this.$refs[destination];
+            if(window.innerHeight > 700 && window.innerWidth > 600){
+                window.scrollTo(0, window.innerHeight / 2);
+            }
         }
     }
 }
@@ -201,13 +208,4 @@ export default {
     background-color: #ff6f74;
 }
 
-@media (min-width:768px){
-    .datepicker__wrapper .datepicker {
-        left: 50%;
-        top: 50%;
-        position: fixed;
-        z-index: 2;
-        margin: -190px 0 0 -345px;
-    }
-}
 </style>
