@@ -19507,7 +19507,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.action-buttons {\n  padding: 0 1rem;\n}\n.action-buttons a {\n  display: block;\n  margin: 0 .5rem;\n}\n@media (min-width: 576px) {\n.action-buttons a {\n      display: inline-block;\n}\n}\n.unitid {\n  color: #ff6f74;\n  font-size: .5em;\n}\n.availability-section .c-pane-container .c-pane {\n  background: #FFF;\n  width: 300px !important;\n}\n@media (min-width: 576px) {\n.availability-section .c-pane-container .c-pane {\n      width: 250px !important;\n}\n}\n@media (min-width: 768px) {\n.availability-section .c-pane-container .c-pane {\n      width: 345px !important;\n}\n}\n@media (min-width: 993px) {\n.availability-section .c-pane-container .c-pane {\n      width: 465px !important;\n}\n.availability-section .c-pane-container .c-pane .c-day-content,\n      .availability-section .c-pane-container .c-pane .c-day-background {\n        height: 2.8rem !important;\n}\n}\n@media (min-width: 1200px) {\n.availability-section .c-pane-container .c-pane {\n      width: 550px !important;\n}\n}\n.availability-section .c-pane-container .c-pane .c-weekdays,\n  .availability-section .c-pane-container .c-pane .c-day-content {\n    font-family: \"ABeeZee\", sans-serif;\n}\n.availability-section .c-pane-container .c-pane .c-title {\n    font-family: \"Fira Sans Condensed\", sans-serif;\n}\n.availability-section .c-pane-container .c-pane .c-arrow-layout {\n    padding: 6px 5px 4px;\n    border: 2px solid #ff6f74;\n    border-radius: 50%;\n    color: #ff6f74;\n}\n", ""]);
+exports.push([module.i, "\n.action-buttons {\n  padding: 0 1rem;\n}\n.action-buttons a {\n  display: block;\n  margin: 0 .5rem;\n}\n@media (min-width: 576px) {\n.action-buttons a {\n      display: inline-block;\n}\n}\n.unitid {\n  color: #ff6f74;\n  font-size: .5em;\n}\n.availability-section .c-pane-container .c-pane {\n  background: #FFF;\n  width: 300px !important;\n}\n@media (min-width: 576px) {\n.availability-section .c-pane-container .c-pane {\n      width: 250px !important;\n}\n}\n@media (min-width: 768px) {\n.availability-section .c-pane-container .c-pane {\n      width: 345px !important;\n}\n}\n@media (min-width: 993px) {\n.availability-section .c-pane-container .c-pane {\n      width: 465px !important;\n}\n.availability-section .c-pane-container .c-pane .c-day-content,\n      .availability-section .c-pane-container .c-pane .c-day-background {\n        height: 2.8rem !important;\n}\n}\n@media (min-width: 1200px) {\n.availability-section .c-pane-container .c-pane {\n      width: 550px !important;\n}\n}\n.availability-section .c-pane-container .c-pane .c-weekdays,\n  .availability-section .c-pane-container .c-pane .c-day-content {\n    font-family: \"ABeeZee\", sans-serif;\n}\n.availability-section .c-pane-container .c-pane .c-title {\n    font-family: \"Fira Sans Condensed\", sans-serif;\n}\n.availability-section .c-pane-container .c-pane .c-arrow-layout {\n    padding: 6px 5px 4px;\n    border: 2px solid #ff6f74;\n    border-radius: 50%;\n    color: #ff6f74;\n}\n@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {\n.listing-map-frame {\n    /* IE10+ CSS styles go here */\n    min-height: 800px;\n}\n}\n", ""]);
 
 // exports
 
@@ -42891,40 +42891,42 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("div", { ref: "location", staticClass: "row mb-4" }, [
-          _c("div", { staticClass: "col-12" }, [
-            _c("hr"),
-            _vm._v(" "),
-            _c("a", { attrs: { name: "location" } }),
-            _vm._v(" "),
-            _c("h2", [_vm._v("Location")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "listing-map-frame" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "embed-responsive embed-responsive-16by9",
-                  staticStyle: { border: "1px solid #ddd" }
-                },
-                [
-                  _c("iframe", {
-                    staticClass: "embed-responsive-item",
-                    attrs: {
-                      frameborder: "0",
-                      scrolling: "no",
-                      marginheight: "0",
-                      marginwidth: "0",
-                      src:
-                        "https://maps.google.com/maps?q=" +
-                        _vm.property.details[0].address +
-                        ", FL&hl=es;z=14&output=embed"
-                    }
-                  })
-                ]
-              )
-            ])
+        _c("div", { staticClass: "clearfix" }),
+        _vm._v(" "),
+        _c("div", { ref: "location", staticClass: "mb-4" }, [
+          _c("hr"),
+          _vm._v(" "),
+          _c("a", { attrs: { name: "location" } }),
+          _vm._v(" "),
+          _c("h2", [_vm._v("Location")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "listing-map-frame" }, [
+            _c(
+              "div",
+              {
+                staticClass: "embed-responsive embed-responsive-16by9",
+                staticStyle: { border: "1px solid #ddd" }
+              },
+              [
+                _c("iframe", {
+                  staticClass: "embed-responsive-item",
+                  attrs: {
+                    frameborder: "0",
+                    scrolling: "no",
+                    marginheight: "0",
+                    marginwidth: "0",
+                    src:
+                      "https://maps.google.com/maps?q=" +
+                      _vm.property.details[0].address +
+                      ", FL&hl=es;z=14&output=embed"
+                  }
+                })
+              ]
+            )
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "clearfix" })
       ])
     : _vm._e()
 }
@@ -59997,7 +59999,7 @@ var app = new Vue({
 
   methods: {
     handleScroll: function handleScroll() {
-      this.scrollPosition = window.scrollY;
+      this.scrollPosition = window.pageYOffset;
       this.isScrolling = this.scrollPosition > 40;
     },
     toggleMenu: function toggleMenu() {
