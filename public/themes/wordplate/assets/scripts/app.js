@@ -7968,6 +7968,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -43619,9 +43620,14 @@ var render = function() {
           class: { dropdown: navitem.children.length > 0 }
         },
         [
-          _c("a", { class: "nav-link", attrs: { href: navitem.url } }, [
-            _vm._v(_vm._s(navitem.title))
-          ]),
+          _c(
+            "a",
+            {
+              class: "nav-link",
+              attrs: { href: navitem.url, target: navitem.target }
+            },
+            [_vm._v(_vm._s(navitem.title))]
+          ),
           _vm._v(" "),
           navitem.children.length > 0
             ? _c(
@@ -43652,9 +43658,14 @@ var render = function() {
                 { staticClass: "dropdown-menu" },
                 _vm._l(navitem.children, function(child, i) {
                   return _c("li", { key: i }, [
-                    _c("a", { class: "nav-link", attrs: { href: child.url } }, [
-                      _vm._v(_vm._s(child.title))
-                    ])
+                    _c(
+                      "a",
+                      {
+                        class: "nav-link",
+                        attrs: { href: child.url, target: child.target }
+                      },
+                      [_vm._v(_vm._s(child.title))]
+                    )
                   ])
                 })
               )
@@ -43918,7 +43929,7 @@ var render = function() {
             "a",
             {
               class: "nav-link " + navitem.classes,
-              attrs: { href: navitem.url }
+              attrs: { href: navitem.url, target: navitem.target }
             },
             [_vm._v(_vm._s(navitem.title))]
           ),
@@ -43933,7 +43944,7 @@ var render = function() {
                       "a",
                       {
                         class: "dropdown-item " + child.classes,
-                        attrs: { href: child.url }
+                        attrs: { href: child.url, target: child.target }
                       },
                       [_vm._v(_vm._s(child.title))]
                     )
@@ -47788,7 +47799,7 @@ var render = function() {
             {
               staticClass: "text-info",
               class: navitem.classes,
-              attrs: { href: navitem.url }
+              attrs: { href: navitem.url, target: navitem.target }
             },
             [_vm._v(_vm._s(navitem.title))]
           )
@@ -47804,7 +47815,7 @@ var render = function() {
                   {
                     key: i,
                     class: "footer-nav-item " + child.classes,
-                    attrs: { href: child.url }
+                    attrs: { href: child.url, target: child.target }
                   },
                   [
                     _vm._v(
