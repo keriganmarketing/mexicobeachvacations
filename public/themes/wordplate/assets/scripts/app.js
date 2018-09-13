@@ -62434,7 +62434,7 @@ var ReservationInfo = function () {
     this.ResvCode = "";
     this.CCCVCode = "";
     this.UnitId = 0;
-    this.LocationId = 0;
+    this.LocationId = 1;
     this.ArrivalDate = "";
     this.DepartureDate = "";
     this.Persons = 2;
@@ -62464,12 +62464,72 @@ var ReservationInfo = function () {
     value: function submit() {
       var _this = this;
 
-      //submit the form
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get("https://rns.mexicobeachvacations.com/token").then(function (response) {
         _this.token = response.data;
+        var url = "https://core.rnshosted.com/api/v17/Reservations?clientid=RNS.ParkerRealty.KeriganMarketing";
+        var config = {
+          headers: { Authorization: "Bearer " + _this.token }
+        };
+        var data = {
+          Zip: _this.Zip,
+          City: _this.City,
+          Email: _this.Email,
+          Notes: _this.Notes,
+          State: _this.State,
+          Title: _this.Title,
+          UnitId: _this.UnitId,
+          Address: _this.Address,
+          Country: _this.Country,
+          ExpYear: _this.ExpYear,
+          Persons: _this.Persons,
+          Address2: _this.Address2,
+          CCCVCode: _this.CCCVCode,
+          ExpMonth: _this.ExpMonth,
+          LastName: _this.LastName,
+          ResvCode: _this.ResvCode,
+          FirstName: _this.FirstName,
+          HomePhone: _this.HomePhone,
+          PromoCode: _this.PromoCode,
+          SDPStrict: _this.SDPStrict,
+          WorkPhone: _this.WorkPhone,
+          BillingZip: _this.BillingZip,
+          LocationId: _this.LocationId,
+          NameOnCard: _this.NameOnCard,
+          OtherPhone: _this.OtherPhone,
+          ArrivalDate: _this.ArrivalDate,
+          BillingCity: _this.BillingCity,
+          BillingState: _this.BillingState,
+          DepartureDate: _this.DepartureDate,
+          MiddleInitial: _this.MiddleInitial,
+          BillingAddress: _this.BillingAddress,
+          BillingCountry: _this.BillingCountry,
+          CreditCardNumber: _this.CreditCardNumber,
+          TravelInsAccepted: _this.TravelInsAccepted,
+          CCTypeId: _this.getCardType(_this.CreditCardNumber)
+        };
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(url, data, config).then(function (response) {
+          console.log(response);
+        }).catch(function (err) {
+          console.log(err);
+        });
       });
-      var url = "https://core.rnshosted.com/api/v17/Reservations?clientid=RNS.ParkerRealty.KeriganMarketing";
-      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post();
+    }
+  }, {
+    key: "getCardType",
+    value: function getCardType(number) {
+      // visa
+      var re = new RegExp("^4");
+      if (number.match(re) != null) return 1;
+
+      // Mastercard
+      // Updated for Mastercard 2017 BINs expansion
+      if (/^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/.test(number)) return 2;
+
+      // Discover
+      re = new RegExp("^(6011|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]|64[4-9])|65)");
+      if (number.match(re) != null) return 3;
+
+      return 0;
     }
   }, {
     key: "clear",
