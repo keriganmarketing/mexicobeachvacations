@@ -6461,6 +6461,13 @@ Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
         goto: function goto(destination) {
             var section = this.$refs[destination];
             window.scrollTo(0, section.offsetTop);
+        },
+        hasSearchCriteria: function hasSearchCriteria(unit, rnsId) {
+            var hasSearchCriteria = false;
+            unit.search_criteria.map(function (search_criteria) {
+                if (search_criteria.rns_id === rnsId) hasSearchCriteria = true;
+            });
+            return hasSearchCriteria;
         }
     }
 
@@ -8054,6 +8061,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -42962,17 +42970,19 @@ var render = function() {
                     staticClass: "col-12 col-md-auto flex-grow-1 text-md-right"
                   },
                   [
-                    _c(
-                      "a",
-                      {
-                        staticClass:
-                          "btn btn-lg btn-primary btn-rounded btn-outline-primary",
-                        attrs: {
-                          href: "/book-now/?unit_id=" + _vm.property.rns_id
-                        }
-                      },
-                      [_vm._v("Book Now")]
-                    )
+                    !_vm.hasSearchCriteria(_vm.property, 40)
+                      ? _c(
+                          "a",
+                          {
+                            staticClass:
+                              "btn btn-lg btn-primary btn-rounded btn-outline-primary",
+                            attrs: {
+                              href: "/book-now/?unit_id=" + _vm.property.rns_id
+                            }
+                          },
+                          [_vm._v("Book Now")]
+                        )
+                      : _vm._e()
                   ]
                 )
               ]
@@ -46650,20 +46660,27 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-lg btn-outline-primary btn-rounded",
-                    attrs: { href: "/book-now/?unit_id=" + unit.rns_id + "/" }
-                  },
-                  [
-                    _vm._v("Book Now   "),
-                    _c("i", {
-                      staticClass: "fa fa-angle-right",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]
-                )
+                _vm.hasSearchCriteria(unit, 41)
+                  ? _c(
+                      "a",
+                      {
+                        staticClass:
+                          "btn btn-lg btn-outline-primary btn-rounded",
+                        attrs: {
+                          href: "/book-now/?unit_id=" + unit.rns_id + "/"
+                        }
+                      },
+                      [
+                        _vm._v("Book Now   "),
+                        _c("i", {
+                          staticClass: "fa fa-angle-right",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
+                  : _c("p", { staticClass: "fira text-primary" }, [
+                      _vm._v("Call for ")
+                    ])
               ]
             )
           ]

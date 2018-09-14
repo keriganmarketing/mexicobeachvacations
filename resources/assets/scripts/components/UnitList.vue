@@ -75,7 +75,8 @@
         </div>
         <div class="col-12 d-flex mb-5 py-4 justify-content-between">
             <a class="btn btn-lg btn-outline-info btn-rounded" :href="'/property/' + unit.rns_id + '/'" >View Property &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-            <a class="btn btn-lg btn-outline-primary btn-rounded" :href="'/book-now/?unit_id=' + unit.rns_id + '/'" >Book Now &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <a v-if="hasSearchCriteria(unit, 41)" class="btn btn-lg btn-outline-primary btn-rounded" :href="'/book-now/?unit_id=' + unit.rns_id + '/'" >Book Now &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <p v-else class="fira text-primary">Call for </p>
         </div>
     </div>
 </transition-group>

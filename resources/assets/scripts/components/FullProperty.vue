@@ -18,7 +18,7 @@
                         </h2>
                     </div>
                     <div class="col-12 col-md-auto flex-grow-1 text-md-right" >
-                        <a :href="'/book-now/?unit_id=' + property.rns_id" class="btn btn-lg btn-primary btn-rounded btn-outline-primary">Book Now</a>
+                        <a v-if="!hasSearchCriteria(property, 40)" :href="'/book-now/?unit_id=' + property.rns_id" class="btn btn-lg btn-primary btn-rounded btn-outline-primary">Book Now</a>
                     </div>
                 </div>
 
@@ -207,8 +207,15 @@ export default {
         goto(destination) {
             let section = this.$refs[destination];
             window.scrollTo(0, section.offsetTop)
+        },
+        hasSearchCriteria(unit, rnsId){
+            let hasSearchCriteria = false;
+            unit.search_criteria.map(search_criteria => {
+                if (search_criteria.rns_id === rnsId) hasSearchCriteria = true;
+            })
+            return hasSearchCriteria;
         }
-        
+
     }
 
 }
