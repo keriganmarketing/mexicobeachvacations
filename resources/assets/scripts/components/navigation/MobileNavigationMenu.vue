@@ -3,7 +3,7 @@
         <li v-for="(navitem, index) in mobileNavData" v-bind:key="index" class="nav-item" :class="{'dropdown': navitem.children.length > 0 }">
             <a :href="navitem.url" :class="'nav-link'" :target="navitem.target" >{{ navitem.title }}</a>
             <span class="nav-icon" v-if="navitem.children.length > 0" @click="toggleSubMenu(index)">
-                <i class="fa" :class="{
+                <i class="fa d-none" :class="{
                     'fa-plus-circle': !navitem.subMenuOpen,
                     'fa-minus-circle': navitem.subMenuOpen
                     }" ></i>
@@ -36,6 +36,9 @@
         created(){
             this.mobileNavData = Object.keys(this.mobileNav).map((key) => {
                 this.mobileNav[key].subMenuOpen = false;
+                if(this.mobileNav[key].children.length > 0){
+                    this.mobileNav[key].subMenuOpen = true;
+                }
                 return this.mobileNav[key]
             })
         },

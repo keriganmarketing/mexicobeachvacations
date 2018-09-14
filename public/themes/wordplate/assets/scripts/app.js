@@ -8350,6 +8350,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.mobileNavData = Object.keys(this.mobileNav).map(function (key) {
             _this.mobileNav[key].subMenuOpen = false;
+            if (_this.mobileNav[key].children.length > 0) {
+                _this.mobileNav[key].subMenuOpen = true;
+            }
             return _this.mobileNav[key];
         });
     },
@@ -44343,7 +44346,7 @@ var render = function() {
                 },
                 [
                   _c("i", {
-                    staticClass: "fa",
+                    staticClass: "fa d-none",
                     class: {
                       "fa-plus-circle": !navitem.subMenuOpen,
                       "fa-minus-circle": navitem.subMenuOpen
