@@ -8153,10 +8153,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
             return hasAmenity;
         },
-        hasSearchCriteria: function hasSearchCriteria(unit, name) {
+        hasSearchCriteria: function hasSearchCriteria(unit, rnsId) {
             var hasSearchCriteria = false;
             unit.search_criteria.map(function (search_criteria) {
-                if (search_criteria.rns_id === name) hasSearchCriteria = true;
+                if (search_criteria.rns_id === rnsId) hasSearchCriteria = true;
             });
             return hasSearchCriteria;
         }
@@ -46397,8 +46397,8 @@ var render = function() {
                             {
                               name: "show",
                               rawName: "v-show",
-                              value: false,
-                              expression: "false"
+                              value: _vm.hasAmenity(unit, 47),
+                              expression: "hasAmenity(unit, 47)"
                             }
                           ],
                           staticClass: "col-auto p-1"
@@ -46424,9 +46424,8 @@ var render = function() {
                             {
                               name: "show",
                               rawName: "v-show",
-                              value: _vm.hasSearchCriteria(unit, "Canal Front"),
-                              expression:
-                                "hasSearchCriteria(unit, 'Canal Front')"
+                              value: _vm.hasSearchCriteria(unit, 39),
+                              expression: "hasSearchCriteria(unit, 39)"
                             }
                           ],
                           staticClass: "col-auto p-1"

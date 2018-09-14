@@ -149,7 +149,7 @@ export default {
             searchIsOpen: false,
             filterIsOpen: false,
             filters:  {
-                dock: false,                
+                dock: false,
                 pool: false,
                 canal: false,
                 internet: false,

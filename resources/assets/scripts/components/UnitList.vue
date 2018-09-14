@@ -13,12 +13,12 @@
                         <img src="/themes/wordplate/assets/images/pool.svg" alt="Pool Available" title="Pool Available" >
                         </div>
                     </div>
-                    <div v-show="false" class="col-auto p-1">
+                    <div v-show="hasAmenity(unit, 47)" class="col-auto p-1">
                         <div class="svg-icon active" >
                         <img src="/themes/wordplate/assets/images/anchor.svg" alt="Dock Available" title="Dock Available" >
                         </div>
                     </div>
-                    <div v-show="hasSearchCriteria(unit, 'Canal Front')" class="col-auto p-1">
+                    <div v-show="hasSearchCriteria(unit, 39)" class="col-auto p-1">
                         <div class="svg-icon active" >
                         <img src="/themes/wordplate/assets/images/canal.svg" alt="Canal Front" title="Canal Front" >
                         </div>
@@ -98,10 +98,10 @@ export default {
             })
             return hasAmenity;
         },
-        hasSearchCriteria(unit, name){
+        hasSearchCriteria(unit, rnsId){
             let hasSearchCriteria = false;
             unit.search_criteria.map(search_criteria => {
-                if (search_criteria.rns_id === name) hasSearchCriteria = true;
+                if (search_criteria.rns_id === rnsId) hasSearchCriteria = true;
             })
             return hasSearchCriteria;
         },
