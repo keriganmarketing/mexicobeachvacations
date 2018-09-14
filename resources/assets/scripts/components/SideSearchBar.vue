@@ -28,6 +28,7 @@
                     format="MM/DD/YY"
                     :showYear="true"
                     :hoveringTooltip="false"
+                    ref="datepicker"
                 >
                 </hotel-date-picker> 
             </div>
@@ -41,7 +42,7 @@
                     ]" 
                     :selected="location" 
                     v-on:updateOption="locationChanged" 
-                    :placeholder="'Location'">
+                    :placeholder="(dataLocation != '' ? dataLocation : 'Location')">
                 </dropdown>
             </div>
             <div class="col-12 col-sm-6 col-lg-3">
@@ -53,7 +54,7 @@
                     ]" 
                     :selected="type" 
                     v-on:updateOption="typeChanged" 
-                    :placeholder="'Type'">
+                    :placeholder="(dataType != '' ? dataType : 'Type')">
                 </dropdown>
             </div>
             <div class="col-12 col-md-6 col-lg-2">
@@ -137,7 +138,7 @@ export default {
     components: {
         HotelDatePicker
     },
-    props: ['data-type', 'data-location'],
+    props: ['dataType', 'dataLocation','dataCheckin','dataCheckout'],
     data() {
         return {
             checkIn: '',
@@ -162,7 +163,10 @@ export default {
         setTimeout(() => {
             this.type = this.dataType;
             this.location = this.dataLocation;
+            this.$refs.datepicker._data.checkIn = new Date(this.dataCheckin);
+            this.$refs.datepicker._data.checkOut = new Date(this.dataCheckout);
         }, 200);
+
     },
     methods: {
         checkInChanged(date) {

@@ -7089,6 +7089,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -7318,6 +7320,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -7325,7 +7328,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {
         HotelDatePicker: __WEBPACK_IMPORTED_MODULE_0_vue_hotel_datepicker___default.a
     },
-    props: ['data-type', 'data-location'],
+    props: ['dataType', 'dataLocation', 'dataCheckin', 'dataCheckout'],
     data: function data() {
         return {
             checkIn: '',
@@ -7352,6 +7355,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         setTimeout(function () {
             _this.type = _this.dataType;
             _this.location = _this.dataLocation;
+            _this.$refs.datepicker._data.checkIn = new Date(_this.dataCheckin);
+            _this.$refs.datepicker._data.checkOut = new Date(_this.dataCheckout);
         }, 200);
     },
 
@@ -8043,6 +8048,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
 //
 //
 //
@@ -43720,6 +43728,7 @@ var render = function() {
               { staticClass: "col-12 col-md-6 col-lg-4" },
               [
                 _c("hotel-date-picker", {
+                  ref: "datepicker",
                   staticClass: "input-rounded",
                   attrs: {
                     format: "MM/DD/YY",
@@ -43754,7 +43763,8 @@ var render = function() {
                       }
                     ],
                     selected: _vm.location,
-                    placeholder: "Location"
+                    placeholder:
+                      _vm.dataLocation != "" ? _vm.dataLocation : "Location"
                   },
                   on: { updateOption: _vm.locationChanged }
                 })
@@ -43774,7 +43784,7 @@ var render = function() {
                       { name: "Long Term Rental", value: "Long Term Rental" }
                     ],
                     selected: _vm.type,
-                    placeholder: "Type"
+                    placeholder: _vm.dataType != "" ? _vm.dataType : "Type"
                   },
                   on: { updateOption: _vm.typeChanged }
                 })
@@ -46296,325 +46306,363 @@ var render = function() {
   return _c(
     "transition-group",
     { attrs: { name: "unit-list", appear: "" } },
-    _vm._l(_vm.units, function(unit) {
-      return _c(
-        "div",
-        { key: unit.id, staticClass: "row unit unit-list-item" },
-        [
-          _c("div", { staticClass: "col-12 mb-2" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "d-flex justify-content-between align-items-center p-1 bg-dark px-4"
-              },
-              [
-                _c("h2", { staticClass: "p-0 m-0" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "text-white",
-                      attrs: { href: "/property/" + unit.rns_id + "/" }
-                    },
-                    [_vm._v(_vm._s(unit.name))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "unit-icons row no-gutters justify-content-center"
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.hasAmenity(unit, 45),
-                            expression: "hasAmenity(unit, 45)"
-                          }
-                        ],
-                        staticClass: "col-auto p-1"
-                      },
-                      [
-                        _c("div", { staticClass: "svg-icon active" }, [
-                          _c("img", {
-                            attrs: {
-                              src: "/themes/wordplate/assets/images/pool.svg",
-                              alt: "Pool Available",
-                              title: "Pool Available"
-                            }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: false,
-                            expression: "false"
-                          }
-                        ],
-                        staticClass: "col-auto p-1"
-                      },
-                      [
-                        _c("div", { staticClass: "svg-icon active" }, [
-                          _c("img", {
-                            attrs: {
-                              src: "/themes/wordplate/assets/images/anchor.svg",
-                              alt: "Dock Available",
-                              title: "Dock Available"
-                            }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.hasSearchCriteria(unit, "Canal Front"),
-                            expression: "hasSearchCriteria(unit, 'Canal Front')"
-                          }
-                        ],
-                        staticClass: "col-auto p-1"
-                      },
-                      [
-                        _c("div", { staticClass: "svg-icon active" }, [
-                          _c("img", {
-                            attrs: {
-                              src: "/themes/wordplate/assets/images/canal.svg",
-                              alt: "Canal Front",
-                              title: "Canal Front"
-                            }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.hasAmenity(unit, 22),
-                            expression: "hasAmenity(unit, 22)"
-                          }
-                        ],
-                        staticClass: "col-auto p-1"
-                      },
-                      [
-                        _c("div", { staticClass: "svg-icon active" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/themes/wordplate/assets/images/internet.svg",
-                              alt: "Internet Access",
-                              title: "Internet Access"
-                            }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.hasAmenity(unit, 48),
-                            expression: "hasAmenity(unit, 48)"
-                          }
-                        ],
-                        staticClass: "col-auto p-1"
-                      },
-                      [
-                        _c("div", { staticClass: "svg-icon active" }, [
-                          _c("img", {
-                            attrs: {
-                              src: "/themes/wordplate/assets/images/linens.svg",
-                              alt: "Linens Provided",
-                              title: "Linens Provided"
-                            }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.hasAmenity(unit, 50),
-                            expression: "hasAmenity(unit, 50)"
-                          }
-                        ],
-                        staticClass: "col-auto p-1"
-                      },
-                      [
-                        _c("div", { staticClass: "svg-icon active" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "/themes/wordplate/assets/images/pet-friendly.svg",
-                              alt: "Pet Friendly",
-                              title: "Pet Friendly"
-                            }
-                          })
-                        ])
-                      ]
-                    )
-                  ]
+    [
+      _vm.units.length === 0
+        ? _c(
+            "div",
+            {
+              key: "no-results",
+              staticClass: "py-5 text-center unit-list-item"
+            },
+            [
+              _c("p", [
+                _vm._v(
+                  "There are currently no properties matching your search criteria."
                 )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4 col-xl-3" }, [
-            _c(
-              "a",
-              {
-                staticClass: "property-image",
-                attrs: { href: "/property/" + unit.rns_id + "/" }
-              },
-              [
-                _c("img", {
-                  staticStyle: { width: "100%" },
-                  attrs: { src: unit.images[0].url }
-                })
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-8 col-xl-9" }, [
-            _c("div", { staticClass: "rental-feed-info" }, [
+              ])
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.units, function(unit) {
+        return _c(
+          "div",
+          { key: unit.id, staticClass: "row unit unit-list-item" },
+          [
+            _c("div", { staticClass: "col-12 mb-2" }, [
               _c(
                 "div",
                 {
                   staticClass:
-                    "row no-gutters tiles justify-content-center align-items-center"
+                    "d-flex justify-content-between align-items-center p-1 bg-dark px-4"
                 },
                 [
-                  _c("div", { staticClass: "col-auto text-center p-2 px-3" }, [
-                    _c("span", { staticClass: "data fira text-orange" }, [
-                      _vm._v(_vm._s(unit.details[0].beds))
-                    ]),
-                    _vm._v(" "),
+                  _c("h2", { staticClass: "p-0 m-0" }, [
                     _c(
-                      "span",
-                      { staticClass: "label fira text-info d-block" },
-                      [_vm._v("BEDS")]
+                      "a",
+                      {
+                        staticClass: "text-white",
+                        attrs: { href: "/property/" + unit.rns_id + "/" }
+                      },
+                      [_vm._v(_vm._s(unit.name))]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-auto text-center p-2 px-3" }, [
-                    _c("span", { staticClass: "data fira text-orange" }, [
-                      _vm._v(_vm._s(unit.details[0].baths))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      { staticClass: "label fira text-info d-block" },
-                      [_vm._v("BATHS")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-auto text-center p-2 px-3" }, [
-                    _c("span", { staticClass: "data fira text-orange" }, [
-                      _vm._v(_vm._s(unit.details[0].sleeps))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      { staticClass: "label fira text-info d-block" },
-                      [_vm._v("SLEEPS")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-auto p-2 flex-grow-1" }, [
-                    _c(
-                      "p",
-                      { staticClass: "subhead text-center" },
-                      _vm._l(unit.search_criteria, function(sc) {
-                        return _c(
-                          "span",
-                          {
-                            key: sc.id,
-                            staticClass:
-                              "px-3 py-1 m-1 fira text-uppercase d-inline-block bg-info text-white"
-                          },
-                          [_vm._v(_vm._s(sc.name))]
-                        )
-                      })
-                    )
-                  ])
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "unit-icons row no-gutters justify-content-center"
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.hasAmenity(unit, 45),
+                              expression: "hasAmenity(unit, 45)"
+                            }
+                          ],
+                          staticClass: "col-auto p-1"
+                        },
+                        [
+                          _c("div", { staticClass: "svg-icon active" }, [
+                            _c("img", {
+                              attrs: {
+                                src: "/themes/wordplate/assets/images/pool.svg",
+                                alt: "Pool Available",
+                                title: "Pool Available"
+                              }
+                            })
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: false,
+                              expression: "false"
+                            }
+                          ],
+                          staticClass: "col-auto p-1"
+                        },
+                        [
+                          _c("div", { staticClass: "svg-icon active" }, [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "/themes/wordplate/assets/images/anchor.svg",
+                                alt: "Dock Available",
+                                title: "Dock Available"
+                              }
+                            })
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.hasSearchCriteria(unit, "Canal Front"),
+                              expression:
+                                "hasSearchCriteria(unit, 'Canal Front')"
+                            }
+                          ],
+                          staticClass: "col-auto p-1"
+                        },
+                        [
+                          _c("div", { staticClass: "svg-icon active" }, [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "/themes/wordplate/assets/images/canal.svg",
+                                alt: "Canal Front",
+                                title: "Canal Front"
+                              }
+                            })
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.hasAmenity(unit, 22),
+                              expression: "hasAmenity(unit, 22)"
+                            }
+                          ],
+                          staticClass: "col-auto p-1"
+                        },
+                        [
+                          _c("div", { staticClass: "svg-icon active" }, [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "/themes/wordplate/assets/images/internet.svg",
+                                alt: "Internet Access",
+                                title: "Internet Access"
+                              }
+                            })
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.hasAmenity(unit, 48),
+                              expression: "hasAmenity(unit, 48)"
+                            }
+                          ],
+                          staticClass: "col-auto p-1"
+                        },
+                        [
+                          _c("div", { staticClass: "svg-icon active" }, [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "/themes/wordplate/assets/images/linens.svg",
+                                alt: "Linens Provided",
+                                title: "Linens Provided"
+                              }
+                            })
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.hasAmenity(unit, 50),
+                              expression: "hasAmenity(unit, 50)"
+                            }
+                          ],
+                          staticClass: "col-auto p-1"
+                        },
+                        [
+                          _c("div", { staticClass: "svg-icon active" }, [
+                            _c("img", {
+                              attrs: {
+                                src:
+                                  "/themes/wordplate/assets/images/pet-friendly.svg",
+                                alt: "Pet Friendly",
+                                title: "Pet Friendly"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ]
+                  )
                 ]
-              ),
-              _vm._v(" "),
-              _c("p", { staticClass: "m-0" }, [
-                _vm._v(_vm._s(unit.details[0].description))
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-12 d-flex mb-5 py-4 justify-content-between" },
-            [
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4 col-xl-3" }, [
               _c(
                 "a",
                 {
-                  staticClass: "btn btn-lg btn-outline-info btn-rounded",
+                  staticClass: "property-image",
                   attrs: { href: "/property/" + unit.rns_id + "/" }
                 },
                 [
-                  _vm._v("View Property   "),
-                  _c("i", {
-                    staticClass: "fa fa-angle-right",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-lg btn-outline-primary btn-rounded",
-                  attrs: { href: "/book-now/?unit_id=" + unit.rns_id + "/" }
-                },
-                [
-                  _vm._v("Book Now   "),
-                  _c("i", {
-                    staticClass: "fa fa-angle-right",
-                    attrs: { "aria-hidden": "true" }
+                  _c("img", {
+                    staticStyle: { width: "100%" },
+                    attrs: { src: unit.images[0].url }
                   })
                 ]
               )
-            ]
-          )
-        ]
-      )
-    })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-8 col-xl-9" }, [
+              _c("div", { staticClass: "rental-feed-info" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "row no-gutters tiles justify-content-center align-items-center"
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "col-auto text-center p-2 px-3" },
+                      [
+                        _c("span", { staticClass: "data fira text-orange" }, [
+                          _vm._v(_vm._s(unit.details[0].beds))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "label fira text-info d-block" },
+                          [_vm._v("BEDS")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-auto text-center p-2 px-3" },
+                      [
+                        _c("span", { staticClass: "data fira text-orange" }, [
+                          _vm._v(_vm._s(unit.details[0].baths))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "label fira text-info d-block" },
+                          [_vm._v("BATHS")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-auto text-center p-2 px-3" },
+                      [
+                        _c("span", { staticClass: "data fira text-orange" }, [
+                          _vm._v(_vm._s(unit.details[0].sleeps))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "label fira text-info d-block" },
+                          [_vm._v("SLEEPS")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-auto p-2 flex-grow-1" }, [
+                      _c(
+                        "p",
+                        { staticClass: "subhead text-center" },
+                        _vm._l(unit.search_criteria, function(sc) {
+                          return _c(
+                            "span",
+                            {
+                              key: sc.id,
+                              staticClass:
+                                "px-3 py-1 m-1 fira text-uppercase d-inline-block bg-info text-white"
+                            },
+                            [_vm._v(_vm._s(sc.name))]
+                          )
+                        })
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "m-0" }, [
+                  _vm._v(_vm._s(unit.details[0].description))
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-12 d-flex mb-5 py-4 justify-content-between"
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-lg btn-outline-info btn-rounded",
+                    attrs: { href: "/property/" + unit.rns_id + "/" }
+                  },
+                  [
+                    _vm._v("View Property   "),
+                    _c("i", {
+                      staticClass: "fa fa-angle-right",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-lg btn-outline-primary btn-rounded",
+                    attrs: { href: "/book-now/?unit_id=" + unit.rns_id + "/" }
+                  },
+                  [
+                    _vm._v("Book Now   "),
+                    _c("i", {
+                      staticClass: "fa fa-angle-right",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -47974,7 +48022,12 @@ var render = function() {
       "div",
       [
         _c("side-search-bar", {
-          attrs: { "data-type": _vm.type, "data-location": _vm.location },
+          attrs: {
+            "data-type": _vm.type,
+            "data-location": _vm.location,
+            "data-checkin": _vm.checkIn,
+            "data-checkout": _vm.checkOut
+          },
           on: { "apply-filters": _vm.applyFilters }
         })
       ],

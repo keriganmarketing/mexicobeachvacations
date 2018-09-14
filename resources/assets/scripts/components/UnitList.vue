@@ -1,5 +1,8 @@
 <template>
 <transition-group name="unit-list" appear>
+    <div class="py-5 text-center unit-list-item" :key="'no-results'" v-if="units.length === 0" >
+        <p>There are currently no properties matching your search criteria.</p>
+    </div>
     <div class="row unit unit-list-item" v-for="unit in units" :key="unit.id">
         <div class="col-12 mb-2">
             <div class="d-flex justify-content-between align-items-center p-1 bg-dark px-4">

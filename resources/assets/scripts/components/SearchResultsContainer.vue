@@ -4,6 +4,8 @@
         <side-search-bar 
             :data-type="type"
             :data-location="location"
+            :data-checkin="checkIn"
+            :data-checkout="checkOut"
             @apply-filters="applyFilters" 
         >
         </side-search-bar>
