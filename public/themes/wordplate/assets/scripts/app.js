@@ -7357,8 +7357,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         setTimeout(function () {
             _this.type = _this.dataType;
             _this.location = _this.dataLocation;
-            _this.$refs.datepicker._data.checkIn = new Date(_this.dataCheckin);
-            _this.$refs.datepicker._data.checkOut = new Date(_this.dataCheckout);
+            if (_this.dataCheckin != '' && _this.dataCheckout != '') {
+                _this.$refs.datepicker._data.checkIn = new Date(_this.dataCheckin);
+                _this.$refs.datepicker._data.checkOut = new Date(_this.dataCheckout);
+            }
         }, 200);
     },
 

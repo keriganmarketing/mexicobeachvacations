@@ -163,8 +163,10 @@ export default {
         setTimeout(() => {
             this.type = this.dataType;
             this.location = this.dataLocation;
-            this.$refs.datepicker._data.checkIn = new Date(this.dataCheckin);
-            this.$refs.datepicker._data.checkOut = new Date(this.dataCheckout);
+            if(this.dataCheckin !='' && this.dataCheckout != ''){
+                this.$refs.datepicker._data.checkIn = new Date(this.dataCheckin);
+                this.$refs.datepicker._data.checkOut = new Date(this.dataCheckout);
+            }
         }, 200);
 
     },
