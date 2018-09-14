@@ -7043,9 +7043,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         typeChanged: function typeChanged(payload) {
             this.type = payload;
+            this.getMatches();
         },
         locationChanged: function locationChanged(payload) {
             this.location = payload;
+            this.getMatches();
         },
         goto: function goto(destination) {
             var section = this.$refs[destination];
@@ -7405,9 +7407,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         typeChanged: function typeChanged(payload) {
             this.type = payload;
+            this.getMatches();
         },
         locationChanged: function locationChanged(payload) {
             this.location = payload;
+            this.getMatches();
         }
     }
 });

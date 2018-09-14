@@ -95,9 +95,11 @@ export default {
         },
         typeChanged(payload) {
             this.type = payload;
+            this.getMatches();
         },
         locationChanged(payload) {
             this.location = payload;
+            this.getMatches();
         },
         goto(destination) {
             let section = this.$refs[destination];
