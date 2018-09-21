@@ -57,10 +57,10 @@
                                             <div class="card-body">
                                                 <p><span v-text="item.day"></span><br>
                                                 <span v-text="item.date" style="font-size:.9em;" class="text-dark" ></span></p>
-                                                <p><weather-icon :code="item.code"></weather-icon></p>
+                                                {{-- <p><weather-icon :code="item.code"></weather-icon></p> --}}
                                                 High: <span v-text="item.high + '&deg;F'"></span><br>
                                                 Low: <span v-text="item.low + '&deg;F'"></span><br>
-                                                <span v-text="item.text"></span></p>
+                                                {{-- <span v-text="item.text"></span></p> --}}
                                             </div>
                                         </div>
                                     </div>
