@@ -70,6 +70,8 @@
                         </span>
                     </weather-fetcher>
 
+                    <div class="clearfix"></div>
+
                 </article>
             </div>
         </main>
