@@ -46,9 +46,9 @@ class PropertyManagementForm
                 ->setBody($this->messageBody('You\'ve received a new property management request.'))
                 ->setHeaders($headers)
                 ->setSubject('New Property Management Request')
-                ->setPrimaryColor('#b73838')
-                ->setSecondaryColor('#d74f0b')
-                ->to('bryan@kerigan.com');
+                ->setPrimaryColor('#54b2c5')
+                ->setSecondaryColor('#f4768e')
+                ->to('rentals@mexicobeachvacations.com');
 
         $mail = new KMAMail($message);
         $mail->send();
@@ -64,8 +64,8 @@ class PropertyManagementForm
                 ->setBody($this->messageBody('We\'ve received your request. Here\'s a copy of what you submitted. We\'ll be in touch soon!' ))
                 ->setHeaders($headers)
                 ->setSubject('Your Property Management Request')
-                ->setPrimaryColor('#b73838')
-                ->setSecondaryColor('#d74f0b')
+                ->setPrimaryColor('#54b2c5')
+                ->setSecondaryColor('#f4768e')
                 ->to($this->email);
 
         $mail = new KMAMail($message);
@@ -83,8 +83,10 @@ class PropertyManagementForm
     {
         return '
         <table cellspacing="0" cellpadding="0" border="0" class="datatable">
-            <tr><td>Name</td><td>' . $this->name . '</td></tr>
+            <tr><td>Name</td><td>' . $this->first_name . ' ' . $this->last_name . '</td></tr>
             <tr><td>Email</td><td>' . $this->email . '</td></tr>
+            <tr><td>Address</td><td>' . $this->phone . '</td></tr>
+            <tr><td>Phone Number</td><td>' . $this->address . '</td></tr>
             <tr><td>Additional Information</td><td>' . $this->comments  . '</td></tr>
         </table>
         ';
