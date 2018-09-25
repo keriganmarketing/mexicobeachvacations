@@ -60,7 +60,7 @@ class PropertyManagementForm
         $headers .= 'Content-type: text/html; charset=utf-8' . PHP_EOL;
 
         $message = new Message();
-        $message->setHeadline('Thank you for us')
+        $message->setHeadline('Thank you for contacting us')
                 ->setBody($this->messageBody('We\'ve received your request. Here\'s a copy of what you submitted. We\'ll be in touch soon!' ))
                 ->setHeaders($headers)
                 ->setSubject('Your Property Management Request')
