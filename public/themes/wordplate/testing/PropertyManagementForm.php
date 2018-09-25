@@ -30,8 +30,8 @@ class PropertyManagementForm
             return new \WP_Error($this->errorCode, $this->errorMessage, self::VALIDATION_ERROR);
         }
         $this->persistToDashboard();
-        /* $this->sendEmail(); */
-        /* $this->sendBounceback(); */
+        $this->sendEmail();
+        $this->sendBounceback();
 
         return rest_ensure_response(json_encode(['message' => 'Success']));
     }
