@@ -42,13 +42,13 @@ class PropertyManagementForm
         $headers .= 'Content-type: text/html; charset=utf-8' . PHP_EOL;
 
         $message = new Message();
-        $message->setHeadline('New Contact Request')
-                ->setBody($this->messageBody('You\'ve received a new contact request.'))
+        $message->setHeadline('New Property Management Request')
+                ->setBody($this->messageBody('You\'ve received a new property management request.'))
                 ->setHeaders($headers)
-                ->setSubject('New Contact Request')
+                ->setSubject('New Property Management Request')
                 ->setPrimaryColor('#b73838')
                 ->setSecondaryColor('#d74f0b')
-                ->to('web@kerigan.com');
+                ->to('bryan@kerigan.com');
 
         $mail = new KMAMail($message);
         $mail->send();
@@ -60,10 +60,10 @@ class PropertyManagementForm
         $headers .= 'Content-type: text/html; charset=utf-8' . PHP_EOL;
 
         $message = new Message();
-        $message->setHeadline('Thank you for contacting Big Fish Construction')
+        $message->setHeadline('Thank you for us')
                 ->setBody($this->messageBody('We\'ve received your request. Here\'s a copy of what you submitted. We\'ll be in touch soon!' ))
                 ->setHeaders($headers)
-                ->setSubject('Your Contact Request')
+                ->setSubject('Your Property Management Request')
                 ->setPrimaryColor('#b73838')
                 ->setSecondaryColor('#d74f0b')
                 ->to($this->email);
