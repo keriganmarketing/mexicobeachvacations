@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="#6d9aea">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800" rel="stylesheet">
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.prototype.find,Intl" ></script>
   {{ wp_head() }}
 </head>
 <body {{ body_class() }}>
