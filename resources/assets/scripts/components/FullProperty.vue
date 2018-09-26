@@ -8,6 +8,19 @@
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4">                    
                 <img :src="property.images[0].url" :alt="property.images[0].description" class="img-fluid" >
+
+                <div class="long-term-amen mt-4"  v-if="hasSearchCriteria(property, 40)" >
+                    <h2>Amenties</h2>
+                    <div class="table-responsive">
+                    <table class="table table-sm table-striped amenity-table">
+                        <tbody>
+                            <tr v-for="amenity in property.amenities" :key="amenity.id">
+                                <td class="data-label">{{ amenity.name }}</td><td>{{ amenity.description }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
             </div>
             <div class="col-md-8 property-info mb-4">
                 
@@ -19,6 +32,7 @@
                     </div>
                     <div class="col-12 col-md-auto flex-grow-1 text-md-right" >
                         <a v-if="!hasSearchCriteria(property, 40)" :href="'/book-now/?unit_id=' + property.rns_id" class="btn btn-lg btn-primary btn-rounded btn-outline-primary">Book Now</a>
+                        <span v-else class="text-primary fira" >Call for Rates & Availability</span>
                     </div>
                 </div>
 
@@ -38,8 +52,8 @@
                         <span class="label">SLEEPS</span>
                     </div>
                     <div class="col-12 col-md-auto action-buttons flex-grow-1 text-xl-right" >
-                        <a class="btn btn-info btn-rounded my-1" @click="goto('rates')">Rates</a>
-                        <a class="btn btn-info btn-rounded my-1" @click="goto('availability')">Availability</a>
+                        <a v-if="!hasSearchCriteria(property, 40)" class="btn btn-info btn-rounded my-1" @click="goto('rates')">Rates</a>
+                        <a v-if="!hasSearchCriteria(property, 40)" class="btn btn-info btn-rounded my-1" @click="goto('availability')">Availability</a>
                         <a class="btn btn-info btn-rounded my-1" @click="goto('photos')">Photos</a>
                         <a class="btn btn-info btn-rounded my-1" @click="goto('location')">Location</a>
                     </div>
@@ -53,7 +67,7 @@
 
         </div>
 
-        <div class="row mb-4">
+        <div v-if="!hasSearchCriteria(property, 40)" class="row mb-4">
 
             <div class="col-md-6">
                 <a name="amenities"></a>
@@ -100,7 +114,7 @@
             </div>
         </div>
 
-        <div class="row mb-4 availability-section" ref="availability">
+        <div v-if="!hasSearchCriteria(property, 40)" class="row mb-4 availability-section" ref="availability">
             <div class="col-12">
                 <hr>
                 <a name="availability"></a>
@@ -163,10 +177,13 @@ export default {
             calendarOptions: [{
                 dates: [],
                 highlight: {
-                    backgroundColor: '#ff8080',
+                    backgroundColor: '#ffecec',
+                    borderColor: '#ff8080',
+                    opacity: '1',
+                    borderWidth: '2px'
                 },
                 contentStyle: {
-                    color: '#ffffff',
+                    color: '#ff8080',
                 }
             }],
             bookings: []
@@ -180,8 +197,8 @@ export default {
 
             this.property.availability.forEach( booking => {
                 this.bookings.push({
-                    start: booking.arrival_date,
-                    end: booking.departure_date,
+                    start: moment(booking.arrival_date),
+                    end: moment(booking.departure_date),
                     title: 'Booked',
                     id: booking.rns_id
                 });

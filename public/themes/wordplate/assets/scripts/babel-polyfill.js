@@ -5599,16 +5599,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             email: null,
             termsAccepted: false,
             calendarOptions: [{
+                dates: [],
                 highlight: {
-                    backgroundColor: '#ffecec',
-                    borderColor: '#ff8080',
-                    opacity: '1',
-                    borderWidth: '2px'
+                    backgroundColor: '#ff8080'
                 },
                 contentStyle: {
-                    color: 'white'
-                },
-                dates: []
+                    color: '#ffffff'
+                }
             }],
             unit: {},
             rateDetails: {},
@@ -5686,8 +5683,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 _this.unit.availability.forEach(function (booking) {
                     _this.bookings.push({
-                        start: __WEBPACK_IMPORTED_MODULE_7_moment___default()(booking.arrival_date),
-                        end: __WEBPACK_IMPORTED_MODULE_7_moment___default()(booking.departure_date),
+                        start: booking.arrival_date,
+                        end: booking.departure_date,
                         title: 'Booked',
                         id: booking.rns_id
                     });
@@ -6434,13 +6431,10 @@ Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
             calendarOptions: [{
                 dates: [],
                 highlight: {
-                    backgroundColor: '#ffecec',
-                    borderColor: '#ff8080',
-                    opacity: '1',
-                    borderWidth: '2px'
+                    backgroundColor: '#ff8080'
                 },
                 contentStyle: {
-                    color: '#ff8080'
+                    color: '#ffffff'
                 }
             }],
             bookings: []
@@ -6455,8 +6449,8 @@ Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
 
             _this.property.availability.forEach(function (booking) {
                 _this.bookings.push({
-                    start: __WEBPACK_IMPORTED_MODULE_0_moment___default()(booking.arrival_date),
-                    end: __WEBPACK_IMPORTED_MODULE_0_moment___default()(booking.departure_date),
+                    start: booking.arrival_date,
+                    end: booking.departure_date,
                     title: 'Booked',
                     id: booking.rns_id
                 });
@@ -19834,7 +19828,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.project-list-enter-active, .project-list-leave-active {\n  transition: all .4s;\n}\n.project-list-enter, .project-list-leave-to /* .list-leave-active below version 2.1.8 */ {\n  opacity: 0;\n  -webkit-transform: translateY(30px);\n          transform: translateY(30px);\n}\n.separator {\n    width: 1px;\n    background-color: #999;\n    height: 100%;\n}\n.project-tile .card-body {\n    padding: 2rem 1.25rem;\n}\n.project-tile h3 {\n    font-size: 16px;\n    font-weight: 900;\n}\n.project-tile p {\n    font-size: 11px;\n}\n\n", ""]);
+exports.push([module.i, "\n.project-list-enter-active, .project-list-leave-active {\r\n  transition: all .4s;\n}\n.project-list-enter, .project-list-leave-to /* .list-leave-active below version 2.1.8 */ {\r\n  opacity: 0;\r\n  -webkit-transform: translateY(30px);\r\n          transform: translateY(30px);\n}\n.separator {\r\n    width: 1px;\r\n    background-color: #999;\r\n    height: 100%;\n}\n.project-tile .card-body {\r\n    padding: 2rem 1.25rem;\n}\n.project-tile h3 {\r\n    font-size: 16px;\r\n    font-weight: 900;\n}\n.project-tile p {\r\n    font-size: 11px;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -47718,7 +47712,7 @@ var render = function() {
           staticClass: "btn btn-info col-6 col-md-12",
           on: { click: _vm.toggleSearch }
         },
-        [_vm._v("\n            Update Search\n        ")]
+        [_vm._v("\r\n            Update Search\r\n        ")]
       ),
       _vm._v(" "),
       _c(
@@ -47727,7 +47721,7 @@ var render = function() {
           staticClass: "btn btn-info col-6 col-md-12",
           on: { click: _vm.toggleFilters }
         },
-        [_vm._v("\n            Apply Filters\n        ")]
+        [_vm._v("\r\n            Apply Filters\r\n        ")]
       )
     ]),
     _vm._v(" "),
@@ -47949,7 +47943,7 @@ var render = function() {
                   })
                 ]
               ),
-              _vm._v("\n                Pool Available\n            ")
+              _vm._v("\r\n                Pool Available\r\n            ")
             ]
           )
         ]),
@@ -48023,7 +48017,7 @@ var render = function() {
                   })
                 ]
               ),
-              _vm._v("\n                Dock Available\n            ")
+              _vm._v("\r\n                Dock Available\r\n            ")
             ]
           )
         ]),
@@ -48097,7 +48091,7 @@ var render = function() {
                   })
                 ]
               ),
-              _vm._v("\n                Canal Front\n            ")
+              _vm._v("\r\n                Canal Front\r\n            ")
             ]
           )
         ]),
@@ -48171,7 +48165,7 @@ var render = function() {
                   })
                 ]
               ),
-              _vm._v("\n                Internet Access\n            ")
+              _vm._v("\r\n                Internet Access\r\n            ")
             ]
           )
         ]),
@@ -48245,7 +48239,7 @@ var render = function() {
                   })
                 ]
               ),
-              _vm._v("\n                Linens Provided\n            ")
+              _vm._v("\r\n                Linens Provided\r\n            ")
             ]
           )
         ]),
@@ -48319,7 +48313,7 @@ var render = function() {
                   })
                 ]
               ),
-              _vm._v("\n                Pet Friendly\n            ")
+              _vm._v("\r\n                Pet Friendly\r\n            ")
             ]
           )
         ])
@@ -48748,7 +48742,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("e147ddd2", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("765d0492", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48775,7 +48769,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("176edb70", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("87d94cb0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48802,7 +48796,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("866d26a8", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("36d8394c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48829,7 +48823,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("10d45b82", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("82bdbfbc", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48856,7 +48850,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("191dbb96", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("d5df8ffc", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48883,7 +48877,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("05fedd2a", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("c2c0b190", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48910,7 +48904,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("056ea256", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("455e2635", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48937,7 +48931,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("3150bafc", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("aaee3b48", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48964,7 +48958,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("2b0814bd", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("4e564d46", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48991,7 +48985,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("2451d200", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("670f3e60", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49018,7 +49012,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("dce81cdc", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("67a0169f", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49045,7 +49039,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("9e82fc94", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("1e6c9e56", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49072,7 +49066,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("55857d16", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("e05293d6", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49099,7 +49093,7 @@ var content = __webpack_require__("./node_modules/css-loader/index.js!./node_mod
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("19e9ef84", content, false, {});
+var update = __webpack_require__("./node_modules/vue-style-loader/lib/addStylesClient.js")("61ff66e4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -63046,6 +63040,7 @@ var WeatherIcon = function () {
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
+(function webpackMissingModule() { throw new Error("Cannot find module \"D:\\dev\\mexicobeachvacations\\babel-polyfill\""); }());
 __webpack_require__("./resources/assets/scripts/app.js");
 module.exports = __webpack_require__("./resources/assets/styles/app.scss");
 
