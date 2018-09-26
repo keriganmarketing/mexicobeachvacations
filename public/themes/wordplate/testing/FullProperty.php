@@ -45,17 +45,25 @@ class FullProperty
     {
         add_filter('wpseo_title', function () {
             $title = $this->property->name;
-            $metaTitle = $title . ' | ' . get_bloginfo('name');
+            $propertyType = $this->property->search_criteria[1]->name;
+            $metaTitle = $title . ' | ' . $propertyType . ' | ' . get_bloginfo('name');
             return $metaTitle;
         });
 
         add_filter('wpseo_metadesc', function () {
-            return strip_tags($this->property->details[0]->description);
+            $description = $this->property->details[0]->description;
+            if (strlen($description) > 300) {
+                $description = substr($description, 0, 300) . '...';
+                return $description;
+            } else {
+                return $description;
+            }
         });
 
-        add_filter('wpseo_opengraph_image', function () {
-            return($this->media['photos'][0]->url != '' ? $this->media['photos'][0]->url : get_template_directory_uri() . '/img/nophoto.jpg');
-        });
+        //add_filter('wpseo_opengraph_image', function () {
+        //    $image = $this->property->images->base_url[0];
+        //    return $image;
+        //});
 
         add_filter('wpseo_canonical', function () {
             return get_the_permalink() . $this->property->rns_id . '/';
