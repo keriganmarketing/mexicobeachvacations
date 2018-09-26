@@ -40,19 +40,17 @@ class FullProperty
 
         $results = json_decode($apiCall->getBody());
         $this->property = $results;
-
-        return $results;
     }
     public function setPropertySeo()
     {
         add_filter('wpseo_title', function () {
-            $title = $this->property->property_num . ' ' . $this->property->property_name;
-            $title = ($this->property->preperty_num != '' ? $title . ' ' . $this->property->property_num : $title);
+            $title = $this->property->name;
             $metaTitle = $title . ' | ' . get_bloginfo('name');
+            return $metaTitle;
         });
 
         add_filter('wpseo_metadesc', function () {
-            return strip_tags($this->property->remarks);
+            return strip_tags($this->property->details[0]->description);
         });
 
         add_filter('wpseo_opengraph_image', function () {
@@ -60,11 +58,11 @@ class FullProperty
         });
 
         add_filter('wpseo_canonical', function () {
-            return get_the_permalink() . $this->property->mls_account . '/';
+            return get_the_permalink() . $this->property->rns_id . '/';
         });
 
         add_filter('wpseo_opengraph_url', function ($ogUrl) {
-            return get_the_permalink() . $this->property->mls_account . '/';
+            return get_the_permalink() . $this->property->rns_id . '/';
         });
     }
 }
