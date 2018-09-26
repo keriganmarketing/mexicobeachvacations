@@ -19,6 +19,7 @@ require('post-types/contact_request.php');
 require('post-types/property_request.php');
 require('testing/KMAMail/KMAMail.php');
 require('testing/KMAMail/Message.php');
+require('testing/FullProperty.php');
 
 
 (new Testimonial())->menuIcon('editor-quote')->use();
@@ -83,7 +84,8 @@ add_filter('bladerunner/cache/path', function () {
 });
 
 function expand_login_logo()
-{ ?>
+{
+    ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
             width: auto;
@@ -94,7 +96,8 @@ function expand_login_logo()
 add_action('login_enqueue_scripts', 'expand_login_logo');
 
 
-function team_shortcode() {
+function team_shortcode()
+{
     $output =
     '<div class="team-grid">
         <div class="row justify-content-center">';
@@ -102,10 +105,10 @@ function team_shortcode() {
     $team = new Team();
     $members = $team->queryTeam();
 
-    foreach($members as $member){
-        $image = ( isset($member['image']['sizes']['thumbnail']) && $member['image']['sizes']['thumbnail'] != '' 
-                ? $member['image']['sizes']['thumbnail'] 
-                : '/themes/wordplate/assets/images/placeholder-team.jpg' );
+    foreach ($members as $member) {
+        $image = (isset($member['image']['sizes']['thumbnail']) && $member['image']['sizes']['thumbnail'] != ''
+                ? $member['image']['sizes']['thumbnail']
+                : '/themes/wordplate/assets/images/placeholder-team.jpg');
 
         $output .=
         '<div class="col-md-6 col-lg-4">
@@ -128,15 +131,16 @@ function team_shortcode() {
 
     return $output;
 }
-add_shortcode( 'team', 'team_shortcode' );
+add_shortcode('team', 'team_shortcode');
 
-function testimonial_shortcode( $atts ) {
-    $a = shortcode_atts( [
+function testimonial_shortcode($atts)
+{
+    $a = shortcode_atts([
         'limit'    => -1,
         'featured' => false,
         'order'    => 'ASC',
         'orderby'  => 'menu_order'
-    ], $atts );
+    ], $atts);
 
     $testimonials = new Testimonial;
     $list = $testimonials->queryTestimonials($a['featured'], $a['limit'], $a['orderby'], $a['order']);
@@ -155,15 +159,15 @@ function testimonial_shortcode( $atts ) {
 
     return $output;
 }
-add_shortcode( 'kma_testimonials', 'testimonial_shortcode' );
+add_shortcode('kma_testimonials', 'testimonial_shortcode');
 
 
-add_shortcode( 'kma_photos', function($atts){
-    $a = shortcode_atts( [
+add_shortcode('kma_photos', function ($atts) {
+    $a = shortcode_atts([
         'gallery' => '',
-    ], $atts );
+    ], $atts);
 
     $gallery = json_encode(get_field($a['gallery']));
 
     return "<photo-gallery :data-photos='" . $gallery . "' ></photo-gallery>";
-} );
+});
