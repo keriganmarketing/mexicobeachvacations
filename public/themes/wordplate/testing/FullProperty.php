@@ -46,18 +46,15 @@ class FullProperty
         add_filter('wpseo_title', function () {
             $title = $this->property->name;
             $propertyType = $this->property->search_criteria[1]->name;
+
             $metaTitle = $title . ' | ' . $propertyType . ' | ' . get_bloginfo('name');
             return $metaTitle;
         });
 
         add_filter('wpseo_metadesc', function () {
             $description = $this->property->details[0]->description;
-            if (strlen($description) > 300) {
-                $description = substr($description, 0, 300) . '...';
-                return $description;
-            } else {
-                return $description;
-            }
+            $description = strlen($description) > 300 ? substr($description, 0, 300) . '...' : $description;
+            return $description;
         });
 
         //add_filter('wpseo_opengraph_image', function () {
