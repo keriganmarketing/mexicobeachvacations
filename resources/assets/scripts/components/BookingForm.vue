@@ -121,13 +121,16 @@ export default {
             email: null,
             termsAccepted: false,
             calendarOptions: [{
-                dates: [],
                 highlight: {
-                    backgroundColor: '#ff8080',
+                    backgroundColor: '#ffecec',
+                    borderColor: '#ff8080',
+                    opacity: '1',
+                    borderWidth: '2px'
                 },
                 contentStyle: {
-                    color: '#ffffff',
-                }
+                    color: 'white',         
+                },
+                dates: [],
             }],
             unit: {},
             rateDetails: {},
@@ -204,8 +207,8 @@ export default {
 
                     this.unit.availability.forEach( booking => {
                         this.bookings.push({
-                            start: booking.arrival_date,
-                            end: booking.departure_date,
+                            start: moment(booking.arrival_date),
+                            end: moment(booking.departure_date),
                             title: 'Booked',
                             id: booking.rns_id
                         });

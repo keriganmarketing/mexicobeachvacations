@@ -177,10 +177,13 @@ export default {
             calendarOptions: [{
                 dates: [],
                 highlight: {
-                    backgroundColor: '#ff8080',
+                    backgroundColor: '#ffecec',
+                    borderColor: '#ff8080',
+                    opacity: '1',
+                    borderWidth: '2px'
                 },
                 contentStyle: {
-                    color: '#ffffff',
+                    color: '#ff8080',
                 }
             }],
             bookings: []
@@ -194,8 +197,8 @@ export default {
 
             this.property.availability.forEach( booking => {
                 this.bookings.push({
-                    start: booking.arrival_date,
-                    end: booking.departure_date,
+                    start: moment(booking.arrival_date),
+                    end: moment(booking.departure_date),
                     title: 'Booked',
                     id: booking.rns_id
                 });
