@@ -8,6 +8,8 @@ $headerImageData = get_field('header_image');
 $unit = explode('/', $_SERVER['REQUEST_URI']);
 // echo '<pre>',print_r($unit),'</pre>';
 
+{{  print_r($title);  }}
+
 bladerunner('views.pages.property', [
     'unit' => $unit[2],
     'headerImage' => $headerImageData['url'],
