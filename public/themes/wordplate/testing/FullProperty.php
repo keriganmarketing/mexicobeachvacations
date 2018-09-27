@@ -32,7 +32,7 @@ class FullProperty
 
     public function create()
     {
-        $client = new Client(['base_uri' => 'https://rns.mexicobeachvacations.com/']);
+        $client = new Client(['base_uri' => 'https://rns.mexicobeachvacations.com/', 'http_errors' => false]);
         $apiCall = $client->request(
             'GET',
             'units/' . $this->rns_id
@@ -43,10 +43,21 @@ class FullProperty
     }
     public function setPropertySeo()
     {
+        //$image = getimagesize($this->property->images[0]->base_url);
+        //$imageParts = getimagesize($image);
+
         add_filter('wpseo_title', function () {
             $title = $this->property->name;
-            $propertyType = $this->property->search_criteria[1]->name;
-
+            $propertyType = [];
+            $longTermRental = 40;
+            $vacationRental = 41;
+            foreach ($this->property->search_criteria as $searchCriteria) {
+                if ($vacationRental == $searchCriteria->rns_id) {
+                    $propertyType = $searchCriteria->name;
+                } elseif ($longTermRental == $searchCriteria->rns_id) {
+                    $propertyType = $searchCriteria->name;
+                }
+            }
             $metaTitle = $title . ' | ' . $propertyType . ' | ' . get_bloginfo('name');
             return $metaTitle;
         });
@@ -57,10 +68,32 @@ class FullProperty
             return $description;
         });
 
-        //add_filter('wpseo_opengraph_image', function () {
-        //    $image = $this->property->images->base_url[0];
-        //    return $image;
-        //});
+        add_filter('wpseo_opengraph_image', function () {
+            return null;
+        });
+
+        add_action('wpseo_add_opengraph_image', function () {
+            foreach ($this->property->images as $image) {
+                echo '<meta property="og:image" content="' .  $image->url . '" />', "\n";
+                echo '<meta property="og:image:secure_url" content="' .  str_replace('http://', 'https://', $this->listingInfo->preferred_image) . '" />', "\n";
+            }
+
+            $image = getimagesize($this->property->images[0]->url);
+            $imageParts = getimagesize($image);
+
+            echo '<meta property="og:image" content="' .  $this->property->images[0]->url . '" />', "\n";
+            echo '<meta property="og:image:secure_url" content="' . str_replace('http://', 'https://', $this->property->images[0]->url) . '" />', "\n";
+            echo '<meta property="og:image:width" content="' .  $imageParts['0'] . '" />', "\n";
+            echo '<meta property="og:image:height" content="' .  $imageParts['1'] . '" />', "\n";
+        });
+
+        add_filter('wpseo_og_og_image_width', function () {
+            return null;
+        });
+
+        add_filter('wpseo_og_og_image_height', function () {
+            return null;
+        });
 
         add_filter('wpseo_canonical', function () {
             return get_the_permalink() . $this->property->rns_id . '/';
