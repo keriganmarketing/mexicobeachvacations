@@ -69,8 +69,13 @@ class FullProperty
             return null;
         });
 
+
         add_action('wpseo_opengraph', function () {
-            $imageParts = getimagesize($this->property->images[0]->url);
+            $imageParts = getimagesize(str_replace(' ', "%20", $this->property->images[0]->url));
+
+            // if (strpos($http_response_header[0], '200') === false) {
+            //     exit('HTTP Error: ' . $http_response_header[0]);
+            // }
 
             echo '<meta property="og:image" content="' .  $this->property->images[0]->url . '" />', "\n";
             echo '<meta property="og:image:secure_url" content="' . str_replace('http://', 'https://', $this->property->images[0]->url) . '" />', "\n";
