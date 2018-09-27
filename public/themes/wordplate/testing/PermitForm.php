@@ -8,7 +8,6 @@ use KeriganSolutions\KMAMail\KMAMail;
 
 class PermitForm
 {
-
     public $name;
     public $email;
     public $maxWidth;
@@ -70,7 +69,6 @@ class PermitForm
                 update_post_meta($id, $param, $value);
             }
         }
-
     }
 
     public function submitPermitForm(WP_REST_Request $request)
@@ -112,7 +110,7 @@ class PermitForm
 
         $message = new Message();
         $message->setHeadline('Thank you for trusting Big Fish Construction')
-                ->setBody($this->messageBody('We\'ve received your request. Here\'s a copy of what you submitted. We\'ll be in touch soon!' ))
+                ->setBody($this->messageBody('We\'ve received your request. Here\'s a copy of what you submitted. We\'ll be in touch soon!'))
                 ->setHeaders($headers)
                 ->setSubject('Your Plans & Permitting Request')
                 ->setPrimaryColor('#b73838')
@@ -123,7 +121,7 @@ class PermitForm
         $mail->send();
     }
 
-    public function messageBody( $introText )
+    public function messageBody($introText)
     {
         return '
         <p>'.$introText.'</p>' .

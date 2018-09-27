@@ -1,14 +1,13 @@
 <?php
 
 use KeriganSolutions\Search\Search;
+use Testing\FullProperty;
 
-// $unit = (isset($_GET['id']) && $_GET['id']!='' ? $_GET['id'] : null );
 $headerImageData = get_field('header_image');
-$unit = explode('/',$_SERVER['REQUEST_URI']);
-// echo '<pre>',print_r($unit),'</pre>';
+$fullProperty = new FullProperty();
 
-bladerunner('views.pages.property',[
-    'unit' => $unit[2],
+bladerunner('views.pages.property', [
     'headerImage' => $headerImageData['url'],
-    'headline'    => get_field('headline')
+    'headline'    => get_field('headline'),
+    'fullProperty' => $fullProperty->getProperty()
 ]);
