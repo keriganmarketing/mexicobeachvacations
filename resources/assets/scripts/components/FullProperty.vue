@@ -1,5 +1,5 @@
 <template>
-    <div class="full-property" >
+    <div v-if="propertyLoaded" class="full-property" >
         <header class="text-primary">
             <h1 style="text-transform: capitalize;">{{ property.name.toLowerCase() }} <span class="unitid fira d-inline-block">Unit ID: {{ property.details[0].prop_number }}</span></h1>
             <h2 class="proprty-address">{{ property.details[0].address }}</h2>
@@ -207,7 +207,7 @@ export default {
         });
 
         this.calendarOptions[0].dates = this.bookings;
-
+        this.propertyLoaded = true;
     },
     methods: {
         formatDate(date){

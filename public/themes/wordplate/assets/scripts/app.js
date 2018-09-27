@@ -6467,6 +6467,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_v_calendar__["setupCalendar"])({
         });
 
         this.calendarOptions[0].dates = this.bookings;
+        this.propertyLoaded = true;
     },
 
     methods: {
@@ -45035,365 +45036,384 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "full-property" }, [
-    _c("header", { staticClass: "text-primary" }, [
-      _c("h1", { staticStyle: { "text-transform": "capitalize" } }, [
-        _vm._v(_vm._s(_vm.property.name.toLowerCase()) + " "),
-        _c("span", { staticClass: "unitid fira d-inline-block" }, [
-          _vm._v("Unit ID: " + _vm._s(_vm.property.details[0].prop_number))
-        ])
-      ]),
-      _vm._v(" "),
-      _c("h2", { staticClass: "proprty-address" }, [
-        _vm._v(_vm._s(_vm.property.details[0].address))
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6 col-lg-4 mb-4" }, [
-        _c("img", {
-          staticClass: "img-fluid",
-          attrs: {
-            src: _vm.property.images[0].url,
-            alt: _vm.property.images[0].description
-          }
-        }),
-        _vm._v(" "),
-        _vm.hasSearchCriteria(_vm.property, 40)
-          ? _c("div", { staticClass: "long-term-amen mt-4" }, [
-              _c("h2", [_vm._v("Amenties")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "table-responsive" }, [
-                _c(
-                  "table",
-                  { staticClass: "table table-sm table-striped amenity-table" },
-                  [
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.property.amenities, function(amenity) {
-                        return _c("tr", { key: amenity.id }, [
-                          _c("td", { staticClass: "data-label" }, [
-                            _vm._v(_vm._s(amenity.name))
-                          ]),
-                          _c("td", [_vm._v(_vm._s(amenity.description))])
-                        ])
-                      })
-                    )
-                  ]
-                )
-              ])
+  return _vm.propertyLoaded
+    ? _c("div", { staticClass: "full-property" }, [
+        _c("header", { staticClass: "text-primary" }, [
+          _c("h1", { staticStyle: { "text-transform": "capitalize" } }, [
+            _vm._v(_vm._s(_vm.property.name.toLowerCase()) + " "),
+            _c("span", { staticClass: "unitid fira d-inline-block" }, [
+              _vm._v("Unit ID: " + _vm._s(_vm.property.details[0].prop_number))
             ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-8 property-info mb-4" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "row no-gutters tiles align-items-center full-width text-center text-md-left"
-          },
-          [
-            _c("div", { staticClass: "col-md-auto" }, [
-              _c(
-                "h2",
-                {
-                  staticClass: "subhead d-flex flex-row justify-content-between"
-                },
-                _vm._l(_vm.property.search_criteria, function(sc) {
-                  return _c(
-                    "span",
-                    { key: sc.id, staticClass: "mx-2 border p-2" },
-                    [_vm._v(_vm._s(sc.name))]
-                  )
-                })
-              )
-            ]),
+          ]),
+          _vm._v(" "),
+          _c("h2", { staticClass: "proprty-address" }, [
+            _vm._v(_vm._s(_vm.property.details[0].address))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6 col-lg-4 mb-4" }, [
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: {
+                src: _vm.property.images[0].url,
+                alt: _vm.property.images[0].description
+              }
+            }),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-12 col-md-auto flex-grow-1 text-md-right" },
-              [
-                !_vm.hasSearchCriteria(_vm.property, 40)
-                  ? _c(
-                      "a",
+            _vm.hasSearchCriteria(_vm.property, 40)
+              ? _c("div", { staticClass: "long-term-amen mt-4" }, [
+                  _c("h2", [_vm._v("Amenties")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c(
+                      "table",
                       {
                         staticClass:
-                          "btn btn-lg btn-primary btn-rounded btn-outline-primary",
-                        attrs: {
-                          href: "/book-now/?unit_id=" + _vm.property.rns_id
-                        }
+                          "table table-sm table-striped amenity-table"
                       },
-                      [_vm._v("Book Now")]
+                      [
+                        _c(
+                          "tbody",
+                          _vm._l(_vm.property.amenities, function(amenity) {
+                            return _c("tr", { key: amenity.id }, [
+                              _c("td", { staticClass: "data-label" }, [
+                                _vm._v(_vm._s(amenity.name))
+                              ]),
+                              _c("td", [_vm._v(_vm._s(amenity.description))])
+                            ])
+                          })
+                        )
+                      ]
                     )
-                  : _c("span", { staticClass: "text-primary fira" }, [
-                      _vm._v("Call for Rates & Availability")
-                    ])
+                  ])
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-8 property-info mb-4" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row no-gutters tiles align-items-center full-width text-center text-md-left"
+              },
+              [
+                _c("div", { staticClass: "col-md-auto" }, [
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "subhead d-flex flex-row justify-content-between"
+                    },
+                    _vm._l(_vm.property.search_criteria, function(sc) {
+                      return _c(
+                        "span",
+                        { key: sc.id, staticClass: "mx-2 border p-2" },
+                        [_vm._v(_vm._s(sc.name))]
+                      )
+                    })
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-12 col-md-auto flex-grow-1 text-md-right"
+                  },
+                  [
+                    !_vm.hasSearchCriteria(_vm.property, 40)
+                      ? _c(
+                          "a",
+                          {
+                            staticClass:
+                              "btn btn-lg btn-primary btn-rounded btn-outline-primary",
+                            attrs: {
+                              href: "/book-now/?unit_id=" + _vm.property.rns_id
+                            }
+                          },
+                          [_vm._v("Book Now")]
+                        )
+                      : _c("span", { staticClass: "text-primary fira" }, [
+                          _vm._v("Call for Rates & Availability")
+                        ])
+                  ]
+                )
               ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "row no-gutters tiles align-items-center full-width text-center justify-content-center justify-content-start-md"
-          },
-          [
-            _c("div", { staticClass: "col-auto my-1" }, [
-              _c("span", { staticClass: "data" }, [
-                _vm._v(_vm._s(_vm.property.details[0].beds))
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "label" }, [_vm._v("BEDS")])
-            ]),
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-auto my-1" }, [
-              _c("span", { staticClass: "data" }, [
-                _vm._v(_vm._s(_vm.property.details[0].baths))
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "label" }, [_vm._v("BATHS")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-auto my-1" }, [
-              _c("span", { staticClass: "data" }, [
-                _vm._v(_vm._s(_vm.property.details[0].sleeps))
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
-            ]),
+            _c("hr"),
             _vm._v(" "),
             _c(
               "div",
               {
                 staticClass:
-                  "col-12 col-md-auto action-buttons flex-grow-1 text-xl-right"
+                  "row no-gutters tiles align-items-center full-width text-center justify-content-center justify-content-start-md"
               },
               [
-                !_vm.hasSearchCriteria(_vm.property, 40)
-                  ? _c(
+                _c("div", { staticClass: "col-auto my-1" }, [
+                  _c("span", { staticClass: "data" }, [
+                    _vm._v(_vm._s(_vm.property.details[0].beds))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "label" }, [_vm._v("BEDS")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto my-1" }, [
+                  _c("span", { staticClass: "data" }, [
+                    _vm._v(_vm._s(_vm.property.details[0].baths))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "label" }, [_vm._v("BATHS")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto my-1" }, [
+                  _c("span", { staticClass: "data" }, [
+                    _vm._v(_vm._s(_vm.property.details[0].sleeps))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "label" }, [_vm._v("SLEEPS")])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-12 col-md-auto action-buttons flex-grow-1 text-xl-right"
+                  },
+                  [
+                    !_vm.hasSearchCriteria(_vm.property, 40)
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-info btn-rounded my-1",
+                            on: {
+                              click: function($event) {
+                                _vm.goto("rates")
+                              }
+                            }
+                          },
+                          [_vm._v("Rates")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !_vm.hasSearchCriteria(_vm.property, 40)
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-info btn-rounded my-1",
+                            on: {
+                              click: function($event) {
+                                _vm.goto("availability")
+                              }
+                            }
+                          },
+                          [_vm._v("Availability")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
                       "a",
                       {
                         staticClass: "btn btn-info btn-rounded my-1",
                         on: {
                           click: function($event) {
-                            _vm.goto("rates")
+                            _vm.goto("photos")
                           }
                         }
                       },
-                      [_vm._v("Rates")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                !_vm.hasSearchCriteria(_vm.property, 40)
-                  ? _c(
+                      [_vm._v("Photos")]
+                    ),
+                    _vm._v(" "),
+                    _c(
                       "a",
                       {
                         staticClass: "btn btn-info btn-rounded my-1",
                         on: {
                           click: function($event) {
-                            _vm.goto("availability")
+                            _vm.goto("location")
                           }
                         }
                       },
-                      [_vm._v("Availability")]
+                      [_vm._v("Location")]
                     )
-                  : _vm._e(),
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("p", {
+              domProps: {
+                innerHTML: _vm._s(_vm.property.details[0].description)
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        !_vm.hasSearchCriteria(_vm.property, 40)
+          ? _c("div", { staticClass: "row mb-4" }, [
+              _c("div", { staticClass: "col-md-6" }, [
+                _c("a", { attrs: { name: "amenities" } }),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Amenties")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "table-responsive" }, [
+                  _c(
+                    "table",
+                    {
+                      staticClass: "table table-sm table-striped amenity-table"
+                    },
+                    [
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.property.amenities, function(amenity) {
+                          return _c("tr", { key: amenity.id }, [
+                            _c("td", { staticClass: "data-label" }, [
+                              _vm._v(_vm._s(amenity.name))
+                            ]),
+                            _c("td", [_vm._v(_vm._s(amenity.description))])
+                          ])
+                        })
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { ref: "rates", staticClass: "col-md-6" }, [
+                _c("h2", [_vm._v("Rates")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "table-responsive" }, [
+                  _c(
+                    "table",
+                    { staticClass: "table table-sm table-striped rate-table" },
+                    [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.property.rates, function(rate) {
+                          return _c("tr", { key: rate.id }, [
+                            _c("td", { staticClass: "data-label" }, [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.formatDateRange(
+                                    rate.start_date,
+                                    rate.end_date
+                                  )
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(_vm.formatRate(rate.monthly)))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(_vm.formatRate(rate.weekly)))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(_vm.formatRate(rate.daily)))
+                            ])
+                          ])
+                        })
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { ref: "photos", staticClass: "row mb-4" }, [
+          _c(
+            "div",
+            { staticClass: "col-12" },
+            [
+              _c("hr"),
+              _vm._v(" "),
+              _c("a", { attrs: { name: "photos" } }),
+              _vm._v(" "),
+              _c("h2", [_vm._v("Photos")]),
+              _vm._v(" "),
+              _c("photo-gallery", {
+                attrs: { "data-photos": _vm.property.images }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "clearfix" })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        !_vm.hasSearchCriteria(_vm.property, 40)
+          ? _c(
+              "div",
+              {
+                ref: "availability",
+                staticClass: "row mb-4 availability-section"
+              },
+              [
+                _vm._m(1),
                 _vm._v(" "),
                 _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-info btn-rounded my-1",
-                    on: {
-                      click: function($event) {
-                        _vm.goto("photos")
+                  "div",
+                  { staticClass: "col-auto" },
+                  [
+                    _c("v-calendar", {
+                      attrs: {
+                        attributes: _vm.calendarOptions,
+                        "is-double-paned": ""
                       }
-                    }
-                  },
-                  [_vm._v("Photos")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-info btn-rounded my-1",
-                    on: {
-                      click: function($event) {
-                        _vm.goto("location")
-                      }
-                    }
-                  },
-                  [_vm._v("Location")]
+                    })
+                  ],
+                  1
                 )
               ]
             )
-          ]
-        ),
+          : _vm._e(),
         _vm._v(" "),
-        _c("hr"),
+        _c("div", { staticClass: "clearfix" }),
         _vm._v(" "),
-        _c("p", {
-          domProps: { innerHTML: _vm._s(_vm.property.details[0].description) }
-        })
-      ])
-    ]),
-    _vm._v(" "),
-    !_vm.hasSearchCriteria(_vm.property, 40)
-      ? _c("div", { staticClass: "row mb-4" }, [
-          _c("div", { staticClass: "col-md-6" }, [
-            _c("a", { attrs: { name: "amenities" } }),
-            _vm._v(" "),
-            _c("h2", [_vm._v("Amenties")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                { staticClass: "table table-sm table-striped amenity-table" },
-                [
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.property.amenities, function(amenity) {
-                      return _c("tr", { key: amenity.id }, [
-                        _c("td", { staticClass: "data-label" }, [
-                          _vm._v(_vm._s(amenity.name))
-                        ]),
-                        _c("td", [_vm._v(_vm._s(amenity.description))])
-                      ])
-                    })
-                  )
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { ref: "rates", staticClass: "col-md-6" }, [
-            _c("h2", [_vm._v("Rates")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                { staticClass: "table table-sm table-striped rate-table" },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.property.rates, function(rate) {
-                      return _c("tr", { key: rate.id }, [
-                        _c("td", { staticClass: "data-label" }, [
-                          _vm._v(
-                            _vm._s(
-                              _vm.formatDateRange(
-                                rate.start_date,
-                                rate.end_date
-                              )
-                            )
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm.formatRate(rate.monthly)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(_vm.formatRate(rate.weekly)))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(_vm.formatRate(rate.daily)))])
-                      ])
-                    })
-                  )
-                ]
-              )
-            ])
-          ])
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c("div", { ref: "photos", staticClass: "row mb-4" }, [
-      _c(
-        "div",
-        { staticClass: "col-12" },
-        [
+        _c("div", { ref: "location", staticClass: "mb-4" }, [
           _c("hr"),
           _vm._v(" "),
-          _c("a", { attrs: { name: "photos" } }),
+          _c("a", { attrs: { name: "location" } }),
           _vm._v(" "),
-          _c("h2", [_vm._v("Photos")]),
+          _c("h2", [_vm._v("Location")]),
           _vm._v(" "),
-          _c("photo-gallery", {
-            attrs: { "data-photos": _vm.property.images }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "clearfix" })
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    !_vm.hasSearchCriteria(_vm.property, 40)
-      ? _c(
-          "div",
-          { ref: "availability", staticClass: "row mb-4 availability-section" },
-          [
-            _vm._m(1),
-            _vm._v(" "),
+          _c("div", { staticClass: "listing-map-frame" }, [
             _c(
               "div",
-              { staticClass: "col-auto" },
+              {
+                staticClass: "embed-responsive embed-responsive-16by9",
+                staticStyle: { border: "1px solid #ddd" }
+              },
               [
-                _c("v-calendar", {
+                _c("iframe", {
+                  staticClass: "embed-responsive-item",
                   attrs: {
-                    attributes: _vm.calendarOptions,
-                    "is-double-paned": ""
+                    frameborder: "0",
+                    scrolling: "no",
+                    marginheight: "0",
+                    marginwidth: "0",
+                    src:
+                      "https://maps.google.com/maps?q=" +
+                      _vm.property.details[0].address +
+                      ", FL&hl=es;z=14&output=embed"
                   }
                 })
-              ],
-              1
+              ]
             )
-          ]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _c("div", { staticClass: "clearfix" }),
-    _vm._v(" "),
-    _c("div", { ref: "location", staticClass: "mb-4" }, [
-      _c("hr"),
-      _vm._v(" "),
-      _c("a", { attrs: { name: "location" } }),
-      _vm._v(" "),
-      _c("h2", [_vm._v("Location")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "listing-map-frame" }, [
-        _c(
-          "div",
-          {
-            staticClass: "embed-responsive embed-responsive-16by9",
-            staticStyle: { border: "1px solid #ddd" }
-          },
-          [
-            _c("iframe", {
-              staticClass: "embed-responsive-item",
-              attrs: {
-                frameborder: "0",
-                scrolling: "no",
-                marginheight: "0",
-                marginwidth: "0",
-                src:
-                  "https://maps.google.com/maps?q=" +
-                  _vm.property.details[0].address +
-                  ", FL&hl=es;z=14&output=embed"
-              }
-            })
-          ]
-        )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "clearfix" })
       ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "clearfix" })
-  ])
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {
