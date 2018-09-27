@@ -56,7 +56,7 @@
                     <div class="form-group">
                         <select class="custom-select" v-model="info.State" required>
                             <option value="">State</option>
-                            <option v-for="(name, abbreviation) in states" :value="abbreviation">{{ name }}</option>
+                            <option v-for="(name, abbreviation) in states" :key="abbreviation" :value="abbreviation">{{ name }}</option>
                         </select>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                     <div class="form-group">
                         <select class="custom-select" v-model="info.Country" required>
                             <option value="">Country</option>
-                            <option v-for="(country, abbreviation) in countries" :value="abbreviation">{{ country }}</option>
+                            <option v-for="(country, abbreviation) in countries" :key="abbreviation" :value="abbreviation">{{ country }}</option>
                         </select>
                     </div>
                 </div>
