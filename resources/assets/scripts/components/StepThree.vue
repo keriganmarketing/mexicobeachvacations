@@ -10,36 +10,30 @@
                 <input type="text" class="form-control" v-model="info.CreditCardNumber" id="CreditCardNumber" required />
             </div>
         </div>
-        <div class="col-6 col-sm-auto" >
+        <div class="col-12 col-sm-6 col-md-3" >
             <label for="ExpMonth">Expiration <span class="required">*</span></label>
-            <div class="row">
-                <div class="col-auto">
-                    <div class="form-group">
-                        <select class="custom-select" v-model="info.ExpMonth" id="ExpMonth" required >
-                            <option value="">MM</option>
-                            <option value="01">01</option>
-                            <option value="02">02</option>
-                            <option value="03">03</option>
-                            <option value="04">04</option>
-                            <option value="05">05</option>
-                            <option value="06">06</option>
-                            <option value="07">07</option>
-                            <option value="08">08</option>
-                            <option value="09">09</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="form-group">
-                        <select class="custom-select" v-model="info.ExpYear" id="ExpYear" required >
-                            <option value="">YYYY</option>
-                            <option :value="year" v-for="year in expYears" :key="year">{{ year }}</option>
-                        </select>
-                    </div>
-                </div>
+
+            <div class="form-group d-flex">
+                <select class="custom-select" v-model="info.ExpMonth" id="ExpMonth" required >
+                    <option value="">MM</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <select class="custom-select" v-model="info.ExpYear" id="ExpYear" required >
+                    <option value="">YYYY</option>
+                    <option :value="year" v-for="year in expYears" :key="year">{{ year }}</option>
+                </select>
+
             </div>
         </div>
     </div>
@@ -50,7 +44,7 @@
                 <input type="text" class="form-control" v-model="info.NameOnCard" id="NameOnCard" required />
             </div>
         </div>
-        <div class="col-auto">
+        <div class="col-12 col-sm-6 col-md-3">
             <label for="CCCVCode">CCCV Code <span class="required">*</span></label>
             <div class="form-group">
                 <input type="text" class="form-control" v-model="info.CCCVCode" id="CCCVCode" required />
@@ -79,7 +73,7 @@
                     <div class="form-group">
                         <select class="custom-select" v-model="info.BillingState" required>
                             <option value="">State</option>
-                            <option v-for="(name, abbreviation) in states" :value="abbreviation">{{ name }}</option>
+                            <option v-for="(name, abbreviation) in states" :key="abbreviation" :value="abbreviation">{{ name }}</option>
                         </select>
                     </div>
                 </div>
@@ -92,7 +86,7 @@
                     <div class="form-group">
                         <select class="custom-select" v-model="info.Country" required>
                             <option value="">Country</option>
-                            <option v-for="(country, abbreviation) in countries" :value="abbreviation">{{ country }}</option>
+                            <option v-for="(country, abbreviation) in countries" :key="abbreviation" :value="abbreviation">{{ country }}</option>
                         </select>
                     </div>
                 </div>

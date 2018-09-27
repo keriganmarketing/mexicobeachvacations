@@ -7,8 +7,8 @@ export default class ReservationInfo {
     this.BillingZip = "";
     this.BillingCountry = "";
     this.CreditCardNumber = "";
-    this.ExpMonth = 0;
-    this.ExpYear = 0;
+    this.ExpMonth = '';
+    this.ExpYear = '';
     this.NameOnCard = "";
     this.ResvCode = "";
     this.CCCVCode = "";
@@ -27,7 +27,7 @@ export default class ReservationInfo {
     this.City = "";
     this.State = "";
     this.Zip = "";
-    this.Country = "United States";
+    this.Country = "US";
     this.WorkPhone = "";
     this.OtherPhone = "";
     this.HomePhone = "";

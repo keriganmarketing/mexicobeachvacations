@@ -7934,12 +7934,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -43211,9 +43205,11 @@ var render = function() {
                   _c("option", { attrs: { value: "" } }, [_vm._v("State")]),
                   _vm._v(" "),
                   _vm._l(_vm.states, function(name, abbreviation) {
-                    return _c("option", { domProps: { value: abbreviation } }, [
-                      _vm._v(_vm._s(name))
-                    ])
+                    return _c(
+                      "option",
+                      { key: abbreviation, domProps: { value: abbreviation } },
+                      [_vm._v(_vm._s(name))]
+                    )
                   })
                 ],
                 2
@@ -43286,9 +43282,11 @@ var render = function() {
                   _c("option", { attrs: { value: "" } }, [_vm._v("Country")]),
                   _vm._v(" "),
                   _vm._l(_vm.countries, function(country, abbreviation) {
-                    return _c("option", { domProps: { value: abbreviation } }, [
-                      _vm._v(_vm._s(country))
-                    ])
+                    return _c(
+                      "option",
+                      { key: abbreviation, domProps: { value: abbreviation } },
+                      [_vm._v(_vm._s(country))]
+                    )
                   })
                 ],
                 2
@@ -45794,7 +45792,7 @@ var render = function() {
                     attrs: { href: "/property/" + unit.rns_id + "/" }
                   },
                   [
-                    _vm._v("View Property   "),
+                    _vm._v("Rates & Info   "),
                     _c("i", {
                       staticClass: "fa fa-angle-right",
                       attrs: { "aria-hidden": "true" }
@@ -45995,126 +45993,112 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-6 col-sm-auto" }, [
+      _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
         _vm._m(2),
         _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-auto" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c(
-                "select",
+        _c("div", { staticClass: "form-group d-flex" }, [
+          _c(
+            "select",
+            {
+              directives: [
                 {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.info.ExpMonth,
-                      expression: "info.ExpMonth"
-                    }
-                  ],
-                  staticClass: "custom-select",
-                  attrs: { id: "ExpMonth", required: "" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.info,
-                        "ExpMonth",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "" } }, [_vm._v("MM")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "01" } }, [_vm._v("01")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "02" } }, [_vm._v("02")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "03" } }, [_vm._v("03")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "04" } }, [_vm._v("04")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "05" } }, [_vm._v("05")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "06" } }, [_vm._v("06")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "07" } }, [_vm._v("07")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "08" } }, [_vm._v("08")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "09" } }, [_vm._v("09")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "12" } }, [_vm._v("12")])
-                ]
-              )
-            ])
-          ]),
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.ExpMonth,
+                  expression: "info.ExpMonth"
+                }
+              ],
+              staticClass: "custom-select",
+              attrs: { id: "ExpMonth", required: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.info,
+                    "ExpMonth",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [_vm._v("MM")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "01" } }, [_vm._v("01")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "02" } }, [_vm._v("02")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "03" } }, [_vm._v("03")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "04" } }, [_vm._v("04")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "05" } }, [_vm._v("05")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "06" } }, [_vm._v("06")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "07" } }, [_vm._v("07")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "08" } }, [_vm._v("08")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "09" } }, [_vm._v("09")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "12" } }, [_vm._v("12")])
+            ]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "col-auto" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c(
-                "select",
+          _c(
+            "select",
+            {
+              directives: [
                 {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.info.ExpYear,
-                      expression: "info.ExpYear"
-                    }
-                  ],
-                  staticClass: "custom-select",
-                  attrs: { id: "ExpYear", required: "" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.info,
-                        "ExpYear",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "" } }, [_vm._v("YYYY")]),
-                  _vm._v(" "),
-                  _vm._l(_vm.expYears, function(year) {
-                    return _c(
-                      "option",
-                      { key: year, domProps: { value: year } },
-                      [_vm._v(_vm._s(year))]
-                    )
-                  })
-                ],
-                2
-              )
-            ])
-          ])
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.info.ExpYear,
+                  expression: "info.ExpYear"
+                }
+              ],
+              staticClass: "custom-select",
+              attrs: { id: "ExpYear", required: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.info,
+                    "ExpYear",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [_vm._v("YYYY")]),
+              _vm._v(" "),
+              _vm._l(_vm.expYears, function(year) {
+                return _c("option", { key: year, domProps: { value: year } }, [
+                  _vm._v(_vm._s(year))
+                ])
+              })
+            ],
+            2
+          )
         ])
       ])
     ]),
@@ -46148,7 +46132,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-auto" }, [
+      _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
         _vm._m(4),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -46318,9 +46302,11 @@ var render = function() {
                   _c("option", { attrs: { value: "" } }, [_vm._v("State")]),
                   _vm._v(" "),
                   _vm._l(_vm.states, function(name, abbreviation) {
-                    return _c("option", { domProps: { value: abbreviation } }, [
-                      _vm._v(_vm._s(name))
-                    ])
+                    return _c(
+                      "option",
+                      { key: abbreviation, domProps: { value: abbreviation } },
+                      [_vm._v(_vm._s(name))]
+                    )
                   })
                 ],
                 2
@@ -46393,9 +46379,11 @@ var render = function() {
                   _c("option", { attrs: { value: "" } }, [_vm._v("Country")]),
                   _vm._v(" "),
                   _vm._l(_vm.countries, function(country, abbreviation) {
-                    return _c("option", { domProps: { value: abbreviation } }, [
-                      _vm._v(_vm._s(country))
-                    ])
+                    return _c(
+                      "option",
+                      { key: abbreviation, domProps: { value: abbreviation } },
+                      [_vm._v(_vm._s(country))]
+                    )
                   })
                 ],
                 2
@@ -62954,8 +62942,8 @@ var ReservationInfo = function () {
     this.BillingZip = "";
     this.BillingCountry = "";
     this.CreditCardNumber = "";
-    this.ExpMonth = 0;
-    this.ExpYear = 0;
+    this.ExpMonth = '';
+    this.ExpYear = '';
     this.NameOnCard = "";
     this.ResvCode = "";
     this.CCCVCode = "";
@@ -62974,7 +62962,7 @@ var ReservationInfo = function () {
     this.City = "";
     this.State = "";
     this.Zip = "";
-    this.Country = "United States";
+    this.Country = "US";
     this.WorkPhone = "";
     this.OtherPhone = "";
     this.HomePhone = "";
