@@ -1,5 +1,5 @@
 <template>
-    <div v-if="propertyLoaded" class="full-property" >
+    <div class="full-property" >
         <header class="text-primary">
             <h1 style="text-transform: capitalize;">{{ property.name.toLowerCase() }} <span class="unitid fira d-inline-block">Unit ID: {{ property.details[0].prop_number }}</span></h1>
             <h2 class="proprty-address">{{ property.details[0].address }}</h2>
@@ -168,7 +168,12 @@ setupCalendar({
 });
 
 export default {
-    props: ['rnsId'],
+    props: {
+        unitData: {
+            type: Object,
+            default: () => []
+        }
+    },
 
     data(){
         return {
@@ -190,25 +195,18 @@ export default {
         }
     },
     mounted(){
-        axios.get('https://rns.mexicobeachvacations.com/units/' + this.rnsId)
-        .then(response => {
-            this.property = response.data;
-            this.propertyLoaded = true;
 
-            this.property.availability.forEach( booking => {
-                this.bookings.push({
-                    start: moment(booking.arrival_date),
-                    end: moment(booking.departure_date),
-                    title: 'Booked',
-                    id: booking.rns_id
-                });
+        this.property = this.unitData;
+        this.property.availability.forEach( booking => {
+            this.bookings.push({
+                start: moment(booking.arrival_date),
+                end: moment(booking.departure_date),
+                title: 'Booked',
+                id: booking.rns_id
             });
+        });
 
-            this.calendarOptions[0].dates = this.bookings;
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        this.calendarOptions[0].dates = this.bookings;
 
     },
     methods: {
