@@ -140,7 +140,7 @@
         </div>
         <div class="col-auto" v-if="nameIsOpen && !filterIsOpen">
             <div class="d-flex">
-            <input type="text" v-model="propName" placeholder="Property Name" class="form-control input-rounded" style="width:100%" >
+            <input @keydown.enter="searchName" type="text" v-model="propName" placeholder="Property Name" class="form-control input-rounded" style="width:100%" >
             <button @click="searchName" class="btn btn-primary btn-rounded ml-2">Search</button>
             </div>
         </div>
