@@ -8,6 +8,7 @@ $checkOut = isset($_GET['checkOut']) && $_GET['checkOut'] !== '' ? $_GET['checkO
 $location = isset($_GET['location']) && $_GET['location'] !== '' ? $_GET['location'] : null;
 $type = isset($_GET['type']) && $_GET['type'] !== '' ? $_GET['type'] : null;
 $pool = isset($_GET['pool']) && $_GET['pool'] !== '' ? $_GET['pool'] : null;
+$name = isset($_GET['property-name']) && $_GET['property-name'] !== '' ? $_GET['property-name'] : null;
 $headerImageData = get_field('header_image');
 
 bladerunner('views.pages.rentals',[
@@ -17,6 +18,7 @@ bladerunner('views.pages.rentals',[
     'location'    => $location,
     'type'        => $type,
     'pool'        => $pool,
+    'name'        => $name,
     'headerImage' => $headerImageData['url'],
     'headline'    => get_field('headline')
 ]);

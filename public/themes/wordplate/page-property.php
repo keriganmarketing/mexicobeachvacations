@@ -11,8 +11,10 @@ $unit = explode('/', $_SERVER['REQUEST_URI']);
 $fullProperty = new FullProperty();
 echo '<pre>', print_r($fullProperty) , '</pre>';
 
+
 bladerunner('views.pages.property', [
     'unit' => $unit[2],
     'headerImage' => $headerImageData['url'],
-    'headline'    => get_field('headline')
+    'headline'    => get_field('headline'),
+    'fullProperty' => $fullProperty
 ]);

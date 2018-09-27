@@ -5,8 +5,8 @@
     </div>
     <div class="row unit unit-list-item" v-for="unit in units" :key="unit.id">
         <div class="col-12 mb-2">
-            <div class="d-flex justify-content-between align-items-center p-1 bg-dark px-4">
-                <h2 class="p-0 m-0"><a class="text-white" :href="'/property/' + unit.rns_id + '/'" >{{ unit.name }}</a></h2>
+            <div class="d-md-flex justify-content-between align-items-center p-1 bg-dark px-4">
+                <h2 class="p-0 m-0 text-center text-md-center"><a class="text-white" :href="'/property/' + unit.rns_id + '/'" >{{ unit.name }}</a></h2>
                 <div class="unit-icons row no-gutters justify-content-center">
                     <div v-show="hasAmenity(unit, 45)" class="col-auto p-1">
                         <div class="svg-icon active" >

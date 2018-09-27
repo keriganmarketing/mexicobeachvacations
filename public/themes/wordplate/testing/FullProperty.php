@@ -32,7 +32,7 @@ class FullProperty
 
     public function create()
     {
-        $client = new Client(['base_uri' => 'https://rns.mexicobeachvacations.com/']);
+        $client = new Client(['base_uri' => 'https://rns.mexicobeachvacations.com/', 'http_errors' => false]);
         $apiCall = $client->request(
             'GET',
             'units/' . $this->rns_id
@@ -43,18 +43,56 @@ class FullProperty
     }
     public function setPropertySeo()
     {
+        //$image = getimagesize($this->property->images[0]->base_url);
+        //$imageParts = getimagesize($image);
+
         add_filter('wpseo_title', function () {
             $title = $this->property->name;
-            $metaTitle = $title . ' | ' . get_bloginfo('name');
+            $propertyType = [];
+            $longTermRental = 40;
+            $vacationRental = 41;
+            foreach ($this->property->search_criteria as $searchCriteria) {
+                if ($vacationRental == $searchCriteria->rns_id) {
+                    $propertyType = $searchCriteria->name;
+                } elseif ($longTermRental == $searchCriteria->rns_id) {
+                    $propertyType = $searchCriteria->name;
+                }
+            }
+            $metaTitle = $title . ' | ' . $propertyType . ' | ' . get_bloginfo('name');
             return $metaTitle;
         });
 
         add_filter('wpseo_metadesc', function () {
-            return strip_tags($this->property->details[0]->description);
+            $description = $this->property->details[0]->description;
+            $description = strlen($description) > 300 ? substr($description, 0, 300) . '...' : $description;
+            return $description;
         });
 
         add_filter('wpseo_opengraph_image', function () {
-            return($this->media['photos'][0]->url != '' ? $this->media['photos'][0]->url : get_template_directory_uri() . '/img/nophoto.jpg');
+            return null;
+        });
+
+        add_action('wpseo_add_opengraph_image', function () {
+            foreach ($this->property->images as $image) {
+                echo '<meta property="og:image" content="' .  $image->url . '" />', "\n";
+                echo '<meta property="og:image:secure_url" content="' .  str_replace('http://', 'https://', $this->listingInfo->preferred_image) . '" />', "\n";
+            }
+
+            $image = getimagesize($this->property->images[0]->url);
+            $imageParts = getimagesize($image);
+
+            echo '<meta property="og:image" content="' .  $this->property->images[0]->url . '" />', "\n";
+            echo '<meta property="og:image:secure_url" content="' . str_replace('http://', 'https://', $this->property->images[0]->url) . '" />', "\n";
+            echo '<meta property="og:image:width" content="' .  $imageParts['0'] . '" />', "\n";
+            echo '<meta property="og:image:height" content="' .  $imageParts['1'] . '" />', "\n";
+        });
+
+        add_filter('wpseo_og_og_image_width', function () {
+            return null;
+        });
+
+        add_filter('wpseo_og_og_image_height', function () {
+            return null;
         });
 
         add_filter('wpseo_canonical', function () {
