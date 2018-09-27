@@ -43,12 +43,9 @@ class FullProperty
     }
     public function setPropertySeo()
     {
-        //$image = getimagesize($this->property->images[0]->base_url);
-        //$imageParts = getimagesize($image);
-
         add_filter('wpseo_title', function () {
             $title = $this->property->name;
-            $propertyType = [];
+            $propertyType = 'Rental';
             $longTermRental = 40;
             $vacationRental = 41;
             foreach ($this->property->search_criteria as $searchCriteria) {
@@ -72,14 +69,8 @@ class FullProperty
             return null;
         });
 
-        add_action('wpseo_add_opengraph_image', function () {
-            foreach ($this->property->images as $image) {
-                echo '<meta property="og:image" content="' .  $image->url . '" />', "\n";
-                echo '<meta property="og:image:secure_url" content="' .  str_replace('http://', 'https://', $this->listingInfo->preferred_image) . '" />', "\n";
-            }
-
-            $image = getimagesize($this->property->images[0]->url);
-            $imageParts = getimagesize($image);
+        add_action('wpseo_opengraph', function () {
+            $imageParts = getimagesize($this->property->images[0]->url);
 
             echo '<meta property="og:image" content="' .  $this->property->images[0]->url . '" />', "\n";
             echo '<meta property="og:image:secure_url" content="' . str_replace('http://', 'https://', $this->property->images[0]->url) . '" />', "\n";
