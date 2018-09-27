@@ -23,6 +23,7 @@
                     data-check-out="{{ $checkOut }}"
                     data-location="{{ $location }}"
                     data-type="{{ $type }}"
+                    data-name="{{ $name }}"
                 >
                 </search-results-container>
             </div>

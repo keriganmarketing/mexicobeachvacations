@@ -66,65 +66,83 @@
             </div>
         </form>
     </div>
-    <div 
-        class="sidebar-filter-box d-md-flex row" 
-        :class="{
-            'd-none': !filterIsOpen,
-            'd-block': filterIsOpen
-        }">
-        <div class="col-auto custom-checkbox my-2 d-flex">
-            <input class="d-none" type="checkbox" v-model="filters.pool" :checked="filters.pool" id="pool" @change="applyFilters">
-            <label class="d-flex align-items-center px-1" for="pool">
-                <div class="svg-icon mr-2" :class="{ 'active': filters.pool }" >
-                    <img src="/themes/wordplate/assets/images/pool.svg" alt="Pool Available" >
-                </div>
-                Pool Available
-            </label>
+    
+    <div class="row form-inline align-items-center justify-content-center" >
+        <div class="col-auto d-none d-md-flex" >
+            <button @click="toggleFilters" class="btn btn-secondary btn-rounded btn-block">Filter by Amenity</button>
         </div>
-        <div class="col-auto custom-checkbox my-2 d-flex">
-            <input class="d-none" type="checkbox" v-model="filters.dock" :checked="filters.dock" id="dock" @change="applyFilters">
-            <label class="d-flex align-items-center px-1" for="dock">
-                <div class="svg-icon mr-2" :class="{ 'active': filters.dock }" >
-                    <img src="/themes/wordplate/assets/images/anchor.svg" alt="Dock Available" >
+        <div class="col-auto">
+            <div 
+                v-if="filterIsOpen"
+                class="sidebar-filter-box d-md-flex row" 
+                :class="{
+                    'd-none': !filterIsOpen,
+                    'd-block': filterIsOpen
+                }">
+                <div class="col-auto custom-checkbox my-2 d-flex">
+                    <input class="d-none" type="checkbox" v-model="filters.pool" :checked="filters.pool" id="pool" @change="applyFilters">
+                    <label class="d-flex flex-column align-items-center px-1" for="pool">
+                        <div class="svg-icon mr-2" :class="{ 'active': filters.pool }" >
+                            <img src="/themes/wordplate/assets/images/pool.svg" alt="Pool Available" >
+                        </div>
+                        Pool Available
+                    </label>
                 </div>
-                Dock Available
-            </label>
+                <div class="col-auto custom-checkbox my-2 d-flex">
+                    <input class="d-none" type="checkbox" v-model="filters.dock" :checked="filters.dock" id="dock" @change="applyFilters">
+                    <label class="d-flex flex-column align-items-center px-1" for="dock">
+                        <div class="svg-icon mr-2" :class="{ 'active': filters.dock }" >
+                            <img src="/themes/wordplate/assets/images/anchor.svg" alt="Dock Available" >
+                        </div>
+                        Dock Available
+                    </label>
+                </div>
+                <div class="col-auto custom-checkbox my-2 d-flex">
+                    <input class="d-none" type="checkbox" v-model="filters.canal" :checked="filters.canal" id="canal" @change="applyFilters">
+                    <label class="d-flex flex-column align-items-center px-1" for="canal">
+                        <div class="svg-icon mr-2" :class="{ 'active': filters.canal }" >
+                            <img src="/themes/wordplate/assets/images/canal.svg" alt="Canal Front" >
+                        </div>
+                        Canal Front
+                    </label>
+                </div>
+                <div class="col-auto custom-checkbox my-2 d-flex">
+                    <input class="d-none" type="checkbox" v-model="filters.internet" :checked="filters.internet" id="internet" @change="applyFilters">
+                    <label class="d-flex flex-column align-items-center px-1" for="internet">
+                        <div class="svg-icon mr-2" :class="{ 'active': filters.internet }" >
+                            <img src="/themes/wordplate/assets/images/internet.svg" alt="Internet Access" >
+                        </div>
+                        Internet Access
+                    </label>
+                </div>
+                <div class="col-auto custom-checkbox my-2 d-flex">
+                    <input class="d-none" type="checkbox" v-model="filters.linens" :checked="filters.linens" id="linens" @change="applyFilters">
+                    <label class="d-flex flex-column align-items-center px-1" for="linens">
+                        <div class="svg-icon mr-2" :class="{ 'active': filters.linens }" >
+                            <img src="/themes/wordplate/assets/images/linens.svg" alt="Linens Provided" >
+                        </div>
+                        Linens Provided
+                    </label>
+                </div>
+                <div class="col-auto custom-checkbox my-2 d-flex" >
+                    <input class="d-none" type="checkbox" v-model="filters.pets" :checked="filters.pets" id="pets" @change="applyFilters">
+                    <label class="d-flex flex-column align-items-center px-1" for="pets">
+                        <div class="svg-icon mr-2" :class="{ 'active': filters.pets }" >
+                            <img src="/themes/wordplate/assets/images/pet-friendly.svg" alt="Pet Friendly" >
+                        </div>
+                        Pet Friendly
+                    </label>
+                </div>
+            </div>
         </div>
-        <div class="col-auto custom-checkbox my-2 d-flex">
-            <input class="d-none" type="checkbox" v-model="filters.canal" :checked="filters.canal" id="canal" @change="applyFilters">
-            <label class="d-flex align-items-center px-1" for="canal">
-                <div class="svg-icon mr-2" :class="{ 'active': filters.canal }" >
-                    <img src="/themes/wordplate/assets/images/canal.svg" alt="Canal Front" >
-                </div>
-                Canal Front
-            </label>
+        <div class="col-auto" v-if="!nameIsOpen && !filterIsOpen" >
+            <button @click="openNameSearch()" class="btn btn-secondary btn-rounded btn-block">Search by property name</button>
         </div>
-        <div class="col-auto custom-checkbox my-2 d-flex">
-            <input class="d-none" type="checkbox" v-model="filters.internet" :checked="filters.internet" id="internet" @change="applyFilters">
-            <label class="d-flex align-items-center px-1" for="internet">
-                <div class="svg-icon mr-2" :class="{ 'active': filters.internet }" >
-                    <img src="/themes/wordplate/assets/images/internet.svg" alt="Internet Access" >
-                </div>
-                Internet Access
-            </label>
-        </div>
-        <div class="col-auto custom-checkbox my-2 d-flex">
-            <input class="d-none" type="checkbox" v-model="filters.linens" :checked="filters.linens" id="linens" @change="applyFilters">
-            <label class="d-flex align-items-center px-1" for="linens">
-                <div class="svg-icon mr-2" :class="{ 'active': filters.linens }" >
-                    <img src="/themes/wordplate/assets/images/linens.svg" alt="Linens Provided" >
-                </div>
-                Linens Provided
-            </label>
-        </div>
-        <div class="col-auto custom-checkbox my-2 d-flex" >
-            <input class="d-none" type="checkbox" v-model="filters.pets" :checked="filters.pets" id="pets" @change="applyFilters">
-            <label class="d-flex align-items-center px-1" for="pets">
-                <div class="svg-icon mr-2" :class="{ 'active': filters.pets }" >
-                    <img src="/themes/wordplate/assets/images/pet-friendly.svg" alt="Pet Friendly" >
-                </div>
-                Pet Friendly
-            </label>
+        <div class="col-auto" v-if="nameIsOpen && !filterIsOpen">
+            <div class="d-flex">
+            <input type="text" v-model="propName" placeholder="Property Name" class="form-control input-rounded" style="width:100%" >
+            <button @click="searchName" class="btn btn-primary btn-rounded ml-2">Search</button>
+            </div>
         </div>
     </div>
     <hr>
@@ -145,9 +163,12 @@ export default {
             checkOut: '',
             location: '',
             type: '',
+            propName: '',
             numAvailable: null,
             searchIsOpen: false,
             filterIsOpen: false,
+            nameIsOpen: false,
+            showNameButton: true,
             filters:  {
                 dock: false,
                 pool: false,
@@ -194,7 +215,7 @@ export default {
                     canal: this.filters.canal,
                     linens: this.filters.linens,
                     internet: this.filters.internet,
-
+                    name: this.propName
                 }
             })
             .then(response => {
@@ -206,7 +227,7 @@ export default {
 
         },
         applyFilters() {
-            this.$emit('apply-filters', this.filters, this.type)
+            this.$emit('apply-filters', this.filters, this.type, this.propName)
         },
         toggleSearch() {
             this.searchIsOpen = !this.searchIsOpen;
@@ -221,6 +242,24 @@ export default {
         locationChanged(payload) {
             this.location = payload;
             this.getMatches();
+        },
+        openNameSearch() {
+            this.nameIsOpen = true;
+            this.filterIsOpen = false;
+            this.filters = {
+                dock: false,
+                pool: false,
+                canal: false,
+                internet: false,
+                linens: false,
+                pets: false
+            }
+        },
+        
+        searchName() {
+            this.applyFilters();
+            this.propName = '';
+            this.nameIsOpen = false
         }
     }
 }

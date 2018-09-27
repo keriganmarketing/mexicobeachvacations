@@ -35,7 +35,8 @@ export default {
         'data-check-out', 
         'data-location', 
         'data-type',
-        'data-pool'
+        'data-pool',
+        'data-name'
     ],
     data() {
         return {
@@ -45,6 +46,7 @@ export default {
             checkOut: '',
             location: '',
             type: '',
+            propName: '',
             filters: {},
         }
     },
@@ -54,13 +56,15 @@ export default {
         this.checkOut   = this.dataCheckOut;
         this.location   = this.dataLocation;
         this.type       = this.dataType;
+        this.propName   = this.dataName;
         this.pagination = new Pagination(this.dataResults);
     },
     methods: {
-        applyFilters(filters, type) {
+        applyFilters(filters, type, propName) {
             let url = 'https://rns.mexicobeachvacations.com/search';
             this.filters = filters
             this.type = type;
+            this.propName = propName;
 
             axios.get(url, {
                 params: {
@@ -74,7 +78,7 @@ export default {
                     canal: this.filters.canal,
                     linens: this.filters.linens,
                     internet: this.filters.internet,
-
+                    name: this.propName
                 },
                 paramsSerializer: function (params) {
                     return Qs.stringify(params, {encode: false}).replace(/[""]+/g, '');
