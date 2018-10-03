@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Testing\KMAMail;
+use Testing\Booking;
 use Testing\PropertyManagementForm;
 use KeriganSolutions\KMATeam\Team;
 use KeriganSolutions\Search\Search;
@@ -13,14 +14,15 @@ use KeriganSolutions\KMATestimonials\Testimonial;
 require template_path('includes/plugins/plate.php');
 require template_path('includes/plugins/theme-setup.php');
 require template_path('includes/plugins/acf-page-fields.php');
-require('testing/ContactForm.php');
-require('testing/PropertyManagementForm.php');
+
 require('post-types/contact_request.php');
 require('post-types/property_request.php');
 require('testing/KMAMail/KMAMail.php');
 require('testing/KMAMail/Message.php');
 require('testing/FullProperty.php');
-
+require('testing/Booking.php');
+require('testing/ContactForm.php');
+require('testing/PropertyManagementForm.php');
 
 (new Testimonial())->menuIcon('editor-quote')->use();
 (new Team())->use();
@@ -32,6 +34,7 @@ require('testing/FullProperty.php');
     'parent' => 'group_contact_info',
 ])->use();
 new PropertyManagementForm();
+new Booking();
 
 $socialLinks = new KeriganSolutions\SocialMedia\SocialSettingsPage();
 if (is_admin()) {
@@ -171,3 +174,4 @@ add_shortcode('kma_photos', function ($atts) {
 
     return "<photo-gallery :data-photos='" . $gallery . "' ></photo-gallery>";
 });
+
