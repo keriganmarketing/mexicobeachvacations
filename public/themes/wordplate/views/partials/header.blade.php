@@ -21,7 +21,7 @@
             </div>
             <div class="main-navigation flex-grow-1">
                 <div class="mini-nav d-flex align-items-center">
-                    <weather-fetcher location="mexico beach, fl" class="mini-weather" >
+                    <weather-fetcher location="Mexico Beach, FL, US" class="mini-weather" >
                         <span slot-scope="slotProps">
                             <div v-if="! slotProps.loading">
                                 <a class="link" href="/current-weather/" >

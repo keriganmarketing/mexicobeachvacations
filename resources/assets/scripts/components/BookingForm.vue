@@ -1,96 +1,107 @@
 <template>
     <div>
-        <div v-if="unitLoaded">
-            <h1>Booking <span style="text-transform: capitalize;">{{ unit.name.toLowerCase() }}</span></h1>
-            <div class="row">
-                <div class="col-auto">
-                    <p class="proprty-address fira">{{ unit.details[0].address }}</p>
-                </div>
-                <div class="col-auto">
-                    <p class="proprty-beds-baths fira">{{ unit.details[0].baths }} Beds | {{ unit.details[0].baths }} Baths | Sleeps {{ unit.details[0].sleeps }}</p>
-                </div>
-            </div>
+        <div v-if="info.submitted">
+            <h1>Thank you!</h1>
+            <p>Thank you for booking your vacation with us. One of our friendly reservationists will call you shortly to confirm the details of your stay.</p>
         </div>
-        <hr>
-        <div class="row" v-if="unitLoaded" >
-            <div class="col-md-6 col-lg-4 mb-4">
-                <img :src="unit.images[0].url" :alt="unit.images[0].description" class="img-fluid" >
+        <div v-else>
+            <div class="submitting text-center" v-if="info.submitting">
+                <div class="lds-ellipsis">
+                    <div></div><div></div><div></div><div></div>
+                </div>
+                <p>Hang on while we send your reservation.</p>
             </div>
-            <div class="col-md-6">
-                <div class="table-responsive">
-                    <table class="table table-sm table-striped rate-table">
-                        <tbody>
-                            <tr 
-                                v-for="detail in rateDetails.GuestCharges" 
-                                :key="detail.HeadingsListId" 
-                                v-if="isAvailable" 
-                                :class="{
-                                    'text-primary': detail.HeadingName === 'Total Cost', 
-                                    'font-weight-bold': detail.HeadingName === 'Total Cost' 
-                                }"
-                            >
-                                <td class="data-label">{{ detail.HeadingName }}</td>
-                                <td>{{ detail.ChgAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div v-if="unitLoaded">
+                <h1>Booking <span style="text-transform: capitalize;">{{ unit.name.toLowerCase() }}</span></h1>
+                <div class="row">
+                    <div class="col-auto">
+                        <p class="proprty-address fira">{{ unit.details[0].address }}</p>
+                    </div>
+                    <div class="col-auto">
+                        <p class="proprty-beds-baths fira">{{ unit.details[0].baths }} Beds | {{ unit.details[0].baths }} Baths | Sleeps {{ unit.details[0].sleeps }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <form>
-            <div class="row no-gutters">
-                <div class="col-3 px-1">
-                    <button class="btn btn-block" type="button" :class="{'btn-info text-white': step == 1, 'btn-outline-secondary': step !== 1}" @click="step = 1">Step 1</button>
+            <hr>
+            <div class="row" v-if="unitLoaded" >
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <img :src="unit.images[0].url" :alt="unit.images[0].description" class="img-fluid" >
                 </div>
-                <div class="col-3 px-1">
-                    <button class="btn btn-block" type="button" :class="{'btn-info text-white': step == 2, 'btn-outline-secondary': step !== 2}" @click="step = 2">Step 2</button>
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped rate-table">
+                            <tbody>
+                                <tr 
+                                    v-for="detail in rateDetails.GuestCharges" 
+                                    :key="detail.HeadingsListId" 
+                                    v-if="isAvailable" 
+                                    :class="{
+                                        'text-primary': detail.HeadingName === 'Total Cost', 
+                                        'font-weight-bold': detail.HeadingName === 'Total Cost' 
+                                    }"
+                                >
+                                    <td class="data-label">{{ detail.HeadingName }}</td>
+                                    <td>{{ detail.ChgAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="col-3 px-1">
-                    <button class="btn btn-block" type="button" :class="{'btn-info text-white': step == 3, 'btn-outline-secondary': step !== 3}" @click="step = 3">Step 3</button>
+            </div>
+            <form>
+                <div class="row no-gutters">
+                    <div class="col-3 px-1">
+                        <button class="btn btn-block" type="button" :class="{'btn-info text-white': step == 1, 'btn-outline-secondary': step !== 1}" @click="step = 1">Step 1</button>
+                    </div>
+                    <div class="col-3 px-1">
+                        <button class="btn btn-block" type="button" :class="{'btn-info text-white': step == 2, 'btn-outline-secondary': step !== 2}" @click="step = 2">Step 2</button>
+                    </div>
+                    <div class="col-3 px-1">
+                        <button class="btn btn-block" type="button" :class="{'btn-info text-white': step == 3, 'btn-outline-secondary': step !== 3}" @click="step = 3">Step 3</button>
+                    </div>
+                    <div class="col-3 px-1">
+                        <button class="btn btn-block" type="button" :class="{'btn-info text-white': step == 4, 'btn-outline-secondary': step !== 4}" @click="step = 4">Step 4</button>
+                    </div>
                 </div>
-                <div class="col-3 px-1">
-                    <button class="btn btn-block" type="button" :class="{'btn-info text-white': step == 4, 'btn-outline-secondary': step !== 4}" @click="step = 4">Step 4</button>
+                <div class="mt-4 text-right text-sm">
+                    <p><span class="required">*</span> = required</p>
                 </div>
+                <div v-if="step == 1">
+                    <step-one
+                        :data-info="info"
+                        :is-available="isAvailable"
+                        :num-nights="numNights"
+                        :data-terms-accepted="termsAccepted"
+                        :selected-dates="info.selectedDates"
+                        :errorMessage="errorMessage"
+                        :calendarOptions="calendarOptions"
+                        @terms-accepted="acceptTerms"
+                    >
+                    </step-one>
+                </div>
+                <div v-if="step == 2">
+                    <step-two :data-info="info">
+                    </step-two>
+                    
+                </div>
+                <div v-if="step == 3">
+                    <step-three :data-info="info">
+                    </step-three>
+                </div>
+                <div v-if="step == 4">
+                    <step-four
+                        :data-info="info"
+                        :unit="unit"
+                        :rate-details="rateDetails"
+                        @booked="submit"
+                    >
+                    </step-four>
+                </div>
+            </form>
+            <div class="my-4 text-center">
+                <button class="btn btn-lg btn-rounded" @click="back" v-if="step > 1">Back</button>
+                <button class="btn btn-lg btn-rounded btn-info text-white" @click="next" v-if="step < 4">Next</button>
             </div>
-            <div class="mt-4 text-right text-sm">
-                <p><span class="required">*</span> = required</p>
-            </div>
-            <div v-if="step == 1">
-                <step-one
-                    :data-info="info"
-                    :is-available="isAvailable"
-                    :num-nights="numNights"
-                    :data-terms-accepted="termsAccepted"
-                    :selected-dates="info.selectedDates"
-                    :errorMessage="errorMessage"
-                    :calendarOptions="calendarOptions"
-                    @terms-accepted="acceptTerms"
-                >
-                </step-one>
-            </div>
-            <div v-if="step == 2">
-                <step-two :data-info="info">
-                </step-two>
-                
-            </div>
-            <div v-if="step == 3">
-                <step-three :data-info="info">
-                </step-three>
-            </div>
-            <div v-if="step == 4">
-                <step-four
-                    :data-info="info"
-                    :unit="unit"
-                    :rate-details="rateDetails"
-                    @booked="submit"
-                    :submitting="submitting"
-                >
-                </step-four>
-            </div>
-        </form>
-        <div class="my-4 text-center">
-            <button class="btn btn-lg btn-rounded" @click="back" v-if="step > 1">Back</button>
-            <button class="btn btn-lg btn-rounded btn-info text-white" @click="next" v-if="step < 4">Next</button>
         </div>
     </div>
 </template>
@@ -137,8 +148,7 @@ export default {
             rnsBaseUrl: 'https://core.rnshosted.com/api/v17/',
             token: '',
             errorMessage: '',
-            bookings: [],
-            submitting: false
+            bookings: []
         }
     },
     created () {
@@ -155,8 +165,7 @@ export default {
         });
         this.info.UnitId = this.unitId;
         this.getUnit();
-        this.getToken();
-
+        this.getToken();        
     },
     computed: {
         CCCVCode() {
@@ -186,9 +195,9 @@ export default {
             this.termsAccepted = value;
         },
         submit() {
-            this.submitting = true;
-            this.info.submit();
-            this.submitting = false;
+            if(this.isAvailable){
+                this.info.submit();
+            }
         },
         clearDates() {
             this.info.ArrivalDate = null;
@@ -328,5 +337,75 @@ export default {
         color: #ff6f74;
     }
 
+}
+
+.submitting {
+    position: fixed;
+    background: rgba(255,255,255,.85);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 5000;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .lds-ellipsis {
+        display: inline-block;
+        position: relative;
+        width: 64px;
+        height: 64px;
+    }
+    .lds-ellipsis div {
+        position: absolute;
+        top: 27px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: #4ebacb;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+    .lds-ellipsis div:nth-child(1) {
+        left: 6px;
+        animation: lds-ellipsis1 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(2) {
+        left: 6px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(3) {
+        left: 26px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(4) {
+        left: 45px;
+        animation: lds-ellipsis3 0.6s infinite;
+    }
+    @keyframes lds-ellipsis1 {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    @keyframes lds-ellipsis3 {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(0);
+        }
+    }
+    @keyframes lds-ellipsis2 {
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(19px, 0);
+        }
+    }
 }
 </style>

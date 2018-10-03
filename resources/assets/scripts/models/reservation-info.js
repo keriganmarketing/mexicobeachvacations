@@ -36,9 +36,15 @@ export default class ReservationInfo {
     this.Notes = "";
     this.SDPStrict = false;
     this.token = "";
+    this.submitted = false;
+    this.submitting = false;
   }
 
   submit() {
+    let booking = this;
+
+    this.submitting = true;
+
     axios.get("https://rns.mexicobeachvacations.com/token").then(response => {
       this.token = response.data;
       let url =
@@ -86,7 +92,22 @@ export default class ReservationInfo {
       axios
         .post(url, data, config)
         .then(response => {
-          console.log(response);
+          console.log(response.ConfirmationNumber);
+
+          axios.post('/wp-json/kerigansolutions/v1/booking-form', {
+            Email: booking.Email,
+            ConfirmationNumber: booking.ConfirmationNumber,
+          }).then(() => {
+            booking.submitting = false;
+            booking.submitted = true;
+            this.clear();
+          }).catch(err => {
+            booking.submitting = false;
+            booking.submitted = false;
+            console.log(err.response.data.message);
+            console.log(err.response.data.code);
+          });
+
         })
         .catch(err => {
           console.log(err);
