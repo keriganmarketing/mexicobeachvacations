@@ -51,8 +51,7 @@ class Booking
                 ->setSubject('New Online Booking')
                 ->setPrimaryColor('#54b2c5')
                 ->setSecondaryColor('#f4768e')
-                ->to('bryan@kerigan.com');
-                //->to('rentals@mexicobeachvacations.com');
+                ->to('rentals@mexicobeachvacations.com');
 
         $mail = new KMAMail($message);
         $mail->send();
